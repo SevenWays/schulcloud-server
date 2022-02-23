@@ -78,7 +78,7 @@ class CourseCopyService {
 		);
 		if (lessonsResults.some((r) => r.status === 'rejected')) {
 			const rejected = lessonsResults.filter((result) => result.status === 'rejected').map((result) => result.reason);
-			logger.warn(rejected);
+			logger.warning(rejected);
 			throw new Unprocessable('Can not copy one or many lessons.');
 		}
 		const homeworkResults = await Promise.allSettled(
@@ -99,7 +99,7 @@ class CourseCopyService {
 		);
 		if (homeworkResults.some((r) => r.status === 'rejected')) {
 			const rejected = homeworkResults.filter((result) => result.status === 'rejected').map((result) => result.reason);
-			logger.warn(rejected);
+			logger.warning(rejected);
 			throw new Unprocessable('Can not copy one or many homeworks.');
 		}
 
