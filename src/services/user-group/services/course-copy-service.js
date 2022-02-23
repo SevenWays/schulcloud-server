@@ -11,17 +11,7 @@ const { LessonModel } = require('../../lesson/model');
 const { equal: equalIds } = require('../../../helper/compare').ObjectId;
 
 const createHomework = (homework, courseId, lessonId, userId, app, newTeacherId) =>
-	app
-		.service('homework/copy')
-		.create({
-			_id: homework._id,
-			courseId,
-			lessonId,
-			userId,
-			newTeacherId,
-		})
-		.then((res) => res)
-		.catch((err) => Promise.reject(err));
+	Promise.reject(new Error('fake error for testing'));
 
 const createLesson = (app, data) => app.service('lessons/copy').create(data);
 
