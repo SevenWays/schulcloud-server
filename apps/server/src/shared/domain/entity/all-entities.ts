@@ -18,7 +18,10 @@ import { System } from './system.entity';
 import { FileRecord, FileSecurityCheck } from './filerecord.entity';
 import { Account } from './account.entity';
 
+import { ALL_DATAMAPPERS } from '../../../POC/datamappers.index';
+
 export const ALL_ENTITIES = [
+	...ALL_DATAMAPPERS,
 	Account,
 	Course,
 	CourseGroup,
