@@ -43,12 +43,13 @@ describe('POC simple', () => {
 		em.clear();
 
 		const fetchedEntity = await repo.findById(data.id);
-		fetchedEntity.reorderElements([taskElements[1].id, taskElements[2].id, taskElements[0].id]);
+		const newOrder = [taskElements[1], taskElements[2], taskElements[0]].map((el) => el.target.id);
+		fetchedEntity.reorderElements(newOrder);
 		await repo.persistAndFlush(fetchedEntity);
 
 		em.clear();
 
 		const resultEntity = await repo.findById(data.id);
-		expect(resultEntity.getElements()).toEqual([taskElements[1], taskElements[2], taskElements[0]]);
+		expect(resultEntity.getElements().map((el) => el.target.id)).toEqual(newOrder);
 	});
 });

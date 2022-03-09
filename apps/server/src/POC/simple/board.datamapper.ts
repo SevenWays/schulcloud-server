@@ -19,6 +19,8 @@ export class BoardDataMapperSimple extends BaseEntityWithTimestamps {
 	@OneToOne('Course', undefined, { wrappedReference: true, fieldName: 'courseId' })
 	course: IdentifiedReference<Course>;
 
-	@ManyToMany('BoardElement', undefined, { fieldName: 'referenceIds' })
+	@ManyToMany('BoardElement', undefined, {
+		fieldName: 'referenceIds',
+	})
 	references = new Collection<BoardElement>(this);
 }
