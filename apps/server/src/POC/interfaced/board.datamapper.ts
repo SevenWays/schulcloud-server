@@ -3,16 +3,12 @@ import { Course } from '@shared/domain/entity/course.entity';
 import { BoardElement } from '@shared/domain/entity/boardelement.entity';
 import { BaseEntityWithTimestamps } from '@shared/domain/entity/base.entity';
 import { EntityId } from '@shared/domain/types';
+import { BoardData } from './board.entity';
 
 export type BoardProps = {
 	references: BoardElement[];
 	course: Course;
 };
-
-export interface BoardData {
-	courseId: EntityId;
-	elements: BoardElement[];
-}
 
 @Entity({ tableName: 'boardinterfacedpoc' })
 export class BoardDataMapperPOC extends BaseEntityWithTimestamps implements BoardData {
