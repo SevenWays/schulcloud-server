@@ -15,10 +15,10 @@ export interface BoardData {
 }
 
 @Entity({ tableName: 'boardinterfacedpoc' })
-export class BoardDataMapperInterfaced extends BaseEntityWithTimestamps implements BoardData {
+export class BoardDataMapperPOC extends BaseEntityWithTimestamps implements BoardData {
 	constructor(props: BoardProps) {
 		super();
-		this.references.set(props.references);
+		this.elementRef.set(props.references);
 		this.courseRef = wrap(props.course).toReference();
 	}
 
@@ -36,13 +36,13 @@ export class BoardDataMapperInterfaced extends BaseEntityWithTimestamps implemen
 	@ManyToMany('BoardElement', undefined, {
 		fieldName: 'referenceIds',
 	})
-	references = new Collection<BoardElement>(this);
+	elementRef = new Collection<BoardElement>(this);
 
 	get elements() {
-		return this.references.getItems();
+		return this.elementRef.getItems();
 	}
 
 	set elements(value: BoardElement[]) {
-		this.references.set(value);
+		this.elementRef.set(value);
 	}
 }

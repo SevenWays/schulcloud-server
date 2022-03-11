@@ -2,30 +2,30 @@ import { Injectable } from '@nestjs/common';
 import { EntityManager } from '@mikro-orm/mongodb';
 
 import { EntityId, TaskBoardElement, LessonBoardElement } from '@shared/domain';
-import { BoardDataMapperInterfaced } from './board.datamapper';
-import { BoardEntityInterfaced } from './board.entity';
+import { BoardDataMapperPOC } from './board.datamapper';
+import { BoardEntityPOC } from './board.entity';
 
 @Injectable()
-export class BoardRepoInterfaced {
+export class BoardRepoPOC {
 	constructor(private readonly em: EntityManager) {}
 
-	async findByCourseId(courseId: EntityId): Promise<BoardEntityInterfaced> {
-		const board = await this.em.findOneOrFail(BoardDataMapperInterfaced, { courseRef: courseId });
+	async findByCourseId(courseId: EntityId): Promise<BoardEntityPOC> {
+		const board = await this.em.findOneOrFail(BoardDataMapperPOC, { courseRef: courseId });
 		await this.populateBoard(board);
-		const entity = new BoardEntityInterfaced(board);
+		const entity = new BoardEntityPOC(board);
 		return entity;
 	}
 
-	async findById(id: EntityId): Promise<BoardEntityInterfaced> {
-		const board = await this.em.findOneOrFail(BoardDataMapperInterfaced, { id });
+	async findById(id: EntityId): Promise<BoardEntityPOC> {
+		const board = await this.em.findOneOrFail(BoardDataMapperPOC, { id });
 		await this.populateBoard(board);
-		const entity = new BoardEntityInterfaced(board);
+		const entity = new BoardEntityPOC(board);
 		return entity;
 	}
 
-	private async populateBoard(board: BoardDataMapperInterfaced) {
-		await board.references.init();
-		const elements = board.references.getItems();
+	private async populateBoard(board: BoardDataMapperPOC) {
+		await board.elementRef.init();
+		const elements = board.elementRef.getItems();
 		const discriminatorColumn = 'target';
 		const taskElements = elements.filter((el) => el instanceof TaskBoardElement);
 		await this.em.populate(taskElements, [discriminatorColumn]);
@@ -34,9 +34,9 @@ export class BoardRepoInterfaced {
 		return board;
 	}
 
-	async persistAndFlush(board: BoardEntityInterfaced): Promise<void> {
+	async persistAndFlush(board: BoardEntityPOC): Promise<void> {
 		// TODO: be able to pass Datamapper
-		await this.em.persistAndFlush(board.data as BoardDataMapperInterfaced);
+		await this.em.persistAndFlush(board.data as BoardDataMapperPOC);
 		return Promise.resolve();
 	}
 }

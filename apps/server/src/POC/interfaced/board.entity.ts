@@ -2,7 +2,7 @@ import { BadRequestException, NotFoundException } from '@nestjs/common';
 import { EntityId, ILearnroomElement, BoardElement } from '@shared/domain';
 import { BoardData } from './board.datamapper';
 
-export class BoardEntityInterfaced {
+export class BoardEntityPOC {
 	constructor(data: BoardData) {
 		this.data = data;
 	}

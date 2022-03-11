@@ -5,21 +5,21 @@ import { courseFactory, taskBoardElementFactory, cleanupCollections } from '@sha
 
 import { MongoMemoryDatabaseModule } from '@shared/infra/database';
 
-import { BoardRepoInterfaced } from './board.repo';
-import { BoardEntityInterfaced } from './board.entity';
-import { BoardDataMapperInterfaced } from './board.datamapper';
+import { BoardRepoPOC } from './board.repo';
+import { BoardEntityPOC } from './board.entity';
+import { BoardDataMapperPOC } from './board.datamapper';
 
-describe('POC simple', () => {
+describe('POC with interface', () => {
 	let module: TestingModule;
-	let repo: BoardRepoInterfaced;
+	let repo: BoardRepoPOC;
 	let em: EntityManager;
 
 	beforeAll(async () => {
 		module = await Test.createTestingModule({
 			imports: [MongoMemoryDatabaseModule.forRoot()],
-			providers: [BoardRepoInterfaced],
+			providers: [BoardRepoPOC],
 		}).compile();
-		repo = module.get(BoardRepoInterfaced);
+		repo = module.get(BoardRepoPOC);
 		em = module.get(EntityManager);
 	});
 
@@ -29,15 +29,15 @@ describe('POC simple', () => {
 
 	afterEach(async () => {
 		await cleanupCollections(em);
-		await em.nativeDelete(BoardDataMapperInterfaced, {});
+		await em.nativeDelete(BoardDataMapperPOC, {});
 	});
 
 	it('connects to course', async () => {
 		const course = courseFactory.build();
 		const taskElements = taskBoardElementFactory.buildList(3, { target: { course } });
 		await em.persistAndFlush([...taskElements, course]);
-		const data = new BoardDataMapperInterfaced({ course, references: taskElements });
-		const board = new BoardEntityInterfaced(data);
+		const data = new BoardDataMapperPOC({ course, references: taskElements });
+		const board = new BoardEntityPOC(data);
 		await repo.persistAndFlush(board);
 
 		em.clear();
@@ -61,8 +61,8 @@ describe('POC simple', () => {
 		const course = courseFactory.build();
 		const taskElements = taskBoardElementFactory.buildList(3, { target: { course } });
 		await em.persistAndFlush([...taskElements, course]);
-		const data = new BoardDataMapperInterfaced({ course, references: taskElements });
-		const board = new BoardEntityInterfaced(data);
+		const data = new BoardDataMapperPOC({ course, references: taskElements });
+		const board = new BoardEntityPOC(data);
 		await repo.persistAndFlush(board);
 
 		em.clear();
