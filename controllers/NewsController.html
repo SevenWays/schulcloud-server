@@ -149,8 +149,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="21"
-                            class="link-to-prism">apps/server/src/modules/news/controller/news.controller.ts:21</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="20"
+                            class="link-to-prism">apps/server/src/modules/news/controller/news.controller.ts:20</a></div>
                 </td>
             </tr>
 
@@ -241,8 +241,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="84"
-                            class="link-to-prism">apps/server/src/modules/news/controller/news.controller.ts:84</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="83"
+                            class="link-to-prism">apps/server/src/modules/news/controller/news.controller.ts:83</a></div>
                 </td>
             </tr>
 
@@ -333,8 +333,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="35"
-                            class="link-to-prism">apps/server/src/modules/news/controller/news.controller.ts:35</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="34"
+                            class="link-to-prism">apps/server/src/modules/news/controller/news.controller.ts:34</a></div>
                 </td>
             </tr>
 
@@ -437,8 +437,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="56"
-                            class="link-to-prism">apps/server/src/modules/news/controller/news.controller.ts:56</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="55"
+                            class="link-to-prism">apps/server/src/modules/news/controller/news.controller.ts:55</a></div>
                 </td>
             </tr>
 
@@ -531,8 +531,8 @@ The news entity has school and user names populated.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="70"
-                            class="link-to-prism">apps/server/src/modules/news/controller/news.controller.ts:70</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="69"
+                            class="link-to-prism">apps/server/src/modules/news/controller/news.controller.ts:69</a></div>
                 </td>
             </tr>
 
@@ -610,15 +610,14 @@ The news entity has school and user names populated.</p>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Get, Post, Body, Param, Query, Patch, Delete } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Body, Controller, Delete, Get, Param, Patch, Post, Query } from &#x27;@nestjs/common&#x27;;
 import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
+import { PaginationParams, ParseObjectIdPipe } from &#x27;@shared/controller&#x27;;
 import { ICurrentUser } from &#x27;@shared/domain&#x27;;
-import { ParseObjectIdPipe, PaginationParams } from &#x27;@shared/controller&#x27;;
 import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
-import { NewsUc } from &#x27;../uc/news.uc&#x27;;
-
-import { CreateNewsParams, FilterNewsParams, NewsListResponse, NewsResponse, UpdateNewsParams } from &#x27;./dto&#x27;;
 import { NewsMapper } from &#x27;../mapper/news.mapper&#x27;;
+import { NewsUc } from &#x27;../uc/news.uc&#x27;;
+import { CreateNewsParams, FilterNewsParams, NewsListResponse, NewsResponse, UpdateNewsParams } from &#x27;./dto&#x27;;
 
 @ApiTags(&#x27;News&#x27;)
 @Authenticate(&#x27;jwt&#x27;)

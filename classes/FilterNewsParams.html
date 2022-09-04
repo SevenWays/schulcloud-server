@@ -142,7 +142,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">apps/server/src/modules/news/controller/dto/filter-news.params.ts:25</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">apps/server/src/modules/news/controller/dto/filter-news.params.ts:22</a></div>
                         </td>
                     </tr>
 
@@ -172,13 +172,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @IsOptional()<br />@IsString()<br />@IsIn(TARGET_MODEL_VALUES)<br />@ApiPropertyOptional({enum: TARGET_MODEL_VALUES, enumName: &#x27;NewsTargetModel&#x27;, description: &#x27;Target model to which the news are related&#x27;})<br />
+                            @IsOptional()<br />@IsString()<br />@IsEnum(NewsTargetModel)<br />@ApiPropertyOptional({enum: NewsTargetModel, description: &#x27;Target model to which the news are related&#x27;})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">apps/server/src/modules/news/controller/dto/filter-news.params.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">apps/server/src/modules/news/controller/dto/filter-news.params.ts:14</a></div>
                         </td>
                     </tr>
 
@@ -214,7 +214,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">apps/server/src/modules/news/controller/dto/filter-news.params.ts:33</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">apps/server/src/modules/news/controller/dto/filter-news.params.ts:30</a></div>
                         </td>
                     </tr>
 
@@ -234,19 +234,16 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiPropertyOptional } from &#x27;@nestjs/swagger&#x27;;
-import { IsBoolean, IsIn, IsMongoId, IsOptional, IsString } from &#x27;class-validator&#x27;;
+import { IsBoolean, IsEnum, IsMongoId, IsOptional, IsString } from &#x27;class-validator&#x27;;
 import { StringToBoolean } from &#x27;@shared/controller/transformer&#x27;;
 import { NewsTargetModel } from &#x27;@shared/domain&#x27;;
-
-const TARGET_MODEL_VALUES &#x3D; Object.values(NewsTargetModel);
 
 export class FilterNewsParams {
 	@IsOptional()
 	@IsString()
-	@IsIn(TARGET_MODEL_VALUES)
+	@IsEnum(NewsTargetModel)
 	@ApiPropertyOptional({
-		enum: TARGET_MODEL_VALUES,
-		enumName: &#x27;NewsTargetModel&#x27;,
+		enum: NewsTargetModel,
 		description: &#x27;Target model to which the news are related&#x27;,
 	})
 	targetModel?: string;

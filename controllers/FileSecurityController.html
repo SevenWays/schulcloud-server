@@ -117,7 +117,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>downloadBySecurityToken(token: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>downloadBySecurityToken(token: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, req: Request)</code>
                 </td>
             </tr>
 
@@ -131,8 +131,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">apps/server/src/modules/files-storage/controller/file-security.controller.ts:15</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="16"
+                            class="link-to-prism">apps/server/src/modules/files-storage/controller/file-security.controller.ts:16</a></div>
                 </td>
             </tr>
 
@@ -156,6 +156,18 @@
                                     <td>token</td>
                                     <td>
                                                 <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>req</td>
+                                    <td>
+                                            <code>Request</code>
                                     </td>
 
                                     <td>
@@ -209,8 +221,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">apps/server/src/modules/files-storage/controller/file-security.controller.ts:26</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">apps/server/src/modules/files-storage/controller/file-security.controller.ts:30</a></div>
                 </td>
             </tr>
 
@@ -274,9 +286,10 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Body, Controller, Get, Param, Put, StreamableFile } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Body, Controller, Get, Param, Put, Req, StreamableFile } from &#x27;@nestjs/common&#x27;;
 import { ApiExcludeEndpoint, ApiTags } from &#x27;@nestjs/swagger&#x27;;
 import { ScanResultParams } from &#x27;@src/modules/files-storage/controller/dto&#x27;;
+import { Request } from &#x27;express&#x27;;
 import { FilesStorageInternalActions } from &#x27;../files-storage.const&#x27;;
 import { FileRecordUC } from &#x27;../uc/file-record.uc&#x27;;
 import { FilesStorageUC } from &#x27;../uc/files-storage.uc&#x27;;
@@ -288,8 +301,11 @@ export class FileSecurityController {
 
 	@ApiExcludeEndpoint()
 	@Get(FilesStorageInternalActions.downloadBySecurityToken)
-	async downloadBySecurityToken(@Param(&#x27;token&#x27;) token: string) {
+	async downloadBySecurityToken(@Param(&#x27;token&#x27;) token: string, @Req() req: Request) {
 		const res &#x3D; await this.filesStorageUC.downloadBySecurityToken(token);
+		req.on(&#x27;close&#x27;, () &#x3D;&gt; {
+			res.data.destroy();
+		});
 
 		return new StreamableFile(res.data, {
 			type: res.contentType,

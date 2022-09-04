@@ -85,10 +85,7 @@
                                 <a href="#hasCourseWritePermission" >hasCourseWritePermission</a>
                             </li>
                             <li>
-                                <a href="#hasLessonListPermission" >hasLessonListPermission</a>
-                            </li>
-                            <li>
-                                <a href="#hasTaskListPermission" >hasTaskListPermission</a>
+                                <a href="#hasLessonReadPermission" >hasLessonReadPermission</a>
                             </li>
                             <li>
                                 <a href="#hasTaskReadPermission" >hasTaskReadPermission</a>
@@ -277,24 +274,24 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="hasLessonListPermission"></a>
+                    <a name="hasLessonReadPermission"></a>
                     <span class="name">
-                        <span ><b>hasLessonListPermission</b></span>
-                        <a href="#hasLessonListPermission"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>hasLessonReadPermission</b></span>
+                        <a href="#hasLessonReadPermission"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>hasLessonListPermission(user: <a href="../interfaces/User.html" target="_self">User</a>, lesson: <a href="../entitys/Lesson.html" target="_self">Lesson</a>)</code>
+<code>hasLessonReadPermission(user: <a href="../interfaces/User.html" target="_self">User</a>, lesson: <a href="../entitys/Lesson.html" target="_self">Lesson</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="58"
-                            class="link-to-prism">apps/server/src/modules/learnroom/uc/rooms.authorisation.service.ts:58</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="45"
+                            class="link-to-prism">apps/server/src/modules/learnroom/uc/rooms.authorisation.service.ts:45</a></div>
                 </td>
             </tr>
 
@@ -358,87 +355,6 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="hasTaskListPermission"></a>
-                    <span class="name">
-                        <span ><b>hasTaskListPermission</b></span>
-                        <a href="#hasTaskListPermission"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>hasTaskListPermission(user: <a href="../interfaces/User.html" target="_self">User</a>, task: <a href="../classes/Task.html" target="_self">Task</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">apps/server/src/modules/learnroom/uc/rooms.authorisation.service.ts:24</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>user</td>
-                                    <td>
-                                                <code><a href="../interfaces/User.html" target="_self" >User</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>task</td>
-                                    <td>
-                                                <code><a href="../classes/Task.html" target="_self" >Task</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
                     <a name="hasTaskReadPermission"></a>
                     <span class="name">
                         <span ><b>hasTaskReadPermission</b></span>
@@ -455,8 +371,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="45"
-                            class="link-to-prism">apps/server/src/modules/learnroom/uc/rooms.authorisation.service.ts:45</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="24"
+                            class="link-to-prism">apps/server/src/modules/learnroom/uc/rooms.authorisation.service.ts:24</a></div>
                 </td>
             </tr>
 
@@ -545,7 +461,7 @@ export class RoomsAuthorisationService {
 		return hasPermission;
 	}
 
-	hasTaskListPermission(user: User, task: Task): boolean {
+	hasTaskReadPermission(user: User, task: Task): boolean {
 		const isCreator &#x3D; task.creator &#x3D;&#x3D;&#x3D; user;
 		let hasCoursePermission &#x3D; false;
 
@@ -556,7 +472,7 @@ export class RoomsAuthorisationService {
 		if (task.course) {
 			hasCoursePermission &#x3D; this.hasCourseReadPermission(user, task.course);
 
-			if (task.private || (task.availableDate &amp;&amp; task.availableDate &gt; new Date(Date.now()))) {
+			if (!task.isPublished()) {
 				hasCoursePermission &#x3D; this.hasCourseWritePermission(user, task.course);
 			}
 		}
@@ -566,20 +482,7 @@ export class RoomsAuthorisationService {
 		return hasPermission;
 	}
 
-	hasTaskReadPermission(user: User, task: Task): boolean {
-		let hasPermission &#x3D; false;
-
-		if (task.private) {
-			const isCreator &#x3D; task.creator &#x3D;&#x3D;&#x3D; user;
-			hasPermission &#x3D; isCreator;
-		} else {
-			hasPermission &#x3D; this.hasTaskListPermission(user, task);
-		}
-
-		return hasPermission;
-	}
-
-	hasLessonListPermission(user: User, lesson: Lesson): boolean {
+	hasLessonReadPermission(user: User, lesson: Lesson): boolean {
 		let hasCoursePermission &#x3D; false;
 		hasCoursePermission &#x3D; this.hasCourseReadPermission(user, lesson.course);
 		if (lesson.hidden) {

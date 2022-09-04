@@ -121,12 +121,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(data: FileRecordResponse[], total: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, skip?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, limit?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+<code>constructor(data: <a href="../interfaces/FileRecordResponse.html" target="_self">FileRecordResponse[]</a>, total: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, skip?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, limit?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">apps/server/src/modules/files-storage/controller/dto/file-storage.response.ts:39</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">apps/server/src/modules/files-storage/controller/dto/file-storage.response.ts:47</a></div>
                             </td>
                         </tr>
 
@@ -147,7 +147,7 @@
                                                         <td>data</td>
                                                   
                                                         <td>
-                                                                    <code>FileRecordResponse[]</code>
+                                                                        <code><a href="../interfaces/FileRecordResponse.html" target="_self" >FileRecordResponse[]</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -218,7 +218,7 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>    <code>FileRecordResponse[]</code>
+                        <i>Type : </i>        <code><a href="../interfaces/FileRecordResponse.html" target="_self" >FileRecordResponse[]</a></code>
 
                     </td>
                 </tr>
@@ -239,7 +239,7 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/PaginationResponse.html#source" target="_self" >PaginationResponse:46</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/PaginationResponse.html#source" target="_self" >PaginationResponse:54</a></code>
 </div>
                         </td>
                     </tr>
@@ -270,7 +270,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty({type: &#x27;number&#x27;})<br />
+                            @ApiProperty({description: &#x27;The page size of the response.&#x27;, type: &#x27;number&#x27;})<br />
                         </code>
                     </td>
                 </tr>
@@ -313,7 +313,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty({type: &#x27;number&#x27;})<br />
+                            @ApiProperty({description: &#x27;The amount of items skipped from the start.&#x27;, type: &#x27;number&#x27;})<br />
                         </code>
                     </td>
                 </tr>
@@ -355,7 +355,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty({type: &#x27;number&#x27;})<br />
+                            @ApiProperty({description: &#x27;The total amount of items.&#x27;, type: &#x27;number&#x27;})<br />
                         </code>
                     </td>
                 </tr>
@@ -389,12 +389,14 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty, ApiPropertyOptional } from &#x27;@nestjs/swagger&#x27;;
 import { DecodeHtmlEntities, PaginationResponse } from &#x27;@shared/controller&#x27;;
-import { FileRecord, FileRecordParentType } from &#x27;@shared/domain/&#x27;; // we do not want entity on this place in future or?
+import { FileRecord, FileRecordParentType, ScanStatus } from &#x27;@shared/domain/&#x27;; // we do not want entity on this place in future or?
 
 export class FileRecordResponse {
 	constructor(fileRecord: FileRecord) {
 		this.id &#x3D; fileRecord.id;
 		this.name &#x3D; fileRecord.name;
+		this.size &#x3D; fileRecord.size;
+		this.securityCheckStatus &#x3D; fileRecord.securityCheck.status;
 		this.parentId &#x3D; fileRecord.parentId;
 		this.creatorId &#x3D; fileRecord.creatorId;
 		this.type &#x3D; fileRecord.mimeType;
@@ -411,6 +413,12 @@ export class FileRecordResponse {
 
 	@ApiProperty()
 	parentId: string;
+
+	@ApiProperty()
+	securityCheckStatus: ScanStatus;
+
+	@ApiProperty()
+	size: number;
 
 	@ApiProperty()
 	creatorId: string;
@@ -433,6 +441,34 @@ export class FileRecordListResponse extends PaginationResponse&lt;FileRecordResp
 
 	@ApiProperty({ type: [FileRecordResponse] })
 	data: FileRecordResponse[];
+}
+
+export class CopyFileResponse {
+	constructor(data: CopyFileResponse) {
+		this.id &#x3D; data.id;
+		this.sourceId &#x3D; data.sourceId;
+		this.name &#x3D; data.name;
+	}
+
+	@ApiProperty()
+	id: string;
+
+	@ApiProperty()
+	sourceId: string;
+
+	@ApiProperty()
+	@DecodeHtmlEntities()
+	name: string;
+}
+
+export class CopyFileListResponse extends PaginationResponse&lt;CopyFileResponse[]&gt; {
+	constructor(data: CopyFileResponse[], total: number, skip?: number, limit?: number) {
+		super(total, skip, limit);
+		this.data &#x3D; data;
+	}
+
+	@ApiProperty({ type: [CopyFileResponse] })
+	data: CopyFileResponse[];
 }
 </code></pre>
     </div>

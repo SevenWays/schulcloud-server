@@ -550,11 +550,11 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityManager } from &#x27;@mikro-orm/mongodb&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { FilterQuery, QueryOrderMap } from &#x27;@mikro-orm/core&#x27;;
 import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { FilterQuery, QueryOrderMap } from &#x27;@mikro-orm/core&#x27;;
 
-import { EntityId, Course, Counted, IFindOptions } from &#x27;@shared/domain&#x27;;
+import { Counted, Course, EntityId, IFindOptions } from &#x27;@shared/domain&#x27;;
+import { BaseRepo } from &#x27;../base.repo&#x27;;
 import { Scope } from &#x27;../scope&#x27;;
 
 class CourseScope extends Scope&lt;Course&gt; {
@@ -598,8 +598,16 @@ class CourseScope extends Scope&lt;Course&gt; {
 }
 
 @Injectable()
-export class CourseRepo {
-	constructor(private readonly em: EntityManager) {}
+export class CourseRepo extends BaseRepo&lt;Course&gt; {
+	get entityName() {
+		return Course;
+	}
+
+	async findById(id: EntityId): Promise&lt;Course&gt; {
+		const course &#x3D; await super.findById(id);
+		await this._em.populate(course, [&#x27;courseGroups&#x27;]);
+		return course;
+	}
 
 	async findAllByUserId(
 		userId: EntityId,
@@ -620,7 +628,7 @@ export class CourseRepo {
 			orderBy: order as QueryOrderMap&lt;Course&gt;,
 		};
 
-		const [courses, count] &#x3D; await this.em.findAndCount(Course, scope.query, queryOptions);
+		const [courses, count] &#x3D; await this._em.findAndCount(Course, scope.query, queryOptions);
 
 		return [courses, count];
 	}
@@ -630,7 +638,7 @@ export class CourseRepo {
 		const scope &#x3D; new CourseScope();
 		scope.forTeacher(userId);
 
-		const [courses, count] &#x3D; await this.em.findAndCount(Course, scope.query);
+		const [courses, count] &#x3D; await this._em.findAndCount(Course, scope.query);
 
 		return [courses, count];
 	}
@@ -640,7 +648,7 @@ export class CourseRepo {
 		scope.forCourseId(courseId);
 		if (userId) scope.forAllGroupTypes(userId);
 
-		const course &#x3D; await this.em.findOneOrFail(Course, scope.query);
+		const course &#x3D; await this._em.findOneOrFail(Course, scope.query);
 
 		return course;
 	}

@@ -1121,10 +1121,10 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Lesson, ILessonProperties, Course } from &#x27;@shared/domain&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Course, IComponentProperties, ILessonProperties, Lesson } from &#x27;@shared/domain&#x27;;
 
-import { courseFactory } from &#x27;./course.factory&#x27;;
 import { BaseFactory } from &#x27;./base.factory&#x27;;
+import { courseFactory } from &#x27;./course.factory&#x27;;
 
 class LessonFactory extends BaseFactory&lt;Lesson, ILessonProperties&gt; {}
 
@@ -1136,9 +1136,21 @@ export const lessonFactory &#x3D; LessonFactory.define&lt;Lesson, ILessonPropert
 		course &#x3D; courseFactory.build();
 	}
 
+	const contents: IComponentProperties[] &#x3D; [];
+	if (params.contents) {
+		params.contents.forEach((element) &#x3D;&gt; {
+			contents.push(element);
+		});
+	}
+
+	const hidden &#x3D; params.hidden || false;
+
 	return {
 		name: &#x60;lesson #${sequence}&#x60;,
 		course,
+		contents,
+		hidden,
+		materials: [],
 	};
 });
 </code></pre>

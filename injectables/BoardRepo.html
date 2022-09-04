@@ -63,6 +63,12 @@
 
 
 
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+                        <code><a href="../injectables/BaseRepo.html" target="_self" >BaseRepo</a></code>
+            </p>
 
 
             <section>
@@ -102,6 +108,13 @@
                                 <a href="#populateBoard" >populateBoard</a>
                             </li>
                             <li>
+                                <a href="#create" >create</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#delete" >delete</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Async</span>
                                 <a href="#save" >save</a>
                             </li>
@@ -113,58 +126,24 @@
 
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#entityName" >entityName</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
         </tbody>
     </table>
 </section>
 
-            <section>
-    <h3 id="constructor">Constructor</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-<code>constructor(em: EntityManager)</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/shared/repo/board/board.repo.ts:7</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                            <div>
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>em</td>
-                                                  
-                                                        <td>
-                                                                    <code>EntityManager</code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-</section>
 
             <section>
     
@@ -194,8 +173,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">apps/server/src/shared/repo/board/board.repo.ts:24</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">apps/server/src/shared/repo/board/board.repo.ts:25</a></div>
                 </td>
             </tr>
 
@@ -265,8 +244,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="10"
-                            class="link-to-prism">apps/server/src/shared/repo/board/board.repo.ts:10</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="11"
+                            class="link-to-prism">apps/server/src/shared/repo/board/board.repo.ts:11</a></div>
                 </td>
             </tr>
 
@@ -336,8 +315,14 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="31"
-                            class="link-to-prism">apps/server/src/shared/repo/board/board.repo.ts:31</a></div>
+                    <div class="io-line">Inherited from         <code><a href="../injectables/BaseRepo.html" target="_self" >BaseRepo</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:32</a></code>
+</div>
                 </td>
             </tr>
 
@@ -408,8 +393,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="16"
-                            class="link-to-prism">apps/server/src/shared/repo/board/board.repo.ts:16</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="17"
+                            class="link-to-prism">apps/server/src/shared/repo/board/board.repo.ts:17</a></div>
                 </td>
             </tr>
 
@@ -480,8 +465,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="37"
-                            class="link-to-prism">apps/server/src/shared/repo/board/board.repo.ts:37</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="38"
+                            class="link-to-prism">apps/server/src/shared/repo/board/board.repo.ts:38</a></div>
                 </td>
             </tr>
 
@@ -533,26 +518,30 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="save"></a>
+                    <a name="create"></a>
                     <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>save</b></span>
-                        <a href="#save"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>create</b></span>
+                        <a href="#create"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>save(board: <a href="../entitys/Board.html" target="_self">Board</a>)</code>
+<code>create(entity: T)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="48"
-                            class="link-to-prism">apps/server/src/shared/repo/board/board.repo.ts:48</a></div>
+                    <div class="io-line">Inherited from         <code><a href="../injectables/BaseRepo.html" target="_self" >BaseRepo</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:16</a></code>
+</div>
                 </td>
             </tr>
 
@@ -573,9 +562,163 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>board</td>
+                                    <td>entity</td>
                                     <td>
-                                                <code><a href="../entitys/Board.html" target="_self" >Board</a></code>
+                                            <code>T</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>T</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="delete"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>delete</b></span>
+                        <a href="#delete"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>delete(entities: T | T[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../injectables/BaseRepo.html" target="_self" >BaseRepo</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:24</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>entities</td>
+                                    <td>
+                                            <code>T | T[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="save"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>save</b></span>
+                        <a href="#save"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>save(entities: T | T[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../injectables/BaseRepo.html" target="_self" >BaseRepo</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:20</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>entities</td>
+                                    <td>
+                                            <code>T | T[]</code>
                                     </td>
 
                                     <td>
@@ -602,18 +745,46 @@
     </table>
 </section>
 
+            <section>
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="entityName"></a>
+                        <span class="name"><b>entityName</b><a href="#entityName"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>entityName()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/shared/repo/board/board.repo.ts:7</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { EntityManager } from &#x27;@mikro-orm/mongodb&#x27;;
-
-import { EntityId, Board, Course, TaskBoardElement, LessonBoardElement } from &#x27;@shared/domain&#x27;;
+import { Board, Course, EntityId, LessonBoardElement, TaskBoardElement } from &#x27;@shared/domain&#x27;;
+import { BaseRepo } from &#x27;../base.repo&#x27;;
 
 @Injectable()
-export class BoardRepo {
-	constructor(private readonly em: EntityManager) {}
+export class BoardRepo extends BaseRepo&lt;Board&gt; {
+	get entityName() {
+		return Board;
+	}
 
 	async findByCourseId(courseId: EntityId): Promise&lt;Board&gt; {
 		const board &#x3D; await this.getOrCreateCourseBoard(courseId);
@@ -622,7 +793,7 @@ export class BoardRepo {
 	}
 
 	private async getOrCreateCourseBoard(courseId: EntityId): Promise&lt;Board&gt; {
-		let board &#x3D; await this.em.findOne(Board, { course: courseId });
+		let board &#x3D; await this._em.findOne(Board, { course: courseId });
 		if (!board) {
 			board &#x3D; await this.createBoardForCourse(courseId);
 		}
@@ -630,14 +801,14 @@ export class BoardRepo {
 	}
 
 	private async createBoardForCourse(courseId: EntityId): Promise&lt;Board&gt; {
-		const course &#x3D; await this.em.findOneOrFail(Course, courseId);
+		const course &#x3D; await this._em.findOneOrFail(Course, courseId);
 		const board &#x3D; new Board({ course, references: [] });
-		await this.em.persistAndFlush(board);
+		await this._em.persistAndFlush(board);
 		return board;
 	}
 
 	async findById(id: EntityId): Promise&lt;Board&gt; {
-		const board &#x3D; await this.em.findOneOrFail(Board, { id });
+		const board &#x3D; await this._em.findOneOrFail(Board, { id });
 		await this.populateBoard(board);
 		return board;
 	}
@@ -645,17 +816,11 @@ export class BoardRepo {
 	private async populateBoard(board: Board) {
 		await board.references.init();
 		const elements &#x3D; board.references.getItems();
-		const discriminatorColumn &#x3D; &#x27;target&#x27;;
 		const taskElements &#x3D; elements.filter((el) &#x3D;&gt; el instanceof TaskBoardElement);
-		await this.em.populate(taskElements, [discriminatorColumn]);
+		await this._em.populate(taskElements, [&#x27;target&#x27;, &#x27;target.files&#x27;]);
 		const lessonElements &#x3D; elements.filter((el) &#x3D;&gt; el instanceof LessonBoardElement);
-		await this.em.populate(lessonElements, [discriminatorColumn]);
+		await this._em.populate(lessonElements, [&#x27;target&#x27;]);
 		return board;
-	}
-
-	async save(board: Board): Promise&lt;void&gt; {
-		await this.em.persistAndFlush(board);
-		return Promise.resolve();
 	}
 }
 </code></pre>

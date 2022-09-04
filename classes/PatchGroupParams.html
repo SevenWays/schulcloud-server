@@ -133,13 +133,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @IsString()<br />@ApiProperty({description: &#x27;Title of the Group grid element&#x27;})<br />
+                            @IsString()<br />@SanitizeHtml()<br />@ApiProperty({description: &#x27;Title of the Group grid element&#x27;})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/patch-group.params.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/patch-group.params.ts:14</a></div>
                         </td>
                     </tr>
 
@@ -159,6 +159,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
+import { SanitizeHtml } from &#x27;@shared/controller&#x27;;
 import { IsString } from &#x27;class-validator&#x27;;
 
 /**
@@ -166,6 +167,7 @@ import { IsString } from &#x27;class-validator&#x27;;
  */
 export class PatchGroupParams {
 	@IsString()
+	@SanitizeHtml()
 	@ApiProperty({
 		description: &#x27;Title of the Group grid element&#x27;,
 	})

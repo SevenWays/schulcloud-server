@@ -63,6 +63,12 @@
 
 
 
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+                        <code><a href="../injectables/BaseRepo.html" target="_self" >BaseRepo</a></code>
+            </p>
 
 
             <section>
@@ -78,10 +84,6 @@
                 <tr>
                     <td class="col-md-4">
                         <ul class="index-list">
-                            <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#delete" >delete</a>
-                            </li>
                             <li>
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Async</span>
@@ -113,6 +115,17 @@
                                 <a href="#findOneOrFail" >findOneOrFail</a>
                             </li>
                             <li>
+                                <a href="#create" >create</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#delete" >delete</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findById" >findById</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Async</span>
                                 <a href="#save" >save</a>
                             </li>
@@ -124,135 +137,30 @@
 
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#entityName" >entityName</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
         </tbody>
     </table>
 </section>
 
-            <section>
-    <h3 id="constructor">Constructor</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-<code>constructor(em: EntityManager)</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">apps/server/src/shared/repo/filerecord/filerecord.repo.ts:9</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                            <div>
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>em</td>
-                                                  
-                                                        <td>
-                                                                    <code>EntityManager</code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-</section>
 
             <section>
     
     <h3 id="methods">
         Methods
     </h3>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="delete"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>delete</b></span>
-                        <a href="#delete"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>delete(fileRecords: <a href="../classes/FileRecord.html" target="_self">FileRecord | FileRecord[]</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="30"
-                            class="link-to-prism">apps/server/src/shared/repo/filerecord/filerecord.repo.ts:30</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>fileRecords</td>
-                                    <td>
-                                                <code><a href="../classes/FileRecord.html" target="_self" >FileRecord | FileRecord[]</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -269,15 +177,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findAndCount(scope: <a href="../classes/FileRecordScope.html" target="_self">FileRecordScope</a>, options?: <a href="../classes/FileRecord.html" target="_self">IFindOptions&lt;FileRecord&gt;</a>)</code>
+                    <code>findAndCount(scope: <a href="../classes/FileRecordScope.html" target="_self">FileRecordScope</a>, options?: IFindOptions<FileRecord>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="65"
-                            class="link-to-prism">apps/server/src/shared/repo/filerecord/filerecord.repo.ts:65</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="57"
+                            class="link-to-prism">apps/server/src/shared/repo/filerecord/filerecord.repo.ts:57</a></div>
                 </td>
             </tr>
 
@@ -312,7 +220,7 @@
                                 <tr>
                                     <td>options</td>
                                     <td>
-                                                <code><a href="../classes/FileRecord.html" target="_self" >IFindOptions&lt;FileRecord&gt;</a></code>
+                                            <code>IFindOptions&lt;FileRecord&gt;</code>
                                     </td>
 
                                     <td>
@@ -327,7 +235,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/FileRecord.html" target="_self" >Promise&lt;Counted&lt;FileRecord[]&gt;&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Counted" target="_self" >Promise&lt;Counted&lt;FileRecord[]&gt;&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -352,15 +260,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findBySchoolIdAndParentId(schoolId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, parentId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, options?: <a href="../classes/FileRecord.html" target="_self">IFindOptions&lt;FileRecord&gt;</a>)</code>
+                    <code>findBySchoolIdAndParentId(schoolId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, parentId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, options?: IFindOptions<FileRecord>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="34"
-                            class="link-to-prism">apps/server/src/shared/repo/filerecord/filerecord.repo.ts:34</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">apps/server/src/shared/repo/filerecord/filerecord.repo.ts:26</a></div>
                 </td>
             </tr>
 
@@ -407,7 +315,7 @@
                                 <tr>
                                     <td>options</td>
                                     <td>
-                                                <code><a href="../classes/FileRecord.html" target="_self" >IFindOptions&lt;FileRecord&gt;</a></code>
+                                            <code>IFindOptions&lt;FileRecord&gt;</code>
                                     </td>
 
                                     <td>
@@ -422,7 +330,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/FileRecord.html" target="_self" >Promise&lt;Counted&lt;FileRecord[]&gt;&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Counted" target="_self" >Promise&lt;Counted&lt;FileRecord[]&gt;&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -447,15 +355,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findBySchoolIdAndParentIdAndMarkedForDelete(schoolId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, parentId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, options?: <a href="../classes/FileRecord.html" target="_self">IFindOptions&lt;FileRecord&gt;</a>)</code>
+                    <code>findBySchoolIdAndParentIdAndMarkedForDelete(schoolId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, parentId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, options?: IFindOptions<FileRecord>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="45"
-                            class="link-to-prism">apps/server/src/shared/repo/filerecord/filerecord.repo.ts:45</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="37"
+                            class="link-to-prism">apps/server/src/shared/repo/filerecord/filerecord.repo.ts:37</a></div>
                 </td>
             </tr>
 
@@ -502,7 +410,7 @@
                                 <tr>
                                     <td>options</td>
                                     <td>
-                                                <code><a href="../classes/FileRecord.html" target="_self" >IFindOptions&lt;FileRecord&gt;</a></code>
+                                            <code>IFindOptions&lt;FileRecord&gt;</code>
                                     </td>
 
                                     <td>
@@ -517,7 +425,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/FileRecord.html" target="_self" >Promise&lt;Counted&lt;FileRecord[]&gt;&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Counted" target="_self" >Promise&lt;Counted&lt;FileRecord[]&gt;&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -549,8 +457,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="56"
-                            class="link-to-prism">apps/server/src/shared/repo/filerecord/filerecord.repo.ts:56</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="48"
+                            class="link-to-prism">apps/server/src/shared/repo/filerecord/filerecord.repo.ts:48</a></div>
                 </td>
             </tr>
 
@@ -588,7 +496,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/FileRecord.html" target="_self" >Promise&lt;FileRecord&gt;</a></code>
+                        <b>Returns : </b>    <code>Promise&lt;FileRecord&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -659,7 +567,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/FileRecord.html" target="_self" >Promise&lt;FileRecord&gt;</a></code>
+                        <b>Returns : </b>    <code>Promise&lt;FileRecord&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -730,7 +638,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/FileRecord.html" target="_self" >Promise&lt;FileRecord&gt;</a></code>
+                        <b>Returns : </b>    <code>Promise&lt;FileRecord&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -763,8 +671,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="81"
-                            class="link-to-prism">apps/server/src/shared/repo/filerecord/filerecord.repo.ts:81</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="73"
+                            class="link-to-prism">apps/server/src/shared/repo/filerecord/filerecord.repo.ts:73</a></div>
                 </td>
             </tr>
 
@@ -802,7 +710,236 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/FileRecord.html" target="_self" >Promise&lt;FileRecord&gt;</a></code>
+                        <b>Returns : </b>    <code>Promise&lt;FileRecord&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="create"></a>
+                    <span class="name">
+                        <span ><b>create</b></span>
+                        <a href="#create"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>create(entity: T)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../injectables/BaseRepo.html" target="_self" >BaseRepo</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:16</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>entity</td>
+                                    <td>
+                                            <code>T</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>T</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="delete"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>delete</b></span>
+                        <a href="#delete"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>delete(entities: T | T[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../injectables/BaseRepo.html" target="_self" >BaseRepo</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:24</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>entities</td>
+                                    <td>
+                                            <code>T | T[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findById"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>findById</b></span>
+                        <a href="#findById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findById(id: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../injectables/BaseRepo.html" target="_self" >BaseRepo</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:28</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;T&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -827,15 +964,21 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>save(fileRecords: <a href="../classes/FileRecord.html" target="_self">FileRecord | FileRecord[]</a>)</code>
+                    <code>save(entities: T | T[])</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">apps/server/src/shared/repo/filerecord/filerecord.repo.ts:26</a></div>
+                    <div class="io-line">Inherited from         <code><a href="../injectables/BaseRepo.html" target="_self" >BaseRepo</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:20</a></code>
+</div>
                 </td>
             </tr>
 
@@ -856,9 +999,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>fileRecords</td>
+                                    <td>entities</td>
                                     <td>
-                                                <code><a href="../classes/FileRecord.html" target="_self" >FileRecord | FileRecord[]</a></code>
+                                            <code>T | T[]</code>
                                     </td>
 
                                     <td>
@@ -885,20 +1028,47 @@
     </table>
 </section>
 
+            <section>
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="entityName"></a>
+                        <span class="name"><b>entityName</b><a href="#entityName"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>entityName()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">apps/server/src/shared/repo/filerecord/filerecord.repo.ts:8</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { EntityManager } from &#x27;@mikro-orm/mongodb&#x27;;
-
 import { Counted, EntityId, FileRecord, IFindOptions, SortOrder } from &#x27;@shared/domain&#x27;;
-
+import { BaseRepo } from &#x27;../base.repo&#x27;;
 import { FileRecordScope } from &#x27;./filerecord-scope&#x27;;
 
 @Injectable()
-export class FileRecordRepo {
-	constructor(private readonly em: EntityManager) {}
+export class FileRecordRepo extends BaseRepo&lt;FileRecord&gt; {
+	get entityName() {
+		return FileRecord;
+	}
 
 	async findOneById(id: EntityId): Promise&lt;FileRecord&gt; {
 		const scope &#x3D; new FileRecordScope().byFileRecordId(id).byMarkedForDelete(false);
@@ -912,14 +1082,6 @@ export class FileRecordRepo {
 		const fileRecord &#x3D; await this.findOneOrFail(scope);
 
 		return fileRecord;
-	}
-
-	async save(fileRecords: FileRecord | FileRecord[]): Promise&lt;void&gt; {
-		await this.em.persistAndFlush(fileRecords);
-	}
-
-	async delete(fileRecords: FileRecord | FileRecord[]): Promise&lt;void&gt; {
-		await this.em.removeAndFlush(fileRecords);
 	}
 
 	async findBySchoolIdAndParentId(
@@ -960,7 +1122,7 @@ export class FileRecordRepo {
 		const { pagination } &#x3D; options || {};
 		const order &#x3D; { createdAt: SortOrder.desc, id: SortOrder.asc };
 
-		const [fileRecords, count] &#x3D; await this.em.findAndCount(FileRecord, scope.query, {
+		const [fileRecords, count] &#x3D; await this._em.findAndCount(FileRecord, scope.query, {
 			offset: pagination?.skip,
 			limit: pagination?.limit,
 			orderBy: order,
@@ -970,7 +1132,7 @@ export class FileRecordRepo {
 	}
 
 	private async findOneOrFail(scope: FileRecordScope): Promise&lt;FileRecord&gt; {
-		const fileRecord &#x3D; await this.em.findOneOrFail(FileRecord, scope.query);
+		const fileRecord &#x3D; await this._em.findOneOrFail(FileRecord, scope.query);
 
 		return fileRecord;
 	}

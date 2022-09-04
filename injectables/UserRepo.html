@@ -94,11 +94,15 @@
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#findByLdapId" >findByLdapId</a>
+                                <a href="#findByLdapIdOrFail" >findByLdapIdOrFail</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
                                 <a href="#findWithoutImportUser" >findWithoutImportUser</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#flush" >flush</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
@@ -106,43 +110,18 @@
                                 <a href="#populateRoles" >populateRoles</a>
                             </li>
                             <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#update" >update</a>
+                                <a href="#saveWithoutFlush" >saveWithoutFlush</a>
+                            </li>
+                            <li>
+                                <a href="#create" >create</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#flush" >flush</a>
-                            </li>
-                            <li>
-                                <a href="#getObjectReference" >getObjectReference</a>
-                            </li>
-                            <li>
-                                <a href="#persist" >persist</a>
-                            </li>
-                            <li>
-                                <a href="#persistAll" >persistAll</a>
+                                <a href="#delete" >delete</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#persistAllAndFlush" >persistAllAndFlush</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#persistAndFlush" >persistAndFlush</a>
-                            </li>
-                            <li>
-                                <a href="#remove" >remove</a>
-                            </li>
-                            <li>
-                                <a href="#removeAll" >removeAll</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#removeAllAndFlush" >removeAllAndFlush</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#removeAndFlush" >removeAndFlush</a>
+                                <a href="#save" >save</a>
                             </li>
                         </ul>
                     </td>
@@ -152,58 +131,24 @@
 
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#entityName" >entityName</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
         </tbody>
     </table>
 </section>
 
-            <section>
-    <h3 id="constructor">Constructor</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-<code>constructor(em: EntityManager<MongoDriver>)</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:10</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                            <div>
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>em</td>
-                                                  
-                                                        <td>
-                                                                    <code>EntityManager&lt;MongoDriver&gt;</code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-</section>
 
             <section>
     
@@ -232,8 +177,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="149"
-                            class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:149</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="146"
+                            class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:146</a></div>
                 </td>
             </tr>
 
@@ -303,8 +248,14 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:15</a></div>
+                    <div class="io-line">Inherited from         <code><a href="../injectables/BaseRepo.html" target="_self" >BaseRepo</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:15</a></code>
+</div>
                 </td>
             </tr>
 
@@ -373,18 +324,18 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="findByLdapId"></a>
+                    <a name="findByLdapIdOrFail"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
-                        <span ><b>findByLdapId</b></span>
-                        <a href="#findByLdapId"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>findByLdapIdOrFail</b></span>
+                        <a href="#findByLdapIdOrFail"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findByLdapId(ldapId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, systemId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>findByLdapIdOrFail(ldapId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, systemId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
@@ -474,8 +425,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="41"
-                            class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:41</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="38"
+                            class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:38</a></div>
                 </td>
             </tr>
 
@@ -553,6 +504,45 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="flush"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>flush</b></span>
+                        <a href="#flush"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>flush()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="170"
+                            class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:170</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="populateRoles"></a>
                     <span class="name">
                         <span class="modifier">Private</span>
@@ -572,8 +562,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="160"
-                            class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:160</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="154"
+                            class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:154</a></div>
                 </td>
             </tr>
 
@@ -625,26 +615,24 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="update"></a>
+                    <a name="saveWithoutFlush"></a>
                     <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>update</b></span>
-                        <a href="#update"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>saveWithoutFlush</b></span>
+                        <a href="#saveWithoutFlush"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>update(user: <a href="../interfaces/User.html" target="_self">User</a>)</code>
+<code>saveWithoutFlush(user: <a href="../interfaces/User.html" target="_self">User</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="155"
-                            class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:155</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="166"
+                            class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:166</a></div>
                 </td>
             </tr>
 
@@ -682,7 +670,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/User.html" target="_self" >Promise&lt;User&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                     </div>
                     <div class="io-description">
@@ -696,18 +684,16 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="flush"></a>
+                    <a name="create"></a>
                     <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>flush</b></span>
-                        <a href="#flush"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>create</b></span>
+                        <a href="#create"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>flush()</code>
+<code>create(entity: T)</code>
                 </td>
             </tr>
 
@@ -720,145 +706,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:57</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="getObjectReference"></a>
-                    <span class="name">
-                        <span ><b>getObjectReference</b></span>
-                        <a href="#getObjectReference"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>getObjectReference(entityName: EntityName<Entity>, id: Primary<Entity> | Primary<Entity>[])</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../injectables/BaseRepo.html" target="_self" >BaseRepo</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:61</a></code>
-</div>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <b>Type parameters :</b>
-                    <ul class="type-parameters">
-                        <li>Entity</li>
-                    </ul>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>entityName</td>
-                                    <td>
-                                            <code>EntityName&lt;Entity&gt;</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>id</td>
-                                    <td>
-                                            <code>Primary&lt;Entity&gt; | Primary&lt;Entity&gt;[]</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Entity</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="persist"></a>
-                    <span class="name">
-                        <span ><b>persist</b></span>
-                        <a href="#persist"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>persist(entity: T)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../injectables/BaseRepo.html" target="_self" >BaseRepo</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:13</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:16</a></code>
 </div>
                 </td>
             </tr>
@@ -911,93 +759,18 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="persistAll"></a>
-                    <span class="name">
-                        <span ><b>persistAll</b></span>
-                        <a href="#persistAll"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>persistAll(entities: T[])</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../injectables/BaseRepo.html" target="_self" >BaseRepo</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:23</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>entities</td>
-                                    <td>
-                                            <code>T[]</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>T[]</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="persistAllAndFlush"></a>
+                    <a name="delete"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
-                        <span ><b>persistAllAndFlush</b></span>
-                        <a href="#persistAllAndFlush"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>delete</b></span>
+                        <a href="#delete"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>persistAllAndFlush(entities: T[])</code>
+                    <code>delete(entities: T | T[])</code>
                 </td>
             </tr>
 
@@ -1010,7 +783,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:31</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:24</a></code>
 </div>
                 </td>
             </tr>
@@ -1034,311 +807,7 @@
                                 <tr>
                                     <td>entities</td>
                                     <td>
-                                            <code>T[]</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;T[]&gt;</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="persistAndFlush"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>persistAndFlush</b></span>
-                        <a href="#persistAndFlush"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>persistAndFlush(entity: T)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../injectables/BaseRepo.html" target="_self" >BaseRepo</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:18</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>entity</td>
-                                    <td>
-                                            <code>T</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;T&gt;</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="remove"></a>
-                    <span class="name">
-                        <span ><b>remove</b></span>
-                        <a href="#remove"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>remove(entity: T)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../injectables/BaseRepo.html" target="_self" >BaseRepo</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:40</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>entity</td>
-                                    <td>
-                                            <code>T</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="removeAll"></a>
-                    <span class="name">
-                        <span ><b>removeAll</b></span>
-                        <a href="#removeAll"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>removeAll(entities: T[])</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../injectables/BaseRepo.html" target="_self" >BaseRepo</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:48</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>entities</td>
-                                    <td>
-                                            <code>T[]</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="removeAllAndFlush"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>removeAllAndFlush</b></span>
-                        <a href="#removeAllAndFlush"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>removeAllAndFlush(entities: T[])</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../injectables/BaseRepo.html" target="_self" >BaseRepo</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:52</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>entities</td>
-                                    <td>
-                                            <code>T[]</code>
+                                            <code>T | T[]</code>
                                     </td>
 
                                     <td>
@@ -1367,18 +836,18 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="removeAndFlush"></a>
+                    <a name="save"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
-                        <span ><b>removeAndFlush</b></span>
-                        <a href="#removeAndFlush"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>save</b></span>
+                        <a href="#save"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>removeAndFlush(entity: T)</code>
+                    <code>save(entities: T | T[])</code>
                 </td>
             </tr>
 
@@ -1391,7 +860,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:44</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:20</a></code>
 </div>
                 </td>
             </tr>
@@ -1413,9 +882,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>entity</td>
+                                    <td>entities</td>
                                     <td>
-                                            <code>T</code>
+                                            <code>T | T[]</code>
                                     </td>
 
                                     <td>
@@ -1442,45 +911,69 @@
     </table>
 </section>
 
+            <section>
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="entityName"></a>
+                        <span class="name"><b>entityName</b><a href="#entityName"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>entityName()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:11</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { QueryOrderMap, QueryOrderNumeric } from &#x27;@mikro-orm/core&#x27;;
-import { EntityManager, MongoDriver, ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
-import { Injectable, NotFoundException } from &#x27;@nestjs/common&#x27;;
+import { ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
+import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { StringValidator } from &#x27;@shared/common&#x27;;
-import { BaseRepo } from &#x27;@shared/repo/base.repo&#x27;;
 import { Counted, EntityId, IFindOptions, ImportUser, INameMatch, Role, School, SortOrder, User } from &#x27;@shared/domain&#x27;;
+import { BaseRepo } from &#x27;@shared/repo/base.repo&#x27;;
 import { MongoPatterns } from &#x27;../mongo.patterns&#x27;;
 
 @Injectable()
 export class UserRepo extends BaseRepo&lt;User&gt; {
-	constructor(protected readonly em: EntityManager&lt;MongoDriver&gt;) {
-		super(em);
+	get entityName() {
+		return User;
 	}
 
 	async findById(id: EntityId, populate &#x3D; false): Promise&lt;User&gt; {
-		const user &#x3D; await this.em.findOneOrFail(User, { id });
+		const user &#x3D; await super.findById(id);
 
 		if (populate) {
-			await this.em.populate(user, [&#x27;roles&#x27;, &#x27;school.systems&#x27;]);
+			await this._em.populate(user, [&#x27;roles&#x27;, &#x27;school.systems&#x27;, &#x27;school.schoolYear&#x27;]);
 			await this.populateRoles(user.roles.getItems());
 		}
 
 		return user;
 	}
 
-	async findByLdapId(ldapId: string, systemId: string): Promise&lt;User&gt; {
-		const [users] &#x3D; await this.em.findAndCount(User, { ldapId }, { populate: [&#x27;school.systems&#x27;] });
+	async findByLdapIdOrFail(ldapId: string, systemId: string): Promise&lt;User&gt; {
+		const [users] &#x3D; await this._em.findAndCount(User, { ldapId }, { populate: [&#x27;school.systems&#x27;] });
 		const resultUser &#x3D; users.find((user) &#x3D;&gt; {
 			const { systems } &#x3D; user.school;
 			return systems &amp;&amp; systems.getItems().find((system) &#x3D;&gt; system.id &#x3D;&#x3D;&#x3D; systemId);
 		});
-		if (resultUser) {
-			return resultUser;
-		}
-		throw new NotFoundException(&#x27;No user for this ldapId found&#x27;);
+		return resultUser ?? Promise.reject();
 	}
 
 	/**
@@ -1549,7 +1042,7 @@ export class UserRepo extends BaseRepo&lt;User&gt; {
 
 		const countPipeline &#x3D; [...pipeline];
 		countPipeline.push({ $group: { _id: null, count: { $sum: 1 } } });
-		const total &#x3D; (await this.em.aggregate(User, countPipeline)) as { count: number }[];
+		const total &#x3D; (await this._em.aggregate(User, countPipeline)) as { count: number }[];
 		const count &#x3D; total.length &gt; 0 ? total[0].count : 0;
 		const { pagination, order } &#x3D; options || {};
 
@@ -1587,22 +1080,19 @@ export class UserRepo extends BaseRepo&lt;User&gt; {
 			pipeline.push({ $limit: pagination.limit });
 		}
 
-		const userDocuments &#x3D; await this.em.aggregate(User, pipeline);
+		const userDocuments &#x3D; await this._em.aggregate(User, pipeline);
 		// eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-		const users &#x3D; userDocuments.map((userDocument) &#x3D;&gt; this.em.map(User, userDocument));
-		await this.em.populate(users, [&#x27;roles&#x27;]);
+		const users &#x3D; userDocuments.map((userDocument) &#x3D;&gt; this._em.map(User, userDocument));
+		await this._em.populate(users, [&#x27;roles&#x27;]);
 		return [users, count];
 	}
 
 	async findByEmail(email: string): Promise&lt;User[]&gt; {
 		// find mail case-insensitive by regex
-		const user &#x3D; await this.em.find(User, { email: new RegExp(&#x60;^${email.replace(/[^A-Za-z0-9_]/g, &#x27;\\$&amp;&#x27;)}$&#x60;, &#x27;i&#x27;) });
-		return user;
-	}
-
-	async update(user: User): Promise&lt;User&gt; {
-		await this.em.persistAndFlush(user);
-		return user;
+		const promise: Promise&lt;User[]&gt; &#x3D; this._em.find(User, {
+			email: new RegExp(&#x60;^${email.replace(/\W/g, &#x27;\\$&amp;&#x27;)}$&#x60;, &#x27;i&#x27;),
+		});
+		return promise;
 	}
 
 	private async populateRoles(roles: Role[]): Promise&lt;void&gt; {
@@ -1610,11 +1100,19 @@ export class UserRepo extends BaseRepo&lt;User&gt; {
 			const role &#x3D; roles[i];
 			if (!role.roles.isInitialized(true)) {
 				// eslint-disable-next-line no-await-in-loop
-				await this.em.populate(role, [&#x27;roles&#x27;]);
+				await this._em.populate(role, [&#x27;roles&#x27;]);
 				// eslint-disable-next-line no-await-in-loop
 				await this.populateRoles(role.roles.getItems());
 			}
 		}
+	}
+
+	saveWithoutFlush(user: User): void {
+		this._em.persist(user);
+	}
+
+	async flush(): Promise&lt;void&gt; {
+		await this._em.flush();
 	}
 }
 </code></pre>

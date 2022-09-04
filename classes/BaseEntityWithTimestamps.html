@@ -141,7 +141,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">apps/server/src/shared/domain/entity/base.entity.ts:23</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">apps/server/src/shared/domain/entity/base.entity.ts:24</a></div>
                         </td>
                     </tr>
 
@@ -175,7 +175,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">apps/server/src/shared/domain/entity/base.entity.ts:29</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">apps/server/src/shared/domain/entity/base.entity.ts:30</a></div>
                         </td>
                     </tr>
 
@@ -210,7 +210,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">apps/server/src/shared/domain/entity/base.entity.ts:26</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">apps/server/src/shared/domain/entity/base.entity.ts:27</a></div>
                         </td>
                     </tr>
 
@@ -244,7 +244,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">apps/server/src/shared/domain/entity/base.entity.ts:32</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">apps/server/src/shared/domain/entity/base.entity.ts:33</a></div>
                         </td>
                     </tr>
 
@@ -265,8 +265,9 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { PrimaryKey, Property, SerializedPrimaryKey } from &#x27;@mikro-orm/core&#x27;;
 import { ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
+import type { IEntity } from &#x27;../interface&#x27;;
 
-export abstract class BaseEntity {
+export abstract class BaseEntity implements IEntity {
 	@PrimaryKey()
 	_id!: ObjectId;
 
@@ -296,6 +297,9 @@ export abstract class BaseEntityWithTimestamps {
 	@Property({ onUpdate: () &#x3D;&gt; new Date() })
 	updatedAt &#x3D; new Date();
 }
+
+// These fields are explicitly ignored when updating an entity. See base.do.repo.ts.
+export const baseEntityProperties &#x3D; [&#x27;id&#x27;, &#x27;_id&#x27;, &#x27;updatedAt&#x27;, &#x27;createdAt&#x27;];
 </code></pre>
     </div>
 </div>

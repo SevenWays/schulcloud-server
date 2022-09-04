@@ -55,7 +55,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/authentication/controller/account.controller.ts</code>
+            <code>apps/server/src/modules/account/controller/account.controller.ts</code>
         </p>
 
             <p class="comment">
@@ -85,11 +85,23 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#changePassword" >changePassword</a>
+                                <a href="#deleteAccountById" >deleteAccountById</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findAccountById" >findAccountById</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
                                 <a href="#replaceMyPassword" >replaceMyPassword</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#searchAccounts" >searchAccounts</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#updateAccountById" >updateAccountById</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
@@ -116,18 +128,18 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="changePassword"></a>
+                    <a name="deleteAccountById"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
-                        <span ><b>changePassword</b></span>
-                        <a href="#changePassword"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>deleteAccountById</b></span>
+                        <a href="#deleteAccountById"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>changePassword(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, undefined: <a href="../classes/ChangePasswordParams.html" target="_self">ChangePasswordParams</a>)</code>
+                    <code>deleteAccountById(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, params: <a href="../classes/AccountByIdParams.html" target="_self">AccountByIdParams</a>)</code>
                 </td>
             </tr>
 
@@ -135,14 +147,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Patch(&#x27;:id/pw&#x27;)<br /></code>
+                    <code>@Delete(&#x27;:id&#x27;)<br />@ApiOperation({summary: &#x27;Deletes an account with given id. Superhero role is REQUIRED.&#x27;})<br />@ApiResponse({status: 200, type: AccountResponse, description: &#x27;Returns deleted account.&#x27;})<br />@ApiResponse({status: 400, type: ValidationError, description: &#x27;Request data has invalid format.&#x27;})<br />@ApiResponse({status: 403, type: ForbiddenOperationError, description: &#x27;User is not a superhero.&#x27;})<br />@ApiResponse({status: 404, type: EntityNotFoundError, description: &#x27;Account not found.&#x27;})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="18"
-                            class="link-to-prism">apps/server/src/modules/authentication/controller/account.controller.ts:18</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="85"
+                            class="link-to-prism">apps/server/src/modules/account/controller/account.controller.ts:85</a></div>
                 </td>
             </tr>
 
@@ -175,20 +187,9 @@
 
                                 </tr>
                                 <tr>
-                                    <td>userId</td>
+                                    <td>params</td>
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>
-                                                <code><a href="../classes/ChangePasswordParams.html" target="_self" >ChangePasswordParams</a></code>
+                                                <code><a href="../classes/AccountByIdParams.html" target="_self" >AccountByIdParams</a></code>
                                     </td>
 
                                     <td>
@@ -203,7 +204,97 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+                        <b>Returns : </b>        <code><a href="../entitys/Account.html" target="_self" >Promise&lt;AccountResponse&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findAccountById"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>findAccountById</b></span>
+                        <a href="#findAccountById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAccountById(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, params: <a href="../classes/AccountByIdParams.html" target="_self">AccountByIdParams</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;:id&#x27;)<br />@ApiOperation({summary: &#x27;Returns an account with given id. Superhero role is REQUIRED.&#x27;})<br />@ApiResponse({status: 200, type: AccountResponse, description: &#x27;Returns the account.&#x27;})<br />@ApiResponse({status: 400, type: ValidationError, description: &#x27;Request data has invalid format.&#x27;})<br />@ApiResponse({status: 403, type: ForbiddenOperationError, description: &#x27;User is not a superhero.&#x27;})<br />@ApiResponse({status: 404, type: EntityNotFoundError, description: &#x27;Account not found.&#x27;})<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="44"
+                            class="link-to-prism">apps/server/src/modules/account/controller/account.controller.ts:44</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>currentUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                                <code><a href="../classes/AccountByIdParams.html" target="_self" >AccountByIdParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../entitys/Account.html" target="_self" >Promise&lt;AccountResponse&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -236,14 +327,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Patch(&#x27;me/password&#x27;)<br /></code>
+                    <code>@Patch(&#x27;me/password&#x27;)<br />@ApiOperation({summary: &#x27;Updates the the temporary account password for the authenticated user.&#x27;})<br />@ApiResponse({status: 200, description: &#x27;Updated the temporary password successfully.&#x27;})<br />@ApiResponse({status: 400, type: ValidationError, description: &#x27;Request data has invalid format.&#x27;})<br />@ApiResponse({status: 403, type: ForbiddenOperationError, description: &#x27;Invalid password.&#x27;})<br />@ApiResponse({status: 404, type: EntityNotFoundError, description: &#x27;Account or user not found.&#x27;})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="32"
-                            class="link-to-prism">apps/server/src/modules/authentication/controller/account.controller.ts:32</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="98"
+                            class="link-to-prism">apps/server/src/modules/account/controller/account.controller.ts:98</a></div>
                 </td>
             </tr>
 
@@ -307,6 +398,198 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="searchAccounts"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>searchAccounts</b></span>
+                        <a href="#searchAccounts"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>searchAccounts(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, query: <a href="../classes/AccountSearchQueryParams.html" target="_self">AccountSearchQueryParams</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get()<br />@ApiOperation({summary: &#x27;Returns all accounts which satisfies the given criteria. For unlimited access Superhero role is REQUIRED.&#x27;})<br />@ApiResponse({status: 200, type: AccountSearchListResponse, description: &#x27;Returns a paged list of accounts.&#x27;})<br />@ApiResponse({status: 400, type: ValidationError, description: &#x27;Request data has invalid format.&#x27;})<br />@ApiResponse({status: 403, type: ForbiddenOperationError, description: &#x27;User is not a superhero or administrator.&#x27;})<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="31"
+                            class="link-to-prism">apps/server/src/modules/account/controller/account.controller.ts:31</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>currentUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>query</td>
+                                    <td>
+                                                <code><a href="../classes/AccountSearchQueryParams.html" target="_self" >AccountSearchQueryParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../entitys/Account.html" target="_self" >Promise&lt;AccountSearchListResponse&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateAccountById"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>updateAccountById</b></span>
+                        <a href="#updateAccountById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateAccountById(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, params: <a href="../classes/AccountByIdParams.html" target="_self">AccountByIdParams</a>, body: <a href="../classes/AccountByIdBodyParams.html" target="_self">AccountByIdBodyParams</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Patch(&#x27;:id&#x27;)<br />@ApiOperation({summary: &#x27;Updates an account with given id. Superhero role is REQUIRED.&#x27;})<br />@ApiResponse({status: 200, type: AccountResponse, description: &#x27;Returns updated account.&#x27;})<br />@ApiResponse({status: 400, type: ValidationError, description: &#x27;Request data has invalid format.&#x27;})<br />@ApiResponse({status: 403, type: ForbiddenOperationError, description: &#x27;User is not a superhero.&#x27;})<br />@ApiResponse({status: 404, type: EntityNotFoundError, description: &#x27;Account not found.&#x27;})<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="71"
+                            class="link-to-prism">apps/server/src/modules/account/controller/account.controller.ts:71</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>currentUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                                <code><a href="../classes/AccountByIdParams.html" target="_self" >AccountByIdParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>body</td>
+                                    <td>
+                                                <code><a href="../classes/AccountByIdBodyParams.html" target="_self" >AccountByIdBodyParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../entitys/Account.html" target="_self" >Promise&lt;AccountResponse&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="updateMyAccount"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -326,14 +609,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Patch(&#x27;me&#x27;)<br /></code>
+                    <code>@Patch(&#x27;me&#x27;)<br />@ApiOperation({summary: &#x27;Updates an account for the authenticated user.&#x27;})<br />@ApiResponse({status: 200, description: &#x27;Account was successfully updated.&#x27;})<br />@ApiResponse({status: 400, type: ValidationError, description: &#x27;Request data has invalid format.&#x27;})<br />@ApiResponse({status: 403, type: ForbiddenOperationError, description: &#x27;Invalid password.&#x27;})<br />@ApiResponse({status: 404, type: EntityNotFoundError, description: &#x27;Account not found.&#x27;})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">apps/server/src/modules/authentication/controller/account.controller.ts:27</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="61"
+                            class="link-to-prism">apps/server/src/modules/account/controller/account.controller.ts:61</a></div>
                 </td>
             </tr>
 
@@ -397,37 +680,103 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
-
-import { Body, Controller, Param, Patch } from &#x27;@nestjs/common&#x27;;
-import { ICurrentUser } from &#x27;@shared/domain&#x27;;
-
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Body, Controller, Delete, Get, Param, Patch, Query } from &#x27;@nestjs/common&#x27;;
+import { ApiOperation, ApiResponse, ApiTags } from &#x27;@nestjs/swagger&#x27;;
 import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
-import { ParseObjectIdPipe } from &#x27;@shared/controller&#x27;;
+import { ICurrentUser } from &#x27;@shared/domain&#x27;;
+import { EntityNotFoundError, ForbiddenOperationError, ValidationError } from &#x27;@shared/common&#x27;;
 import { AccountUc } from &#x27;../uc/account.uc&#x27;;
-import { ChangePasswordParams, PatchMyAccountParams, PatchMyPasswordParams } from &#x27;./dto&#x27;;
+import {
+	AccountByIdBodyParams,
+	AccountByIdParams,
+	AccountResponse,
+	AccountSearchListResponse,
+	AccountSearchQueryParams,
+	PatchMyAccountParams,
+	PatchMyPasswordParams,
+} from &#x27;./dto&#x27;;
 
-@ApiTags(&#x27;account&#x27;)
+@ApiTags(&#x27;Account&#x27;)
 @Authenticate(&#x27;jwt&#x27;)
 @Controller(&#x27;account&#x27;)
 export class AccountController {
 	constructor(private readonly accountUc: AccountUc) {}
 
-	@Patch(&#x27;:id/pw&#x27;)
-	async changePassword(
+	@Get()
+	@ApiOperation({
+		summary:
+			&#x27;Returns all accounts which satisfies the given criteria. For unlimited access Superhero role is REQUIRED.&#x27;,
+	})
+	@ApiResponse({ status: 200, type: AccountSearchListResponse, description: &#x27;Returns a paged list of accounts.&#x27; })
+	@ApiResponse({ status: 400, type: ValidationError, description: &#x27;Request data has invalid format.&#x27; })
+	@ApiResponse({ status: 403, type: ForbiddenOperationError, description: &#x27;User is not a superhero or administrator.&#x27; })
+	async searchAccounts(
 		@CurrentUser() currentUser: ICurrentUser,
-		@Param(&#x27;id&#x27;, ParseObjectIdPipe) userId: string,
-		@Body() { password }: ChangePasswordParams
-	): Promise&lt;void&gt; {
-		await this.accountUc.changePasswordForUser(currentUser.userId, userId, password);
+		@Query() query: AccountSearchQueryParams
+	): Promise&lt;AccountSearchListResponse&gt; {
+		return this.accountUc.searchAccounts(currentUser, query);
 	}
 
+	@Get(&#x27;:id&#x27;)
+	@ApiOperation({ summary: &#x27;Returns an account with given id. Superhero role is REQUIRED.&#x27; })
+	@ApiResponse({ status: 200, type: AccountResponse, description: &#x27;Returns the account.&#x27; })
+	@ApiResponse({ status: 400, type: ValidationError, description: &#x27;Request data has invalid format.&#x27; })
+	@ApiResponse({ status: 403, type: ForbiddenOperationError, description: &#x27;User is not a superhero.&#x27; })
+	@ApiResponse({ status: 404, type: EntityNotFoundError, description: &#x27;Account not found.&#x27; })
+	async findAccountById(
+		@CurrentUser() currentUser: ICurrentUser,
+		@Param() params: AccountByIdParams
+	): Promise&lt;AccountResponse&gt; {
+		return this.accountUc.findAccountById(currentUser, params);
+	}
+
+	// IMPORTANT!!!
+	// updateMyAccount has to occur before updateAccountById, because Nest.js
+	// will always use the first path match and me will be treated as a path parameter
+	// (some e2e tests might fail, if the method order is changed)
 	@Patch(&#x27;me&#x27;)
+	@ApiOperation({ summary: &#x27;Updates an account for the authenticated user.&#x27; })
+	@ApiResponse({ status: 200, description: &#x27;Account was successfully updated.&#x27; })
+	@ApiResponse({ status: 400, type: ValidationError, description: &#x27;Request data has invalid format.&#x27; })
+	@ApiResponse({ status: 403, type: ForbiddenOperationError, description: &#x27;Invalid password.&#x27; })
+	@ApiResponse({ status: 404, type: EntityNotFoundError, description: &#x27;Account not found.&#x27; })
 	async updateMyAccount(@CurrentUser() currentUser: ICurrentUser, @Body() params: PatchMyAccountParams): Promise&lt;void&gt; {
 		return this.accountUc.updateMyAccount(currentUser.userId, params);
 	}
 
+	@Patch(&#x27;:id&#x27;)
+	@ApiOperation({ summary: &#x27;Updates an account with given id. Superhero role is REQUIRED.&#x27; })
+	@ApiResponse({ status: 200, type: AccountResponse, description: &#x27;Returns updated account.&#x27; })
+	@ApiResponse({ status: 400, type: ValidationError, description: &#x27;Request data has invalid format.&#x27; })
+	@ApiResponse({ status: 403, type: ForbiddenOperationError, description: &#x27;User is not a superhero.&#x27; })
+	@ApiResponse({ status: 404, type: EntityNotFoundError, description: &#x27;Account not found.&#x27; })
+	async updateAccountById(
+		@CurrentUser() currentUser: ICurrentUser,
+		@Param() params: AccountByIdParams,
+		@Body() body: AccountByIdBodyParams
+	): Promise&lt;AccountResponse&gt; {
+		return this.accountUc.updateAccountById(currentUser, params, body);
+	}
+
+	@Delete(&#x27;:id&#x27;)
+	@ApiOperation({ summary: &#x27;Deletes an account with given id. Superhero role is REQUIRED.&#x27; })
+	@ApiResponse({ status: 200, type: AccountResponse, description: &#x27;Returns deleted account.&#x27; })
+	@ApiResponse({ status: 400, type: ValidationError, description: &#x27;Request data has invalid format.&#x27; })
+	@ApiResponse({ status: 403, type: ForbiddenOperationError, description: &#x27;User is not a superhero.&#x27; })
+	@ApiResponse({ status: 404, type: EntityNotFoundError, description: &#x27;Account not found.&#x27; })
+	async deleteAccountById(
+		@CurrentUser() currentUser: ICurrentUser,
+		@Param() params: AccountByIdParams
+	): Promise&lt;AccountResponse&gt; {
+		return this.accountUc.deleteAccountById(currentUser, params);
+	}
+
 	@Patch(&#x27;me/password&#x27;)
+	@ApiOperation({ summary: &#x27;Updates the the temporary account password for the authenticated user.&#x27; })
+	@ApiResponse({ status: 200, description: &#x27;Updated the temporary password successfully.&#x27; })
+	@ApiResponse({ status: 400, type: ValidationError, description: &#x27;Request data has invalid format.&#x27; })
+	@ApiResponse({ status: 403, type: ForbiddenOperationError, description: &#x27;Invalid password.&#x27; })
+	@ApiResponse({ status: 404, type: EntityNotFoundError, description: &#x27;Account or user not found.&#x27; })
 	async replaceMyPassword(
 		@CurrentUser() currentUser: ICurrentUser,
 		@Body() params: PatchMyPasswordParams

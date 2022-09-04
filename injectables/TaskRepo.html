@@ -63,6 +63,12 @@
 
 
 
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+                        <code><a href="../injectables/BaseRepo.html" target="_self" >BaseRepo</a></code>
+            </p>
 
 
             <section>
@@ -78,10 +84,6 @@
                 <tr>
                     <td class="col-md-4">
                         <ul class="index-list">
-                            <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#delete" >delete</a>
-                            </li>
                             <li>
                                     <span class="modifier">Async</span>
                                 <a href="#findAllByParentIds" >findAllByParentIds</a>
@@ -104,6 +106,13 @@
                                 <a href="#findTasksAndCount" >findTasksAndCount</a>
                             </li>
                             <li>
+                                <a href="#create" >create</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#delete" >delete</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Async</span>
                                 <a href="#save" >save</a>
                             </li>
@@ -115,135 +124,30 @@
 
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#entityName" >entityName</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
         </tbody>
     </table>
 </section>
 
-            <section>
-    <h3 id="constructor">Constructor</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-<code>constructor(em: EntityManager)</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">apps/server/src/shared/repo/task/task.repo.ts:9</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                            <div>
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>em</td>
-                                                  
-                                                        <td>
-                                                                    <code>EntityManager</code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-</section>
 
             <section>
     
     <h3 id="methods">
         Methods
     </h3>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="delete"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>delete</b></span>
-                        <a href="#delete"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>delete(task: <a href="../classes/Task.html" target="_self">Task</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="200"
-                            class="link-to-prism">apps/server/src/shared/repo/task/task.repo.ts:200</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>task</td>
-                                    <td>
-                                                <code><a href="../classes/Task.html" target="_self" >Task</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -266,8 +170,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="103"
-                            class="link-to-prism">apps/server/src/shared/repo/task/task.repo.ts:103</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="89"
+                            class="link-to-prism">apps/server/src/shared/repo/task/task.repo.ts:89</a></div>
                 </td>
             </tr>
 
@@ -381,8 +285,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">apps/server/src/shared/repo/task/task.repo.ts:22</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="21"
+                            class="link-to-prism">apps/server/src/shared/repo/task/task.repo.ts:21</a></div>
                 </td>
             </tr>
 
@@ -464,8 +368,14 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="12"
-                            class="link-to-prism">apps/server/src/shared/repo/task/task.repo.ts:12</a></div>
+                    <div class="io-line">Inherited from         <code><a href="../injectables/BaseRepo.html" target="_self" >BaseRepo</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:15</a></code>
+</div>
                 </td>
             </tr>
 
@@ -535,8 +445,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="161"
-                            class="link-to-prism">apps/server/src/shared/repo/task/task.repo.ts:161</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="147"
+                            class="link-to-prism">apps/server/src/shared/repo/task/task.repo.ts:147</a></div>
                 </td>
             </tr>
 
@@ -643,8 +553,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="187"
-                            class="link-to-prism">apps/server/src/shared/repo/task/task.repo.ts:187</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="173"
+                            class="link-to-prism">apps/server/src/shared/repo/task/task.repo.ts:173</a></div>
                 </td>
             </tr>
 
@@ -708,26 +618,30 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="save"></a>
+                    <a name="create"></a>
                     <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>save</b></span>
-                        <a href="#save"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>create</b></span>
+                        <a href="#create"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>save(task: <a href="../classes/Task.html" target="_self">Task</a>)</code>
+<code>create(entity: T)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="18"
-                            class="link-to-prism">apps/server/src/shared/repo/task/task.repo.ts:18</a></div>
+                    <div class="io-line">Inherited from         <code><a href="../injectables/BaseRepo.html" target="_self" >BaseRepo</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:16</a></code>
+</div>
                 </td>
             </tr>
 
@@ -748,9 +662,163 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>task</td>
+                                    <td>entity</td>
                                     <td>
-                                                <code><a href="../classes/Task.html" target="_self" >Task</a></code>
+                                            <code>T</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>T</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="delete"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>delete</b></span>
+                        <a href="#delete"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>delete(entities: T | T[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../injectables/BaseRepo.html" target="_self" >BaseRepo</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:24</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>entities</td>
+                                    <td>
+                                            <code>T | T[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="save"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>save</b></span>
+                        <a href="#save"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>save(entities: T | T[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../injectables/BaseRepo.html" target="_self" >BaseRepo</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:20</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>entities</td>
+                                    <td>
+                                            <code>T | T[]</code>
                                     </td>
 
                                     <td>
@@ -777,29 +845,55 @@
     </table>
 </section>
 
+            <section>
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="entityName"></a>
+                        <span class="name"><b>entityName</b><a href="#entityName"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>entityName()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">apps/server/src/shared/repo/task/task.repo.ts:11</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { FilterQuery, QueryOrderMap } from &#x27;@mikro-orm/core&#x27;;
-import { EntityManager } from &#x27;@mikro-orm/mongodb&#x27;;
-
-import { EntityId, IFindOptions, Task, Counted, SortOrder } from &#x27;@shared/domain&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { FilterQuery } from &#x27;@mikro-orm/core&#x27;;
+import { Injectable } from &#x27;@nestjs/common&#x27;;
+import { Task } from &#x27;@shared/domain/entity&#x27;;
+import { IFindOptions, SortOrder } from &#x27;@shared/domain/interface&#x27;;
+import { Counted, EntityId } from &#x27;@shared/domain/types&#x27;;
+import { BaseRepo } from &#x27;../base.repo&#x27;;
 import { TaskScope } from &#x27;./task-scope&#x27;;
 
 @Injectable()
-export class TaskRepo {
-	constructor(private readonly em: EntityManager) {}
-
-	async findById(id: EntityId): Promise&lt;Task&gt; {
-		const task &#x3D; await this.em.findOneOrFail(Task, { id });
-		await this.em.populate(task, [&#x27;course&#x27;, &#x27;lesson&#x27;, &#x27;submissions&#x27;]);
-		return task;
+export class TaskRepo extends BaseRepo&lt;Task&gt; {
+	get entityName() {
+		return Task;
 	}
 
-	async save(task: Task): Promise&lt;void&gt; {
-		await this.em.persistAndFlush(task);
+	async findById(id: EntityId): Promise&lt;Task&gt; {
+		const task &#x3D; await super.findById(id);
+		await this._em.populate(task, [&#x27;course&#x27;, &#x27;lesson&#x27;, &#x27;submissions&#x27;, &#x27;files&#x27;]);
+		return task;
 	}
 
 	async findAllFinishedByParentIds(
@@ -812,8 +906,6 @@ export class TaskRepo {
 		},
 		options?: IFindOptions&lt;Task&gt;
 	): Promise&lt;Counted&lt;Task[]&gt;&gt; {
-		const { pagination } &#x3D; options || {};
-
 		const scope &#x3D; new TaskScope(&#x27;$or&#x27;);
 
 		const parentsOpen &#x3D; new TaskScope(&#x27;$or&#x27;);
@@ -856,20 +948,9 @@ export class TaskRepo {
 		scope.addQuery(allForFinishedCoursesAndLessons.query);
 		scope.addQuery(allForCreator.query);
 
-		// The dueDate can be similar to solve pagination request missmatches we must sort it over id too.
-		// Because after executing limit() in mongoDB it is resort by similar dueDates.
-		// It exist indexes for dueDate and for _id but no combined index, because it is to expensive for only small performance boost.
-		const order &#x3D; { dueDate: SortOrder.desc, id: SortOrder.asc };
+		const countedTaskList &#x3D; await this.findTasksAndCount(scope.query, options);
 
-		const [tasks, count] &#x3D; await this.em.findAndCount(Task, scope.query, {
-			offset: pagination?.skip,
-			limit: pagination?.limit,
-			orderBy: order,
-		});
-
-		await this.em.populate(tasks, [&#x27;course&#x27;, &#x27;lesson&#x27;, &#x27;submissions&#x27;]);
-
-		return [tasks, count];
+		return countedTaskList;
 	}
 
 	/**
@@ -968,20 +1049,27 @@ export class TaskRepo {
 	}
 
 	private async findTasksAndCount(query: FilterQuery&lt;Task&gt;, options?: IFindOptions&lt;Task&gt;): Promise&lt;Counted&lt;Task[]&gt;&gt; {
-		const { pagination, order } &#x3D; options || {};
-		const [taskEntities, count] &#x3D; await this.em.findAndCount(Task, query, {
+		const pagination &#x3D; options?.pagination || {};
+		const order &#x3D; options?.order || {};
+
+		// In order to solve pagination missmatches we apply a default order by _id. This is necessary
+		// because other fields like the dueDate can be equal or null.
+		// When pagination is used, sorting takes place on every page and if ambiguous leads to unwanted results.
+		// Note: Indexes for dueDate and for _id do exist but there&#x27;s no combined index.
+		// This is okay, because the combined index would be too expensive for the particular purpose here.
+		if (order._id &#x3D;&#x3D; null) {
+			order._id &#x3D; SortOrder.asc;
+		}
+
+		const [taskEntities, count] &#x3D; await this._em.findAndCount(Task, query, {
 			offset: pagination?.skip,
 			limit: pagination?.limit,
-			orderBy: order as QueryOrderMap&lt;Task&gt;,
+			orderBy: order,
 		});
 
-		await this.em.populate(taskEntities, [&#x27;course&#x27;, &#x27;lesson&#x27;, &#x27;submissions&#x27;]);
+		await this._em.populate(taskEntities, [&#x27;course&#x27;, &#x27;lesson&#x27;, &#x27;submissions&#x27;]);
 
 		return [taskEntities, count];
-	}
-
-	async delete(task: Task): Promise&lt;void&gt; {
-		await this.em.removeAndFlush(task);
 	}
 }
 </code></pre>

@@ -78,6 +78,9 @@
                                 <a href="#color" >color</a>
                             </li>
                             <li>
+                                <a href="#courseGroups" >courseGroups</a>
+                            </li>
+                            <li>
                                 <a href="#description" >description</a>
                             </li>
                             <li>
@@ -158,7 +161,41 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">apps/server/src/shared/domain/entity/course.entity.ts:57</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">apps/server/src/shared/domain/entity/course.entity.ts:60</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="courseGroups"></a>
+                    <span class="name">
+                        <span ><b>courseGroups</b></span>
+                        <a href="#courseGroups"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Collection&lt;CourseGroup&gt;(this)</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @OneToMany(&#x27;CourseGroup&#x27;, &#x27;course&#x27;, {orphanRemoval: true})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">apps/server/src/shared/domain/entity/course.entity.ts:56</a></div>
                         </td>
                     </tr>
 
@@ -309,7 +346,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">apps/server/src/shared/domain/entity/course.entity.ts:68</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">apps/server/src/shared/domain/entity/course.entity.ts:71</a></div>
                         </td>
                     </tr>
 
@@ -345,7 +382,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">apps/server/src/shared/domain/entity/course.entity.ts:60</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">apps/server/src/shared/domain/entity/course.entity.ts:63</a></div>
                         </td>
                     </tr>
 
@@ -483,7 +520,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">apps/server/src/shared/domain/entity/course.entity.ts:64</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">apps/server/src/shared/domain/entity/course.entity.ts:67</a></div>
                         </td>
                     </tr>
 
@@ -495,12 +532,12 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Entity, Property, Index, ManyToOne, ManyToMany, Collection, Unique } from &#x27;@mikro-orm/core&#x27;;
-
-import { ILearnroom } from &#x27;@shared/domain/interface&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Collection, Entity, Index, ManyToMany, ManyToOne, OneToMany, Property, Unique } from &#x27;@mikro-orm/core&#x27;;
+import { InternalServerErrorException } from &#x27;@nestjs/common/exceptions/internal-server-error.exception&#x27;;
+import { IEntityWithSchool, ILearnroom } from &#x27;@shared/domain/interface&#x27;;
 import { LearnroomMetadata, LearnroomTypes } from &#x27;../types&#x27;;
-
 import { BaseEntityWithTimestamps } from &#x27;./base.entity&#x27;;
+import { CourseGroup } from &#x27;./coursegroup.entity&#x27;;
 import type { School } from &#x27;./school.entity&#x27;;
 import type { User } from &#x27;./user.entity&#x27;;
 
@@ -526,7 +563,7 @@ const DEFAULT &#x3D; {
 };
 
 @Entity({ tableName: &#x27;courses&#x27; })
-export class Course extends BaseEntityWithTimestamps implements ILearnroom {
+export class Course extends BaseEntityWithTimestamps implements ILearnroom, IEntityWithSchool {
 	@Property()
 	name: string &#x3D; DEFAULT.name;
 
@@ -549,6 +586,9 @@ export class Course extends BaseEntityWithTimestamps implements ILearnroom {
 	@ManyToMany(&#x27;User&#x27;, undefined, { fieldName: &#x27;substitutionIds&#x27; })
 	substitutionTeachers &#x3D; new Collection&lt;User&gt;(this);
 
+	@OneToMany(&#x27;CourseGroup&#x27;, &#x27;course&#x27;, { orphanRemoval: true })
+	courseGroups &#x3D; new Collection&lt;CourseGroup&gt;(this);
+
 	// TODO: string color format
 	@Property()
 	color: string &#x3D; DEFAULT.color;
@@ -569,25 +609,32 @@ export class Course extends BaseEntityWithTimestamps implements ILearnroom {
 		if (props.name) this.name &#x3D; props.name;
 		if (props.description) this.description &#x3D; props.description;
 		this.school &#x3D; props.school;
-		if (props.students) this.students.set(props.students);
-		if (props.teachers) this.teachers.set(props.teachers);
-		if (props.substitutionTeachers) this.substitutionTeachers.set(props.substitutionTeachers);
+		this.students.set(props.students || []);
+		this.teachers.set(props.teachers || []);
+		this.substitutionTeachers.set(props.substitutionTeachers || []);
 		if (props.color) this.color &#x3D; props.color;
 		if (props.untilDate) this.untilDate &#x3D; props.untilDate;
 		if (props.startDate) this.startDate &#x3D; props.startDate;
 	}
 
-	getNumberOfStudents(): number {
-		return this.students.length;
+	private getShortTitle(): string {
+		if (this.name.length &#x3D;&#x3D;&#x3D; 1) {
+			return this.name;
+		}
+		const [firstChar, secondChar] &#x3D; [...this.name];
+		const pattern &#x3D; /\p{Extended_Pictographic}/u;
+		if (pattern.test(firstChar)) {
+			return firstChar;
+		}
+		return firstChar + secondChar;
 	}
 
-	isFinished(): boolean {
-		if (!this.untilDate) {
-			return false;
+	getCourseGroupItems(): CourseGroup[] {
+		if (!this.courseGroups.isInitialized(true)) {
+			throw new InternalServerErrorException(&#x27;Courses trying to access their course groups that are not loaded.&#x27;);
 		}
-		const isFinished &#x3D; this.untilDate &lt; new Date();
-
-		return isFinished;
+		const courseGroups &#x3D; this.courseGroups.getItems();
+		return courseGroups;
 	}
 
 	getMetadata(): LearnroomMetadata {
@@ -602,13 +649,17 @@ export class Course extends BaseEntityWithTimestamps implements ILearnroom {
 		};
 	}
 
-	private getShortTitle(): string {
-		const [firstChar, secondChar] &#x3D; [...this.name];
-		const pattern &#x3D; /\p{Emoji}/u;
-		if (pattern.test(firstChar)) {
-			return firstChar;
+	getNumberOfStudents(): number {
+		return this.students.length;
+	}
+
+	isFinished(): boolean {
+		if (!this.untilDate) {
+			return false;
 		}
-		return firstChar + secondChar;
+		const isFinished &#x3D; this.untilDate &lt; new Date();
+
+		return isFinished;
 	}
 }
 </code></pre>

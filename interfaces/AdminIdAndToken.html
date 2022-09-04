@@ -177,7 +177,9 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpService, Inject, Injectable } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpService } from &#x27;@nestjs/axios&#x27;;
+import { Inject, Injectable } from &#x27;@nestjs/common&#x27;;
+import { lastValueFrom } from &#x27;rxjs&#x27;;
 import { catchError } from &#x27;rxjs/operators&#x27;;
 
 export interface RocketChatOptions {
@@ -188,7 +190,7 @@ export interface RocketChatOptions {
 	adminToken?: string;
 }
 
-type GenericData &#x3D; Record&lt;string, any&gt;;
+type GenericData &#x3D; Record&lt;string, unknown&gt;;
 
 export class RocketChatError extends Error {
 	private statusCode: number;
@@ -343,38 +345,40 @@ export class RocketChatService {
 	}
 
 	private async get(path: string, authToken: string, userId: string): Promise&lt;GenericData&gt; {
-		const response &#x3D; await this.httpService
-			// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-			.get(&#x60;${this.options.uri}${path}&#x60;, {
-				headers: {
-					&#x27;X-Auth-Token&#x27;: authToken,
-					&#x27;X-User-ID&#x27;: userId,
-				},
-			})
-			.pipe(
-				catchError((e) &#x3D;&gt; {
-					throw new RocketChatError(e);
+		const response &#x3D; await lastValueFrom(
+			this.httpService
+				// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+				.get(&#x60;${this.options.uri}${path}&#x60;, {
+					headers: {
+						&#x27;X-Auth-Token&#x27;: authToken,
+						&#x27;X-User-ID&#x27;: userId,
+					},
 				})
-			)
-			.toPromise();
+				.pipe(
+					catchError((e) &#x3D;&gt; {
+						throw new RocketChatError(e);
+					})
+				)
+		);
 		return response?.data as GenericData;
 	}
 
 	private async post(path: string, authToken: string, userId: string, body: GenericData): Promise&lt;GenericData&gt; {
-		const response &#x3D; await this.httpService
-			// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-			.post(&#x60;${this.options.uri}${path}&#x60;, body, {
-				headers: {
-					&#x27;X-Auth-Token&#x27;: authToken,
-					&#x27;X-User-ID&#x27;: userId,
-				},
-			})
-			.pipe(
-				catchError((e) &#x3D;&gt; {
-					throw new RocketChatError(e);
+		const response &#x3D; await lastValueFrom(
+			this.httpService
+				// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+				.post(&#x60;${this.options.uri}${path}&#x60;, body, {
+					headers: {
+						&#x27;X-Auth-Token&#x27;: authToken,
+						&#x27;X-User-ID&#x27;: userId,
+					},
 				})
-			)
-			.toPromise();
+				.pipe(
+					catchError((e) &#x3D;&gt; {
+						throw new RocketChatError(e);
+					})
+				)
+		);
 		return response?.data as GenericData;
 	}
 
@@ -390,18 +394,19 @@ export class RocketChatService {
 			this.adminIdAndToken &#x3D; newVar;
 			return newVar;
 		}
-		const response &#x3D; await this.httpService
-			// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-			.post(&#x60;${this.options.uri}/api/v1/login&#x60;, {
-				user: this.options.adminUser,
-				password: this.options.adminPassword,
-			})
-			.pipe(
-				catchError((e) &#x3D;&gt; {
-					throw new RocketChatError(e);
+		const response &#x3D; await lastValueFrom(
+			this.httpService
+				// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+				.post(&#x60;${this.options.uri}/api/v1/login&#x60;, {
+					user: this.options.adminUser,
+					password: this.options.adminPassword,
 				})
-			)
-			.toPromise();
+				.pipe(
+					catchError((e) &#x3D;&gt; {
+						throw new RocketChatError(e);
+					})
+				)
+		);
 
 		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 		const responseJson &#x3D; response?.data;

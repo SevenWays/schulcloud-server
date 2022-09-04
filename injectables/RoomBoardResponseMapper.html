@@ -69,6 +69,29 @@
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#mapBoardElements" >mapBoardElements</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#mapLesson" >mapLesson</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#mapTask" >mapTask</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -119,8 +142,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">apps/server/src/modules/learnroom/mapper/room-board-response.mapper.ts:15</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="9"
+                            class="link-to-prism">apps/server/src/modules/learnroom/mapper/room-board-response.mapper.ts:9</a></div>
                 </td>
             </tr>
 
@@ -169,92 +192,173 @@
         </tbody>
     </table>
 </section>
+            <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mapBoardElements"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>mapBoardElements</b></span>
+                        <a href="#mapBoardElements"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">apps/server/src/modules/learnroom/mapper/room-board-response.mapper.ts:22</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mapLesson"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>mapLesson</b></span>
+                        <a href="#mapLesson"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">apps/server/src/modules/learnroom/mapper/room-board-response.mapper.ts:60</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mapTask"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>mapTask</b></span>
+                        <a href="#mapTask"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">apps/server/src/modules/learnroom/mapper/room-board-response.mapper.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
 
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { Course, Lesson, TaskWithStatusVo } from &#x27;@shared/domain&#x27;;
-import {
-	BoardResponse,
-	BoardElementResponse,
-	BoardTaskResponse,
-	BoardLessonResponse,
-	BoardLockedTaskResponse,
-} from &#x27;../controller/dto/board-task.response&#x27;;
-import { RoomBoardDTO, LockedTaskDTO, RoomBoardElementTypes } from &#x27;../types&#x27;;
+import { Course, TaskWithStatusVo } from &#x27;@shared/domain&#x27;;
+import { BoardElementResponse, BoardLessonResponse, BoardResponse, BoardTaskResponse } from &#x27;../controller/dto&#x27;;
+import { LessonMetaData, RoomBoardDTO, RoomBoardElementTypes } from &#x27;../types&#x27;;
 import { BoardTaskStatusMapper } from &#x27;./board-taskStatus.mapper&#x27;;
 
 @Injectable()
 export class RoomBoardResponseMapper {
 	mapToResponse(board: RoomBoardDTO): BoardResponse {
-		const elements: BoardElementResponse[] &#x3D; [];
-		board.elements.forEach((element) &#x3D;&gt; {
-			if (element.type &#x3D;&#x3D;&#x3D; RoomBoardElementTypes.TASK) {
-				const { task: boardTask, status } &#x3D; element.content as TaskWithStatusVo;
-				const boardTaskDesc &#x3D; boardTask.getParentData();
-				const boardTaskStatus &#x3D; BoardTaskStatusMapper.mapToResponse(status);
+		const elements &#x3D; this.mapBoardElements(board);
 
-				const mappedTask &#x3D; new BoardTaskResponse({
-					id: boardTask.id,
-					name: boardTask.name,
-					createdAt: boardTask.createdAt,
-					updatedAt: boardTask.updatedAt,
-					status: boardTaskStatus,
-				});
-
-				const taskCourse &#x3D; boardTask.course as Course;
-				mappedTask.courseName &#x3D; taskCourse.name;
-				mappedTask.availableDate &#x3D; boardTask.availableDate;
-				mappedTask.duedate &#x3D; boardTask.dueDate;
-				mappedTask.displayColor &#x3D; boardTaskDesc.color;
-				mappedTask.description &#x3D; boardTask.description;
-				const boardElementResponse &#x3D; new BoardElementResponse({
-					type: RoomBoardElementTypes.TASK,
-					content: mappedTask,
-				});
-				elements.push(boardElementResponse);
-			} else if (element.type &#x3D;&#x3D;&#x3D; RoomBoardElementTypes.LESSON) {
-				const boardLesson &#x3D; element.content as Lesson;
-
-				const mappedLesson &#x3D; new BoardLessonResponse({
-					id: boardLesson.id,
-					name: boardLesson.name,
-					hidden: boardLesson.hidden,
-					createdAt: boardLesson.createdAt,
-					updatedAt: boardLesson.updatedAt,
-				});
-
-				const lessonCourse &#x3D; boardLesson.course;
-				mappedLesson.courseName &#x3D; lessonCourse.name;
-
-				const boardElementResponse &#x3D; new BoardElementResponse({
-					type: RoomBoardElementTypes.LESSON,
-					content: mappedLesson,
-				});
-				elements.push(boardElementResponse);
-			} else if (element.type &#x3D;&#x3D;&#x3D; RoomBoardElementTypes.LOCKEDTASK) {
-				const data &#x3D; element.content as LockedTaskDTO;
-				const mappedLockedTask &#x3D; new BoardLockedTaskResponse({
-					id: data.id,
-					name: data.name,
-				});
-				const boardElementResponse &#x3D; new BoardElementResponse({
-					type: RoomBoardElementTypes.LOCKEDTASK,
-					content: mappedLockedTask,
-				});
-				elements.push(boardElementResponse);
-			}
-		});
 		const mapped &#x3D; new BoardResponse({
 			roomId: board.roomId,
 			title: board.title,
 			displayColor: board.displayColor,
 			elements,
 		});
+
 		return mapped;
 	}
+
+	private mapBoardElements &#x3D; (board: RoomBoardDTO): BoardElementResponse[] &#x3D;&gt; {
+		const elements: BoardElementResponse[] &#x3D; [];
+		board.elements.forEach((element) &#x3D;&gt; {
+			if (element.type &#x3D;&#x3D;&#x3D; RoomBoardElementTypes.TASK) {
+				elements.push(this.mapTask(element.content as TaskWithStatusVo));
+			} else if (element.type &#x3D;&#x3D;&#x3D; RoomBoardElementTypes.LESSON) {
+				elements.push(this.mapLesson(element.content as LessonMetaData));
+			}
+		});
+		return elements;
+	};
+
+	private mapTask &#x3D; (taskWithStatus: TaskWithStatusVo): BoardElementResponse &#x3D;&gt; {
+		const { task: boardTask, status } &#x3D; taskWithStatus;
+		const boardTaskDesc &#x3D; boardTask.getParentData();
+		const boardTaskStatus &#x3D; BoardTaskStatusMapper.mapToResponse(status);
+
+		const mappedTask &#x3D; new BoardTaskResponse({
+			id: boardTask.id,
+			name: boardTask.name,
+			createdAt: boardTask.createdAt,
+			updatedAt: boardTask.updatedAt,
+			status: boardTaskStatus,
+		});
+
+		const taskCourse &#x3D; boardTask.course as Course;
+		mappedTask.courseName &#x3D; taskCourse.name;
+		mappedTask.availableDate &#x3D; boardTask.availableDate;
+		mappedTask.duedate &#x3D; boardTask.dueDate;
+		mappedTask.displayColor &#x3D; boardTaskDesc.color;
+		mappedTask.description &#x3D; boardTask.description;
+		const boardElementResponse &#x3D; new BoardElementResponse({
+			type: RoomBoardElementTypes.TASK,
+			content: mappedTask,
+		});
+		return boardElementResponse;
+	};
+
+	private mapLesson &#x3D; (lesson: LessonMetaData): BoardElementResponse &#x3D;&gt; {
+		const mappedLesson &#x3D; new BoardLessonResponse({
+			id: lesson.id,
+			name: lesson.name,
+			hidden: lesson.hidden,
+			createdAt: lesson.createdAt,
+			updatedAt: lesson.updatedAt,
+			numberOfPublishedTasks: lesson.numberOfPublishedTasks,
+			numberOfDraftTasks: lesson.numberOfDraftTasks,
+			numberOfPlannedTasks: lesson.numberOfPlannedTasks,
+			courseName: lesson.courseName,
+		});
+
+		const boardElementResponse &#x3D; new BoardElementResponse({
+			type: RoomBoardElementTypes.LESSON,
+			content: mappedLesson,
+		});
+		return boardElementResponse;
+	};
 }
 </code></pre>
     </div>

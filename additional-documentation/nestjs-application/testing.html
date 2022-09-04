@@ -54,21 +54,6 @@
 <h1 id="testing">Testing</h1>
 <p>Automated testing is the essential part of the software development process.
 It improves the code quality and ensure that the code operates correctly especially after refactoring.</p>
-<h2 id="the-different-tests">The Different Tests</h2>
-<img src="../../assets/testing-hierarchy.png" alt="Testing Hierarchy" style="float:right;width:300px;">
-
-<p>Our goal is to test each application layer mostly independent of others.</p>
-<ul>
-<li><strong>Repo tests</strong> operate on data access layer.
-They prove that the database queries are executed correctly.</li>
-<li><strong>Use case tests</strong> operate on logic layer.
-They verify the correct implementation of the business requirements.</li>
-<li><strong>Mapper tests</strong> operate between logic and service layer.
-They verify the correct mapping between domain objects and objects delivered to the clients via REST API.</li>
-<li><strong>End-to-end tests</strong> operate on all layers of the application.
-The testing endpoint is the service layer. These tests verify the availability of the expected endpoints and checks
-the expected status codes and the structure of the received objects.</li>
-</ul>
 <h2 id="general-test-conventions">General Test Conventions</h2>
 <h3 id="lean-tests">Lean Tests</h3>
 <p>The tests should be as simple to read and understand as possible. They should be effortless to write and change, in order to not slow down development. Wherever possible:</p>
@@ -183,9 +168,56 @@ Every provider can be overwritten with custom provider implementation for testin
 
       sampleService = moduleRef.get&lt;SampleService&gt;(SampleService);
       sampleController = moduleRef.get&lt;SampleController&gt;(CatsController);
-    });</code></pre></div><h2 id="unit-tests-vs-integration-tests">Unit Tests vs Integration Tests</h2>
-<p>In Unit Tests we access directly only the layer which is currently testing.
-Other layers should be mocked or are replaced with default testing implementation.
+    });</code></pre></div><h2 id="mocking">Mocking</h2>
+<p>Using the utilities provided by NestJs, we can easily inject mocks into our testing module. The mocks themselves, we create using a <a href="https://www.npmjs.com/package/@golevelup/ts-jest">library</a> by @golevelup.</p>
+<p>You can create a mock using <code>createMock&lt;Class&gt;()</code>. As result you will recieved a <code>DeepMocked&lt;Class&gt;</code></p>
+<div><pre class="line-numbers"><code class="language-Typescript">let fut: FeatureUnderTest;
+let mockService: DeepMocked&lt;MockService&gt;;
+
+beforeEach(async () =&gt; {
+    const module = await Test.createTestingModule({
+        providers: [
+            FeatureUnderTest,
+            {
+                provide: MockService,
+                useValue: createMock&lt;MockService&gt;(),
+            },
+        ],
+    }).compile();
+
+    fut = module.get(FeatureUnderTest);
+    mockService = module.get(MockService);
+});
+
+afterEach(async () =&gt; {
+    await module.close();
+});</code></pre></div><p>the resulting mock has all the functions of the original <code>Class</code>, replaced with jest spies. This gives you the full intellij features of the original class including code completion and typesavety, combined with all the features of spies.</p>
+<div><pre class="line-numbers"><code class="language-Typescript">describe(&#39;somefunction&#39;, () =&gt; {
+    describe(&#39;when service returns user&#39;, () =&gt; {
+        const setup = () =&gt; {
+            const resultUser = userFactory.buildWithId();
+
+            mockService.getUser.mockReturnValue(resultUser);
+
+            return { resultUser };
+        };
+
+        it(&#39;should call service&#39;, async () =&gt; {
+            setup();
+            await fut.somefunction();
+            expect(mockService.getUser).toHaveBeenCalled();
+        });
+
+        it(&#39;should return user passed by service&#39;, async () =&gt; {
+            const { resultUser } = setup();
+            const result = await fut.somefunction();
+            expect(result).toEqual(resultUser);
+        });
+    });
+});
+</code></pre></div><h2 id="unit-tests-vs-integration-tests">Unit Tests vs Integration Tests</h2>
+<p>In Unit Tests we access directly only the component which is currently testing.
+Any dependencies should be mocked or are replaced with default testing implementation.
 Especially the database access and database calls should be mocked.</p>
 <p>In contrast to unit tests the integration tests use access to the database and execute
 real queries using repositories.</p>
@@ -247,162 +279,22 @@ Therefore, the <code>*.repo.integration.spec.js</code> should be used.</p>
 <p>Mapping tests are Unit Tests which verify the correct mapping between entities and Dto objects.
 These tests should not have any external dependencies to other layers like database or use cases.</p>
 <h3 id="use-case-tests">Use Case Tests</h3>
-<p>Use case tests are Unit Tests which verify the business logic of the application.
-The database calls are mocked and spyied. So we can check how and with which parameters the repo functions are called.</p>
+<p>Since a <a href="./architecture.md#domain-layer">usecase</a> only contains orchestration, its tests should be decoupled from the components it depends on. We thus use unittests to verify the orchestration where necessary</p>
 <blockquote>
-<p>Use unit-tests to ensure a use-cases logic matches the given requirements (from a [user-]story).</p>
+<p>All Dependencies should be mocked.</p>
 </blockquote>
 <blockquote>
-<p>A unit test should cover preconditions, allowed input, the result, and expected exceptions defined by the story, and roughly what happens on malformed input (the execution should stop).</p>
+<p>Use Spies to verify necessary steps, such as authorisation checks.</p>
 </blockquote>
-<h4 id="preconditions">Preconditions</h4>
-<ol>
-<li>Create <code>Nest JS testing module</code></li>
-<li>Use <code>Repo</code> as provider reimplement the repo functions with some default implementations</li>
-<li>Provide other dependencies like <code>AuthorizationService</code> and provide default implementation for the function, which are called.</li>
-<li>Get repo and uc from testing module</li>
-</ol>
-<div><pre class="line-numbers"><code class="language-TypeScript">      const module: TestingModule = await Test.createTestingModule({ (1)
-            imports: [LoggerModule],
-            providers: [
-                NewsUc,
-                {
-                    provide: NewsRepo,                                  (2)
-                    useValue: {
-                        save() {
-                            ...
-                        },
-                        findAll() {
-                            ...
-                        },
-                    },
-                },
-                {
-                    provide: AuthorizationService,                      (3)
-                    useValue: {
-                        getPermittedEntities(userId, targetModel, permissions) {
-                            ...
-                        },
-                    },
-                },
-            ],
-        }).compile();
-
-        service = module.get(NewsUc);                                    (4)
-        repo = module.get(NewsRepo);</code></pre></div><h4 id="test">Test</h4>
-<ol>
-<li>Spy repo function which is called inside the tested use case</li>
-<li>Call the tested function</li>
-<li>Verify that the repo spy is called with the expected functions</li>
-</ol>
-<div><pre class="line-numbers"><code class="language-Typescript">        it(&#39;should search for news by empty scope &#39;, async () =&gt; {
-            const findAllSpy = jest.spyOn(repo, &#39;findAll&#39;);             (1)
-            await service.findAllForUser(userId, scope, pagination);    (2)
-            const expectedParams = [targets, false, pagination];
-            expect(findAllSpy).toHaveBeenCalledWith(...expectedParams); (3)
-        });</code></pre></div><h4 id="testing-expected-error">Testing expected error</h4>
-<ol>
-<li>Execute the function with the expected exception in expect context than define how and with which exception
-the function should be rejected</li>
-</ol>
-<blockquote>
-<p>Don&#39;t forget to add &#39;await&#39; before expect, otherwise the test will be executed successfully regardless assertions
-and throw an error in log after the test execution.</p>
-</blockquote>
-<div><pre class="line-numbers"><code class="language-Typescript">        it(&#39;should throw not found exception if news was not found&#39;, async () =&gt; {
-            const anotherNewsId = new ObjectId().toHexString();
-            await expect(service.findOneByIdForUser(anotherNewsId, userId)).rejects.toThrow(NotFoundException);  (1)
-        });</code></pre></div><h2 id="e2e-tests">E2E Tests</h2>
+<p>to be documented</p>
+<h2 id="e2e-tests">E2E Tests</h2>
 <p>Unlike unit testing, which focuses on individual modules, end-to-end testing covers the interaction between classes and
 modules at a more aggregate level. Automated end-to-end tests help us to ensure that the overall behavior of the system is correct.</p>
 <h3 id="controller-tests">Controller Tests</h3>
-<p>To test the setup behind a controller, use e2e-tests to ensure, use cases and repositories below
-are correctly mounted and available at a specific path.</p>
-<blockquote>
-<p>A controller unit test should ensure it responds with the correct data-format and a referenced use-case is called correctly.</p>
-</blockquote>
-<blockquote>
-<p>Authentication and response codes can be unit tested.</p>
-</blockquote>
-<blockquote>
-<p>Do not test logic (from the business layer or repository) in e2e-tests, this must be done where the logic is defined within of a unit test. A e2e test should only ensure everything is correctly initialized.</p>
-</blockquote>
-<blockquote>
-<p>Do not put logic (beside statements, transactions, mapping) inside a controller, use the logic layer instead.</p>
-</blockquote>
-<blockquote>
-<p>Mappers must be unit tested.</p>
-</blockquote>
-<h4 id="preconditions-1">Preconditions</h4>
-<ol>
-<li>Create Nest testing module</li>
-<li>Import <code>ServerModule</code> as the whole</li>
-<li>Override authentication using <code>JwAuthGuard</code>
-3.1 Override authorized user with the mocked user data</li>
-<li>Override other services for example for authorization</li>
-<li>Create and initialize the whole Nest Application using <code>createNestApplication()</code></li>
-<li>Get Orm and Entity Manager from module</li>
-</ol>
-<div><pre class="line-numbers"><code class="language-Typescript">
-    beforeAll(async () =&gt; {
-        const module: TestingModule = await Test.createTestingModule({  (1)
-            imports: [ServerModule],                                    (2)
-        })
-            .overrideGuard(JwtAuthGuard)                                (3)
-            .useValue({
-                canActivate(context: ExecutionContext) {
-                    const req: Request = context.switchToHttp().getRequest();
-                    req.user = {                                        (3.1)
-                            userId: &#39;0000d224816abba584714c9c&#39;,
-                            roles: [],
-                            schoolId: &#39;5f2987e020834114b8efd6f8&#39;,
-                            accountId: &#39;0000d225816abba584714c9d&#39;,
-                    };
-                    return true;
-                },
-            })
-            .overrideProvider(AuthorizationService)                     (4)
-            .useValue({
-                checkEntityPermissions() {},
-                getEntityPermissions() {
-                    return [&#39;NEWS_VIEW&#39;, &#39;NEWS_EDIT&#39;];
-                },
-            })
-            .compile();
-
-        app = module.createNestApplication();                           (5)
-        await app.init();
-        orm = module.get(MikroORM);                                     (6)
-        em = module.get(EntityManager);
-    });</code></pre></div><h4 id="clean-up">Clean up</h4>
-<p>After Each test delete the created data in test to have a clean database for the next test.</p>
-<div><pre class="line-numbers"><code class="language-Typescript">    afterEach(async () =&gt; {
-        await em.nativeDelete(News, {});
-    });</code></pre></div><h4 id="post-conditions">Post Conditions</h4>
-<p>After all tests are executed close the app and orm to release the resources</p>
-<div><pre class="line-numbers"><code class="language-Typescript">    afterAll(async () =&gt; {
-        await app.close();
-        await orm.close();
-    });</code></pre></div><h4 id="test-1">Test</h4>
-<p>An example e2e test uses app http server to call the tested url.
-The <code>request()</code> function from the <code>supertest</code> library simulates HTTP request.
-The response can be verified by checking the response code or by applying some verification to the result object.</p>
-<div><pre class="line-numbers"><code class="language-Typescript">    describe(&#39;GET /news&#39;, () =&gt; {
-      it(&#39;should get empty response if there is no news&#39;, async () =&gt; {
-        const response = await request(app.getHttpServer()).get(`/news`).expect(200);
-        const {data, total} = response.body as NewsListResponse;
-        expect(total).toBe(0);
-        expect(data.length).toBe(0);
-      });
-    });</code></pre></div><blockquote>
-<p>Don&#39;t forget to test HTTP error codes as well</p>
-</blockquote>
+<p>to be documented</p>
 <h2 id="references">References</h2>
 <p>This guide is inspired by <a href="https://github.com/goldbergyoni/javascript-testing-best-practices/">https://github.com/goldbergyoni/javascript-testing-best-practices/</a></p>
-<div><pre class="line-numbers"><code class="language-Typescript">        it(&#39;should throw not found error, if news doesnt exists&#39;, async () =&gt; {
-            const newsId = new ObjectId().toHexString();
-            await request(app.getHttpServer()).delete(`/news/${newsId}`).expect(404);
-        });</code></pre></div>
+
                    </div><div class="search-results">
     <div class="has-results">
         <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>

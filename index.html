@@ -67,24 +67,23 @@ Master: <a href="https://codecov.io/gh/hpi-schul-cloud/schulcloud-server"><img s
 </ul>
 <p>When these paths are accessed an error with context <code>[DEPRECATED-PATH]</code> is logged.</p>
 <h2 id="setup">Setup</h2>
-<p>For more detailed setup instructions, take a look at <a href="https://docs.hpi-schul-cloud.org/display/SCDOK/Setup">setup</a>.
-The whole application setup with all dependencies can be found in <a href="https://docs.hpi-schul-cloud.org/display/TSC/System+Architecture">System Architecture</a>. It contains information about how different application components are connected to each other.</p>
+<p>The whole application setup with all dependencies can be found in <a href="https://docs.dbildungscloud.de/display/DBH/System+Architecture">System Architecture</a>. It contains information about how different application components are connected to each other.</p>
 <h2 id="debugger-configuration-in-visual-studio-code">Debugger Configuration in Visual Studio Code</h2>
-<p>For more details how to set up Visual Studio Code, read <a href="https://docs.hpi-schul-cloud.org/display/SCDOK/Visual+Studio+Code">this document</a>.</p>
+<p>For more details how to set up Visual Studio Code, read <a href="https://docs.dbildungscloud.de/display/DBH/Visual+Studio+Code+-+Beginners+Guide">this document</a>.</p>
 <h2 id="how-to-name-your-branch-and-create-a-pull-request-pr">How to name your branch and create a pull request (PR)</h2>
 <ol>
-<li>Take the Ticket Number from JIRA (ticketsystem.hpi-schul-cloud.org), e.g. SC-999</li>
+<li>Take the Ticket Number from JIRA (ticketsystem.dbildungscloud.de), e.g. SC-999</li>
 <li>Name the feature branch beginning with Ticket Number, all words separated by dash &quot;-&quot;, e.g. <code>feature/SC-999-fantasy-problem</code></li>
 <li>Create a PR on branch develop containing the Ticket Number in PR title</li>
-<li>Keep the <code>WIP</code> label as long as this PR is in development, complete PR checklist (is automatically added), keep or increase code test coverage, and pass all tests before you remove the <code>WIP</code> label. Reviewers will be added automatically. For more information check our Definition of Done <a href="https://docs.hpi-schul-cloud.org/pages/viewpage.action?pageId=92831762">here</a>.</li>
+<li>Keep the <code>WIP</code> label as long as this PR is in development, complete PR checklist (is automatically added), keep or increase code test coverage, and pass all tests before you remove the <code>WIP</code> label. Reviewers will be added automatically.</li>
 </ol>
 <h2 id="committing">Committing</h2>
-<p>Default branch: <code>develop</code></p>
+<p>Default branch: <code>main</code></p>
 <ol>
 <li>Go into project folder</li>
 <li>Checkout to develop branch (or clone for the first time)</li>
 <li>Run <code>git pull</code></li>
-<li>Create a branch for your new feature named feature/SC-<em>Ticket-ID</em>-<em>Description</em></li>
+<li>Create a branch for your new feature named feature/BC-<em>Ticket-ID</em>-<em>Description</em></li>
 <li>Run the tests (see above)</li>
 <li>Commit with a meaningful commit message(!) even at 4 a.m. and not stuff like &quot;dfsdfsf&quot;</li>
 <li>Start a pull request (see above) to branch develop to merge your changes</li>

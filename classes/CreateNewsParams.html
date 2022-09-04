@@ -146,13 +146,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @IsString()<br />@ApiProperty({description: &#x27;Content of the News entity&#x27;})<br />
+                            @IsString()<br />@SanitizeHtml({keep: &#x27;richtext&#x27;})<br />@ApiProperty({description: &#x27;Content of the News entity&#x27;})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">apps/server/src/modules/news/controller/dto/create-news.params.ts:21</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">apps/server/src/modules/news/controller/dto/create-news.params.ts:22</a></div>
                         </td>
                     </tr>
 
@@ -188,7 +188,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">apps/server/src/modules/news/controller/dto/create-news.params.ts:29</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">apps/server/src/modules/news/controller/dto/create-news.params.ts:30</a></div>
                         </td>
                     </tr>
 
@@ -217,7 +217,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @IsString()<br />@ApiProperty({pattern: &#x27;[a-f0-9]{24}&#x27;, description: &#x27;Specific target id to which the News entity is related&#x27;})<br />
+                            @IsMongoId()<br />@ApiProperty({pattern: &#x27;[a-f0-9]{24}&#x27;, description: &#x27;Specific target id to which the News entity is related&#x27;})<br />
                         </code>
                     </td>
                 </tr>
@@ -252,7 +252,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @IsString()<br />@ApiProperty({enum: TARGET_MODEL_VALUES, enumName: &#x27;NewsTargetModel&#x27;, description: &#x27;Target model to which the News entity is related&#x27;})<br />
+                            @IsEnum(NewsTargetModel)<br />@ApiProperty({enum: NewsTargetModel, description: &#x27;Target model to which the News entity is related&#x27;})<br />
                         </code>
                     </td>
                 </tr>
@@ -287,7 +287,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @IsString()<br />@ApiProperty({description: &#x27;Title of the News entity&#x27;})<br />
+                            @IsString()<br />@SanitizeHtml()<br />@ApiProperty({description: &#x27;Title of the News entity&#x27;})<br />
                         </code>
                     </td>
                 </tr>
@@ -313,22 +313,23 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty, ApiPropertyOptional } from &#x27;@nestjs/swagger&#x27;;
-import { IsDate, IsOptional, IsString } from &#x27;class-validator&#x27;;
+import { IsDate, IsEnum, IsMongoId, IsOptional, IsString } from &#x27;class-validator&#x27;;
 import { NewsTargetModel } from &#x27;@shared/domain&#x27;;
-
-const TARGET_MODEL_VALUES &#x3D; Object.values(NewsTargetModel);
+import { SanitizeHtml } from &#x27;@shared/controller&#x27;;
 
 /**
  * DTO for creating a news document.
  */
 export class CreateNewsParams {
 	@IsString()
+	@SanitizeHtml()
 	@ApiProperty({
 		description: &#x27;Title of the News entity&#x27;,
 	})
 	title!: string;
 
 	@IsString()
+	@SanitizeHtml({ keep: &#x27;richtext&#x27; })
 	@ApiProperty({
 		description: &#x27;Content of the News entity&#x27;,
 	})
@@ -342,15 +343,14 @@ export class CreateNewsParams {
 	})
 	displayAt?: Date;
 
-	@IsString()
+	@IsEnum(NewsTargetModel)
 	@ApiProperty({
-		enum: TARGET_MODEL_VALUES,
-		enumName: &#x27;NewsTargetModel&#x27;,
+		enum: NewsTargetModel,
 		description: &#x27;Target model to which the News entity is related&#x27;,
 	})
 	targetModel!: string;
 
-	@IsString()
+	@IsMongoId()
 	@ApiProperty({
 		pattern: &#x27;[a-f0-9]{24}&#x27;,
 		description: &#x27;Specific target id to which the News entity is related&#x27;,

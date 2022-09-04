@@ -211,7 +211,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty()<br />
+                            @ApiProperty({description: &#x27;The items for the current page.&#x27;})<br />
                         </code>
                     </td>
                 </tr>
@@ -247,7 +247,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty({type: &#x27;number&#x27;})<br />
+                            @ApiProperty({description: &#x27;The page size of the response.&#x27;, type: &#x27;number&#x27;})<br />
                         </code>
                     </td>
                 </tr>
@@ -283,7 +283,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty({type: &#x27;number&#x27;})<br />
+                            @ApiProperty({description: &#x27;The amount of items skipped from the start.&#x27;, type: &#x27;number&#x27;})<br />
                         </code>
                     </td>
                 </tr>
@@ -318,7 +318,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty({type: &#x27;number&#x27;})<br />
+                            @ApiProperty({description: &#x27;The total amount of items.&#x27;, type: &#x27;number&#x27;})<br />
                         </code>
                     </td>
                 </tr>
@@ -352,16 +352,16 @@ export abstract class PaginationResponse&lt;T&gt; {
 		this.limit &#x3D; limit;
 	}
 
-	@ApiProperty()
+	@ApiProperty({ description: &#x27;The items for the current page.&#x27; })
 	abstract data: T;
 
-	@ApiProperty({ type: &#x27;number&#x27; })
+	@ApiProperty({ description: &#x27;The total amount of items.&#x27;, type: &#x27;number&#x27; })
 	total: number;
 
-	@ApiProperty({ type: &#x27;number&#x27; })
+	@ApiProperty({ description: &#x27;The amount of items skipped from the start.&#x27;, type: &#x27;number&#x27; })
 	skip?: number;
 
-	@ApiProperty({ type: &#x27;number&#x27; })
+	@ApiProperty({ description: &#x27;The page size of the response.&#x27;, type: &#x27;number&#x27; })
 	limit?: number;
 }
 </code></pre>

@@ -85,6 +85,10 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
+                                <a href="#copyTask" >copyTask</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#delete" >delete</a>
                             </li>
                             <li>
@@ -124,6 +128,120 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="copyTask"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>copyTask</b></span>
+                        <a href="#copyTask"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>copyTask(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, taskId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, params: <a href="../classes/TaskCopyApiParams.html" target="_self">TaskCopyApiParams</a>, jwt: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post(&#x27;:id/copy&#x27;)<br />@RequestTimeout(undefined.INCOMING_REQUEST_TIMEOUT_COPY_API)<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="91"
+                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:91</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>currentUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>taskId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                                <code><a href="../classes/TaskCopyApiParams.html" target="_self" >TaskCopyApiParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>jwt</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/CopyApiResponse.html" target="_self" >Promise&lt;CopyApiResponse&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="delete"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -135,7 +253,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>delete(taskId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
+                    <code>delete(taskId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, jwt: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
@@ -149,8 +267,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="73"
-                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:73</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="79"
+                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:79</a></div>
                 </td>
             </tr>
 
@@ -186,6 +304,18 @@
                                     <td>currentUser</td>
                                     <td>
                                                 <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>jwt</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
 
                                     <td>
@@ -239,8 +369,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="19"
-                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:19</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:25</a></div>
                 </td>
             </tr>
 
@@ -329,8 +459,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="33"
-                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:33</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="39"
+                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:39</a></div>
                 </td>
             </tr>
 
@@ -419,8 +549,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="49"
-                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:49</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="55"
+                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:55</a></div>
                 </td>
             </tr>
 
@@ -509,8 +639,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="61"
-                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:61</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="67"
+                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:67</a></div>
                 </td>
             </tr>
 
@@ -574,22 +704,28 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
-import { Controller, Delete, Get, Param, Patch, Query } from &#x27;@nestjs/common&#x27;;
-
-import { ICurrentUser } from &#x27;@shared/domain&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Body, Controller, Delete, Get, Param, Patch, Post, Query } from &#x27;@nestjs/common&#x27;;
+import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
+import { RequestTimeout } from &#x27;@shared/common&#x27;;
 import { PaginationParams } from &#x27;@shared/controller/&#x27;;
-import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
 import { ParseObjectIdPipe } from &#x27;@shared/controller/pipe&#x27;;
+import { ICurrentUser } from &#x27;@shared/domain&#x27;;
+import { Authenticate, CurrentUser, JWT } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
+// todo  @src/modules/learnroom/* must be replaced
+import { CopyApiResponse } from &#x27;@src/modules/learnroom/controller/dto/copy.response&#x27;;
+import { CopyMapper } from &#x27;@src/modules/learnroom/mapper/copy.mapper&#x27;;
+import serverConfig from &#x27;@src/server.config&#x27;;
+import { TaskMapper } from &#x27;../mapper/task.mapper&#x27;;
+import { TaskCopyUC } from &#x27;../uc/task-copy.uc&#x27;;
 import { TaskUC } from &#x27;../uc/task.uc&#x27;;
 import { TaskListResponse, TaskResponse } from &#x27;./dto&#x27;;
-import { TaskMapper } from &#x27;../mapper/task.mapper&#x27;;
+import { TaskCopyApiParams } from &#x27;./dto/task-copy.params&#x27;;
 
 @ApiTags(&#x27;Task&#x27;)
 @Authenticate(&#x27;jwt&#x27;)
 @Controller(&#x27;tasks&#x27;)
 export class TaskController {
-	constructor(private readonly taskUc: TaskUC) {}
+	constructor(private readonly taskUc: TaskUC, private readonly taskCopyUc: TaskCopyUC) {}
 
 	@Get()
 	async findAll(
@@ -648,11 +784,29 @@ export class TaskController {
 	@Delete(&#x27;:id&#x27;)
 	async delete(
 		@Param(&#x27;id&#x27;, ParseObjectIdPipe) taskId: string,
-		@CurrentUser() currentUser: ICurrentUser
+		@CurrentUser() currentUser: ICurrentUser,
+		@JWT() jwt: string
 	): Promise&lt;boolean&gt; {
-		const result &#x3D; await this.taskUc.delete(currentUser.userId, taskId);
+		const result &#x3D; await this.taskUc.delete(currentUser.userId, taskId, jwt);
 
 		return result;
+	}
+
+	@Post(&#x27;:id/copy&#x27;)
+	@RequestTimeout(serverConfig().INCOMING_REQUEST_TIMEOUT_COPY_API)
+	async copyTask(
+		@CurrentUser() currentUser: ICurrentUser,
+		@Param(&#x27;id&#x27;, ParseObjectIdPipe) taskId: string,
+		@Body() params: TaskCopyApiParams,
+		@JWT() jwt: string
+	): Promise&lt;CopyApiResponse&gt; {
+		const copyStatus &#x3D; await this.taskCopyUc.copyTask(
+			currentUser.userId,
+			taskId,
+			CopyMapper.mapTaskCopyToDomain(params, jwt)
+		);
+		const dto &#x3D; CopyMapper.mapToResponse(copyStatus);
+		return dto;
 	}
 }
 </code></pre>

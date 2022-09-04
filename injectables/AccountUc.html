@@ -58,7 +58,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/authentication/uc/account.uc.ts</code>
+            <code>apps/server/src/modules/account/uc/account.uc.ts</code>
         </p>
 
 
@@ -80,14 +80,6 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#calcPasswordHash" >calcPasswordHash</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#changePasswordForUser" >changePasswordForUser</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
                                     <span class="modifier">Async</span>
                                 <a href="#checkPassword" >checkPassword</a>
                             </li>
@@ -97,12 +89,24 @@
                                 <a href="#checkUniqueEmail" >checkUniqueEmail</a>
                             </li>
                             <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#hasPermissionsToChangeOwnName" >hasPermissionsToChangeOwnName</a>
+                                    <span class="modifier">Async</span>
+                                <a href="#deleteAccountById" >deleteAccountById</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#hasPermissionsToChangePassword" >hasPermissionsToChangePassword</a>
+                                <a href="#extractRoles" >extractRoles</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findAccountById" >findAccountById</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#hasPermissionsToAccessAccount" >hasPermissionsToAccessAccount</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#hasPermissionsToChangeOwnName" >hasPermissionsToChangeOwnName</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
@@ -110,11 +114,28 @@
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#isDemoUser" >isDemoUser</a>
+                                    <span class="modifier">Async</span>
+                                <a href="#isSuperhero" >isSuperhero</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
                                 <a href="#replaceMyTemporaryPassword" >replaceMyTemporaryPassword</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#saveAccount" >saveAccount</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#schoolPermissionExists" >schoolPermissionExists</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#searchAccounts" >searchAccounts</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#updateAccountById" >updateAccountById</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
@@ -138,12 +159,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(accountRepo: <a href="../injectables/AccountRepo.html" target="_self">AccountRepo</a>, userRepo: <a href="../injectables/UserRepo.html" target="_self">UserRepo</a>, permissionService: <a href="../injectables/PermissionService.html" target="_self">PermissionService</a>)</code>
+<code>constructor(accountService: <a href="../injectables/AccountService.html" target="_self">AccountService</a>, userRepo: <a href="../injectables/UserRepo.html" target="_self">UserRepo</a>, permissionService: <a href="../injectables/PermissionService.html" target="_self">PermissionService</a>, accountValidationService: <a href="../injectables/AccountValidationService.html" target="_self">AccountValidationService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/server/src/modules/authentication/uc/account.uc.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:44</a></div>
                             </td>
                         </tr>
 
@@ -161,10 +182,10 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>accountRepo</td>
+                                                        <td>accountService</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/AccountRepo.html" target="_self" >AccountRepo</a></code>
+                                                                        <code><a href="../injectables/AccountService.html" target="_self" >AccountService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -196,6 +217,18 @@
                                                     </td>
                                                     
                                                 </tr>
+                                                <tr>
+                                                        <td>accountValidationService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AccountValidationService.html" target="_self" >AccountValidationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
                                         </tbody>
                                     </table>
                             </div>
@@ -210,187 +243,6 @@
     <h3 id="methods">
         Methods
     </h3>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="calcPasswordHash"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span ><b>calcPasswordHash</b></span>
-                        <a href="#calcPasswordHash"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>calcPasswordHash(password: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="251"
-                            class="link-to-prism">apps/server/src/modules/authentication/uc/account.uc.ts:251</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>password</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;string&gt;</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="changePasswordForUser"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>changePasswordForUser</b></span>
-                        <a href="#changePasswordForUser"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>changePasswordForUser(currentUserId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, targetUserId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, passwordNew: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="170"
-                            class="link-to-prism">apps/server/src/modules/authentication/uc/account.uc.ts:170</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>This method is used to administratively change a user&#39;s password.</p>
-</div>
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>currentUserId</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                    <td>
-                                        <p>the current user</p>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>targetUserId</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                    <td>
-                                        <p>the target user, whose password is changed</p>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>passwordNew</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                    <td>
-                                        <p>the target user&#39;s new password</p>
-
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -414,8 +266,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="255"
-                            class="link-to-prism">apps/server/src/modules/authentication/uc/account.uc.ts:255</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="457"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:457</a></div>
                 </td>
             </tr>
 
@@ -491,15 +343,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>checkUniqueEmail(account: <a href="../classes/Account.html" target="_self">Account</a>, user: <a href="../interfaces/User.html" target="_self">User</a>, email: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>checkUniqueEmail(account: <a href="../classes/AccountDto.html" target="_self">AccountDto</a>, user: <a href="../interfaces/User.html" target="_self">User</a>, email: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="259"
-                            class="link-to-prism">apps/server/src/modules/authentication/uc/account.uc.ts:259</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="341"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:341</a></div>
                 </td>
             </tr>
 
@@ -522,7 +374,7 @@
                                 <tr>
                                     <td>account</td>
                                     <td>
-                                                <code><a href="../classes/Account.html" target="_self" >Account</a></code>
+                                                <code><a href="../classes/AccountDto.html" target="_self" >AccountDto</a></code>
                                     </td>
 
                                     <td>
@@ -575,26 +427,120 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="hasPermissionsToChangeOwnName"></a>
+                    <a name="deleteAccountById"></a>
                     <span class="name">
-                        <span class="modifier">Private</span>
-                        <span ><b>hasPermissionsToChangeOwnName</b></span>
-                        <a href="#hasPermissionsToChangeOwnName"><span class="icon ion-ios-link"></span></a>
+                        <span class="modifier">Async</span>
+                        <span ><b>deleteAccountById</b></span>
+                        <a href="#deleteAccountById"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>hasPermissionsToChangeOwnName(currentUser: <a href="../interfaces/User.html" target="_self">User</a>)</code>
+                    <code>deleteAccountById(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, params: <a href="../classes/AccountByIdParams.html" target="_self">AccountByIdParams</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="217"
-                            class="link-to-prism">apps/server/src/modules/authentication/uc/account.uc.ts:217</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="215"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:215</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>This method processes the request on the DELETE account with id endpoint from the account controller.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>currentUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>the request user</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                                <code><a href="../classes/AccountByIdParams.html" target="_self" >AccountByIdParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>the request parameters</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../entitys/Account.html" target="_self" >Promise&lt;AccountResponse&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="extractRoles"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>extractRoles</b></span>
+                        <a href="#extractRoles"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>extractRoles(inputRoles: <a href="../entitys/Role.html" target="_self">Role[]</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="444"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:444</a></div>
                 </td>
             </tr>
 
@@ -615,9 +561,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>currentUser</td>
+                                    <td>inputRoles</td>
                                     <td>
-                                                <code><a href="../interfaces/User.html" target="_self" >User</a></code>
+                                                <code><a href="../entitys/Role.html" target="_self" >Role[]</a></code>
                                     </td>
 
                                     <td>
@@ -632,7 +578,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <b>Returns : </b>    <code>string[]</code>
 
                     </div>
                     <div class="io-description">
@@ -646,26 +592,120 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="hasPermissionsToChangePassword"></a>
+                    <a name="findAccountById"></a>
                     <span class="name">
-                        <span class="modifier">Private</span>
-                        <span ><b>hasPermissionsToChangePassword</b></span>
-                        <a href="#hasPermissionsToChangePassword"><span class="icon ion-ios-link"></span></a>
+                        <span class="modifier">Async</span>
+                        <span ><b>findAccountById</b></span>
+                        <a href="#findAccountById"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>hasPermissionsToChangePassword(currentUser: <a href="../interfaces/User.html" target="_self">User</a>, targetUser: <a href="../interfaces/User.html" target="_self">User</a>)</code>
+                    <code>findAccountById(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, params: <a href="../classes/AccountByIdParams.html" target="_self">AccountByIdParams</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="225"
-                            class="link-to-prism">apps/server/src/modules/authentication/uc/account.uc.ts:225</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="100"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:100</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>This method processes the request on the GET account with id endpoint from the account controller.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>currentUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>the request user</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                                <code><a href="../classes/AccountByIdParams.html" target="_self" >AccountByIdParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>the request parameters</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../entitys/Account.html" target="_self" >Promise&lt;AccountResponse&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="hasPermissionsToAccessAccount"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>hasPermissionsToAccessAccount</b></span>
+                        <a href="#hasPermissionsToAccessAccount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>hasPermissionsToAccessAccount(currentUser: <a href="../interfaces/User.html" target="_self">User</a>, targetUser: <a href="../interfaces/User.html" target="_self">User</a>, action: "READ" | "UPDATE" | "DELETE" | "CREATE")</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="366"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:366</a></div>
                 </td>
             </tr>
 
@@ -699,6 +739,89 @@
                                 </tr>
                                 <tr>
                                     <td>targetUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/User.html" target="_self" >User</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>action</td>
+                                    <td>
+                                            <code>&quot;READ&quot; | &quot;UPDATE&quot; | &quot;DELETE&quot; | &quot;CREATE&quot;</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="hasPermissionsToChangeOwnName"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>hasPermissionsToChangeOwnName</b></span>
+                        <a href="#hasPermissionsToChangeOwnName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>hasPermissionsToChangeOwnName(currentUser: <a href="../interfaces/User.html" target="_self">User</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="358"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:358</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>currentUser</td>
                                     <td>
                                                 <code><a href="../interfaces/User.html" target="_self" >User</a></code>
                                     </td>
@@ -747,8 +870,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="207"
-                            class="link-to-prism">apps/server/src/modules/authentication/uc/account.uc.ts:207</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="347"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:347</a></div>
                 </td>
             </tr>
 
@@ -812,26 +935,27 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="isDemoUser"></a>
+                    <a name="isSuperhero"></a>
                     <span class="name">
                         <span class="modifier">Private</span>
-                        <span ><b>isDemoUser</b></span>
-                        <a href="#isDemoUser"><span class="icon ion-ios-link"></span></a>
+                        <span class="modifier">Async</span>
+                        <span ><b>isSuperhero</b></span>
+                        <a href="#isSuperhero"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>isDemoUser(currentUser: <a href="../interfaces/User.html" target="_self">User</a>)</code>
+                    <code>isSuperhero(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="213"
-                            class="link-to-prism">apps/server/src/modules/authentication/uc/account.uc.ts:213</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="353"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:353</a></div>
                 </td>
             </tr>
 
@@ -854,7 +978,7 @@
                                 <tr>
                                     <td>currentUser</td>
                                     <td>
-                                                <code><a href="../interfaces/User.html" target="_self" >User</a></code>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
                                     </td>
 
                                     <td>
@@ -869,7 +993,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <b>Returns : </b>    <code>Promise&lt;boolean&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -901,8 +1025,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="110"
-                            class="link-to-prism">apps/server/src/modules/authentication/uc/account.uc.ts:110</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="296"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:296</a></div>
                 </td>
             </tr>
 
@@ -994,6 +1118,376 @@ Callable when the current user&#39;s password was force set or this is the first
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="saveAccount"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>saveAccount</b></span>
+                        <a href="#saveAccount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>saveAccount(dto: <a href="../classes/AccountSaveDto.html" target="_self">AccountSaveDto</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="108"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:108</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>dto</td>
+                                    <td>
+                                                <code><a href="../classes/AccountSaveDto.html" target="_self" >AccountSaveDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="schoolPermissionExists"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>schoolPermissionExists</b></span>
+                        <a href="#schoolPermissionExists"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>schoolPermissionExists(roles: string[], school: <a href="../classes/School.html" target="_self">School</a>, permissions: string[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="432"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:432</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>roles</td>
+                                    <td>
+                                            <code>string[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>school</td>
+                                    <td>
+                                                <code><a href="../classes/School.html" target="_self" >School</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>permissions</td>
+                                    <td>
+                                            <code>string[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="searchAccounts"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>searchAccounts</b></span>
+                        <a href="#searchAccounts"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>searchAccounts(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, query: <a href="../classes/AccountSearchQueryParams.html" target="_self">AccountSearchQueryParams</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="60"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:60</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>This method processes the request on the GET account search endpoint from the account controller.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>currentUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>the request user</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>query</td>
+                                    <td>
+                                                <code><a href="../classes/AccountSearchQueryParams.html" target="_self" >AccountSearchQueryParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>the request query</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../entitys/Account.html" target="_self" >Promise&lt;AccountSearchListResponse&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateAccountById"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>updateAccountById</b></span>
+                        <a href="#updateAccountById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateAccountById(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, params: <a href="../classes/AccountByIdParams.html" target="_self">AccountByIdParams</a>, body: <a href="../classes/AccountByIdBodyParams.html" target="_self">AccountByIdBodyParams</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="151"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:151</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>This method processes the request on the PATCH account with id endpoint from the account controller.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>currentUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>the request user</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                                <code><a href="../classes/AccountByIdParams.html" target="_self" >AccountByIdParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>the request parameters</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>body</td>
+                                    <td>
+                                                <code><a href="../classes/AccountByIdBodyParams.html" target="_self" >AccountByIdBodyParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>the request body</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../entitys/Account.html" target="_self" >Promise&lt;AccountResponse&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="updateMyAccount"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -1005,15 +1499,15 @@ Callable when the current user&#39;s password was force set or this is the first
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>updateMyAccount(currentUser: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, params: <a href="../classes/PatchMyAccountParams.html" target="_self">PatchMyAccountParams</a>)</code>
+                    <code>updateMyAccount(currentUserId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, params: <a href="../classes/PatchMyAccountParams.html" target="_self">PatchMyAccountParams</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="29"
-                            class="link-to-prism">apps/server/src/modules/authentication/uc/account.uc.ts:29</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="230"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:230</a></div>
                 </td>
             </tr>
 
@@ -1037,7 +1531,7 @@ Callable when the current user&#39;s password was force set or this is the first
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>currentUser</td>
+                                    <td>currentUserId</td>
                                     <td>
                                                 <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
                                     </td>
@@ -1090,14 +1584,42 @@ Callable when the current user&#39;s password was force set or this is the first
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AuthorizationError, EntityNotFoundError, ValidationError } from &#x27;@shared/common/error&#x27;;
-import { ForbiddenException, Injectable } from &#x27;@nestjs/common&#x27;;
-import { Account, EntityId, PermissionService, User } from &#x27;@shared/domain&#x27;;
-import { UserRepo } from &#x27;@shared/repo&#x27;;
-import { AccountRepo } from &#x27;@shared/repo/account&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
+import { isEmail, validateOrReject } from &#x27;class-validator&#x27;;
+import {
+	AuthorizationError,
+	EntityNotFoundError,
+	ForbiddenOperationError,
+	ValidationError,
+} from &#x27;@shared/common/error&#x27;;
 import bcrypt from &#x27;bcryptjs&#x27;;
-import { ForbiddenOperationError } from &#x27;@shared/common/error/forbidden-operation.error&#x27;;
-import { PatchMyAccountParams } from &#x27;../controller/dto&#x27;;
+import {
+	Account,
+	EntityId,
+	ICurrentUser,
+	Permission,
+	PermissionService,
+	Role,
+	RoleName,
+	School,
+	User,
+} from &#x27;@shared/domain&#x27;;
+import { UserRepo } from &#x27;@shared/repo&#x27;;
+import { AccountService } from &#x27;@src/modules/account/services/account.service&#x27;;
+import { AccountDto } from &#x27;@src/modules/account/services/dto/account.dto&#x27;;
+import { Configuration } from &#x27;@hpi-schul-cloud/commons/lib&#x27;;
+import {
+	AccountByIdBodyParams,
+	AccountByIdParams,
+	AccountResponse,
+	AccountSearchListResponse,
+	AccountSearchQueryParams,
+	AccountSearchType,
+	PatchMyAccountParams,
+} from &#x27;../controller/dto&#x27;;
+import { AccountResponseMapper } from &#x27;../mapper&#x27;;
+import { AccountSaveDto } from &#x27;../services/dto&#x27;;
+import { AccountValidationService } from &#x27;../services/account.validation.service&#x27;;
 
 type UserPreferences &#x3D; {
 	// first login completed
@@ -1107,26 +1629,195 @@ type UserPreferences &#x3D; {
 @Injectable()
 export class AccountUc {
 	constructor(
-		private readonly accountRepo: AccountRepo,
+		private readonly accountService: AccountService,
 		private readonly userRepo: UserRepo,
-		private readonly permissionService: PermissionService
+		private readonly permissionService: PermissionService,
+		private readonly accountValidationService: AccountValidationService
 	) {}
+
+	/**
+	 * This method processes the request on the GET account search endpoint from the account controller.
+	 *
+	 * @param currentUser the request user
+	 * @param query the request query
+	 * @throws {ValidationError}
+	 * @throws {ForbiddenOperationError}
+	 */
+	async searchAccounts(currentUser: ICurrentUser, query: AccountSearchQueryParams): Promise&lt;AccountSearchListResponse&gt; {
+		const skip &#x3D; query.skip ?? 0;
+		const limit &#x3D; query.limit ?? 10;
+		const executingUser &#x3D; await this.userRepo.findById(currentUser.userId, true);
+
+		if (query.type &#x3D;&#x3D;&#x3D; AccountSearchType.USERNAME) {
+			if (!(await this.isSuperhero(currentUser))) {
+				throw new ForbiddenOperationError(&#x27;Current user is not authorized to search for accounts.&#x27;);
+			}
+			// eslint-disable-next-line no-case-declarations
+			const { accounts, total } &#x3D; await this.accountService.searchByUsernamePartialMatch(query.value, skip, limit);
+			// eslint-disable-next-line no-case-declarations
+			const accountList &#x3D; accounts.map((tempAccount) &#x3D;&gt; AccountResponseMapper.mapToResponse(tempAccount));
+			return new AccountSearchListResponse(accountList, total, skip, limit);
+		}
+		if (query.type &#x3D;&#x3D;&#x3D; AccountSearchType.USER_ID) {
+			const targetUser &#x3D; await this.userRepo.findById(query.value, true);
+			const permission &#x3D; this.hasPermissionsToAccessAccount(executingUser, targetUser, &#x27;READ&#x27;);
+
+			if (!permission) {
+				throw new ForbiddenOperationError(&#x27;Current user is not authorized to search for accounts by user id.&#x27;);
+			}
+			const account &#x3D; await this.accountService.findByUserId(query.value);
+			if (account) {
+				return new AccountSearchListResponse([AccountResponseMapper.mapToResponse(account)], 1, 0, 1);
+			}
+			return new AccountSearchListResponse([], 0, 0, 0);
+		}
+
+		throw new ValidationError(&#x27;Invalid search type.&#x27;);
+	}
+
+	/**
+	 * This method processes the request on the GET account with id endpoint from the account controller.
+	 *
+	 * @param currentUser the request user
+	 * @param params the request parameters
+	 * @throws {ForbiddenOperationError}
+	 * @throws {EntityNotFoundError}
+	 */
+	async findAccountById(currentUser: ICurrentUser, params: AccountByIdParams): Promise&lt;AccountResponse&gt; {
+		if (!(await this.isSuperhero(currentUser))) {
+			throw new ForbiddenOperationError(&#x27;Current user is not authorized to search for accounts.&#x27;);
+		}
+		const account &#x3D; await this.accountService.findById(params.id);
+		return AccountResponseMapper.mapToResponse(account);
+	}
+
+	async saveAccount(dto: AccountSaveDto): Promise&lt;void&gt; {
+		await validateOrReject(dto);
+		// sanatizeUsername ✔
+		if (!dto.systemId) {
+			dto.username &#x3D; dto.username.trim().toLowerCase();
+		}
+		if (!dto.systemId &amp;&amp; !dto.password) {
+			throw new ValidationError(&#x27;No password provided&#x27;);
+		}
+		// validateUserName ✔
+		// usernames must be an email address, if they are not from an external system
+		if (!dto.systemId &amp;&amp; !isEmail(dto.username)) {
+			throw new ValidationError(&#x27;Username is not an email&#x27;);
+		}
+		// checkExistence ✔
+		if (dto.userId &amp;&amp; (await this.accountService.findByUserId(dto.userId))) {
+			throw new ValidationError(&#x27;Account already exists&#x27;);
+		}
+		// validateCredentials hook will not be ported ✔
+		// trimPassword hook will be done by class-validator ✔
+		// local.hooks.hashPassword(&#x27;password&#x27;), will be done by account service ✔
+		// checkUnique ✔
+		if (!(await this.accountValidationService.isUniqueEmail(dto.username, dto.userId, dto.id, dto.systemId))) {
+			throw new ValidationError(&#x27;Username already exists&#x27;);
+		}
+		// removePassword hook is not implemented
+		// const noPasswordStrategies &#x3D; [&#x27;ldap&#x27;, &#x27;moodle&#x27;, &#x27;iserv&#x27;];
+		// if (dto.passwordStrategy &amp;&amp; noPasswordStrategies.includes(dto.passwordStrategy)) {
+		// 	dto.password &#x3D; undefined;
+		// }
+
+		await this.accountService.save(dto);
+	}
+
+	/**
+	 * This method processes the request on the PATCH account with id endpoint from the account controller.
+	 *
+	 * @param currentUser the request user
+	 * @param params the request parameters
+	 * @param body the request body
+	 * @throws {ForbiddenOperationError}
+	 * @throws {EntityNotFoundError}
+	 */
+	async updateAccountById(
+		currentUser: ICurrentUser,
+		params: AccountByIdParams,
+		body: AccountByIdBodyParams
+	): Promise&lt;AccountResponse&gt; {
+		const executingUser &#x3D; await this.userRepo.findById(currentUser.userId, true);
+		const targetAccount &#x3D; await this.accountService.findById(params.id);
+
+		if (!targetAccount.userId) {
+			throw new EntityNotFoundError(User.name);
+		}
+
+		const targetUser &#x3D; await this.userRepo.findById(targetAccount.userId, true);
+
+		let updateUser &#x3D; false;
+		let updateAccount &#x3D; false;
+
+		if (!this.hasPermissionsToAccessAccount(executingUser, targetUser, &#x27;UPDATE&#x27;)) {
+			throw new ForbiddenOperationError(&#x27;Current user is not authorized to update target account.&#x27;);
+		}
+		if (body.password !&#x3D;&#x3D; undefined) {
+			targetAccount.password &#x3D; body.password;
+			targetUser.forcePasswordChange &#x3D; true;
+			updateUser &#x3D; true;
+			updateAccount &#x3D; true;
+		}
+		if (body.username !&#x3D;&#x3D; undefined) {
+			const newMail &#x3D; body.username.toLowerCase();
+			await this.checkUniqueEmail(targetAccount, targetUser, newMail);
+			targetUser.email &#x3D; newMail;
+			targetAccount.username &#x3D; newMail;
+			updateUser &#x3D; true;
+			updateAccount &#x3D; true;
+		}
+		if (body.activated !&#x3D;&#x3D; undefined) {
+			targetAccount.activated &#x3D; body.activated;
+			updateAccount &#x3D; true;
+		}
+
+		if (updateUser) {
+			try {
+				await this.userRepo.save(targetUser);
+			} catch (err) {
+				throw new EntityNotFoundError(User.name);
+			}
+		}
+		if (updateAccount) {
+			try {
+				await this.accountService.save(targetAccount);
+			} catch (err) {
+				throw new EntityNotFoundError(Account.name);
+			}
+		}
+		return AccountResponseMapper.mapToResponse(targetAccount);
+	}
+
+	/**
+	 * This method processes the request on the DELETE account with id endpoint from the account controller.
+	 *
+	 * @param currentUser the request user
+	 * @param params the request parameters
+	 * @throws {ForbiddenOperationError}
+	 * @throws {EntityNotFoundError}
+	 */
+	async deleteAccountById(currentUser: ICurrentUser, params: AccountByIdParams): Promise&lt;AccountResponse&gt; {
+		if (!(await this.isSuperhero(currentUser))) {
+			throw new ForbiddenOperationError(&#x27;Current user is not authorized to delete an account.&#x27;);
+		}
+		const account: AccountDto &#x3D; await this.accountService.findById(params.id);
+		await this.accountService.delete(account.id);
+		return AccountResponseMapper.mapToResponse(account);
+	}
 
 	/**
 	 * This method allows to update my (currentUser) account details.
 	 *
-	 * @param currentUser the current user
+	 * @param currentUserId the current user
 	 * @param params account details
 	 */
-	async updateMyAccount(currentUser: EntityId, params: PatchMyAccountParams) {
-		let account: Account;
-		try {
-			account &#x3D; await this.accountRepo.findByUserId(currentUser);
-		} catch (err) {
-			throw new EntityNotFoundError(&#x27;Account&#x27;);
-		}
+	async updateMyAccount(currentUserId: EntityId, params: PatchMyAccountParams) {
+		const user &#x3D; await this.userRepo.findById(currentUserId, true);
+		const account: AccountDto &#x3D; await this.accountService.findByUserIdOrFail(currentUserId);
 
-		if (account.system) {
+		if (account.systemId) {
 			throw new ForbiddenOperationError(&#x27;External account details can not be changed.&#x27;);
 		}
 
@@ -1134,21 +1825,10 @@ export class AccountUc {
 			throw new AuthorizationError(&#x27;Dein Passwort ist nicht korrekt!&#x27;);
 		}
 
-		let user: User;
-		try {
-			user &#x3D; await this.userRepo.findById(currentUser, true);
-		} catch (err) {
-			throw new EntityNotFoundError(&#x27;User&#x27;);
-		}
-
-		if (this.isDemoUser(user)) {
-			throw new ForbiddenOperationError(&#x27;Demo users can not change their account details.&#x27;);
-		}
-
 		let updateUser &#x3D; false;
 		let updateAccount &#x3D; false;
 		if (params.passwordNew) {
-			account.password &#x3D; await this.calcPasswordHash(params.passwordNew);
+			account.password &#x3D; params.passwordNew;
 			updateAccount &#x3D; true;
 		}
 		if (params.email &amp;&amp; user.email !&#x3D;&#x3D; params.email) {
@@ -1177,14 +1857,14 @@ export class AccountUc {
 
 		if (updateUser) {
 			try {
-				await this.userRepo.update(user);
+				await this.userRepo.save(user);
 			} catch (err) {
 				throw new EntityNotFoundError(User.name);
 			}
 		}
 		if (updateAccount) {
 			try {
-				await this.accountRepo.update(account);
+				await this.accountService.save(account);
 			} catch (err) {
 				throw new EntityNotFoundError(Account.name);
 			}
@@ -1211,24 +1891,16 @@ export class AccountUc {
 			throw new EntityNotFoundError(User.name);
 		}
 
-		if (this.isDemoUser(user)) {
-			throw new ForbiddenOperationError(&#x27;Demo users can not change their password.&#x27;);
-		}
-
 		const userPreferences &#x3D; &lt;UserPreferences&gt;user.preferences;
+		const firstLoginPassed &#x3D; userPreferences ? userPreferences.firstLogin : false;
 
-		if (!user.forcePasswordChange &amp;&amp; userPreferences.firstLogin) {
+		if (!user.forcePasswordChange &amp;&amp; firstLoginPassed) {
 			throw new ForbiddenOperationError(&#x27;The password is not temporary, hence can not be changed.&#x27;);
 		} // Password change was forces or this is a first logon for the user
 
-		let account: Account;
-		try {
-			account &#x3D; await this.accountRepo.findByUserId(userId);
-		} catch (err) {
-			throw new EntityNotFoundError(Account.name);
-		}
+		const account: AccountDto &#x3D; await this.accountService.findByUserIdOrFail(userId);
 
-		if (account.system) {
+		if (account.systemId) {
 			throw new ForbiddenOperationError(&#x27;External account details can not be changed.&#x27;);
 		}
 
@@ -1239,60 +1911,22 @@ export class AccountUc {
 		}
 
 		try {
-			account.password &#x3D; await this.calcPasswordHash(password);
-			await this.accountRepo.update(account);
+			account.password &#x3D; password;
+			await this.accountService.save(account);
 		} catch (err) {
 			throw new EntityNotFoundError(Account.name);
 		}
 		try {
 			user.forcePasswordChange &#x3D; false;
-			await this.userRepo.update(user);
+			await this.userRepo.save(user);
 		} catch (err) {
 			throw new EntityNotFoundError(User.name);
 		}
 	}
 
-	/**
-	 * This method is used to administratively change a user&#x27;s password.
-	 *
-	 * @param currentUserId the current user
-	 * @param targetUserId  the target user, whose password is changed
-	 * @param passwordNew the target user&#x27;s new password
-	 */
-	async changePasswordForUser(currentUserId: EntityId, targetUserId: EntityId, passwordNew: string): Promise&lt;void&gt; {
-		// load user data
-		let targetAccount: Account;
-		let currentUser: User;
-		let targetUser: User;
-		try {
-			targetAccount &#x3D; await this.accountRepo.findByUserId(targetUserId);
-		} catch (err) {
-			throw new EntityNotFoundError(&#x27;Account&#x27;);
-		}
-		try {
-			currentUser &#x3D; await this.userRepo.findById(currentUserId, true);
-			targetUser &#x3D; await this.userRepo.findById(targetUserId, true);
-		} catch (err) {
-			throw new EntityNotFoundError(&#x27;User&#x27;);
-		}
-
-		// check permission
-		if (!this.hasPermissionsToChangePassword(currentUser, targetUser)) {
-			throw new ForbiddenException(&quot;No permission to change this user&#x27;s password&quot;);
-		}
-
-		// set user must change password on next login
-		try {
-			targetUser.forcePasswordChange &#x3D; true;
-			targetUser &#x3D; await this.userRepo.update(targetUser);
-		} catch (err) {
-			throw new EntityNotFoundError(&#x27;User&#x27;);
-		}
-		try {
-			targetAccount.password &#x3D; await this.calcPasswordHash(passwordNew);
-			await this.accountRepo.update(targetAccount);
-		} catch (err) {
-			throw new EntityNotFoundError(&#x27;Account&#x27;);
+	private async checkUniqueEmail(account: AccountDto, user: User, email: string): Promise&lt;void&gt; {
+		if (!(await this.accountValidationService.isUniqueEmail(email, user.id, account.id, account.systemId))) {
+			throw new ValidationError(&#x60;The email address is already in use!&#x60;);
 		}
 	}
 
@@ -1302,66 +1936,112 @@ export class AccountUc {
 		});
 	}
 
-	private isDemoUser(currentUser: User) {
-		return this.hasRole(currentUser, &#x27;demoStudent&#x27;) || this.hasRole(currentUser, &#x27;demoTeacher&#x27;);
+	private async isSuperhero(currentUser: ICurrentUser): Promise&lt;boolean&gt; {
+		const user &#x3D; await this.userRepo.findById(currentUser.userId, true);
+		return user.roles.getItems().some((role) &#x3D;&gt; role.name &#x3D;&#x3D;&#x3D; RoleName.SUPERHERO);
 	}
 
 	private hasPermissionsToChangeOwnName(currentUser: User) {
 		return (
-			this.hasRole(currentUser, &#x27;superhero&#x27;) ||
-			this.hasRole(currentUser, &#x27;teacher&#x27;) ||
-			this.hasRole(currentUser, &#x27;administrator&#x27;)
+			this.hasRole(currentUser, RoleName.SUPERHERO) ||
+			this.hasRole(currentUser, RoleName.TEACHER) ||
+			this.hasRole(currentUser, RoleName.ADMINISTRATOR)
 		);
 	}
 
-	private hasPermissionsToChangePassword(currentUser: User, targetUser: User) {
-		if (this.hasRole(currentUser, &#x27;superhero&#x27;)) {
+	private hasPermissionsToAccessAccount(
+		currentUser: User,
+		targetUser: User,
+		action: &#x27;READ&#x27; | &#x27;UPDATE&#x27; | &#x27;DELETE&#x27; | &#x27;CREATE&#x27;
+	) {
+		if (this.hasRole(currentUser, RoleName.SUPERHERO)) {
 			return true;
 		}
 		if (!(currentUser.school.id &#x3D;&#x3D;&#x3D; targetUser.school.id)) {
 			return false;
 		}
-		if (this.isDemoUser(currentUser)) {
-			return false;
-		}
 
 		const permissionsToCheck: string[] &#x3D; [];
-		if (this.hasRole(targetUser, &#x27;student&#x27;)) {
-			permissionsToCheck.push(&#x27;STUDENT_EDIT&#x27;);
+		if (this.hasRole(targetUser, RoleName.STUDENT)) {
+			// eslint-disable-next-line default-case
+			switch (action) {
+				case &#x27;READ&#x27;:
+					permissionsToCheck.push(Permission.STUDENT_LIST);
+					break;
+				case &#x27;UPDATE&#x27;:
+					permissionsToCheck.push(Permission.STUDENT_EDIT);
+					break;
+				// for future endpoints
+				/* case &#x27;CREATE&#x27;:
+					permissionsToCheck.push(&#x27;STUDENT_CREATE&#x27;);
+					break;
+				case &#x27;DELETE&#x27;:
+					permissionsToCheck.push(&#x27;STUDENT_DELETE&#x27;);
+					break; 
+				*/
+			}
 		}
-		if (this.hasRole(targetUser, &#x27;teacher&#x27;)) {
-			permissionsToCheck.push(&#x27;TEACHER_EDIT&#x27;);
+		if (this.hasRole(targetUser, RoleName.TEACHER)) {
+			// eslint-disable-next-line default-case
+			switch (action) {
+				case &#x27;READ&#x27;:
+					permissionsToCheck.push(Permission.TEACHER_LIST);
+					break;
+				case &#x27;UPDATE&#x27;:
+					permissionsToCheck.push(Permission.TEACHER_EDIT);
+					break;
+				// for future endpoints
+				/* case &#x27;CREATE&#x27;:
+					permissionsToCheck.push(&#x27;TEACHER_CREATE&#x27;);
+					break;
+				case &#x27;DELETE&#x27;:
+					permissionsToCheck.push(&#x27;TEACHER_DELETE&#x27;);
+					break; 
+ 				*/
+			}
 		}
 		if (permissionsToCheck.length &#x3D;&#x3D;&#x3D; 0) {
 			// target user is neither student nor teacher. Undefined what to do
 			return false;
 		}
 
-		return this.permissionService.hasUserAllSchoolPermissions(currentUser, permissionsToCheck);
+		return (
+			this.permissionService.hasUserAllSchoolPermissions(currentUser, permissionsToCheck) ||
+			this.schoolPermissionExists(
+				this.extractRoles(currentUser.roles.getItems()),
+				currentUser.school,
+				permissionsToCheck
+			)
+		);
 	}
 
-	private calcPasswordHash(password: string): Promise&lt;string&gt; {
-		return bcrypt.hash(password, 10);
+	private schoolPermissionExists(roles: string[], school: School, permissions: string[]): boolean {
+		if (Configuration.get(&#x27;TEACHER_STUDENT_VISIBILITY__IS_CONFIGURABLE&#x27;)) {
+			if (
+				roles.find((role) &#x3D;&gt; role &#x3D;&#x3D;&#x3D; RoleName.TEACHER) &amp;&amp;
+				permissions.find((permission) &#x3D;&gt; permission &#x3D;&#x3D;&#x3D; Permission.STUDENT_LIST)
+			) {
+				return school.permissions?.teacher?.STUDENT_LIST ?? false;
+			}
+		}
+		return false;
+	}
+
+	private extractRoles(inputRoles: Role[]): string[] {
+		const roles: string[] &#x3D; [];
+
+		for (let i &#x3D; 0; i &lt; inputRoles.length; i +&#x3D; 1) {
+			const role &#x3D; inputRoles[i];
+			roles.push(role.name);
+			const innerRoles &#x3D; role.roles.getItems().map((x) &#x3D;&gt; x.name);
+			roles.push(...innerRoles);
+		}
+
+		return roles;
 	}
 
 	private async checkPassword(enteredPassword: string, hashedAccountPassword: string) {
 		return bcrypt.compare(enteredPassword, hashedAccountPassword);
-	}
-
-	private async checkUniqueEmail(account: Account, user: User, email: string): Promise&lt;void&gt; {
-		const [foundUsers, foundAccounts] &#x3D; await Promise.all([
-			this.userRepo.findByEmail(email),
-			this.accountRepo.findByUsername(email),
-		]);
-
-		if (
-			foundUsers.length &gt; 1 ||
-			foundAccounts.length &gt; 1 ||
-			(foundUsers.length &#x3D;&#x3D;&#x3D; 1 &amp;&amp; foundUsers[0].id !&#x3D;&#x3D; user.id) ||
-			(foundAccounts.length &#x3D;&#x3D;&#x3D; 1 &amp;&amp; foundAccounts[0].id !&#x3D;&#x3D; account.id)
-		) {
-			throw new ValidationError(&#x60;Die E-Mail Adresse ist bereits in Verwendung!&#x60;);
-		}
 	}
 }
 </code></pre>

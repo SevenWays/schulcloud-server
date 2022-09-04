@@ -333,12 +333,15 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Collection, Entity, ManyToOne, OneToMany, ManyToMany, Property, Index } from &#x27;@mikro-orm/core&#x27;;
-import { EntityId } from &#x27;../types/entity-id&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Collection, Entity, Index, ManyToMany, ManyToOne, OneToMany, Property } from &#x27;@mikro-orm/core&#x27;;
+import { School } from &#x27;@shared/domain/entity/school.entity&#x27;;
+import _ from &#x27;lodash&#x27;;
+import { IEntityWithSchool } from &#x27;../interface&#x27;;
 import { ILearnroomElement } from &#x27;../interface/learnroom&#x27;;
-
+import { EntityId } from &#x27;../types/entity-id&#x27;;
 import { BaseEntityWithTimestamps } from &#x27;./base.entity&#x27;;
 import type { Course } from &#x27;./course.entity&#x27;;
+import type { File } from &#x27;./file.entity&#x27;;
 import type { Lesson } from &#x27;./lesson.entity&#x27;;
 import type { Submission } from &#x27;./submission.entity&#x27;;
 import type { User } from &#x27;./user.entity&#x27;;
@@ -349,11 +352,13 @@ export interface ITaskProperties {
 	availableDate?: Date;
 	dueDate?: Date;
 	private?: boolean;
-	creator?: User;
+	creator: User;
 	course?: Course;
+	school: School;
 	lesson?: Lesson;
 	submissions?: Submission[];
 	finished?: User[];
+	files?: File[];
 }
 
 export interface ITaskStatus {
@@ -376,14 +381,14 @@ export class TaskWithStatusVo {
 	}
 }
 
-export type TaskParentDescriptions &#x3D; { courseName: string; lessonName: string; color: string };
+export type TaskParentDescriptions &#x3D; { courseName: string; courseId: string; lessonName: string; color: string };
 
 @Entity({ tableName: &#x27;homeworks&#x27; })
 @Index({ properties: [&#x27;private&#x27;, &#x27;dueDate&#x27;, &#x27;finished&#x27;] })
 @Index({ properties: [&#x27;id&#x27;, &#x27;private&#x27;] })
 @Index({ properties: [&#x27;finished&#x27;, &#x27;course&#x27;] })
 @Index({ properties: [&#x27;finished&#x27;, &#x27;course&#x27;] })
-export class Task extends BaseEntityWithTimestamps implements ILearnroomElement {
+export class Task extends BaseEntityWithTimestamps implements ILearnroomElement, IEntityWithSchool {
 	@Property()
 	name: string;
 
@@ -400,13 +405,17 @@ export class Task extends BaseEntityWithTimestamps implements ILearnroomElement 
 	@Property()
 	private &#x3D; true;
 
-	@ManyToOne(&#x27;User&#x27;, { fieldName: &#x27;teacherId&#x27;, nullable: true })
 	@Index()
+	@ManyToOne(&#x27;User&#x27;, { fieldName: &#x27;teacherId&#x27;, nullable: true })
 	creator?: User;
 
 	@Index()
 	@ManyToOne(&#x27;Course&#x27;, { fieldName: &#x27;courseId&#x27;, nullable: true })
 	course?: Course;
+
+	@Index()
+	@ManyToOne(&#x27;School&#x27;, { fieldName: &#x27;schoolId&#x27; })
+	school: School;
 
 	@Index()
 	@ManyToOne(&#x27;Lesson&#x27;, { fieldName: &#x27;lessonId&#x27;, nullable: true })
@@ -419,6 +428,9 @@ export class Task extends BaseEntityWithTimestamps implements ILearnroomElement 
 	@ManyToMany(&#x27;User&#x27;, undefined, { fieldName: &#x27;archived&#x27; })
 	finished &#x3D; new Collection&lt;User&gt;(this);
 
+	@ManyToMany(&#x27;File&#x27;, undefined, { fieldName: &#x27;fileIds&#x27;, nullable: true })
+	files &#x3D; new Collection&lt;File&gt;(this);
+
 	constructor(props: ITaskProperties) {
 		super();
 		this.name &#x3D; props.name;
@@ -428,9 +440,11 @@ export class Task extends BaseEntityWithTimestamps implements ILearnroomElement 
 		if (props.private !&#x3D;&#x3D; undefined) this.private &#x3D; props.private;
 		this.creator &#x3D; props.creator;
 		this.course &#x3D; props.course;
+		this.school &#x3D; props.school;
 		this.lesson &#x3D; props.lesson;
 		this.submissions.set(props.submissions || []);
 		this.finished.set(props.finished || []);
+		this.files.set(props.files || []);
 	}
 
 	isFinishedForUser(user: User): boolean {
@@ -440,6 +454,26 @@ export class Task extends BaseEntityWithTimestamps implements ILearnroomElement 
 	isDraft(): boolean {
 		// private can be undefined in the database
 		return !!this.private;
+	}
+
+	isPublished(): boolean {
+		if (this.isDraft()) {
+			return false;
+		}
+		if (this.availableDate &amp;&amp; this.availableDate &gt; new Date(Date.now())) {
+			return false;
+		}
+		return true;
+	}
+
+	isPlanned(): boolean {
+		if (this.isDraft()) {
+			return false;
+		}
+		if (this.availableDate &amp;&amp; this.availableDate &gt; new Date(Date.now())) {
+			return true;
+		}
+		return false;
 	}
 
 	private getSubmissionItems(): Submission[] {
@@ -554,12 +588,14 @@ export class Task extends BaseEntityWithTimestamps implements ILearnroomElement 
 		if (this.course) {
 			descriptions &#x3D; {
 				courseName: this.course.name,
+				courseId: this.course.id,
 				lessonName: this.lesson ? this.lesson.name : &#x27;&#x27;,
 				color: this.course.color,
 			};
 		} else {
 			descriptions &#x3D; {
 				courseName: &#x27;&#x27;,
+				courseId: &#x27;&#x27;,
 				lessonName: &#x27;&#x27;,
 				color: &#x27;#ACACAC&#x27;,
 			};
@@ -568,12 +604,37 @@ export class Task extends BaseEntityWithTimestamps implements ILearnroomElement 
 		return descriptions;
 	}
 
+	private getFileItems(): File[] {
+		if (!this.files.isInitialized(true)) {
+			throw new Error(&#x27;File items are not loaded.&#x27;);
+		}
+		const files &#x3D; this.files.getItems();
+		return files;
+	}
+
+	getFileNames(): string[] {
+		const attachedFileIds &#x3D; this.getFileItems().map((file) &#x3D;&gt; file.name);
+		return attachedFileIds;
+	}
+
 	finishForUser(user: User) {
 		this.finished.add(user);
 	}
 
 	restoreForUser(user: User) {
 		this.finished.remove(user);
+	}
+
+	getSchoolId(): EntityId {
+		if (this.lesson) {
+			return this.lesson.getSchoolId();
+		}
+
+		if (this.course) {
+			return this.course.school.id;
+		}
+
+		throw new Error(&#x60;Couldn&#x27;t find parent of task.&#x60;);
 	}
 
 	publish() {

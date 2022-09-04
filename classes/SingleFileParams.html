@@ -132,7 +132,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">apps/server/src/modules/files-storage/controller/dto/file-storage.params.ts:48</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">apps/server/src/modules/files-storage/controller/dto/file-storage.params.ts:64</a></div>
                         </td>
                     </tr>
 
@@ -154,7 +154,7 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
 import { EntityId } from &#x27;@shared/domain&#x27;;
 import { FileRecordParentType } from &#x27;@shared/domain/entity/filerecord.entity&#x27;;
-import { Allow, IsEnum, IsMongoId, IsString, ValidateNested } from &#x27;class-validator&#x27;;
+import { Allow, IsEnum, IsMongoId, IsNotEmpty, IsString, ValidateNested } from &#x27;class-validator&#x27;;
 
 export class FileRecordParams {
 	@ApiProperty()
@@ -168,6 +168,22 @@ export class FileRecordParams {
 	@ApiProperty({ enum: FileRecordParentType })
 	@IsEnum(FileRecordParentType)
 	parentType!: FileRecordParentType;
+}
+
+export class FileUrlParams {
+	@ApiProperty({ type: &#x27;string&#x27; })
+	@IsString()
+	@IsNotEmpty()
+	url!: string;
+
+	@ApiProperty({ type: &#x27;string&#x27; })
+	@IsString()
+	@IsNotEmpty()
+	fileName!: string;
+
+	@ApiProperty({ type: &#x27;string&#x27; })
+	@Allow()
+	headers?: Record&lt;string, string&gt;;
 }
 
 export class FileParams {
@@ -204,6 +220,7 @@ export class SingleFileParams {
 export class RenameFileParams {
 	@ApiProperty()
 	@IsString()
+	@IsNotEmpty()
 	fileName!: string;
 }
 

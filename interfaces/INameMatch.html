@@ -150,7 +150,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import type { RoleName } from &#x27;../entity/import-user.entity&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import type { IImportUserRoleName } from &#x27;../entity/import-user.entity&#x27;;
 
 export enum MatchCreatorScope {
 	AUTO &#x3D; &#x27;auto&#x27;,
@@ -164,7 +164,7 @@ export interface IImportUserScope {
 	loginName?: string;
 	matches?: MatchCreatorScope[];
 	flagged?: boolean;
-	role?: RoleName;
+	role?: IImportUserRoleName;
 	classes?: string;
 }
 

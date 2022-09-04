@@ -171,7 +171,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../entitys/Role.html" target="_self" >RoleName</a></code>
+                        <b>Returns : </b>        <code><a href="../interfaces/User.html" target="_self" >IImportUserRoleName</a></code>
 
                     </div>
                     <div class="io-description">
@@ -196,7 +196,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapToResponse(roleName: <a href="../entitys/Role.html" target="_self">RoleName</a>)</code>
+                    <code>mapToResponse(roleName: <a href="../interfaces/User.html" target="_self">IImportUserRoleName</a>)</code>
                 </td>
             </tr>
 
@@ -227,7 +227,7 @@
                                 <tr>
                                     <td>roleName</td>
                                     <td>
-                                                <code><a href="../entitys/Role.html" target="_self" >RoleName</a></code>
+                                                <code><a href="../interfaces/User.html" target="_self" >IImportUserRoleName</a></code>
                                     </td>
 
                                     <td>
@@ -262,19 +262,19 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { RoleName } from &#x27;@shared/domain&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { RoleName, IImportUserRoleName } from &#x27;@shared/domain&#x27;;
 import { FilterRoleType, UserRole } from &#x27;../controller/dto&#x27;;
 
 export class RoleNameMapper {
-	static mapToResponse(roleName: RoleName): UserRole {
-		if (roleName &#x3D;&#x3D;&#x3D; RoleName.ADMIN) return UserRole.ADMIN;
+	static mapToResponse(roleName: IImportUserRoleName): UserRole {
+		if (roleName &#x3D;&#x3D;&#x3D; RoleName.ADMINISTRATOR) return UserRole.ADMIN;
 		if (roleName &#x3D;&#x3D;&#x3D; RoleName.TEACHER) return UserRole.TEACHER;
 		if (roleName &#x3D;&#x3D;&#x3D; RoleName.STUDENT) return UserRole.STUDENT;
 		throw Error(&#x27;invalid role name from domain&#x27;);
 	}
 
-	static mapToDomain(roleName: FilterRoleType): RoleName {
-		if (roleName &#x3D;&#x3D;&#x3D; FilterRoleType.ADMIN) return RoleName.ADMIN;
+	static mapToDomain(roleName: FilterRoleType): IImportUserRoleName {
+		if (roleName &#x3D;&#x3D;&#x3D; FilterRoleType.ADMIN) return RoleName.ADMINISTRATOR;
 		if (roleName &#x3D;&#x3D;&#x3D; FilterRoleType.TEACHER) return RoleName.TEACHER;
 		if (roleName &#x3D;&#x3D;&#x3D; FilterRoleType.STUDENT) return RoleName.STUDENT;
 		throw Error(&#x27;invalid role name from query&#x27;);

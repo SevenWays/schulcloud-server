@@ -104,7 +104,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="141" class="link-to-prism">apps/server/src/modules/learnroom/uc/room-board-dto.factory.ts:141</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="135" class="link-to-prism">apps/server/src/modules/learnroom/uc/room-board-dto.factory.ts:135</a></div>
                             </td>
                         </tr>
 
@@ -167,8 +167,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="144"
-                            class="link-to-prism">apps/server/src/modules/learnroom/uc/room-board-dto.factory.ts:144</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="138"
+                            class="link-to-prism">apps/server/src/modules/learnroom/uc/room-board-dto.factory.ts:138</a></div>
                 </td>
             </tr>
 
@@ -223,18 +223,18 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
 import {
-	Course,
 	Board,
-	User,
-	TaskWithStatusVo,
-	Lesson,
-	BoardElementType,
 	BoardElement,
-	Task,
+	BoardElementType,
+	Course,
 	ITaskStatus,
+	Lesson,
+	Task,
+	TaskWithStatusVo,
+	User,
 } from &#x27;@shared/domain&#x27;;
+import { LessonMetaData, RoomBoardDTO, RoomBoardElementDTO, RoomBoardElementTypes } from &#x27;../types/room-board.types&#x27;;
 import { RoomsAuthorisationService } from &#x27;./rooms.authorisation.service&#x27;;
-import { RoomBoardDTO, RoomBoardElementDTO, LockedTaskDTO, RoomBoardElementTypes } from &#x27;../types/room-board.types&#x27;;
 
 class DtoCreator {
 	room: Course;
@@ -275,9 +275,9 @@ class DtoCreator {
 		const filtered &#x3D; elements.filter((element) &#x3D;&gt; {
 			let result &#x3D; false;
 			if (element.boardElementType &#x3D;&#x3D;&#x3D; BoardElementType.Task) {
-				result &#x3D; this.authorisationService.hasTaskListPermission(this.user, element.target as Task);
+				result &#x3D; this.authorisationService.hasTaskReadPermission(this.user, element.target as Task);
 			} else if (element.boardElementType &#x3D;&#x3D;&#x3D; BoardElementType.Lesson) {
-				result &#x3D; this.authorisationService.hasLessonListPermission(this.user, element.target as Lesson);
+				result &#x3D; this.authorisationService.hasLessonReadPermission(this.user, element.target as Lesson);
 			}
 			return result;
 		});
@@ -308,16 +308,6 @@ class DtoCreator {
 
 	private mapTaskElement(element: BoardElement): RoomBoardElementDTO {
 		const task &#x3D; element.target as Task;
-
-		const hasReadPermission &#x3D; this.authorisationService.hasTaskReadPermission(this.user, task);
-		if (hasReadPermission) {
-			return this.mapTaskWithStatusVO(task);
-		}
-
-		return this.mapLockedTask(task);
-	}
-
-	private mapTaskWithStatusVO(task: Task): RoomBoardElementDTO {
 		const status &#x3D; this.createTaskStatus(task);
 
 		const content &#x3D; new TaskWithStatusVo(task, status);
@@ -334,18 +324,22 @@ class DtoCreator {
 		return status;
 	}
 
-	private mapLockedTask(task: Task): RoomBoardElementDTO {
-		const content: LockedTaskDTO &#x3D; {
-			id: task.id,
-			name: task.name,
-		};
-		const result &#x3D; { type: RoomBoardElementTypes.LOCKEDTASK, content };
-		return result;
-	}
-
 	private mapLessonElement(element: BoardElement): RoomBoardElementDTO {
 		const type &#x3D; RoomBoardElementTypes.LESSON;
-		const content &#x3D; element.target as Lesson;
+		const lesson &#x3D; element.target as Lesson;
+		const content: LessonMetaData &#x3D; {
+			id: lesson.id,
+			name: lesson.name,
+			hidden: lesson.hidden,
+			createdAt: lesson.createdAt,
+			updatedAt: lesson.updatedAt,
+			courseName: lesson.course.name,
+			numberOfPublishedTasks: lesson.getNumberOfPublishedTasks(),
+		};
+		if (this.isTeacher()) {
+			content.numberOfDraftTasks &#x3D; lesson.getNumberOfDraftTasks();
+			content.numberOfPlannedTasks &#x3D; lesson.getNumberOfPlannedTasks();
+		}
 		return { type, content };
 	}
 

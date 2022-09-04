@@ -137,8 +137,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="29"
-                            class="link-to-prism">apps/server/src/modules/user/controller/user.controller.ts:29</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">apps/server/src/modules/user/controller/user.controller.ts:26</a></div>
                 </td>
             </tr>
 
@@ -188,7 +188,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/SuccessfulResponse.html" target="_self" >Promise&lt;SuccessfulResponse&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../interfaces/SuccessfulRes.html" target="_self" >Promise&lt;SuccessfulResponse&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -227,8 +227,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="19"
-                            class="link-to-prism">apps/server/src/modules/user/controller/user.controller.ts:19</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="16"
+                            class="link-to-prism">apps/server/src/modules/user/controller/user.controller.ts:16</a></div>
                 </td>
             </tr>
 
@@ -280,22 +280,19 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
-import { Body, Controller, Get, Patch } from &#x27;@nestjs/common&#x27;;
-
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Body, Controller, Get, Patch } from &#x27;@nestjs/common&#x27;;
+import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
 import { ICurrentUser } from &#x27;@shared/domain&#x27;;
 import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
-
 import { ResolvedUserMapper } from &#x27;../mapper&#x27;;
-import { UserUC } from &#x27;../uc/user.uc&#x27;;
-
-import { ResolvedUserResponse, ChangeLanguageParams, SuccessfulResponse } from &#x27;./dto&#x27;;
+import { UserUc } from &#x27;../uc/user.uc&#x27;;
+import { ChangeLanguageParams, ResolvedUserResponse, SuccessfulResponse } from &#x27;./dto&#x27;;
 
 @ApiTags(&#x27;User&#x27;)
 @Authenticate(&#x27;jwt&#x27;)
 @Controller(&#x27;user&#x27;)
 export class UserController {
-	constructor(private readonly userUc: UserUC) {}
+	constructor(private readonly userUc: UserUc) {}
 
 	@Get(&#x27;me&#x27;)
 	async me(@CurrentUser() currentUser: ICurrentUser): Promise&lt;ResolvedUserResponse&gt; {

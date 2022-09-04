@@ -234,27 +234,24 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Entity, Enum, Property, Index, Embeddable, Embedded } from &#x27;@mikro-orm/core&#x27;;
-import { v4 as uuid } from &#x27;uuid&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Embeddable, Embedded, Entity, Enum, Index, Property } from &#x27;@mikro-orm/core&#x27;;
 import { ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
-import { BaseEntityWithTimestamps } from &#x27;./base.entity&#x27;;
+import { v4 as uuid } from &#x27;uuid&#x27;;
 import type { EntityId } from &#x27;../types/entity-id&#x27;;
+import { BaseEntity } from &#x27;./base.entity&#x27;;
 
 export enum ScanStatus {
 	PENDING &#x3D; &#x27;pending&#x27;,
 	VERIFIED &#x3D; &#x27;verified&#x27;,
 	BLOCKED &#x3D; &#x27;blocked&#x27;,
-	WONT_CHECK &#x3D; &#x27;wont-check&#x27;,
 }
 
 export enum FileRecordParentType {
 	&#x27;User&#x27; &#x3D; &#x27;users&#x27;,
 	&#x27;School&#x27; &#x3D; &#x27;schools&#x27;,
 	&#x27;Course&#x27; &#x3D; &#x27;courses&#x27;,
-	&#x27;Team&#x27; &#x3D; &#x27;teams&#x27;,
-	&#x27;DashboardModel&#x27; &#x3D; &#x27;dashboard&#x27;, // without s
 	&#x27;Task&#x27; &#x3D; &#x27;tasks&#x27;,
-	// card
+	&#x27;Lesson&#x27; &#x3D; &#x27;lessons&#x27;,
 }
 export interface IFileSecurityCheckProperties {
 	status?: ScanStatus;
@@ -303,6 +300,8 @@ export interface IFileRecordProperties {
 	deletedSince?: Date;
 }
 
+// TODO: IEntityWithSchool
+
 /**
  * Note: The file record entity will not manage any entity relations by itself.
  * That&#x27;s why we do not map any relations in the entity class
@@ -312,7 +311,12 @@ export interface IFileRecordProperties {
 @Index({ properties: [&#x27;_schoolId&#x27;, &#x27;_parentId&#x27;], options: { background: true } })
 // https://github.com/mikro-orm/mikro-orm/issues/1230
 @Index({ options: { &#x27;securityCheck.requestToken&#x27;: 1 } })
-export class FileRecord extends BaseEntityWithTimestamps {
+// Temporary functionality for migration to new fileservice
+// TODO: Adjust when BC-1496 is done!
+// FileRecord must inherit from BaseEntity and we have to take care of the timestamps manually.
+// This is necessary while the syncing of files and filerecords goes on,
+// because with BaseEntityWithTimestamps it is not possible to override the updatedAt hook.
+export class FileRecord extends BaseEntity {
 	@Index({ options: { expireAfterSeconds: 7 * 24 * 60 * 60 } })
 	@Property({ nullable: true })
 	deletedSince?: Date;
@@ -362,6 +366,14 @@ export class FileRecord extends BaseEntityWithTimestamps {
 	get schoolId(): EntityId {
 		return this._schoolId.toHexString();
 	}
+
+	// Temporary functionality for migration to new fileservice
+	// TODO: Remove when BC-1496 is done!
+	@Property()
+	createdAt &#x3D; new Date();
+
+	@Property()
+	updatedAt &#x3D; new Date();
 
 	constructor(props: IFileRecordProperties) {
 		super();

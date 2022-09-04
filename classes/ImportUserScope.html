@@ -1013,14 +1013,14 @@ export class ImportUserScope extends Scope&lt;ImportUser&gt; {
 
 	byRole(roleName: RoleName): ImportUserScope {
 		switch (roleName) {
-			case RoleName.ADMIN:
-				this.addQuery({ roleNames: { $in: [&#x27;administrator&#x27;] } });
+			case RoleName.ADMINISTRATOR:
+				this.addQuery({ roleNames: { $in: [RoleName.ADMINISTRATOR] } });
 				break;
 			case RoleName.STUDENT:
-				this.addQuery({ roleNames: { $in: [&#x27;student&#x27;] } });
+				this.addQuery({ roleNames: { $in: [RoleName.STUDENT] } });
 				break;
 			case RoleName.TEACHER:
-				this.addQuery({ roleNames: { $in: [&#x27;teacher&#x27;] } });
+				this.addQuery({ roleNames: { $in: [RoleName.TEACHER] } });
 				break;
 			default:
 				throw new Error(&#x27;unexpected role name&#x27;);
@@ -1047,7 +1047,7 @@ export class ImportUserScope extends Scope&lt;ImportUser&gt; {
 			.map((match) &#x3D;&gt; {
 				if (match &#x3D;&#x3D;&#x3D; MatchCreatorScope.MANUAL) return { matchedBy: &#x27;admin&#x27; };
 				if (match &#x3D;&#x3D;&#x3D; MatchCreatorScope.AUTO) return { matchedBy: &#x27;auto&#x27; };
-				if (match &#x3D;&#x3D;&#x3D; MatchCreatorScope.NONE) return { matchedBy: { $exists: false } };
+				if (match &#x3D;&#x3D;&#x3D; MatchCreatorScope.NONE) return { matchedBy: null };
 				return null;
 			})
 			.filter((match) &#x3D;&gt; match !&#x3D; null);

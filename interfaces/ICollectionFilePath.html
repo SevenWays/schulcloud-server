@@ -177,16 +177,27 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Inject, Injectable } from &#x27;@nestjs/common&#x27;;
 import { orderBy } from &#x27;lodash&#x27;;
 import { FileSystemAdapter } from &#x27;@shared/infra/file-system&#x27;;
 import { DatabaseManagementService } from &#x27;@shared/infra/database&#x27;;
+import { Configuration } from &#x27;@hpi-schul-cloud/commons&#x27;;
+import { DefaultEncryptionService, IEncryptionService, LdapEncryptionService } from &#x27;@shared/infra/encryption&#x27;;
+import { StorageProvider, System } from &#x27;@shared/domain&#x27;;
+import { SysType } from &#x27;@shared/infra/identity-management&#x27;;
+import { ConfigService } from &#x27;@nestjs/config&#x27;;
+import { Logger } from &#x27;@src/core/logger&#x27;;
 import { BsonConverter } from &#x27;../converter/bson.converter&#x27;;
 
 export interface ICollectionFilePath {
 	filePath: string;
 	collectionName: string;
 }
+
+const systemsCollectionName &#x3D; &#x27;systems&#x27;;
+const storageprovidersCollectionName &#x3D; &#x27;storageproviders&#x27;;
+
+const defaultSecretReplacementHintText &#x3D; &#x27;replace with secret placeholder&#x27;;
 
 @Injectable()
 export class DatabaseManagementUc {
@@ -198,8 +209,14 @@ export class DatabaseManagementUc {
 	constructor(
 		private fileSystemAdapter: FileSystemAdapter,
 		private databaseManagementService: DatabaseManagementService,
-		private bsonConverter: BsonConverter
-	) {}
+		private bsonConverter: BsonConverter,
+		private readonly configService: ConfigService,
+		private readonly logger: Logger,
+		@Inject(DefaultEncryptionService) private readonly defaultEncryptionService: IEncryptionService,
+		@Inject(LdapEncryptionService) private readonly ldapEncryptionService: IEncryptionService
+	) {
+		this.logger.setContext(DatabaseManagementUc.name);
+	}
 
 	/**
 	 * absolute path reference for seed data base folder.
@@ -322,9 +339,14 @@ export class DatabaseManagementUc {
 		await Promise.all(
 			collectionsToSeed.map(async ({ filePath, collectionName }) &#x3D;&gt; {
 				// load text from backup file
-				const text &#x3D; await this.fileSystemAdapter.readFile(filePath);
+				let fileContent &#x3D; await this.fileSystemAdapter.readFile(filePath);
+
+				if (collectionName &#x3D;&#x3D;&#x3D; systemsCollectionName || collectionName &#x3D;&#x3D;&#x3D; storageprovidersCollectionName) {
+					fileContent &#x3D; this.injectEnvVars(fileContent);
+				}
+
 				// create bson-objects from text
-				const bsonDocuments &#x3D; JSON.parse(text) as unknown[];
+				const bsonDocuments &#x3D; JSON.parse(fileContent) as unknown[];
 				// deserialize bson (format of mongoexport) to json documents we can import to mongo
 				const jsonDocuments &#x3D; this.bsonConverter.deserialize(bsonDocuments);
 
@@ -338,7 +360,9 @@ export class DatabaseManagementUc {
 					await this.databaseManagementService.createCollection(collectionName);
 				}
 
-				// import backuop data into database collection
+				this.encryptSecrets(collectionName, jsonDocuments);
+
+				// import backup data into database collection
 				const importedDocumentsAmount &#x3D; await this.databaseManagementService.importCollection(
 					collectionName,
 					jsonDocuments
@@ -372,15 +396,16 @@ export class DatabaseManagementUc {
 			collectionsToExport.map(async ({ filePath, collectionName }) &#x3D;&gt; {
 				// load json documents from collection
 				const jsonDocuments &#x3D; await this.databaseManagementService.findDocumentsOfCollection(collectionName);
+				this.removeSecrets(collectionName, jsonDocuments);
 				// serialize to bson (format of mongoexport)
 				const bsonDocuments &#x3D; this.bsonConverter.serialize(jsonDocuments);
 				// sort results to have &#x27;new&#x27; data added at documents end
 				const sortedBsonDocuments &#x3D; orderBy(bsonDocuments, [&#x27;_id.$oid&#x27;, &#x27;createdAt.$date&#x27;], [&#x27;asc&#x27;, &#x27;asc&#x27;]);
 				// convert to text
 				const TAB &#x3D; &#x27;	&#x27;;
-				const text &#x3D; JSON.stringify(sortedBsonDocuments, undefined, TAB);
+				const json &#x3D; JSON.stringify(sortedBsonDocuments, undefined, TAB);
 				// persist to filesystem
-				await this.fileSystemAdapter.writeFile(filePath, text + this.fileSystemAdapter.EOL);
+				await this.fileSystemAdapter.writeFile(filePath, json + this.fileSystemAdapter.EOL);
 				// keep collection name and number of exported documents
 				exportedCollections.push(&#x60;${collectionName}:${sortedBsonDocuments.length}&#x60;);
 			})
@@ -393,6 +418,89 @@ export class DatabaseManagementUc {
 	 */
 	async syncIndexes(): Promise&lt;void&gt; {
 		return this.databaseManagementService.syncIndexes();
+	}
+
+	private injectEnvVars(json: string): string {
+		// replace ${VAR} with VAR content
+		json &#x3D; json.replace(/(?&lt;!\\)\$\{(.*?)\}/g, (placeholder) &#x3D;&gt;
+			this.resolvePlaceholder(placeholder.substring(2, placeholder.length - 1))
+		);
+		// replace \$ with $ (escaped placeholder sequence)
+		json &#x3D; json.replace(/\\\$/g, &#x27;$&#x27;);
+		return json;
+	}
+
+	private resolvePlaceholder(placeholder: string) {
+		if (Configuration.has(placeholder)) {
+			return Configuration.get(placeholder) as string;
+		}
+		const placeholderValue &#x3D; this.configService.get&lt;string&gt;(placeholder);
+		if (placeholderValue) {
+			return placeholderValue;
+		}
+		this.logger.warn(&#x60;Placeholder &quot;${placeholder}&quot; could not be resolved!&#x60;);
+		return &#x27;&#x27;;
+	}
+
+	private encryptSecrets(collectionName: string, jsonDocuments: unknown[]) {
+		if (collectionName &#x3D;&#x3D;&#x3D; systemsCollectionName) {
+			this.encryptSecretsInSystems(jsonDocuments as System[]);
+		}
+	}
+
+	private encryptSecretsInSystems(systems: System[]) {
+		systems.forEach((system) &#x3D;&gt; {
+			if (system.oauthConfig) {
+				system.oauthConfig.clientSecret &#x3D; this.defaultEncryptionService.encrypt(system.oauthConfig.clientSecret);
+			}
+			if (system.type &#x3D;&#x3D;&#x3D; SysType.OIDC &amp;&amp; system.config) {
+				system.config.clientSecret &#x3D; this.defaultEncryptionService.encrypt(system.config.clientSecret as string);
+				system.config.clientId &#x3D; this.defaultEncryptionService.encrypt(system.config.clientId as string);
+			}
+			if (system.type &#x3D;&#x3D;&#x3D; SysType.LDAP &amp;&amp; system.ldapConfig) {
+				system.ldapConfig.searchUserPassword &#x3D; this.ldapEncryptionService.encrypt(
+					system.ldapConfig.searchUserPassword as string
+				);
+			}
+		});
+		return systems;
+	}
+
+	/**
+	 * Removes all known secrets (hard coded) from the export.
+	 * Manual replacement with the intend placeholders or value is mandatory.
+	 * Currently this affects system and storageproviders collections.
+	 */
+	private removeSecrets(collectionName: string, jsonDocuments: unknown[]) {
+		if (collectionName &#x3D;&#x3D;&#x3D; systemsCollectionName) {
+			this.removeSecretsFromSystems(jsonDocuments as System[]);
+		}
+		if (collectionName &#x3D;&#x3D;&#x3D; storageprovidersCollectionName) {
+			this.removeSecretsFromStorageproviders(jsonDocuments as StorageProvider[]);
+		}
+	}
+
+	private removeSecretsFromStorageproviders(storageProviders: StorageProvider[]) {
+		storageProviders.forEach((storageProvider) &#x3D;&gt; {
+			storageProvider.accessKeyId &#x3D; defaultSecretReplacementHintText;
+			storageProvider.secretAccessKey &#x3D; defaultSecretReplacementHintText;
+		});
+	}
+
+	private removeSecretsFromSystems(systems: System[]) {
+		systems.forEach((system) &#x3D;&gt; {
+			if (system.oauthConfig) {
+				system.oauthConfig.clientSecret &#x3D; defaultSecretReplacementHintText;
+			}
+			if (system.type &#x3D;&#x3D;&#x3D; SysType.OIDC &amp;&amp; system.config) {
+				system.config.clientSecret &#x3D; defaultSecretReplacementHintText;
+				system.config.clientId &#x3D; defaultSecretReplacementHintText;
+			}
+			if (system.type &#x3D;&#x3D;&#x3D; SysType.LDAP &amp;&amp; system.ldapConfig) {
+				system.ldapConfig.searchUserPassword &#x3D; defaultSecretReplacementHintText;
+			}
+		});
+		return systems;
 	}
 }
 </code></pre>

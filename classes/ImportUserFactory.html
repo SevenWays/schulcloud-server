@@ -1200,7 +1200,7 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { v4 as uuidv4 } from &#x27;uuid&#x27;;
 
-import { ImportUser, IImportUserProperties, RoleName, MatchCreator, User } from &#x27;@shared/domain&#x27;;
+import { ImportUser, IImportUserProperties, MatchCreator, User, RoleName, IImportUserRoleName } from &#x27;@shared/domain&#x27;;
 import { DeepPartial } from &#x27;fishery&#x27;;
 import { schoolFactory } from &#x27;./school.factory&#x27;;
 import { systemFactory } from &#x27;./system.factory&#x27;;
@@ -1223,7 +1223,7 @@ export const importUserFactory &#x3D; ImportUserFactory.define(ImportUser, ({ se
 		firstName: &#x60;John${sequence}&#x60;,
 		lastName: &#x60;Doe${sequence}&#x60;,
 		email: &#x60;user-${sequence}@example.com&#x60;,
-		roleNames: [RoleName.STUDENT],
+		roleNames: [RoleName.STUDENT as IImportUserRoleName],
 		classNames: [&#x27;firstClass&#x27;],
 		flagged: false,
 	};

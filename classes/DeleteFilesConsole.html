@@ -74,21 +74,6 @@
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Properties</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#logger" >logger</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -120,12 +105,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(deleteFilesUc: <a href="../injectables/DeleteFilesUc.html" target="_self">DeleteFilesUc</a>)</code>
+<code>constructor(deleteFilesUc: <a href="../injectables/DeleteFilesUc.html" target="_self">DeleteFilesUc</a>, logger: <a href="../injectables/Logger.html" target="_self">Logger</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/modules/files/job/delete-files.console.ts:7</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">apps/server/src/modules/files/job/delete-files.console.ts:6</a></div>
                             </td>
                         </tr>
 
@@ -154,6 +139,18 @@
                                                     </td>
                                                     
                                                 </tr>
+                                                <tr>
+                                                        <td>logger</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/Logger.html" target="_self" >Logger</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
                                         </tbody>
                                     </table>
                             </div>
@@ -163,39 +160,6 @@
         </table>
 </section>
 
-            <section>
-    
-    <h3 id="inputs">
-        Properties
-    </h3>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="logger"></a>
-                    <span class="name">
-                            <span class="modifier">Private</span>
-                        <span ><b>logger</b></span>
-                        <a href="#logger"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../injectables/Logger.html" target="_self" >Logger</a></code>
-
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/modules/files/job/delete-files.console.ts:7</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-</section>
 
             <section>
     
@@ -231,8 +195,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="17"
-                            class="link-to-prism">apps/server/src/modules/files/job/delete-files.console.ts:17</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="15"
+                            class="link-to-prism">apps/server/src/modules/files/job/delete-files.console.ts:15</a></div>
                 </td>
             </tr>
 
@@ -290,16 +254,14 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Console, Command } from &#x27;nestjs-console&#x27;;
-import { Logger } from &#x27;@src/core/logger&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Logger } from &#x27;@src/core/logger&#x27;;
+import { Command, Console } from &#x27;nestjs-console&#x27;;
 import { DeleteFilesUc } from &#x27;../uc&#x27;;
 
 @Console({ command: &#x27;files&#x27;, description: &#x27;file deletion console&#x27; })
 export class DeleteFilesConsole {
-	private logger: Logger;
-
-	constructor(private deleteFilesUc: DeleteFilesUc) {
-		this.logger &#x3D; new Logger(DeleteFilesConsole.name);
+	constructor(private deleteFilesUc: DeleteFilesUc, private logger: Logger) {
+		this.logger.setContext(DeleteFilesConsole.name);
 	}
 
 	@Command({

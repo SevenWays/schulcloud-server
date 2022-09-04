@@ -52,7 +52,52 @@
 
 
 <h1 id="git">Git</h1>
-<h2 id="windows">Windows</h2>
+<h2 id="branch-name-conventions">Branch name conventions</h2>
+<ul>
+<li>Each change should be done in a ticket (no matter how small)<ul>
+<li>The ticket does not need to be refined for very small things</li>
+<li>Might be relevant for reporting later</li>
+</ul>
+</li>
+<li>Folder (feature/..) should no longer be used</li>
+<li>Stay below 64 letters<ul>
+<li>Do not simply use ticket title, usually we need a shorter description :-)</li>
+</ul>
+</li>
+<li>Ticket number needs to be uppercase (<em>BC</em>-1234)<ul>
+<li>Related to matching with Jira</li>
+<li>Careful: namespace is lowercase</li>
+</ul>
+</li>
+</ul>
+<div><pre class="line-numbers"><code class="language-none">BC-XXXX-kebab-case-short-description</code></pre></div><h2 id="commit-message-conventions">Commit message conventions</h2>
+<ul>
+<li>Squashed commit subject should start with a ticket number, and end with a PR number</li>
+<li>Clean body (contains all commits by default)<ul>
+<li>Only leave changes relevant for main</li>
+<li>Remove commits likes &#39;fix for linter&#39;, &#39;add tests&#39;, &#39;fix review comments&#39;</li>
+<li>See example below</li>
+</ul>
+</li>
+<li>Write commit messages in imperative and active<ul>
+<li>Good: &quot;make the code better&quot;</li>
+<li>Bad: &quot;made the code better&quot;, &quot;makes the code better&quot;</li>
+</ul>
+</li>
+<li>Feel free to write actual text</li>
+</ul>
+<div><pre class="line-numbers"><code class="language-none">BC-1993 - lesson lernstore and geogebra copy (#3532)
+ 
+In order to make sure developers in the future can find out why changes have been made,
+we would like some descriptive text here that explains what we did and why.
+ 
+- change some important things
+- change some other things
+- refactor some existing things
+ 
+# I dont need to mention tests, changes that didnt make it to main, linter, or other fixups
+# only leave lines that are relevant changes compared to main
+# comments like this will not actually show up in the git history</code></pre></div><h2 id="windows">Windows</h2>
 <p>We strongly recommend to let git translate line endings. Please set <code>git config --global --add core.autocrlf input</code> when working with windows.</p>
 
                    </div><div class="search-results">

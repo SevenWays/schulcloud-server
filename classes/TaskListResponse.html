@@ -126,7 +126,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">apps/server/src/modules/task/controller/dto/task.response.ts:52</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">apps/server/src/modules/task/controller/dto/task.response.ts:56</a></div>
                             </td>
                         </tr>
 
@@ -239,7 +239,7 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/PaginationResponse.html#source" target="_self" >PaginationResponse:59</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/PaginationResponse.html#source" target="_self" >PaginationResponse:63</a></code>
 </div>
                         </td>
                     </tr>
@@ -270,7 +270,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty({type: &#x27;number&#x27;})<br />
+                            @ApiProperty({description: &#x27;The page size of the response.&#x27;, type: &#x27;number&#x27;})<br />
                         </code>
                     </td>
                 </tr>
@@ -313,7 +313,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty({type: &#x27;number&#x27;})<br />
+                            @ApiProperty({description: &#x27;The amount of items skipped from the start.&#x27;, type: &#x27;number&#x27;})<br />
                         </code>
                     </td>
                 </tr>
@@ -355,7 +355,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty({type: &#x27;number&#x27;})<br />
+                            @ApiProperty({description: &#x27;The total amount of items.&#x27;, type: &#x27;number&#x27;})<br />
                         </code>
                     </td>
                 </tr>
@@ -388,17 +388,18 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty, ApiPropertyOptional } from &#x27;@nestjs/swagger&#x27;;
-import { PaginationResponse, DecodeHtmlEntities } from &#x27;@shared/controller&#x27;;
+import { DecodeHtmlEntities, PaginationResponse } from &#x27;@shared/controller&#x27;;
 import { TaskStatusResponse } from &#x27;./task-status.response&#x27;;
 
 /**
  * DTO for returning a task document via api.
  */
 export class TaskResponse {
-	constructor({ id, name, courseName, createdAt, updatedAt, status }: TaskResponse) {
+	constructor({ id, name, courseName, courseId, createdAt, updatedAt, status }: TaskResponse) {
 		this.id &#x3D; id;
 		this.name &#x3D; name;
 		this.courseName &#x3D; courseName;
+		this.courseId &#x3D; courseId;
 		this.createdAt &#x3D; createdAt;
 		this.updatedAt &#x3D; updatedAt;
 		this.status &#x3D; status;
@@ -420,6 +421,9 @@ export class TaskResponse {
 	@ApiProperty()
 	@DecodeHtmlEntities()
 	courseName: string &#x3D; &#x27;&#x27; as string;
+
+	@ApiProperty()
+	courseId: string &#x3D; &#x27;&#x27; as string;
 
 	@ApiPropertyOptional()
 	@DecodeHtmlEntities()

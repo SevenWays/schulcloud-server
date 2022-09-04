@@ -80,23 +80,6 @@
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Properties</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                    <span class="modifier">Private</span>
-                                    <span class="modifier">Static</span>
-                                    <span class="modifier">Readonly</span>
-                                <a href="#logger" >logger</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -124,47 +107,55 @@
     </table>
 </section>
 
-
             <section>
-    
-    <h3 id="inputs">
-        Properties
-    </h3>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="logger"></a>
-                    <span class="name">
-                            <span class="modifier">Private</span>
-                            <span class="modifier">Static</span>
-                            <span class="modifier">Readonly</span>
-                        <span ><b>logger</b></span>
-                        <a href="#logger"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../injectables/Logger.html" target="_self" >ILogger</a></code>
-
+<code>constructor(logger: <a href="../injectables/Logger.html" target="_self">Logger</a>)</code>
                     </td>
                 </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="117" class="link-to-prism">apps/server/src/core/error/filter/global-error.filter.ts:117</a></div>
+                            </td>
+                        </tr>
+
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>new Logger(&#x27;Error&#x27;)</code>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>logger</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/Logger.html" target="_self" >Logger</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
                     </td>
                 </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="119" class="link-to-prism">apps/server/src/core/error/filter/global-error.filter.ts:119</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
+            </tbody>
+        </table>
 </section>
+
 
             <section>
     
@@ -191,8 +182,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="122"
-                            class="link-to-prism">apps/server/src/core/error/filter/global-error.filter.ts:122</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="123"
+                            class="link-to-prism">apps/server/src/core/error/filter/global-error.filter.ts:123</a></div>
                 </td>
             </tr>
 
@@ -272,8 +263,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="130"
-                            class="link-to-prism">apps/server/src/core/error/filter/global-error.filter.ts:130</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="131"
+                            class="link-to-prism">apps/server/src/core/error/filter/global-error.filter.ts:131</a></div>
                 </td>
             </tr>
 
@@ -332,13 +323,12 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ArgumentsHost, Catch, ExceptionFilter, HttpException, InternalServerErrorException } from &#x27;@nestjs/common&#x27;;
-import _ from &#x27;lodash&#x27;;
+import { ApiValidationError, BusinessError } from &#x27;@shared/common&#x27;;
+import { ILogger, Logger } from &#x27;@src/core/logger&#x27;;
 import { Response } from &#x27;express&#x27;;
-import { BusinessError, ApiValidationError } from &#x27;@shared/common&#x27;;
-import { Logger, ILogger } from &#x27;@src/core/logger&#x27;;
-import { ErrorResponse } from &#x27;../dto/error.response&#x27;;
+import _ from &#x27;lodash&#x27;;
+import { ApiValidationErrorResponse, ErrorResponse } from &#x27;../dto&#x27;;
 import { FeathersError } from &#x27;../interface&#x27;;
-import { ApiValidationErrorResponse } from &#x27;../dto/api-validation-error.response&#x27;;
 
 const isFeathersError &#x3D; (error: Error): error is FeathersError &#x3D;&gt; {
 	if (!(error &amp;&amp; &#x27;type&#x27; in error)) return false;
@@ -449,19 +439,21 @@ const writeErrorLog &#x3D; (error: unknown, logger: ILogger): void &#x3D;&gt; {
 
 @Catch()
 export class GlobalErrorFilter&lt;T &#x3D; unknown&gt; implements ExceptionFilter&lt;T&gt; {
-	private static readonly logger: ILogger &#x3D; new Logger(&#x27;Error&#x27;);
+	constructor(private logger: Logger) {
+		this.logger.setContext(&#x27;Error&#x27;);
+	}
 
 	// eslint-disable-next-line class-methods-use-this
 	catch(error: T, host: ArgumentsHost): void {
 		const ctx &#x3D; host.switchToHttp();
 		const response &#x3D; ctx.getResponse&lt;Response&gt;();
-		writeErrorLog(error, GlobalErrorFilter.logger);
+		writeErrorLog(error, this.logger);
 		const errorResponse: ErrorResponse &#x3D; this.createErrorResponse(error);
 		response.status(errorResponse.code).json(errorResponse);
 	}
 
 	createErrorResponse(error: T): ErrorResponse {
-		return createErrorResponse(error, GlobalErrorFilter.logger);
+		return createErrorResponse(error, this.logger);
 	}
 }
 </code></pre>

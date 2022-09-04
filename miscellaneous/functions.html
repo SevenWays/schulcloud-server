@@ -61,10 +61,10 @@
                 <td class="col-md-4">
                     <ul class="index-list">
                         <li>
-                            <a href="#bootstrap" title="apps/server/src/files-storage.server.ts" ><b>bootstrap</b>&nbsp;&nbsp;&nbsp;(apps/.../files-storage.server.ts)</a>
+                            <a href="#bootstrap" title="apps/server/src/main.ts" ><b>bootstrap</b>&nbsp;&nbsp;&nbsp;(apps/.../main.ts)</a>
                         </li>
                         <li>
-                            <a href="#bootstrap" title="apps/server/src/main.ts" ><b>bootstrap</b>&nbsp;&nbsp;&nbsp;(apps/.../main.ts)</a>
+                            <a href="#bootstrap" title="apps/server/src/files-storage.server.ts" ><b>bootstrap</b>&nbsp;&nbsp;&nbsp;(apps/.../files-storage.server.ts)</a>
                         </li>
                         <li>
                             <a href="#bootstrap" title="apps/server/src/management.ts" ><b>bootstrap</b>&nbsp;&nbsp;&nbsp;(apps/.../management.ts)</a>
@@ -85,6 +85,15 @@
                             <a href="#DecodeHtmlEntities" title="apps/server/src/shared/controller/transformer/decode-html-entities.transformer.ts" ><b>DecodeHtmlEntities</b>&nbsp;&nbsp;&nbsp;(apps/.../decode-html-entities.transformer.ts)</a>
                         </li>
                         <li>
+                            <a href="#encryptionProviderFactory" title="apps/server/src/shared/infra/encryption/encryption.module.ts" ><b>encryptionProviderFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../encryption.module.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#RequestTimeout" title="apps/server/src/shared/common/decorators/timeout.decorator.ts" ><b>RequestTimeout</b>&nbsp;&nbsp;&nbsp;(apps/.../timeout.decorator.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#SanitizeHtml" title="apps/server/src/shared/controller/transformer/sanitize-html.transformer.ts" ><b>SanitizeHtml</b>&nbsp;&nbsp;&nbsp;(apps/.../sanitize-html.transformer.ts)</a>
+                        </li>
+                        <li>
                             <a href="#SingleValueToArrayTransformer" title="apps/server/src/shared/controller/transformer/single-value-to-array.transformer.ts" ><b>SingleValueToArrayTransformer</b>&nbsp;&nbsp;&nbsp;(apps/.../single-value-to-array.transformer.ts)</a>
                         </li>
                         <li>
@@ -97,7 +106,7 @@
     </table>
 </section>
 
-    <h3>apps/server/src/files-storage.server.ts</h3>
+    <h3>apps/server/src/main.ts</h3>
     <section>
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
@@ -121,7 +130,7 @@
 
         </tbody>
     </table>
-</section>    <h3>apps/server/src/main.ts</h3>
+</section>    <h3>apps/server/src/files-storage.server.ts</h3>
     <section>
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
@@ -463,6 +472,218 @@ with all characters encoded again.</p>
                     <div class="io-description">
                         <p>the string with decoded html entities</p>
 
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>apps/server/src/shared/infra/encryption/encryption.module.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="encryptionProviderFactory"></a>
+                    <span class="name">
+                        <span ><b>encryptionProviderFactory</b></span>
+                        <a href="#encryptionProviderFactory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>encryptionProviderFactory(configService: ConfigService, logger: <a href="../injectables/Logger.html" target="_self">Logger</a>, aesKey: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>configService</td>
+                                    <td>
+                                            <code>ConfigService</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>logger</td>
+                                    <td>
+                                                <code><a href="../injectables/Logger.html" target="_self" >Logger</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>aesKey</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>apps/server/src/shared/common/decorators/timeout.decorator.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="RequestTimeout"></a>
+                    <span class="name">
+                        <span ><b>RequestTimeout</b></span>
+                        <a href="#RequestTimeout"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>RequestTimeout(ms: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>ms</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>apps/server/src/shared/controller/transformer/sanitize-html.transformer.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="SanitizeHtml"></a>
+                    <span class="name">
+                        <span ><b>SanitizeHtml</b></span>
+                        <a href="#SanitizeHtml"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>SanitizeHtml(options?: <a href="../interfaces/Options.html" target="_self">SanitizeDecoratorOptions</a>)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Decorator to sanitize a string by removing unwanted HTML.
+Place after IsString decorator.
+Options:
+<code>keep: inline</code> allow only simple inline tags
+<code>keep: richtext</code> allow rich text tags
+default: strip all HTML tags from string</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>options</td>
+                                    <td>
+                                                <code><a href="../interfaces/Options.html" target="_self" >SanitizeDecoratorOptions</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>PropertyDecorator</code>
+
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>

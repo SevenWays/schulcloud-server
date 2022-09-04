@@ -65,7 +65,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/core/logger/logger.interface.ts</code>
+            <code>apps/server/src/core/logger/interfaces/logger.interface.ts</code>
         </p>
 
 
@@ -93,6 +93,12 @@
                                     <a href="#error" 
 >
                                         error
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#http" 
+>
+                                        http
                                     </a>
                                 </li>
                                 <li>
@@ -146,8 +152,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="5"
-                            class="link-to-prism">apps/server/src/core/logger/logger.interface.ts:5</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="15"
+                            class="link-to-prism">apps/server/src/core/logger/interfaces/logger.interface.ts:15</a></div>
                 </td>
             </tr>
 
@@ -219,8 +225,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="3"
-                            class="link-to-prism">apps/server/src/core/logger/logger.interface.ts:3</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="13"
+                            class="link-to-prism">apps/server/src/core/logger/interfaces/logger.interface.ts:13</a></div>
                 </td>
             </tr>
 
@@ -288,6 +294,80 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="http"></a>
+                    <span class="name">
+                        <span ><b>http</b></span>
+                        <a href="#http"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>http(message: <a href="../undefineds/RequestLoggingBody.html" target="_self">RequestLoggingBody</a>, context?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="11"
+                            class="link-to-prism">apps/server/src/core/logger/interfaces/logger.interface.ts:11</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>message</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#RequestLoggingBody" target="_self" >RequestLoggingBody</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>context</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="log"></a>
                     <span class="name">
                         <span ><b>log</b></span>
@@ -304,8 +384,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="2"
-                            class="link-to-prism">apps/server/src/core/logger/logger.interface.ts:2</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="12"
+                            class="link-to-prism">apps/server/src/core/logger/interfaces/logger.interface.ts:12</a></div>
                 </td>
             </tr>
 
@@ -378,8 +458,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="6"
-                            class="link-to-prism">apps/server/src/core/logger/logger.interface.ts:6</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="16"
+                            class="link-to-prism">apps/server/src/core/logger/interfaces/logger.interface.ts:16</a></div>
                 </td>
             </tr>
 
@@ -451,8 +531,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="4"
-                            class="link-to-prism">apps/server/src/core/logger/logger.interface.ts:4</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="14"
+                            class="link-to-prism">apps/server/src/core/logger/interfaces/logger.interface.ts:14</a></div>
                 </td>
             </tr>
 
@@ -510,7 +590,17 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface ILogger {
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { LogLevel } from &#x27;@nestjs/common&#x27;;
+
+export type AvailableLogLevel &#x3D; LogLevel | &#x27;http&#x27;;
+
+export type RequestLoggingBody &#x3D; {
+	userId?: string;
+	request: { url: string; method: string; params: unknown; query: unknown };
+	error: unknown | undefined;
+};
+export interface ILogger {
+	http(message: RequestLoggingBody, context?: string): unknown;
 	log(message: unknown, context?: string): unknown;
 	error(message: unknown, trace?: string, context?: string): unknown;
 	warn(message: unknown, context?: string): unknown;
