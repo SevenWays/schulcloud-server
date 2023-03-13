@@ -184,7 +184,6 @@ import { DatabaseManagementService } from &#x27;@shared/infra/database&#x27;;
 import { Configuration } from &#x27;@hpi-schul-cloud/commons&#x27;;
 import { DefaultEncryptionService, IEncryptionService, LdapEncryptionService } from &#x27;@shared/infra/encryption&#x27;;
 import { StorageProvider, System } from &#x27;@shared/domain&#x27;;
-import { SysType } from &#x27;@shared/infra/identity-management&#x27;;
 import { ConfigService } from &#x27;@nestjs/config&#x27;;
 import { Logger } from &#x27;@src/core/logger&#x27;;
 import { BsonConverter } from &#x27;../converter/bson.converter&#x27;;
@@ -256,10 +255,12 @@ export class DatabaseManagementUc {
 	 */
 	private async loadAllCollectionsFromDatabase(targetFolder: string): Promise&lt;ICollectionFilePath[]&gt; {
 		const collections &#x3D; await this.databaseManagementService.getCollectionNames();
-		const collectionsWithFilePaths &#x3D; collections.map((collectionName) &#x3D;&gt; ({
-			filePath: this.fileSystemAdapter.joinPath(targetFolder, &#x60;${collectionName}.json&#x60;),
-			collectionName,
-		}));
+		const collectionsWithFilePaths &#x3D; collections.map((collectionName) &#x3D;&gt; {
+			return {
+				filePath: this.fileSystemAdapter.joinPath(targetFolder, &#x60;${collectionName}.json&#x60;),
+				collectionName,
+			};
+		});
 		return collectionsWithFilePaths;
 	}
 
@@ -269,10 +270,12 @@ export class DatabaseManagementUc {
 	 */
 	private async loadAllCollectionsFromFilesystem(baseDir: string): Promise&lt;ICollectionFilePath[]&gt; {
 		const filenames &#x3D; await this.fileSystemAdapter.readDir(baseDir);
-		const collectionsWithFilePaths &#x3D; filenames.map((fileName) &#x3D;&gt; ({
-			filePath: this.fileSystemAdapter.joinPath(baseDir, fileName),
-			collectionName: fileName.split(&#x27;.&#x27;)[0],
-		}));
+		const collectionsWithFilePaths &#x3D; filenames.map((fileName) &#x3D;&gt; {
+			return {
+				filePath: this.fileSystemAdapter.joinPath(baseDir, fileName),
+				collectionName: fileName.split(&#x27;.&#x27;)[0],
+			};
+		});
 		return collectionsWithFilePaths;
 	}
 
@@ -453,11 +456,10 @@ export class DatabaseManagementUc {
 			if (system.oauthConfig) {
 				system.oauthConfig.clientSecret &#x3D; this.defaultEncryptionService.encrypt(system.oauthConfig.clientSecret);
 			}
-			if (system.type &#x3D;&#x3D;&#x3D; SysType.OIDC &amp;&amp; system.config) {
-				system.config.clientSecret &#x3D; this.defaultEncryptionService.encrypt(system.config.clientSecret as string);
-				system.config.clientId &#x3D; this.defaultEncryptionService.encrypt(system.config.clientId as string);
+			if (system.oidcConfig) {
+				system.oidcConfig.clientSecret &#x3D; this.defaultEncryptionService.encrypt(system.oidcConfig.clientSecret);
 			}
-			if (system.type &#x3D;&#x3D;&#x3D; SysType.LDAP &amp;&amp; system.ldapConfig) {
+			if (system.ldapConfig) {
 				system.ldapConfig.searchUserPassword &#x3D; this.ldapEncryptionService.encrypt(
 					system.ldapConfig.searchUserPassword as string
 				);
@@ -492,11 +494,10 @@ export class DatabaseManagementUc {
 			if (system.oauthConfig) {
 				system.oauthConfig.clientSecret &#x3D; defaultSecretReplacementHintText;
 			}
-			if (system.type &#x3D;&#x3D;&#x3D; SysType.OIDC &amp;&amp; system.config) {
-				system.config.clientSecret &#x3D; defaultSecretReplacementHintText;
-				system.config.clientId &#x3D; defaultSecretReplacementHintText;
+			if (system.oidcConfig) {
+				system.oidcConfig.clientSecret &#x3D; defaultSecretReplacementHintText;
 			}
-			if (system.type &#x3D;&#x3D;&#x3D; SysType.LDAP &amp;&amp; system.ldapConfig) {
+			if (system.ldapConfig) {
 				system.ldapConfig.searchUserPassword &#x3D; defaultSecretReplacementHintText;
 			}
 		});

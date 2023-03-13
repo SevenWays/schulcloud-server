@@ -58,7 +58,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/shared/domain/service/course-copy.service.ts</code>
+            <code>apps/server/src/modules/learnroom/service/course-copy.service.ts</code>
         </p>
 
 
@@ -79,7 +79,22 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#copyCourse" >copyCourse</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#copyCourseEntity" >copyCourseEntity</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#deriveCourseStatus" >deriveCourseStatus</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#finishCourseCopying" >finishCourseCopying</a>
                             </li>
                         </ul>
                     </td>
@@ -99,12 +114,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(copyHelperService: <a href="../injectables/CopyHelperService.html" target="_self">CopyHelperService</a>)</code>
+<code>constructor(courseRepo: <a href="../injectables/CourseRepo.html" target="_self">CourseRepo</a>, boardRepo: <a href="../injectables/BoardRepo.html" target="_self">BoardRepo</a>, roomsService: <a href="../injectables/RoomsService.html" target="_self">RoomsService</a>, boardCopyService: <a href="../injectables/BoardCopyService.html" target="_self">BoardCopyService</a>, copyHelperService: <a href="../injectables/CopyHelperService.html" target="_self">CopyHelperService</a>, authorizationService: <a href="../injectables/AuthorizationService.html" target="_self">AuthorizationService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">apps/server/src/shared/domain/service/course-copy.service.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/server/src/modules/learnroom/service/course-copy.service.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -122,10 +137,70 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
+                                                        <td>courseRepo</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CourseRepo.html" target="_self" >CourseRepo</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>boardRepo</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/BoardRepo.html" target="_self" >BoardRepo</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>roomsService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/RoomsService.html" target="_self" >RoomsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>boardCopyService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/BoardCopyService.html" target="_self" >BoardCopyService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
                                                         <td>copyHelperService</td>
                                                   
                                                         <td>
                                                                         <code><a href="../injectables/CopyHelperService.html" target="_self" >CopyHelperService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>authorizationService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthorizationService.html" target="_self" >AuthorizationService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -153,6 +228,7 @@
                 <td class="col-md-4">
                     <a name="copyCourse"></a>
                     <span class="name">
+                        <span class="modifier">Async</span>
                         <span ><b>copyCourse</b></span>
                         <a href="#copyCourse"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -160,15 +236,87 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>copyCourse(params: <a href="../entitys/Course.html" target="_self">CourseCopyParams</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>copyCourse(undefined: literal type)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="16"
-                            class="link-to-prism">apps/server/src/shared/domain/service/course-copy.service.ts:16</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">apps/server/src/modules/learnroom/service/course-copy.service.ts:26</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                            <code>literal type</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >Promise&lt;CopyStatus&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="copyCourseEntity"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>copyCourseEntity</b></span>
+                        <a href="#copyCourseEntity"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>copyCourseEntity(params: <a href="../entitys/Course.html" target="_self">CourseCopyParams</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="57"
+                            class="link-to-prism">apps/server/src/modules/learnroom/service/course-copy.service.ts:57</a></div>
                 </td>
             </tr>
 
@@ -206,7 +354,174 @@
                     <div>
                     </div>
                     <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../entitys/Course.html" target="_self" >Promise&lt;Course&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deriveCourseStatus"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>deriveCourseStatus</b></span>
+                        <a href="#deriveCourseStatus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deriveCourseStatus(originalCourse: <a href="../entitys/Course.html" target="_self">Course</a>, courseCopy: <a href="../entitys/Course.html" target="_self">Course</a>, boardStatus: <a href="../undefineds/CopyStatus.html" target="_self">CopyStatus</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="79"
+                            class="link-to-prism">apps/server/src/modules/learnroom/service/course-copy.service.ts:79</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>originalCourse</td>
+                                    <td>
+                                                <code><a href="../entitys/Course.html" target="_self" >Course</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>courseCopy</td>
+                                    <td>
+                                                <code><a href="../entitys/Course.html" target="_self" >Course</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>boardStatus</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >CopyStatus</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
                         <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >CopyStatus</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="finishCourseCopying"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>finishCourseCopying</b></span>
+                        <a href="#finishCourseCopying"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>finishCourseCopying(courseCopy: <a href="../entitys/Course.html" target="_self">Course</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="73"
+                            class="link-to-prism">apps/server/src/modules/learnroom/service/course-copy.service.ts:73</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>courseCopy</td>
+                                    <td>
+                                                <code><a href="../entitys/Course.html" target="_self" >Course</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
 
                     </div>
                     <div class="io-description">
@@ -223,11 +538,14 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { Course, User } from &#x27;@shared/domain/entity&#x27;;
-import { CopyElementType, CopyStatus, CopyStatusEnum } from &#x27;@shared/domain/types&#x27;;
-import { CopyHelperService } from &#x27;./copy-helper.service&#x27;;
+import { Course, EntityId, User } from &#x27;@shared/domain&#x27;;
+import { BoardRepo, CourseRepo } from &#x27;@shared/repo&#x27;;
+import { AuthorizationService } from &#x27;@src/modules/authorization&#x27;;
+import { CopyElementType, CopyHelperService, CopyStatus, CopyStatusEnum } from &#x27;@src/modules/copy-helper&#x27;;
+import { BoardCopyService } from &#x27;./board-copy.service&#x27;;
+import { RoomsService } from &#x27;./rooms.service&#x27;;
 
-export type CourseCopyParams &#x3D; {
+type CourseCopyParams &#x3D; {
 	originalCourse: Course;
 	user: User;
 	copyName?: string;
@@ -235,25 +553,76 @@ export type CourseCopyParams &#x3D; {
 
 @Injectable()
 export class CourseCopyService {
-	constructor(private readonly copyHelperService: CopyHelperService) {}
+	constructor(
+		private readonly courseRepo: CourseRepo,
+		private readonly boardRepo: BoardRepo,
+		private readonly roomsService: RoomsService,
+		private readonly boardCopyService: BoardCopyService,
+		private readonly copyHelperService: CopyHelperService,
+		private readonly authorizationService: AuthorizationService
+	) {}
 
-	copyCourse(params: CourseCopyParams): CopyStatus {
-		const copy &#x3D; new Course({
-			school: params.user.school,
-			name: params.copyName ?? params.originalCourse.name,
-			color: params.originalCourse.color,
-			teachers: [params.user],
-			startDate: params.user.school.schoolYear?.startDate,
-			untilDate: params.user.school.schoolYear?.endDate,
+	async copyCourse({
+		userId,
+		courseId,
+		newName,
+	}: {
+		userId: EntityId;
+		courseId: EntityId;
+		newName?: string | undefined;
+	}): Promise&lt;CopyStatus&gt; {
+		const user &#x3D; await this.authorizationService.getUserWithPermissions(userId);
+
+		// fetch original course and board
+		const originalCourse &#x3D; await this.courseRepo.findById(courseId);
+		let originalBoard &#x3D; await this.boardRepo.findByCourseId(courseId);
+		originalBoard &#x3D; await this.roomsService.updateBoard(originalBoard, courseId, userId);
+
+		// handle potential name conflict
+		const [existingCourses] &#x3D; await this.courseRepo.findAllByUserId(userId);
+		const existingNames &#x3D; existingCourses.map((course: Course) &#x3D;&gt; course.name);
+		const copyName &#x3D; this.copyHelperService.deriveCopyName(newName || originalCourse.name, existingNames);
+
+		// copy course and board
+		const courseCopy &#x3D; await this.copyCourseEntity({ user, originalCourse, copyName });
+		const boardStatus &#x3D; await this.boardCopyService.copyBoard({ originalBoard, destinationCourse: courseCopy, user });
+		const finishedCourseCopy &#x3D; await this.finishCourseCopying(courseCopy);
+
+		const courseStatus &#x3D; this.deriveCourseStatus(originalCourse, finishedCourseCopy, boardStatus);
+
+		return courseStatus;
+	}
+
+	private async copyCourseEntity(params: CourseCopyParams): Promise&lt;Course&gt; {
+		const { originalCourse, user, copyName } &#x3D; params;
+		const courseCopy &#x3D; new Course({
+			school: user.school,
+			name: copyName,
+			color: originalCourse.color,
+			teachers: [user],
+			startDate: user.school.schoolYear?.startDate,
+			untilDate: user.school.schoolYear?.endDate,
+			copyingSince: new Date(),
 		});
 
+		await this.courseRepo.createCourse(courseCopy);
+		return courseCopy;
+	}
+
+	private async finishCourseCopying(courseCopy: Course) {
+		delete courseCopy.copyingSince;
+		await this.courseRepo.save(courseCopy);
+		return courseCopy;
+	}
+
+	private deriveCourseStatus(originalCourse: Course, courseCopy: Course, boardStatus: CopyStatus): CopyStatus {
 		const elements &#x3D; [
 			{
 				type: CopyElementType.METADATA,
 				status: CopyStatusEnum.SUCCESS,
 			},
 			{
-				type: CopyElementType.USER_GROUP, // teachers, substitutionTeachers, students,...
+				type: CopyElementType.USER_GROUP,
 				status: CopyStatusEnum.NOT_DOING,
 			},
 			{
@@ -264,22 +633,22 @@ export class CourseCopyService {
 				type: CopyElementType.TIME_GROUP,
 				status: CopyStatusEnum.NOT_DOING,
 			},
+			boardStatus,
 		];
 
-		const courseGroupsExist &#x3D; params.originalCourse.getCourseGroupItems().length &gt; 0;
+		const courseGroupsExist &#x3D; originalCourse.getCourseGroupItems().length &gt; 0;
 		if (courseGroupsExist) {
 			elements.push({ type: CopyElementType.COURSEGROUP_GROUP, status: CopyStatusEnum.NOT_IMPLEMENTED });
 		}
 
 		const status &#x3D; {
-			title: copy.name,
+			title: courseCopy.name,
 			type: CopyElementType.COURSE,
 			status: this.copyHelperService.deriveStatusFromElements(elements),
-			copyEntity: copy,
-			originalEntity: params.originalCourse,
+			copyEntity: courseCopy,
+			originalEntity: originalCourse,
 			elements,
 		};
-
 		return status;
 	}
 }

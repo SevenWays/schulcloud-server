@@ -58,7 +58,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/shared/repo/account/account.repo.ts</code>
+            <code>apps/server/src/modules/account/repo/account.repo.ts</code>
         </p>
 
 
@@ -99,6 +99,10 @@
                             <li>
                                     <span class="modifier">Async</span>
                                 <a href="#findByUserIdOrFail" >findByUserIdOrFail</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findByUsernameAndSystemId" >findByUsernameAndSystemId</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
@@ -196,8 +200,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="54"
-                            class="link-to-prism">apps/server/src/shared/repo/account/account.repo.ts:54</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">apps/server/src/modules/account/repo/account.repo.ts:58</a></div>
                 </td>
             </tr>
 
@@ -267,8 +271,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="59"
-                            class="link-to-prism">apps/server/src/shared/repo/account/account.repo.ts:59</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="63"
+                            class="link-to-prism">apps/server/src/modules/account/repo/account.repo.ts:63</a></div>
                 </td>
             </tr>
 
@@ -339,7 +343,7 @@
             <tr>
                 <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="18"
-                            class="link-to-prism">apps/server/src/shared/repo/account/account.repo.ts:18</a></div>
+                            class="link-to-prism">apps/server/src/modules/account/repo/account.repo.ts:18</a></div>
                 </td>
             </tr>
 
@@ -417,7 +421,7 @@
             <tr>
                 <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">apps/server/src/shared/repo/account/account.repo.ts:27</a></div>
+                            class="link-to-prism">apps/server/src/modules/account/repo/account.repo.ts:27</a></div>
                 </td>
             </tr>
 
@@ -469,6 +473,89 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="findByUsernameAndSystemId"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>findByUsernameAndSystemId</b></span>
+                        <a href="#findByUsernameAndSystemId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findByUsernameAndSystemId(username: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, systemId: <a href="../undefineds/EntityId.html" target="_self">EntityId | ObjectId</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="31"
+                            class="link-to-prism">apps/server/src/modules/account/repo/account.repo.ts:31</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>username</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>systemId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId | ObjectId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Account.html" target="_self" >Promise&lt;Account | null&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="findMultipleByUserId"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -488,7 +575,7 @@
             <tr>
                 <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">apps/server/src/shared/repo/account/account.repo.ts:22</a></div>
+                            class="link-to-prism">apps/server/src/modules/account/repo/account.repo.ts:22</a></div>
                 </td>
             </tr>
 
@@ -558,8 +645,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="42"
-                            class="link-to-prism">apps/server/src/shared/repo/account/account.repo.ts:42</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="46"
+                            class="link-to-prism">apps/server/src/modules/account/repo/account.repo.ts:46</a></div>
                 </td>
             </tr>
 
@@ -595,8 +682,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="31"
-                            class="link-to-prism">apps/server/src/shared/repo/account/account.repo.ts:31</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="35"
+                            class="link-to-prism">apps/server/src/modules/account/repo/account.repo.ts:35</a></div>
                 </td>
             </tr>
 
@@ -684,8 +771,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="38"
-                            class="link-to-prism">apps/server/src/shared/repo/account/account.repo.ts:38</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="42"
+                            class="link-to-prism">apps/server/src/modules/account/repo/account.repo.ts:42</a></div>
                 </td>
             </tr>
 
@@ -756,8 +843,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="66"
-                            class="link-to-prism">apps/server/src/shared/repo/account/account.repo.ts:66</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="70"
+                            class="link-to-prism">apps/server/src/modules/account/repo/account.repo.ts:70</a></div>
                 </td>
             </tr>
 
@@ -863,8 +950,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="46"
-                            class="link-to-prism">apps/server/src/shared/repo/account/account.repo.ts:46</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="50"
+                            class="link-to-prism">apps/server/src/modules/account/repo/account.repo.ts:50</a></div>
                 </td>
             </tr>
 
@@ -967,8 +1054,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="50"
-                            class="link-to-prism">apps/server/src/shared/repo/account/account.repo.ts:50</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="54"
+                            class="link-to-prism">apps/server/src/modules/account/repo/account.repo.ts:54</a></div>
                 </td>
             </tr>
 
@@ -1075,7 +1162,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:16</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:17</a></code>
 </div>
                 </td>
             </tr>
@@ -1152,7 +1239,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:24</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:25</a></code>
 </div>
                 </td>
             </tr>
@@ -1229,7 +1316,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:28</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:29</a></code>
 </div>
                 </td>
             </tr>
@@ -1306,7 +1393,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:20</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:21</a></code>
 </div>
                 </td>
             </tr>
@@ -1377,7 +1464,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">apps/server/src/shared/repo/account/account.repo.ts:10</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">apps/server/src/modules/account/repo/account.repo.ts:10</a></div>
                                 </td>
                             </tr>
 
@@ -1416,6 +1503,10 @@ export class AccountRepo extends BaseRepo&lt;Account&gt; {
 
 	async findByUserIdOrFail(userId: EntityId | ObjectId): Promise&lt;Account&gt; {
 		return this._em.findOneOrFail(Account, { userId: new ObjectId(userId) });
+	}
+
+	async findByUsernameAndSystemId(username: string, systemId: EntityId | ObjectId): Promise&lt;Account | null&gt; {
+		return this._em.findOne(Account, { username, systemId: new ObjectId(systemId) });
 	}
 
 	getObjectReference&lt;Entity extends AnyEntity&lt;Entity&gt;&gt;(

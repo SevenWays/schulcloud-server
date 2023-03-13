@@ -409,8 +409,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="62"
-                            class="link-to-prism">apps/server/src/shared/domain/rules/task.rule.ts:62</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="60"
+                            class="link-to-prism">apps/server/src/shared/domain/rules/task.rule.ts:60</a></div>
                 </td>
             </tr>
 
@@ -749,9 +749,7 @@ export class TaskRule extends BasePermission&lt;Task&gt; {
 	private taskWritePermission(user: User, entity: Task): boolean {
 		const hasParentWritePermission &#x3D; this.parentPermission(user, entity, Actions.write);
 
-		const result &#x3D; hasParentWritePermission;
-
-		return result;
+		return hasParentWritePermission;
 	}
 
 	private parentPermission(user: User, entity: Task, action: Actions): boolean {

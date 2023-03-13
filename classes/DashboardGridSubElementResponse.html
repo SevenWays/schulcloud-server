@@ -118,7 +118,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="3" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/dashboard.response.ts:3</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="4" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/dashboard.response.ts:4</a></div>
                             </td>
                         </tr>
 
@@ -188,7 +188,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/dashboard.response.ts:30</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/dashboard.response.ts:32</a></div>
                         </td>
                     </tr>
 
@@ -223,7 +223,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/dashboard.response.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/dashboard.response.ts:16</a></div>
                         </td>
                     </tr>
 
@@ -258,7 +258,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/dashboard.response.ts:25</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/dashboard.response.ts:27</a></div>
                         </td>
                     </tr>
 
@@ -287,13 +287,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty({description: &#x27;Title of the Grid element&#x27;})<br />
+                            @DecodeHtmlEntities()<br />@ApiProperty({description: &#x27;Title of the Grid element&#x27;})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/dashboard.response.ts:20</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/dashboard.response.ts:22</a></div>
                         </td>
                     </tr>
 
@@ -313,6 +313,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
+import { DecodeHtmlEntities } from &#x27;@shared/controller&#x27;;
 
 export class DashboardGridSubElementResponse {
 	constructor({ id, title, shortTitle, displayColor }: DashboardGridSubElementResponse) {
@@ -328,6 +329,7 @@ export class DashboardGridSubElementResponse {
 	})
 	id: string;
 
+	@DecodeHtmlEntities()
 	@ApiProperty({
 		description: &#x27;Title of the Grid element&#x27;,
 	})
@@ -354,6 +356,7 @@ export class DashboardGridElementResponse {
 		yPosition,
 		groupId,
 		groupElements,
+		copyingSince &#x3D; undefined,
 	}: DashboardGridElementResponse) {
 		this.id &#x3D; id;
 		this.title &#x3D; title;
@@ -363,6 +366,7 @@ export class DashboardGridElementResponse {
 		this.yPosition &#x3D; yPosition;
 		this.groupId &#x3D; groupId;
 		this.groupElements &#x3D; groupElements;
+		this.copyingSince &#x3D; copyingSince;
 	}
 
 	@ApiProperty({
@@ -371,6 +375,7 @@ export class DashboardGridElementResponse {
 	})
 	id?: string;
 
+	@DecodeHtmlEntities()
 	@ApiProperty({
 		description: &#x27;Title of the Grid element&#x27;,
 	})
@@ -407,6 +412,11 @@ export class DashboardGridElementResponse {
 		description: &#x27;List of all subelements in the group&#x27;,
 	})
 	groupElements?: DashboardGridSubElementResponse[];
+
+	@ApiProperty({
+		description: &#x27;Start of the copying process if it is still ongoing - otherwise property is not set.&#x27;,
+	})
+	copyingSince?: Date;
 }
 
 export class DashboardResponse {

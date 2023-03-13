@@ -107,10 +107,6 @@
                                     <span class="modifier">Public</span>
                                 <a href="#isApplicable" >isApplicable</a>
                             </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#resolveTeamPermissions" >resolveTeamPermissions</a>
-                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -319,77 +315,6 @@
             </tr>
         </tbody>
     </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="resolveTeamPermissions"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span ><b>resolveTeamPermissions</b></span>
-                        <a href="#resolveTeamPermissions"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>resolveTeamPermissions(teamUser: <a href="../interfaces/User.html" target="_self">TeamUser</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="25"
-                            class="link-to-prism">apps/server/src/shared/domain/rules/team.rule.ts:25</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>teamUser</td>
-                                    <td>
-                                                <code><a href="../interfaces/User.html" target="_self" >TeamUser</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>string[]</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
 </section>
             <section>
     
@@ -435,7 +360,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, InternalServerErrorException } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { Team, TeamUser, User } from &#x27;@shared/domain/entity&#x27;;
 import { IPermissionContext } from &#x27;@shared/domain/interface&#x27;;
 import { BasePermission } from &#x27;@shared/domain/rules/base-permission&#x27;;
@@ -447,22 +372,12 @@ export class TeamRule extends BasePermission&lt;Team&gt; {
 	}
 
 	public hasPermission(user: User, entity: Team, context: IPermissionContext): boolean {
-		const resultTeamUser: TeamUser | undefined &#x3D; entity.teamUsers.find(
-			(teamUser: TeamUser) &#x3D;&gt; teamUser.user.id &#x3D;&#x3D;&#x3D; user.id
-		);
-
-		if (!resultTeamUser) {
-			throw new InternalServerErrorException(&#x27;Cannot find user in team&#x27;);
+		let hasPermission &#x3D; false;
+		const isTeamUser &#x3D; entity.teamUsers.find((teamUser: TeamUser) &#x3D;&gt; teamUser.user.id &#x3D;&#x3D;&#x3D; user.id);
+		if (isTeamUser) {
+			hasPermission &#x3D; this.utils.hasAllPermissionsByRole(isTeamUser.role, context.requiredPermissions);
 		}
-
-		const permissions: string[] &#x3D; this.resolveTeamPermissions(resultTeamUser);
-		return context.requiredPermissions.every((permission) &#x3D;&gt; permissions.includes(permission));
-	}
-
-	private resolveTeamPermissions(teamUser: TeamUser): string[] {
-		const rolesAndPermissions &#x3D; this.utils.resolvePermissionsByRoles([teamUser.role]);
-
-		return rolesAndPermissions;
+		return hasPermission;
 	}
 }
 </code></pre>

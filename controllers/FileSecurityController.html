@@ -131,8 +131,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="16"
-                            class="link-to-prism">apps/server/src/modules/files-storage/controller/file-security.controller.ts:16</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="15"
+                            class="link-to-prism">apps/server/src/modules/files-storage/controller/file-security.controller.ts:15</a></div>
                 </td>
             </tr>
 
@@ -221,8 +221,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="30"
-                            class="link-to-prism">apps/server/src/modules/files-storage/controller/file-security.controller.ts:30</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="29"
+                            class="link-to-prism">apps/server/src/modules/files-storage/controller/file-security.controller.ts:29</a></div>
                 </td>
             </tr>
 
@@ -288,16 +288,15 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Body, Controller, Get, Param, Put, Req, StreamableFile } from &#x27;@nestjs/common&#x27;;
 import { ApiExcludeEndpoint, ApiTags } from &#x27;@nestjs/swagger&#x27;;
-import { ScanResultParams } from &#x27;@src/modules/files-storage/controller/dto&#x27;;
 import { Request } from &#x27;express&#x27;;
 import { FilesStorageInternalActions } from &#x27;../files-storage.const&#x27;;
-import { FileRecordUC } from &#x27;../uc/file-record.uc&#x27;;
-import { FilesStorageUC } from &#x27;../uc/files-storage.uc&#x27;;
+import { FilesStorageUC } from &#x27;../uc&#x27;;
+import { ScanResultParams } from &#x27;./dto&#x27;;
 
 @ApiTags(&#x27;file-security&#x27;)
 @Controller()
 export class FileSecurityController {
-	constructor(private readonly filesStorageUC: FilesStorageUC, private readonly fileRecordUC: FileRecordUC) {}
+	constructor(private readonly filesStorageUC: FilesStorageUC) {}
 
 	@ApiExcludeEndpoint()
 	@Get(FilesStorageInternalActions.downloadBySecurityToken)
@@ -316,7 +315,7 @@ export class FileSecurityController {
 	@ApiExcludeEndpoint()
 	@Put(FilesStorageInternalActions.updateSecurityStatus)
 	async updateSecurityStatus(@Body() scanResultDto: ScanResultParams, @Param(&#x27;token&#x27;) token: string) {
-		await this.fileRecordUC.updateSecurityStatus(token, scanResultDto);
+		await this.filesStorageUC.updateSecurityStatus(token, scanResultDto);
 	}
 }
 </code></pre>

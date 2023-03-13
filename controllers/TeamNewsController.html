@@ -119,7 +119,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findAllForTeam(teamId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, scope: <a href="../classes/FilterNewsParams.html" target="_self">FilterNewsParams</a>, pagination: <a href="../classes/PaginationParams.html" target="_self">PaginationParams</a>)</code>
+                    <code>findAllForTeam(urlParams: <a href="../classes/TeamUrlParams.html" target="_self">TeamUrlParams</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, scope: <a href="../classes/FilterNewsParams.html" target="_self">FilterNewsParams</a>, pagination: <a href="../classes/PaginationParams.html" target="_self">PaginationParams</a>)</code>
                 </td>
             </tr>
 
@@ -157,9 +157,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>teamId</td>
+                                    <td>urlParams</td>
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                <code><a href="../classes/TeamUrlParams.html" target="_self" >TeamUrlParams</a></code>
                                     </td>
 
                                     <td>
@@ -226,14 +226,14 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Get, Param, Query } from &#x27;@nestjs/common&#x27;;
 import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
-import { ICurrentUser } from &#x27;@shared/domain&#x27;;
+import { ICurrentUser } from &#x27;@src/modules/authentication&#x27;;
 
-import { PaginationParams, ParseObjectIdPipe } from &#x27;@shared/controller&#x27;;
+import { PaginationParams } from &#x27;@shared/controller&#x27;;
 import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
 
 import { NewsMapper } from &#x27;../mapper/news.mapper&#x27;;
 import { NewsUc } from &#x27;../uc&#x27;;
-import { FilterNewsParams, NewsListResponse } from &#x27;./dto&#x27;;
+import { FilterNewsParams, NewsListResponse, TeamUrlParams } from &#x27;./dto&#x27;;
 
 @ApiTags(&#x27;News&#x27;)
 @Authenticate(&#x27;jwt&#x27;)
@@ -246,13 +246,13 @@ export class TeamNewsController {
 	 */
 	@Get(&#x27;:teamId/news&#x27;)
 	async findAllForTeam(
-		@Param(&#x27;teamId&#x27;, ParseObjectIdPipe) teamId: string,
+		@Param() urlParams: TeamUrlParams,
 		@CurrentUser() currentUser: ICurrentUser,
 		@Query() scope: FilterNewsParams,
 		@Query() pagination: PaginationParams
 	): Promise&lt;NewsListResponse&gt; {
 		// enforce filter by a given team, used in team tab
-		scope.targetId &#x3D; teamId;
+		scope.targetId &#x3D; urlParams.teamId;
 		scope.targetModel &#x3D; &#x27;teams&#x27;;
 		const [newsList, count] &#x3D; await this.newsUc.findAllForUser(
 			currentUser.userId,

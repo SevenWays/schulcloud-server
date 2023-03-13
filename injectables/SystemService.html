@@ -80,11 +80,20 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#find" >find</a>
+                                <a href="#findById" >findById</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#findById" >findById</a>
+                                <a href="#findByType" >findByType</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#generateBrokerSystems" >generateBrokerSystems</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#save" >save</a>
                             </li>
                         </ul>
                     </td>
@@ -104,12 +113,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(systemRepo: <a href="../injectables/SystemRepo.html" target="_self">SystemRepo</a>)</code>
+<code>constructor(systemRepo: <a href="../injectables/SystemRepo.html" target="_self">SystemRepo</a>, idmOauthService: <a href="../classes/IdentityManagementOauthService.html" target="_self">IdentityManagementOauthService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">apps/server/src/modules/system/service/system.service.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">apps/server/src/modules/system/service/system.service.ts:10</a></div>
                             </td>
                         </tr>
 
@@ -138,6 +147,18 @@
                                                     </td>
                                                     
                                                 </tr>
+                                                <tr>
+                                                        <td>idmOauthService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../classes/IdentityManagementOauthService.html" target="_self" >IdentityManagementOauthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
                                         </tbody>
                                     </table>
                             </div>
@@ -152,94 +173,6 @@
     <h3 id="methods">
         Methods
     </h3>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="find"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>find</b></span>
-                        <a href="#find"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>find(type: string | undefined, onlyOauth)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="11"
-                            class="link-to-prism">apps/server/src/modules/system/service/system.service.ts:11</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Default value</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>type</td>
-                                    <td>
-                                            <code>string | undefined</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-                                    <td>
-                                    </td>
-
-                                </tr>
-                                <tr>
-                                    <td>onlyOauth</td>
-                                    <td>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-                                    <td>
-                                        <code>false</code>
-                                    </td>
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/SystemDto.html" target="_self" >Promise&lt;SystemDto[]&gt;</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -262,8 +195,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">apps/server/src/modules/system/service/system.service.ts:22</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="16"
+                            class="link-to-prism">apps/server/src/modules/system/service/system.service.ts:16</a></div>
                 </td>
             </tr>
 
@@ -311,6 +244,220 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findByType"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>findByType</b></span>
+                        <a href="#findByType"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findByType(type?: <a href="../entitys/System.html" target="_self">SystemTypeEnum</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">apps/server/src/modules/system/service/system.service.ts:25</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>type</td>
+                                    <td>
+                                                <code><a href="../entitys/System.html" target="_self" >SystemTypeEnum</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/SystemDto.html" target="_self" >Promise&lt;SystemDto[]&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="generateBrokerSystems"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>generateBrokerSystems</b></span>
+                        <a href="#generateBrokerSystems"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>generateBrokerSystems(systems: <a href="../entitys/System.html" target="_self">System[]</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="66"
+                            class="link-to-prism">apps/server/src/modules/system/service/system.service.ts:66</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>systems</td>
+                                    <td>
+                                                <code><a href="../entitys/System.html" target="_self" >System[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt; | []&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="save"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>save</b></span>
+                        <a href="#save"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>save(systemDto: <a href="../classes/SystemDto.html" target="_self">SystemDto</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">apps/server/src/modules/system/service/system.service.ts:40</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>systemDto</td>
+                                    <td>
+                                                <code><a href="../classes/SystemDto.html" target="_self" >SystemDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/SystemDto.html" target="_self" >Promise&lt;SystemDto&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
 
     </div>
@@ -318,30 +465,94 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
+import { EntityNotFoundError } from &#x27;@shared/common&#x27;;
+import { EntityId, System, SystemTypeEnum } from &#x27;@shared/domain&#x27;;
+import { IdentityManagementOauthService } from &#x27;@shared/infra/identity-management/identity-management-oauth.service&#x27;;
 import { SystemRepo } from &#x27;@shared/repo&#x27;;
 import { SystemMapper } from &#x27;@src/modules/system/mapper/system.mapper&#x27;;
 import { SystemDto } from &#x27;@src/modules/system/service/dto/system.dto&#x27;;
-import { EntityId, System } from &#x27;@shared/domain&#x27;;
 
 @Injectable()
 export class SystemService {
-	constructor(private readonly systemRepo: SystemRepo) {}
-
-	async find(type: string | undefined, onlyOauth &#x3D; false): Promise&lt;SystemDto[]&gt; {
-		let systemEntities: System[];
-		if (type &#x3D;&#x3D;&#x3D; &#x27;&#x27; &amp;&amp; !onlyOauth) {
-			systemEntities &#x3D; await this.systemRepo.findAll();
-		} else {
-			systemEntities &#x3D; await this.systemRepo.findByFilter(type, onlyOauth);
-		}
-		const systemDtos: SystemDto[] &#x3D; SystemMapper.mapFromEntitiesToDtos(systemEntities);
-		return systemDtos;
-	}
+	constructor(
+		private readonly systemRepo: SystemRepo,
+		private readonly idmOauthService: IdentityManagementOauthService
+	) {}
 
 	async findById(id: EntityId): Promise&lt;SystemDto&gt; {
-		const entity: System &#x3D; await this.systemRepo.findById(id);
-		const systemDto: SystemDto &#x3D; SystemMapper.mapFromEntityToDto(entity);
-		return systemDto;
+		let system &#x3D; await this.systemRepo.findById(id);
+		[system] &#x3D; await this.generateBrokerSystems([system]);
+		if (!system) {
+			throw new EntityNotFoundError(System.name, { id });
+		}
+		return SystemMapper.mapFromEntityToDto(system);
+	}
+
+	async findByType(type?: SystemTypeEnum): Promise&lt;SystemDto[]&gt; {
+		let systems: System[];
+		if (type &amp;&amp; type &#x3D;&#x3D;&#x3D; SystemTypeEnum.OAUTH) {
+			const oauthSystems &#x3D; await this.systemRepo.findByFilter(SystemTypeEnum.OAUTH);
+			const oidcSystems &#x3D; await this.systemRepo.findByFilter(SystemTypeEnum.OIDC);
+			systems &#x3D; [...oauthSystems, ...oidcSystems];
+		} else if (type) {
+			systems &#x3D; await this.systemRepo.findByFilter(type);
+		} else {
+			systems &#x3D; await this.systemRepo.findAll();
+		}
+		systems &#x3D; await this.generateBrokerSystems(systems);
+		return SystemMapper.mapFromEntitiesToDtos(systems);
+	}
+
+	async save(systemDto: SystemDto): Promise&lt;SystemDto&gt; {
+		let system: System;
+		if (systemDto.id) {
+			system &#x3D; await this.systemRepo.findById(systemDto.id);
+			system.type &#x3D; systemDto.type;
+			system.alias &#x3D; systemDto.alias;
+			system.displayName &#x3D; systemDto.displayName;
+			system.oauthConfig &#x3D; systemDto.oauthConfig;
+			system.provisioningStrategy &#x3D; systemDto.provisioningStrategy;
+			system.provisioningUrl &#x3D; systemDto.provisioningUrl;
+			system.url &#x3D; systemDto.url;
+		} else {
+			system &#x3D; new System({
+				type: systemDto.type,
+				alias: systemDto.alias,
+				displayName: systemDto.displayName,
+				oauthConfig: systemDto.oauthConfig,
+				provisioningStrategy: systemDto.provisioningStrategy,
+				provisioningUrl: systemDto.provisioningUrl,
+				url: systemDto.url,
+			});
+		}
+		await this.systemRepo.save(system);
+		return SystemMapper.mapFromEntityToDto(system);
+	}
+
+	private async generateBrokerSystems(systems: System[]): Promise&lt;[] | System[]&gt; {
+		if (!(await this.idmOauthService.isOauthConfigAvailable())) {
+			return systems.filter((system) &#x3D;&gt; !(system.oidcConfig &amp;&amp; !system.oauthConfig));
+		}
+		const brokerConfig &#x3D; await this.idmOauthService.getOauthConfig();
+		let generatedSystem: System;
+		return systems.map((system) &#x3D;&gt; {
+			if (system.oidcConfig &amp;&amp; !system.oauthConfig) {
+				generatedSystem &#x3D; new System({
+					type: SystemTypeEnum.OAUTH,
+					alias: system.alias,
+					displayName: system.displayName ? system.displayName : system.alias,
+					provisioningStrategy: system.provisioningStrategy,
+					provisioningUrl: system.provisioningUrl,
+					url: system.url,
+				});
+				generatedSystem.id &#x3D; system.id;
+				generatedSystem.oauthConfig &#x3D; { ...brokerConfig };
+				generatedSystem.oauthConfig.alias &#x3D; system.oidcConfig.alias;
+				generatedSystem.oauthConfig.redirectUri +&#x3D; system.id;
+				return generatedSystem;
+			}
+			return system;
+		});
 	}
 }
 </code></pre>

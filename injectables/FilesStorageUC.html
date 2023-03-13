@@ -81,29 +81,7 @@
                             <li>
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Async</span>
-                                <a href="#addRequestStreamToRequestPipe" >addRequestStreamToRequestPipe</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#checkFileName" >checkFileName</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#checkFilenameExists" >checkFilenameExists</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                    <span class="modifier">Async</span>
                                 <a href="#checkPermission" >checkPermission</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#checkScanStatus" >checkScanStatus</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                    <span class="modifier">Async</span>
-                                <a href="#copy" >copy</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
@@ -114,15 +92,6 @@
                                     <span class="modifier">Public</span>
                                     <span class="modifier">Async</span>
                                 <a href="#copyOneFile" >copyOneFile</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#createPath" >createPath</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                    <span class="modifier">Async</span>
-                                <a href="#delete" >delete</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
@@ -145,23 +114,19 @@
                                 <a href="#downloadBySecurityToken" >downloadBySecurityToken</a>
                             </li>
                             <li>
-                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Public</span>
                                     <span class="modifier">Async</span>
-                                <a href="#downloadFile" >downloadFile</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#getNewFileRecord" >getNewFileRecord</a>
+                                <a href="#getFileRecordsOfParent" >getFileRecordsOfParent</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Async</span>
-                                <a href="#markForDelete" >markForDelete</a>
+                                <a href="#getResponse" >getResponse</a>
                             </li>
                             <li>
-                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Public</span>
                                     <span class="modifier">Async</span>
-                                <a href="#restore" >restore</a>
+                                <a href="#patchFilename" >patchFilename</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
@@ -174,9 +139,9 @@
                                 <a href="#restoreOneFile" >restoreOneFile</a>
                             </li>
                             <li>
-                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Public</span>
                                     <span class="modifier">Async</span>
-                                <a href="#unmarkForDelete" >unmarkForDelete</a>
+                                <a href="#updateSecurityStatus" >updateSecurityStatus</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
@@ -186,7 +151,7 @@
                             <li>
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Async</span>
-                                <a href="#uploadFile" >uploadFile</a>
+                                <a href="#uploadFileWithBusboy" >uploadFileWithBusboy</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
@@ -211,12 +176,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(storageClient: <a href="../injectables/S3ClientAdapter.html" target="_self">S3ClientAdapter</a>, fileRecordRepo: <a href="../injectables/FileRecordRepo.html" target="_self">FileRecordRepo</a>, antivirusService: <a href="../injectables/AntivirusService.html" target="_self">AntivirusService</a>, logger: <a href="../injectables/Logger.html" target="_self">Logger</a>, authorizationService: <a href="../injectables/AuthorizationService.html" target="_self">AuthorizationService</a>, httpService: HttpService)</code>
+<code>constructor(logger: <a href="../injectables/Logger.html" target="_self">Logger</a>, authorizationService: <a href="../injectables/AuthorizationService.html" target="_self">AuthorizationService</a>, httpService: HttpService, filesStorageService: <a href="../injectables/FilesStorageService.html" target="_self">FilesStorageService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:35</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:30</a></div>
                             </td>
                         </tr>
 
@@ -233,42 +198,6 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                                <tr>
-                                                        <td>storageClient</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/S3ClientAdapter.html" target="_self" >S3ClientAdapter</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>fileRecordRepo</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/FileRecordRepo.html" target="_self" >FileRecordRepo</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>antivirusService</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/AntivirusService.html" target="_self" >AntivirusService</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
                                                 <tr>
                                                         <td>logger</td>
                                                   
@@ -305,6 +234,18 @@
                                                     </td>
                                                     
                                                 </tr>
+                                                <tr>
+                                                        <td>filesStorageService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/FilesStorageService.html" target="_self" >FilesStorageService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
                                         </tbody>
                                     </table>
                             </div>
@@ -319,268 +260,6 @@
     <h3 id="methods">
         Methods
     </h3>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="addRequestStreamToRequestPipe"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span class="modifier">Async</span>
-                        <span ><b>addRequestStreamToRequestPipe</b></span>
-                        <a href="#addRequestStreamToRequestPipe"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>addRequestStreamToRequestPipe(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, params: <a href="../interfaces/FileRecordParams.html" target="_self">FileRecordParams</a>, req: Request)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="47"
-                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:47</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>userId</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>params</td>
-                                    <td>
-                                                <code><a href="../interfaces/FileRecordParams.html" target="_self" >FileRecordParams</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>req</td>
-                                    <td>
-                                            <code>Request</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;FileRecord&gt;</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="checkFileName"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span ><b>checkFileName</b></span>
-                        <a href="#checkFileName"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>checkFileName(entity: <a href="../classes/FileRecord.html" target="_self">FileRecord</a>, params: <a href="../classes/DownloadFileParams.html" target="_self">DownloadFileParams</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="166"
-                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:166</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>entity</td>
-                                    <td>
-                                                <code><a href="../classes/FileRecord.html" target="_self" >FileRecord</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>params</td>
-                                    <td>
-                                                <code><a href="../classes/DownloadFileParams.html" target="_self" >DownloadFileParams</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>void | NotFoundException</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="checkFilenameExists"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span ><b>checkFilenameExists</b></span>
-                        <a href="#checkFilenameExists"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>checkFilenameExists(filename: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, fileRecords: FileRecord[])</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="199"
-                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:199</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>filename</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>fileRecords</td>
-                                    <td>
-                                            <code>FileRecord[]</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -604,8 +283,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="156"
-                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:156</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:40</a></div>
                 </td>
             </tr>
 
@@ -693,173 +372,6 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="checkScanStatus"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span ><b>checkScanStatus</b></span>
-                        <a href="#checkScanStatus"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>checkScanStatus(entity: <a href="../classes/FileRecord.html" target="_self">FileRecord</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="173"
-                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:173</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>entity</td>
-                                    <td>
-                                                <code><a href="../classes/FileRecord.html" target="_self" >FileRecord</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>void | NotAcceptableException</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="copy"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span class="modifier">Async</span>
-                        <span ><b>copy</b></span>
-                        <a href="#copy"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>copy(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, sourceFileRecords: FileRecord[], targetParams: <a href="../interfaces/FileRecordParams.html" target="_self">FileRecordParams</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="330"
-                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:330</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>userId</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>sourceFileRecords</td>
-                                    <td>
-                                            <code>FileRecord[]</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>targetParams</td>
-                                    <td>
-                                                <code><a href="../interfaces/FileRecordParams.html" target="_self" >FileRecordParams</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/CopyFileResponse.html" target="_self" >Promise&lt;CopyFileResponse[]&gt;</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
                     <a name="copyFilesOfParent"></a>
                     <span class="name">
                         <span class="modifier">Public</span>
@@ -872,15 +384,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>copyFilesOfParent(userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, params: <a href="../interfaces/FileRecordParams.html" target="_self">FileRecordParams</a>, copyFilesParams: <a href="../interfaces/CopyFilesOfParentParams.html" target="_self">CopyFilesOfParentParams</a>)</code>
+                    <code>copyFilesOfParent(userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, params: <a href="../classes/FileRecordParams.html" target="_self">FileRecordParams</a>, copyFilesParams: <a href="../classes/CopyFilesOfParentParams.html" target="_self">CopyFilesOfParentParams</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="283"
-                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:283</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="178"
+                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:178</a></div>
                 </td>
             </tr>
 
@@ -915,7 +427,7 @@
                                 <tr>
                                     <td>params</td>
                                     <td>
-                                                <code><a href="../interfaces/FileRecordParams.html" target="_self" >FileRecordParams</a></code>
+                                                <code><a href="../classes/FileRecordParams.html" target="_self" >FileRecordParams</a></code>
                                     </td>
 
                                     <td>
@@ -927,7 +439,7 @@
                                 <tr>
                                     <td>copyFilesParams</td>
                                     <td>
-                                                <code><a href="../interfaces/CopyFilesOfParentParams.html" target="_self" >CopyFilesOfParentParams</a></code>
+                                                <code><a href="../classes/CopyFilesOfParentParams.html" target="_self" >CopyFilesOfParentParams</a></code>
                                     </td>
 
                                     <td>
@@ -942,7 +454,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/CopyFileResponse.html" target="_self" >Promise&lt;Counted&lt;CopyFileResponse[]&gt;&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../entitys/File.html" target="_self" >Promise&lt;Counted&lt;CopyFileResponse[]&gt;&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -968,15 +480,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>copyOneFile(userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, params: <a href="../classes/SingleFileParams.html" target="_self">SingleFileParams</a>, copyFileParams: <a href="../interfaces/CopyFileParams.html" target="_self">CopyFileParams</a>)</code>
+                    <code>copyOneFile(userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, params: <a href="../classes/SingleFileParams.html" target="_self">SingleFileParams</a>, copyFileParams: <a href="../classes/CopyFileParams.html" target="_self">CopyFileParams</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="309"
-                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:309</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="198"
+                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:198</a></div>
                 </td>
             </tr>
 
@@ -1023,7 +535,7 @@
                                 <tr>
                                     <td>copyFileParams</td>
                                     <td>
-                                                <code><a href="../interfaces/CopyFileParams.html" target="_self" >CopyFileParams</a></code>
+                                                <code><a href="../classes/CopyFileParams.html" target="_self" >CopyFileParams</a></code>
                                     </td>
 
                                     <td>
@@ -1038,162 +550,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/CopyFileResponse.html" target="_self" >Promise&lt;CopyFileResponse&gt;</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="createPath"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span ><b>createPath</b></span>
-                        <a href="#createPath"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>createPath(schoolId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, fileRecordId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="143"
-                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:143</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>schoolId</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>fileRecordId</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="delete"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span class="modifier">Async</span>
-                        <span ><b>delete</b></span>
-                        <a href="#delete"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>delete(fileRecords: FileRecord[])</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="230"
-                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:230</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>fileRecords</td>
-                                    <td>
-                                            <code>FileRecord[]</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <b>Returns : </b>        <code><a href="../entitys/File.html" target="_self" >Promise&lt;CopyFileResponse&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -1219,15 +576,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>deleteFilesOfParent(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, params: <a href="../interfaces/FileRecordParams.html" target="_self">FileRecordParams</a>)</code>
+                    <code>deleteFilesOfParent(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, params: <a href="../classes/FileRecordParams.html" target="_self">FileRecordParams</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="245"
-                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:245</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="142"
+                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:142</a></div>
                 </td>
             </tr>
 
@@ -1262,7 +619,7 @@
                                 <tr>
                                     <td>params</td>
                                     <td>
-                                                <code><a href="../interfaces/FileRecordParams.html" target="_self" >FileRecordParams</a></code>
+                                                <code><a href="../classes/FileRecordParams.html" target="_self" >FileRecordParams</a></code>
                                     </td>
 
                                     <td>
@@ -1310,8 +667,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="255"
-                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:255</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="149"
+                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:149</a></div>
                 </td>
             </tr>
 
@@ -1387,15 +744,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>download(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, params: <a href="../classes/DownloadFileParams.html" target="_self">DownloadFileParams</a>)</code>
+                    <code>download(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, params: <a href="../classes/DownloadFileParams.html" target="_self">DownloadFileParams</a>, bytesRange?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="180"
-                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:180</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="124"
+                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:124</a></div>
                 </td>
             </tr>
 
@@ -1439,13 +796,25 @@
 
 
                                 </tr>
+                                <tr>
+                                    <td>bytesRange</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
                             </tbody>
                         </table>
                     </div>
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>unknown</code>
+                        <b>Returns : </b>        <code><a href="../interfaces/IGetFileResponse.html" target="_self" >Promise&lt;IGetFileResponse&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -1478,8 +847,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="192"
-                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:192</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="134"
+                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:134</a></div>
                 </td>
             </tr>
 
@@ -1517,7 +886,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>unknown</code>
+                        <b>Returns : </b>        <code><a href="../interfaces/IGetFileResponse.html" target="_self" >Promise&lt;IGetFileResponse&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -1531,27 +900,27 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="downloadFile"></a>
+                    <a name="getFileRecordsOfParent"></a>
                     <span class="name">
-                        <span class="modifier">Private</span>
+                        <span class="modifier">Public</span>
                         <span class="modifier">Async</span>
-                        <span ><b>downloadFile</b></span>
-                        <a href="#downloadFile"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>getFileRecordsOfParent</b></span>
+                        <a href="#getFileRecordsOfParent"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>downloadFile(schoolId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, fileRecordId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+                    <code>getFileRecordsOfParent(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, params: <a href="../classes/FileRecordParams.html" target="_self">FileRecordParams</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="149"
-                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:149</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="239"
+                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:239</a></div>
                 </td>
             </tr>
 
@@ -1572,116 +941,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>schoolId</td>
+                                    <td>userId</td>
                                     <td>
                                                 <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>fileRecordId</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>unknown</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="getNewFileRecord"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span ><b>getNewFileRecord</b></span>
-                        <a href="#getNewFileRecord"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getNewFileRecord(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, size: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, mimeType: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, params: <a href="../interfaces/FileRecordParams.html" target="_self">FileRecordParams</a>, userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="130"
-                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:130</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>name</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>size</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>mimeType</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
 
                                     <td>
@@ -1693,7 +955,7 @@
                                 <tr>
                                     <td>params</td>
                                     <td>
-                                                <code><a href="../interfaces/FileRecordParams.html" target="_self" >FileRecordParams</a></code>
+                                                <code><a href="../classes/FileRecordParams.html" target="_self" >FileRecordParams</a></code>
                                     </td>
 
                                     <td>
@@ -1702,10 +964,162 @@
 
 
                                 </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Counted" target="_self" >Promise&lt;Counted&lt;FileRecord[]&gt;&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getResponse"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>getResponse</b></span>
+                        <a href="#getResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getResponse(params)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="94"
+                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:94</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>params</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;AxiosResponse&lt;internal.Readable, &gt;&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="patchFilename"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>patchFilename</b></span>
+                        <a href="#patchFilename"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>patchFilename(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, params: <a href="../classes/SingleFileParams.html" target="_self">SingleFileParams</a>, data: <a href="../classes/RenameFileParams.html" target="_self">RenameFileParams</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="222"
+                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:222</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
                                 <tr>
                                     <td>userId</td>
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                                <code><a href="../classes/SingleFileParams.html" target="_self" >SingleFileParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>data</td>
+                                    <td>
+                                                <code><a href="../classes/RenameFileParams.html" target="_self" >RenameFileParams</a></code>
                                     </td>
 
                                     <td>
@@ -1720,151 +1134,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="markForDelete"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span class="modifier">Async</span>
-                        <span ><b>markForDelete</b></span>
-                        <a href="#markForDelete"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>markForDelete(fileRecords: FileRecord[])</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="214"
-                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:214</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>fileRecords</td>
-                                    <td>
-                                            <code>FileRecord[]</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="restore"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span class="modifier">Async</span>
-                        <span ><b>restore</b></span>
-                        <a href="#restore"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>restore(fileRecords: FileRecord[])</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="377"
-                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:377</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>fileRecords</td>
-                                    <td>
-                                            <code>FileRecord[]</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <b>Returns : </b>    <code>Promise&lt;FileRecord&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -1890,15 +1160,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>restoreFilesOfParent(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, params: <a href="../interfaces/FileRecordParams.html" target="_self">FileRecordParams</a>)</code>
+                    <code>restoreFilesOfParent(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, params: <a href="../classes/FileRecordParams.html" target="_self">FileRecordParams</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="263"
-                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:263</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="160"
+                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:160</a></div>
                 </td>
             </tr>
 
@@ -1933,7 +1203,7 @@
                                 <tr>
                                     <td>params</td>
                                     <td>
-                                                <code><a href="../interfaces/FileRecordParams.html" target="_self" >FileRecordParams</a></code>
+                                                <code><a href="../classes/FileRecordParams.html" target="_self" >FileRecordParams</a></code>
                                     </td>
 
                                     <td>
@@ -1981,8 +1251,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="275"
-                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:275</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="167"
+                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:167</a></div>
                 </td>
             </tr>
 
@@ -2046,27 +1316,27 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="unmarkForDelete"></a>
+                    <a name="updateSecurityStatus"></a>
                     <span class="name">
-                        <span class="modifier">Private</span>
+                        <span class="modifier">Public</span>
                         <span class="modifier">Async</span>
-                        <span ><b>unmarkForDelete</b></span>
-                        <a href="#unmarkForDelete"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>updateSecurityStatus</b></span>
+                        <a href="#updateSecurityStatus"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>unmarkForDelete(fileRecords: FileRecord[])</code>
+                    <code>updateSecurityStatus(token: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, scanResultDto: <a href="../classes/ScanResultParams.html" target="_self">ScanResultParams</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="222"
-                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:222</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="233"
+                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:233</a></div>
                 </td>
             </tr>
 
@@ -2087,9 +1357,21 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>fileRecords</td>
+                                    <td>token</td>
                                     <td>
-                                            <code>FileRecord[]</code>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>scanResultDto</td>
+                                    <td>
+                                                <code><a href="../classes/ScanResultParams.html" target="_self" >ScanResultParams</a></code>
                                     </td>
 
                                     <td>
@@ -2130,15 +1412,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>upload(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, params: <a href="../interfaces/FileRecordParams.html" target="_self">FileRecordParams</a>, req: Request)</code>
+                    <code>upload(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, params: <a href="../classes/FileRecordParams.html" target="_self">FileRecordParams</a>, req: Request)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="80"
-                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:80</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="51"
+                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:51</a></div>
                 </td>
             </tr>
 
@@ -2173,7 +1455,7 @@
                                 <tr>
                                     <td>params</td>
                                     <td>
-                                                <code><a href="../interfaces/FileRecordParams.html" target="_self" >FileRecordParams</a></code>
+                                                <code><a href="../classes/FileRecordParams.html" target="_self" >FileRecordParams</a></code>
                                     </td>
 
                                     <td>
@@ -2200,7 +1482,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>unknown</code>
+                        <b>Returns : </b>    <code>Promise&lt;FileRecord&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -2214,27 +1496,27 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="uploadFile"></a>
+                    <a name="uploadFileWithBusboy"></a>
                     <span class="name">
                         <span class="modifier">Private</span>
                         <span class="modifier">Async</span>
-                        <span ><b>uploadFile</b></span>
-                        <a href="#uploadFile"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>uploadFileWithBusboy</b></span>
+                        <a href="#uploadFileWithBusboy"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>uploadFile(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, params: <a href="../interfaces/FileRecordParams.html" target="_self">FileRecordParams</a>, fileDescription: <a href="../interfaces/IFile.html" target="_self">IFile</a>)</code>
+                    <code>uploadFileWithBusboy(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, params: <a href="../classes/FileRecordParams.html" target="_self">FileRecordParams</a>, req: Request)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="113"
-                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:113</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="59"
+                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:59</a></div>
                 </td>
             </tr>
 
@@ -2269,7 +1551,7 @@
                                 <tr>
                                     <td>params</td>
                                     <td>
-                                                <code><a href="../interfaces/FileRecordParams.html" target="_self" >FileRecordParams</a></code>
+                                                <code><a href="../classes/FileRecordParams.html" target="_self" >FileRecordParams</a></code>
                                     </td>
 
                                     <td>
@@ -2279,9 +1561,9 @@
 
                                 </tr>
                                 <tr>
-                                    <td>fileDescription</td>
+                                    <td>req</td>
                                     <td>
-                                                <code><a href="../interfaces/IFile.html" target="_self" >IFile</a></code>
+                                            <code>Request</code>
                                     </td>
 
                                     <td>
@@ -2296,7 +1578,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>unknown</code>
+                        <b>Returns : </b>    <code>Promise&lt;FileRecord&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -2329,8 +1611,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="88"
-                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:88</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="82"
+                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:82</a></div>
                 </td>
             </tr>
 
@@ -2396,158 +1678,42 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpService } from &#x27;@nestjs/axios&#x27;;
-import {
-	BadRequestException,
-	Injectable,
-	InternalServerErrorException,
-	NotAcceptableException,
-	NotFoundException,
-} from &#x27;@nestjs/common&#x27;;
-import { Counted, EntityId, FileRecord, FileRecordParentType, IPermissionContext, ScanStatus } from &#x27;@shared/domain&#x27;;
-import { AntivirusService } from &#x27;@shared/infra/antivirus/antivirus.service&#x27;;
-import { FileRecordRepo } from &#x27;@shared/repo&#x27;;
+import { Injectable, NotFoundException } from &#x27;@nestjs/common&#x27;;
+import { Counted, EntityId, IPermissionContext } from &#x27;@shared/domain&#x27;;
 import { Logger } from &#x27;@src/core/logger&#x27;;
 import { AuthorizationService } from &#x27;@src/modules/authorization&#x27;;
+import { AxiosRequestConfig, AxiosResponse } from &#x27;axios&#x27;;
 import busboy from &#x27;busboy&#x27;;
 import { Request } from &#x27;express&#x27;;
-import path from &#x27;path&#x27;;
 import { firstValueFrom } from &#x27;rxjs&#x27;;
 import internal from &#x27;stream&#x27;;
-import { S3ClientAdapter } from &#x27;../client/s3-client.adapter&#x27;;
-import { CopyFileResponse } from &#x27;../controller/dto&#x27;;
 import {
 	CopyFileParams,
+	CopyFileResponse,
 	CopyFilesOfParentParams,
 	DownloadFileParams,
 	FileRecordParams,
 	FileUrlParams,
+	RenameFileParams,
+	ScanResultParams,
 	SingleFileParams,
-} from &#x27;../controller/dto/file-storage.params&#x27;;
-import { ErrorType, PermissionContexts } from &#x27;../files-storage.const&#x27;;
-import { ICopyFiles } from &#x27;../interface&#x27;;
-import { IFile } from &#x27;../interface/file&#x27;;
-import { FileStorageMapper } from &#x27;../mapper/parent-type.mapper&#x27;;
+} from &#x27;../controller/dto&#x27;;
+import { FileRecord, FileRecordParentType } from &#x27;../entity&#x27;;
+import { ErrorType } from &#x27;../error&#x27;;
+import { PermissionContexts } from &#x27;../files-storage.const&#x27;;
+import { IGetFileResponse } from &#x27;../interface&#x27;;
+import { FileDtoBuilder, FilesStorageMapper } from &#x27;../mapper&#x27;;
+import { FilesStorageService } from &#x27;../service/files-storage.service&#x27;;
 
 @Injectable()
 export class FilesStorageUC {
 	constructor(
-		private readonly storageClient: S3ClientAdapter,
-		private readonly fileRecordRepo: FileRecordRepo,
-		private readonly antivirusService: AntivirusService,
 		private logger: Logger,
 		private readonly authorizationService: AuthorizationService,
-		private readonly httpService: HttpService
+		private readonly httpService: HttpService,
+		private readonly filesStorageService: FilesStorageService
 	) {
 		this.logger.setContext(FilesStorageUC.name);
-	}
-
-	private async addRequestStreamToRequestPipe(
-		userId: EntityId,
-		params: FileRecordParams,
-		req: Request
-	): Promise&lt;FileRecord&gt; {
-		const result &#x3D; await new Promise((resolve, reject) &#x3D;&gt; {
-			const requestStream &#x3D; busboy({ headers: req.headers, defParamCharset: &#x27;utf8&#x27; });
-
-			// eslint-disable-next-line @typescript-eslint/no-misused-promises
-			requestStream.on(&#x27;file&#x27;, async (_name, file, info): Promise&lt;void&gt; &#x3D;&gt; {
-				const fileDescription: IFile &#x3D; {
-					name: info.filename,
-					buffer: file,
-					size: Number(req.get(&#x27;content-length&#x27;)),
-					mimeType: info.mimeType,
-				};
-				try {
-					const record &#x3D; await this.uploadFile(userId, params, fileDescription);
-					resolve(record);
-				} catch (error) {
-					requestStream.emit(&#x27;error&#x27;, error);
-				}
-			});
-
-			requestStream.on(&#x27;error&#x27;, (e) &#x3D;&gt; {
-				reject(new BadRequestException(e, &#x60;${FilesStorageUC.name}:upload requestStream&#x60;));
-			});
-			req.pipe(requestStream);
-		});
-
-		return result as FileRecord;
-	}
-
-	public async upload(userId: EntityId, params: FileRecordParams, req: Request) {
-		await this.checkPermission(userId, params.parentType, params.parentId, PermissionContexts.create);
-
-		const result &#x3D; await this.addRequestStreamToRequestPipe(userId, params, req);
-
-		return result;
-	}
-
-	public async uploadFromUrl(userId: EntityId, params: FileRecordParams &amp; FileUrlParams) {
-		await this.checkPermission(userId, params.parentType, params.parentId, PermissionContexts.create);
-		try {
-			const response &#x3D; await firstValueFrom(
-				this.httpService.get&lt;internal.Readable&gt;(params.url, {
-					headers: params.headers,
-					responseType: &#x27;stream&#x27;,
-				})
-			);
-
-			const fileDescription: IFile &#x3D; {
-				name: decodeURI(params.fileName),
-				buffer: response.data,
-				size: Number(response.headers[&#x27;content-length&#x27;]),
-				mimeType: response.headers[&#x27;content-type&#x27;],
-			};
-			const result &#x3D; await this.uploadFile(userId, params, fileDescription);
-
-			return result;
-		} catch (error) {
-			this.logger.warn(&#x60;could not find file by url: ${params.url}&#x60;, error);
-			throw new NotFoundException(&#x27;FILE_NOT_FOUND&#x27;);
-		}
-	}
-
-	private async uploadFile(userId: EntityId, params: FileRecordParams, fileDescription: IFile) {
-		const [fileRecords] &#x3D; await this.fileRecordRepo.findBySchoolIdAndParentId(params.schoolId, params.parentId);
-		const fileName &#x3D; this.checkFilenameExists(fileDescription.name, fileRecords);
-		const entity &#x3D; this.getNewFileRecord(fileName, fileDescription.size, fileDescription.mimeType, params, userId);
-		try {
-			await this.fileRecordRepo.save(entity);
-			const filePath &#x3D; this.createPath(params.schoolId, entity.id);
-			await this.storageClient.create(filePath, fileDescription);
-			await this.antivirusService.send(entity);
-
-			return entity;
-		} catch (error) {
-			await this.fileRecordRepo.delete(entity);
-			throw error;
-		}
-	}
-
-	private getNewFileRecord(name: string, size: number, mimeType: string, params: FileRecordParams, userId: string) {
-		const entity &#x3D; new FileRecord({
-			size,
-			name,
-			mimeType,
-			parentType: params.parentType,
-			parentId: params.parentId,
-			creatorId: userId,
-			schoolId: params.schoolId,
-		});
-		return entity;
-	}
-
-	private createPath(schoolId: EntityId, fileRecordId: EntityId): string {
-		const pathToFile &#x3D; [schoolId, fileRecordId].join(&#x27;/&#x27;);
-
-		return pathToFile;
-	}
-
-	private async downloadFile(schoolId: EntityId, fileRecordId: EntityId) {
-		const pathToFile &#x3D; this.createPath(schoolId, fileRecordId);
-		const res &#x3D; await this.storageClient.get(pathToFile);
-
-		return res;
 	}
 
 	private async checkPermission(
@@ -2556,127 +1722,138 @@ export class FilesStorageUC {
 		parentId: EntityId,
 		context: IPermissionContext
 	) {
-		const allowedType &#x3D; FileStorageMapper.mapToAllowedAuthorizationEntityType(parentType);
+		const allowedType &#x3D; FilesStorageMapper.mapToAllowedAuthorizationEntityType(parentType);
 		await this.authorizationService.checkPermissionByReferences(userId, allowedType, parentId, context);
 	}
 
-	private checkFileName(entity: FileRecord, params: DownloadFileParams): void | NotFoundException {
-		if (entity.name !&#x3D;&#x3D; params.fileName) {
-			this.logger.warn(&#x60;could not find file with id: ${entity.id} by filename&#x60;);
+	// upload
+	public async upload(userId: EntityId, params: FileRecordParams, req: Request): Promise&lt;FileRecord&gt; {
+		await this.checkPermission(userId, params.parentType, params.parentId, PermissionContexts.create);
+
+		const fileRecord &#x3D; await this.uploadFileWithBusboy(userId, params, req);
+
+		return fileRecord;
+	}
+
+	private async uploadFileWithBusboy(userId: EntityId, params: FileRecordParams, req: Request): Promise&lt;FileRecord&gt; {
+		const promise &#x3D; new Promise&lt;FileRecord&gt;((resolve, reject) &#x3D;&gt; {
+			const bb &#x3D; busboy({ headers: req.headers, defParamCharset: &#x27;utf8&#x27; });
+
+			// eslint-disable-next-line @typescript-eslint/no-misused-promises
+			bb.on(&#x27;file&#x27;, async (_name, file, info) &#x3D;&gt; {
+				const fileDto &#x3D; FileDtoBuilder.buildFromRequest(info, file);
+
+				try {
+					const record &#x3D; await this.filesStorageService.uploadFile(userId, params, fileDto);
+					resolve(record);
+				} catch (error) {
+					req.unpipe(bb);
+					reject(error);
+				}
+			});
+
+			req.pipe(bb);
+		});
+
+		return promise;
+	}
+
+	public async uploadFromUrl(userId: EntityId, params: FileRecordParams &amp; FileUrlParams) {
+		await this.checkPermission(userId, params.parentType, params.parentId, PermissionContexts.create);
+
+		const response &#x3D; await this.getResponse(params);
+
+		const fileDto &#x3D; FileDtoBuilder.buildFromAxiosResponse(params.fileName, response);
+
+		const fileRecord &#x3D; await this.filesStorageService.uploadFile(userId, params, fileDto);
+
+		return fileRecord;
+	}
+
+	private async getResponse(
+		params: FileRecordParams &amp; FileUrlParams
+	): Promise&lt;AxiosResponse&lt;internal.Readable, unknown&gt;&gt; {
+		const config: AxiosRequestConfig &#x3D; {
+			headers: params.headers,
+			responseType: &#x27;stream&#x27;,
+		};
+
+		try {
+			const responseStream &#x3D; this.httpService.get&lt;internal.Readable&gt;(encodeURI(params.url), config);
+
+			const response &#x3D; await firstValueFrom(responseStream);
+
+			/* istanbul ignore next */
+			response.data.on(&#x27;error&#x27;, (error) &#x3D;&gt; {
+				throw error;
+			});
+
+			return response;
+		} catch (error) {
+			this.logger.warn({
+				message: &#x27;could not find file by url&#x27;,
+				url: params.url,
+				error: error as Error,
+			});
 			throw new NotFoundException(ErrorType.FILE_NOT_FOUND);
 		}
 	}
 
-	private checkScanStatus(entity: FileRecord): void | NotAcceptableException {
-		if (entity.securityCheck.status &#x3D;&#x3D;&#x3D; ScanStatus.BLOCKED) {
-			this.logger.warn(&#x60;file is blocked with id: ${entity.id}&#x60;);
-			throw new NotAcceptableException(ErrorType.FILE_IS_BLOCKED);
-		}
+	// download
+	public async download(userId: EntityId, params: DownloadFileParams, bytesRange?: string): Promise&lt;IGetFileResponse&gt; {
+		const singleFileParams &#x3D; FilesStorageMapper.mapToSingleFileParams(params);
+		const fileRecord &#x3D; await this.filesStorageService.getFileRecord(singleFileParams);
+		const { parentType, parentId } &#x3D; fileRecord.getParentInfo();
+
+		await this.checkPermission(userId, parentType, parentId, PermissionContexts.read);
+
+		return this.filesStorageService.download(fileRecord, params, bytesRange);
 	}
 
-	public async download(userId: EntityId, params: DownloadFileParams) {
-		const entity &#x3D; await this.fileRecordRepo.findOneById(params.fileRecordId);
-
-		await this.checkPermission(userId, entity.parentType, entity.parentId, PermissionContexts.read);
-
-		this.checkFileName(entity, params);
-		this.checkScanStatus(entity);
-		const res &#x3D; await this.downloadFile(entity.schoolId, entity.id);
+	public async downloadBySecurityToken(token: string): Promise&lt;IGetFileResponse&gt; {
+		const fileRecord &#x3D; await this.filesStorageService.getFileRecordBySecurityCheckRequestToken(token);
+		const res &#x3D; await this.filesStorageService.downloadFile(fileRecord.getSchoolId(), fileRecord.id);
 
 		return res;
 	}
 
-	public async downloadBySecurityToken(token: string) {
-		const entity &#x3D; await this.fileRecordRepo.findBySecurityCheckRequestToken(token);
-		const res &#x3D; await this.downloadFile(entity.schoolId, entity.id);
-
-		return res;
-	}
-
-	private checkFilenameExists(filename: string, fileRecords: FileRecord[]): string {
-		let counter &#x3D; 0;
-		const filenameObj &#x3D; path.parse(filename);
-		const { name } &#x3D; filenameObj;
-		let newFilename &#x3D; path.format(filenameObj);
-		// eslint-disable-next-line @typescript-eslint/no-loop-func
-		while (fileRecords.find((item: FileRecord) &#x3D;&gt; item.name &#x3D;&#x3D;&#x3D; newFilename)) {
-			counter +&#x3D; 1;
-			filenameObj.base &#x3D; counter &gt; 0 ? &#x60;${name} (${counter})${filenameObj.ext}&#x60; : &#x60;${name}${filenameObj.ext}&#x60;;
-			newFilename &#x3D; path.format(filenameObj);
-		}
-
-		return newFilename;
-	}
-
-	private async markForDelete(fileRecords: FileRecord[]): Promise&lt;void&gt; {
-		fileRecords.forEach((fileRecord) &#x3D;&gt; {
-			fileRecord.markForDelete();
-		});
-
-		await this.fileRecordRepo.save(fileRecords);
-	}
-
-	private async unmarkForDelete(fileRecords: FileRecord[]): Promise&lt;void&gt; {
-		fileRecords.forEach((fileRecord) &#x3D;&gt; {
-			fileRecord.unmarkForDelete();
-		});
-
-		await this.fileRecordRepo.save(fileRecords);
-	}
-
-	private async delete(fileRecords: FileRecord[]) {
-		this.logger.debug({ action: &#x27;delete&#x27;, fileRecords });
-
-		await this.markForDelete(fileRecords);
-		try {
-			const paths &#x3D; fileRecords.map((fileRecord) &#x3D;&gt; this.createPath(fileRecord.schoolId, fileRecord.id));
-
-			await this.storageClient.delete(paths);
-		} catch (err) {
-			await this.unmarkForDelete(fileRecords);
-
-			throw new InternalServerErrorException(err, &#x60;${FilesStorageUC.name}:delete&#x60;);
-		}
-	}
-
+	// delete
 	public async deleteFilesOfParent(userId: EntityId, params: FileRecordParams): Promise&lt;Counted&lt;FileRecord[]&gt;&gt; {
 		await this.checkPermission(userId, params.parentType, params.parentId, PermissionContexts.delete);
-		const [fileRecords, count] &#x3D; await this.fileRecordRepo.findBySchoolIdAndParentId(params.schoolId, params.parentId);
-		if (count &gt; 0) {
-			await this.delete(fileRecords);
-		}
+		const [fileRecords, count] &#x3D; await this.filesStorageService.deleteFilesOfParent(params);
 
 		return [fileRecords, count];
 	}
 
 	public async deleteOneFile(userId: EntityId, params: SingleFileParams): Promise&lt;FileRecord&gt; {
-		const fileRecord &#x3D; await this.fileRecordRepo.findOneById(params.fileRecordId);
-		await this.checkPermission(userId, fileRecord.parentType, fileRecord.parentId, PermissionContexts.delete);
-		await this.delete([fileRecord]);
+		const fileRecord &#x3D; await this.filesStorageService.getFileRecord(params);
+		const { parentType, parentId } &#x3D; fileRecord.getParentInfo();
+
+		await this.checkPermission(userId, parentType, parentId, PermissionContexts.delete);
+		await this.filesStorageService.delete([fileRecord]);
 
 		return fileRecord;
 	}
 
+	// restore
 	public async restoreFilesOfParent(userId: EntityId, params: FileRecordParams): Promise&lt;Counted&lt;FileRecord[]&gt;&gt; {
 		await this.checkPermission(userId, params.parentType, params.parentId, PermissionContexts.create);
-		const [fileRecords, count] &#x3D; await this.fileRecordRepo.findBySchoolIdAndParentIdAndMarkedForDelete(
-			params.schoolId,
-			params.parentId
-		);
-		if (count &gt; 0) {
-			await this.restore(fileRecords);
-		}
+		const [fileRecords, count] &#x3D; await this.filesStorageService.restoreFilesOfParent(params);
+
 		return [fileRecords, count];
 	}
 
 	public async restoreOneFile(userId: EntityId, params: SingleFileParams): Promise&lt;FileRecord&gt; {
-		const fileRecord &#x3D; await this.fileRecordRepo.findOneByIdMarkedForDelete(params.fileRecordId);
-		await this.checkPermission(userId, fileRecord.parentType, fileRecord.parentId, PermissionContexts.create);
-		await this.restore([fileRecord]);
+		const fileRecord &#x3D; await this.filesStorageService.getFileRecordMarkedForDelete(params);
+		const { parentType, parentId } &#x3D; fileRecord.getParentInfo();
+
+		await this.checkPermission(userId, parentType, parentId, PermissionContexts.create);
+		await this.filesStorageService.restore([fileRecord]);
 
 		return fileRecord;
 	}
 
+	// copy
 	public async copyFilesOfParent(
 		userId: string,
 		params: FileRecordParams,
@@ -2692,15 +1869,9 @@ export class FilesStorageUC {
 			),
 		]);
 
-		const [fileRecords, count] &#x3D; await this.fileRecordRepo.findBySchoolIdAndParentId(params.schoolId, params.parentId);
+		const response &#x3D; await this.filesStorageService.copyFilesOfParent(userId, params, copyFilesParams);
 
-		if (count &#x3D;&#x3D;&#x3D; 0) {
-			return [[], 0];
-		}
-
-		const response &#x3D; await this.copy(userId, fileRecords, copyFilesParams.target);
-
-		return [response, count];
+		return response;
 	}
 
 	public async copyOneFile(
@@ -2708,9 +1879,11 @@ export class FilesStorageUC {
 		params: SingleFileParams,
 		copyFileParams: CopyFileParams
 	): Promise&lt;CopyFileResponse&gt; {
-		const fileRecord &#x3D; await this.fileRecordRepo.findOneById(params.fileRecordId);
+		const fileRecord &#x3D; await this.filesStorageService.getFileRecord(params);
+		const { parentType, parentId } &#x3D; fileRecord.getParentInfo();
+
 		await Promise.all([
-			this.checkPermission(userId, fileRecord.parentType, fileRecord.parentId, PermissionContexts.create),
+			this.checkPermission(userId, parentType, parentId, PermissionContexts.create),
 			this.checkPermission(
 				userId,
 				copyFileParams.target.parentType,
@@ -2719,70 +1892,35 @@ export class FilesStorageUC {
 			),
 		]);
 
-		const response &#x3D; await this.copy(userId, [fileRecord], copyFileParams.target);
+		const response &#x3D; await this.filesStorageService.copy(userId, [fileRecord], copyFileParams.target);
 
 		return response[0];
 	}
 
-	private async copy(
-		userId: EntityId,
-		sourceFileRecords: FileRecord[],
-		targetParams: FileRecordParams
-	): Promise&lt;CopyFileResponse[]&gt; {
-		this.logger.debug({ action: &#x27;copy&#x27;, sourceFileRecords, targetParams });
-		const responseEntities: CopyFileResponse[] &#x3D; [];
-		const newRecords: FileRecord[] &#x3D; [];
-		const paths: Array&lt;ICopyFiles&gt; &#x3D; [];
+	// update
+	public async patchFilename(userId: EntityId, params: SingleFileParams, data: RenameFileParams): Promise&lt;FileRecord&gt; {
+		const fileRecord &#x3D; await this.filesStorageService.getFileRecord(params);
+		const { parentType, parentId } &#x3D; fileRecord.getParentInfo();
 
-		await Promise.all(
-			sourceFileRecords.map(async (item) &#x3D;&gt; {
-				if (item.securityCheck.status !&#x3D;&#x3D; ScanStatus.BLOCKED &amp;&amp; !item.deletedSince) {
-					const entity &#x3D; this.getNewFileRecord(item.name, item.size, item.mimeType, targetParams, userId);
-					if (item.securityCheck.status !&#x3D;&#x3D; ScanStatus.PENDING) {
-						entity.securityCheck &#x3D; item.securityCheck;
-					}
+		await this.checkPermission(userId, parentType, parentId, PermissionContexts.update);
 
-					await this.fileRecordRepo.save(entity);
-					newRecords.push(entity);
-					responseEntities.push(new CopyFileResponse({ id: entity.id, sourceId: item.id, name: entity.name }));
-					paths.push({
-						//
-						sourcePath: this.createPath(item.schoolId, item.id),
-						targetPath: this.createPath(entity.schoolId, entity.id),
-					});
-				}
-			})
-		);
+		const modifiedFileRecord &#x3D; await this.filesStorageService.patchFilename(fileRecord, data);
 
-		try {
-			await this.storageClient.copy(paths);
-			const pendedFileRecords &#x3D; newRecords.filter((item) &#x3D;&gt; {
-				if (item.securityCheck.status &#x3D;&#x3D;&#x3D; ScanStatus.PENDING) {
-					return this.antivirusService.send(item);
-				}
-				return false;
-			});
-
-			await Promise.all(pendedFileRecords);
-			return responseEntities;
-		} catch (error) {
-			await this.fileRecordRepo.delete(newRecords);
-			throw error;
-		}
+		return modifiedFileRecord;
 	}
 
-	private async restore(fileRecords: FileRecord[]) {
-		this.logger.debug({ action: &#x27;restore&#x27;, fileRecords });
+	public async updateSecurityStatus(token: string, scanResultDto: ScanResultParams): Promise&lt;void&gt; {
+		// No authorisation is possible atm.
+		await this.filesStorageService.updateSecurityStatus(token, scanResultDto);
+	}
 
-		await this.unmarkForDelete(fileRecords);
-		try {
-			const paths &#x3D; fileRecords.map((fileRecord) &#x3D;&gt; this.createPath(fileRecord.schoolId, fileRecord.id));
+	// get
+	public async getFileRecordsOfParent(userId: EntityId, params: FileRecordParams): Promise&lt;Counted&lt;FileRecord[]&gt;&gt; {
+		await this.checkPermission(userId, params.parentType, params.parentId, PermissionContexts.read);
 
-			await this.storageClient.restore(paths);
-		} catch (err) {
-			await this.markForDelete(fileRecords);
-			throw new InternalServerErrorException(err, &#x60;${FilesStorageUC.name}:restore&#x60;);
-		}
+		const countedFileRecords &#x3D; await this.filesStorageService.getFileRecordsOfParent(params);
+
+		return countedFileRecords;
 	}
 }
 </code></pre>

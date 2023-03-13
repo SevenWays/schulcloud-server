@@ -141,6 +141,13 @@
                                 <a href="#hasAllPermissions" >hasAllPermissions</a>
                             </li>
                             <li>
+                                <a href="#hasAllPermissionsByRole" >hasAllPermissionsByRole</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#hasEveryPermission" >hasEveryPermission</a>
+                            </li>
+                            <li>
                                 <a href="#hasOneOfPermissions" >hasOneOfPermissions</a>
                             </li>
                             <li>
@@ -153,7 +160,7 @@
                                 <a href="#resolvePermissions" >resolvePermissions</a>
                             </li>
                             <li>
-                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Private</span>
                                 <a href="#resolvePermissionsByRoles" >resolvePermissionsByRoles</a>
                             </li>
                         </ul>
@@ -524,7 +531,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/AuthorisationUtils.html#source" target="_self" >AuthorisationUtils:56</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/AuthorisationUtils.html#source" target="_self" >AuthorisationUtils:65</a></code>
 </div>
                 </td>
             </tr>
@@ -611,7 +618,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/AuthorisationUtils.html#source" target="_self" >AuthorisationUtils:75</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/AuthorisationUtils.html#source" target="_self" >AuthorisationUtils:84</a></code>
 </div>
                 </td>
             </tr>
@@ -698,7 +705,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/AuthorisationUtils.html#source" target="_self" >AuthorisationUtils:118</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/AuthorisationUtils.html#source" target="_self" >AuthorisationUtils:127</a></code>
 </div>
                 </td>
             </tr>
@@ -785,7 +792,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/AuthorisationUtils.html#source" target="_self" >AuthorisationUtils:94</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/AuthorisationUtils.html#source" target="_self" >AuthorisationUtils:103</a></code>
 </div>
                 </td>
             </tr>
@@ -886,7 +893,7 @@ const userRefProps = [&amp;#39;creator&amp;#39;]
                         </div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                     </div>
                     <div class="io-description">
@@ -987,6 +994,182 @@ const userRefProps = [&amp;#39;creator&amp;#39;]
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="hasAllPermissionsByRole"></a>
+                    <span class="name">
+                        <span ><b>hasAllPermissionsByRole</b></span>
+                        <a href="#hasAllPermissionsByRole"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>hasAllPermissionsByRole(role: <a href="../entitys/Role.html" target="_self">Role</a>, requiredPermissions: string[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../injectables/AuthorisationUtils.html" target="_self" >AuthorisationUtils</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/AuthorisationUtils.html#source" target="_self" >AuthorisationUtils:52</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>role</td>
+                                    <td>
+                                                <code><a href="../entitys/Role.html" target="_self" >Role</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>requiredPermissions</td>
+                                    <td>
+                                            <code>string[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="hasEveryPermission"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>hasEveryPermission</b></span>
+                        <a href="#hasEveryPermission"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>hasEveryPermission(requiredPermissions: string[], usersPermissions: string[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../injectables/AuthorisationUtils.html" target="_self" >AuthorisationUtils</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/AuthorisationUtils.html#source" target="_self" >AuthorisationUtils:57</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>requiredPermissions</td>
+                                    <td>
+                                            <code>string[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>usersPermissions</td>
+                                    <td>
+                                            <code>string[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="hasOneOfPermissions"></a>
                     <span class="name">
                         <span ><b>hasOneOfPermissions</b></span>
@@ -1009,7 +1192,7 @@ const userRefProps = [&amp;#39;creator&amp;#39;]
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/AuthorisationUtils.html#source" target="_self" >AuthorisationUtils:63</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/AuthorisationUtils.html#source" target="_self" >AuthorisationUtils:72</a></code>
 </div>
                 </td>
             </tr>
@@ -1096,7 +1279,7 @@ const userRefProps = [&amp;#39;creator&amp;#39;]
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/AuthorisationUtils.html#source" target="_self" >AuthorisationUtils:129</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/AuthorisationUtils.html#source" target="_self" >AuthorisationUtils:138</a></code>
 </div>
                 </td>
             </tr>
@@ -1186,7 +1369,7 @@ For each other operations please define, use the string based permissions inside
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/AuthorisationUtils.html#source" target="_self" >AuthorisationUtils:111</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/AuthorisationUtils.html#source" target="_self" >AuthorisationUtils:120</a></code>
 </div>
                 </td>
             </tr>
@@ -1332,7 +1515,7 @@ Please make sure you populate them before calling this method.</p>
                 <td class="col-md-4">
                     <a name="resolvePermissionsByRoles"></a>
                     <span class="name">
-                        <span class="modifier">Public</span>
+                        <span class="modifier">Private</span>
                         <span ><b>resolvePermissionsByRoles</b></span>
                         <a href="#resolvePermissionsByRoles"><span class="icon ion-ios-link"></span></a>
                     </span>

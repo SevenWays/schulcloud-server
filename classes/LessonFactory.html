@@ -118,6 +118,9 @@
                                 <a href="#buildList" >buildList</a>
                             </li>
                             <li>
+                                <a href="#buildListWithId" >buildListWithId</a>
+                            </li>
+                            <li>
                                 <a href="#buildWithId" >buildWithId</a>
                             </li>
                             <li>
@@ -227,7 +230,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:87</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:98</a></code>
 </div>
                 </td>
             </tr>
@@ -304,7 +307,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:99</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:110</a></code>
 </div>
                 </td>
             </tr>
@@ -470,7 +473,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:73</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:75</a></code>
 </div>
                 </td>
             </tr>
@@ -558,6 +561,113 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="buildListWithId"></a>
+                    <span class="name">
+                        <span ><b>buildListWithId</b></span>
+                        <a href="#buildListWithId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>buildListWithId(number: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, params?: DeepPartial<U>, options: <a href="../interfaces/Options.html" target="_self">BuildOptions&lt;U | I&gt;</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../classes/BaseFactory.html" target="_self" >BaseFactory</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:84</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Default value</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>number</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                            <code>DeepPartial&lt;U&gt;</code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+                                    <td>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>options</td>
+                                    <td>
+                                                <code><a href="../interfaces/Options.html" target="_self" >BuildOptions&lt;U | I&gt;</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                        <code>{}</code>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>T[]</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="buildWithId"></a>
                     <span class="name">
                         <span ><b>buildWithId</b></span>
@@ -567,7 +677,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>buildWithId(params?: DeepPartial<U>, id?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>buildWithId(params?: DeepPartial<U>, id?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, options: <a href="../interfaces/Options.html" target="_self">BuildOptions&lt;U | I&gt;</a>)</code>
                 </td>
             </tr>
 
@@ -600,6 +710,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Default value</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -613,6 +724,8 @@
                                         Yes
                                     </td>
 
+                                    <td>
+                                    </td>
 
                                 </tr>
                                 <tr>
@@ -625,6 +738,23 @@
                                         Yes
                                     </td>
 
+                                    <td>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>options</td>
+                                    <td>
+                                                <code><a href="../interfaces/Options.html" target="_self" >BuildOptions&lt;U | I&gt;</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                        <code>{}</code>
+                                    </td>
 
                                 </tr>
                             </tbody>
@@ -672,7 +802,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:137</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:148</a></code>
 </div>
                 </td>
             </tr>
@@ -892,7 +1022,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:111</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:122</a></code>
 </div>
                 </td>
             </tr>
@@ -962,7 +1092,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:133</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:144</a></code>
 </div>
                 </td>
             </tr>
@@ -1009,7 +1139,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:149</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:160</a></code>
 </div>
                 </td>
             </tr>
@@ -1060,7 +1190,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:123</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:134</a></code>
 </div>
                 </td>
             </tr>

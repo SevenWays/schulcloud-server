@@ -90,7 +90,6 @@
                                 <a href="#schoolId" >schoolId</a>
                             </li>
                             <li>
-                                    <span class="modifier">Private</span>
                                 <a href="#userId" >userId</a>
                             </li>
                         </ul>
@@ -254,7 +253,6 @@
                 <td class="col-md-4">
                     <a name="userId"></a>
                     <span class="name">
-                            <span class="modifier">Private</span>
                         <span ><b>userId</b></span>
                         <a href="#userId"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -465,7 +463,7 @@ export class TeamUser {
 	}
 
 	@ManyToOne(() &#x3D;&gt; User)
-	private userId: User;
+	userId: User;
 
 	@ManyToOne(() &#x3D;&gt; Role)
 	role: Role;
@@ -497,7 +495,7 @@ export class Team extends BaseEntityWithTimestamps {
 	name: string;
 
 	@Embedded(() &#x3D;&gt; TeamUser, { array: true })
-	private userIds: TeamUser[];
+	userIds: TeamUser[];
 
 	get teamUsers(): TeamUser[] {
 		return this.userIds;

@@ -127,7 +127,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findForUser(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
+                    <code>findForUser(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, params: <a href="../classes/DashboardParams.html" target="_self">DashboardParams</a>)</code>
                 </td>
             </tr>
 
@@ -174,6 +174,18 @@
 
 
                                 </tr>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                                <code><a href="../classes/DashboardParams.html" target="_self" >DashboardParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -205,7 +217,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>moveElement(dashboardId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, params: <a href="../classes/MoveElementParams.html" target="_self">MoveElementParams</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
+                    <code>moveElement(undefined: <a href="../classes/DashboardUrlParams.html" target="_self">DashboardUrlParams</a>, params: <a href="../classes/MoveElementParams.html" target="_self">MoveElementParams</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
                 </td>
             </tr>
 
@@ -213,14 +225,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Patch(&#x27;:id/moveElement&#x27;)<br /></code>
+                    <code>@Patch(&#x27;:dashboardId/moveElement&#x27;)<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">apps/server/src/modules/learnroom/controller/dashboard.controller.ts:24</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="27"
+                            class="link-to-prism">apps/server/src/modules/learnroom/controller/dashboard.controller.ts:27</a></div>
                 </td>
             </tr>
 
@@ -241,9 +253,8 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>dashboardId</td>
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                <code><a href="../classes/DashboardUrlParams.html" target="_self" >DashboardUrlParams</a></code>
                                     </td>
 
                                     <td>
@@ -307,7 +318,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>patchGroup(dashboardId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, x: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, y: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, params: <a href="../classes/PatchGroupParams.html" target="_self">PatchGroupParams</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
+                    <code>patchGroup(urlParams: <a href="../classes/DashboardUrlParams.html" target="_self">DashboardUrlParams</a>, x: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, y: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, params: <a href="../classes/PatchGroupParams.html" target="_self">PatchGroupParams</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
                 </td>
             </tr>
 
@@ -315,14 +326,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Patch(&#x27;:id/element&#x27;)<br /></code>
+                    <code>@Patch(&#x27;:dashboardId/element&#x27;)<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="40"
-                            class="link-to-prism">apps/server/src/modules/learnroom/controller/dashboard.controller.ts:40</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="43"
+                            class="link-to-prism">apps/server/src/modules/learnroom/controller/dashboard.controller.ts:43</a></div>
                 </td>
             </tr>
 
@@ -343,9 +354,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>dashboardId</td>
+                                    <td>urlParams</td>
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                <code><a href="../classes/DashboardUrlParams.html" target="_self" >DashboardUrlParams</a></code>
                                     </td>
 
                                     <td>
@@ -422,14 +433,14 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Get, Patch, Param, Body, Query } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Body, Controller, Get, Param, Patch, Query } from &#x27;@nestjs/common&#x27;;
 import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
+import { ICurrentUser } from &#x27;@src/modules/authentication&#x27;;
 import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
-import { ParseObjectIdPipe } from &#x27;@shared/controller&#x27;;
-import { ICurrentUser } from &#x27;@shared/domain&#x27;;
-import { DashboardUc } from &#x27;../uc/dashboard.uc&#x27;;
-import { DashboardResponse, MoveElementParams, PatchGroupParams } from &#x27;./dto&#x27;;
 import { DashboardMapper } from &#x27;../mapper/dashboard.mapper&#x27;;
+import { DashboardUc } from &#x27;../uc/dashboard.uc&#x27;;
+import { DashboardResponse, DashboardUrlParams, MoveElementParams, PatchGroupParams } from &#x27;./dto&#x27;;
+import { DashboardParams } from &#x27;./dto/dashboard.params&#x27;;
 
 @ApiTags(&#x27;Dashboard&#x27;)
 @Authenticate(&#x27;jwt&#x27;)
@@ -438,15 +449,18 @@ export class DashboardController {
 	constructor(private readonly dashboardUc: DashboardUc) {}
 
 	@Get()
-	async findForUser(@CurrentUser() currentUser: ICurrentUser): Promise&lt;DashboardResponse&gt; {
-		const dashboard &#x3D; await this.dashboardUc.getUsersDashboard(currentUser.userId);
+	async findForUser(
+		@CurrentUser() currentUser: ICurrentUser,
+		@Query() params: DashboardParams
+	): Promise&lt;DashboardResponse&gt; {
+		const dashboard &#x3D; await this.dashboardUc.getUsersDashboard(currentUser.userId, params.showSubstitute);
 		const dto &#x3D; DashboardMapper.mapToResponse(dashboard);
 		return dto;
 	}
 
-	@Patch(&#x27;:id/moveElement&#x27;)
+	@Patch(&#x27;:dashboardId/moveElement&#x27;)
 	async moveElement(
-		@Param(&#x27;id&#x27;, ParseObjectIdPipe) dashboardId: string,
+		@Param() { dashboardId }: DashboardUrlParams,
 		@Body() params: MoveElementParams,
 		@CurrentUser() currentUser: ICurrentUser
 	): Promise&lt;DashboardResponse&gt; {
@@ -460,16 +474,16 @@ export class DashboardController {
 		return dto;
 	}
 
-	@Patch(&#x27;:id/element&#x27;)
+	@Patch(&#x27;:dashboardId/element&#x27;)
 	async patchGroup(
-		@Param(&#x27;id&#x27;, ParseObjectIdPipe) dashboardId: string,
+		@Param() urlParams: DashboardUrlParams,
 		@Query(&#x27;x&#x27;) x: number,
 		@Query(&#x27;y&#x27;) y: number,
 		@Body() params: PatchGroupParams,
 		@CurrentUser() currentUser: ICurrentUser
 	): Promise&lt;DashboardResponse&gt; {
 		const dashboard &#x3D; await this.dashboardUc.renameGroupOnDashboard(
-			dashboardId,
+			urlParams.dashboardId,
 			{ x, y },
 			params.title,
 			currentUser.userId

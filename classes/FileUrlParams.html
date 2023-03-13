@@ -231,8 +231,8 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
 import { EntityId } from &#x27;@shared/domain&#x27;;
-import { FileRecordParentType } from &#x27;@shared/domain/entity/filerecord.entity&#x27;;
 import { Allow, IsEnum, IsMongoId, IsNotEmpty, IsString, ValidateNested } from &#x27;class-validator&#x27;;
+import { FileRecordParentType } from &#x27;../../entity&#x27;;
 
 export class FileRecordParams {
 	@ApiProperty()
@@ -283,12 +283,17 @@ export class DownloadFileParams {
 export class ScanResultParams {
 	@ApiProperty()
 	@Allow()
-	virus_detected!: boolean;
+	virus_detected?: boolean;
 
 	@ApiProperty()
 	@Allow()
 	virus_signature?: string;
+
+	@ApiProperty()
+	@Allow()
+	error?: string;
 }
+
 export class SingleFileParams {
 	@ApiProperty()
 	@IsMongoId()
@@ -316,6 +321,17 @@ export class CopyFileParams {
 	@ApiProperty()
 	@IsString()
 	fileNamePrefix!: string;
+}
+
+export class CopyFilesOfParentPayload {
+	@IsMongoId()
+	userId!: EntityId;
+
+	@ValidateNested()
+	source!: FileRecordParams;
+
+	@ValidateNested()
+	target!: FileRecordParams;
 }
 </code></pre>
     </div>

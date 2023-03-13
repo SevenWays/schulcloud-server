@@ -126,7 +126,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">apps/server/src/modules/user-import/controller/dto/user-match.response.ts:43</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">apps/server/src/modules/user-import/controller/dto/user-match.response.ts:44</a></div>
                             </td>
                         </tr>
 
@@ -239,7 +239,7 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/PaginationResponse.html#source" target="_self" >PaginationResponse:50</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/PaginationResponse.html#source" target="_self" >PaginationResponse:51</a></code>
 </div>
                         </td>
                     </tr>
@@ -419,6 +419,7 @@ export class UserMatchResponse {
 	@ApiProperty({
 		description: &#x27;list of user roles from external system: student, teacher, admin&#x27;,
 		enum: UserRole,
+		isArray: true,
 	})
 	roleNames: UserRole[];
 

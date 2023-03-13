@@ -1,0 +1,1518 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>schulcloud-server documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">schulcloud-server documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Injectables</li>
+  <li >ExternalToolService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>apps/server/src/modules/tool/service/external-tool.service.ts</code>
+        </p>
+
+
+
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#addExternalOauth2DataToConfig" >addExternalOauth2DataToConfig</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#createExternalTool" >createExternalTool</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#deleteExternalTool" >deleteExternalTool</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findExternalToolById" >findExternalToolById</a>
+                            </li>
+                            <li>
+                                <a href="#findExternalToolByName" >findExternalToolByName</a>
+                            </li>
+                            <li>
+                                <a href="#findExternalToolByOAuth2ConfigClientId" >findExternalToolByOAuth2ConfigClientId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findExternalTools" >findExternalTools</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getExternalToolForScope" >getExternalToolForScope</a>
+                            </li>
+                            <li>
+                                <a href="#isLti11Config" >isLti11Config</a>
+                            </li>
+                            <li>
+                                <a href="#isOauth2Config" >isOauth2Config</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#updateExternalTool" >updateExternalTool</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#updateOauth2ToolConfig" >updateOauth2ToolConfig</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#updateOauthClientOrThrow" >updateOauthClientOrThrow</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(externalToolRepo: <a href="../injectables/ExternalToolRepo.html" target="_self">ExternalToolRepo</a>, oauthProviderService: <a href="../classes/OauthProviderService.html" target="_self">OauthProviderService</a>, mapper: <a href="../injectables/ExternalToolServiceMapper.html" target="_self">ExternalToolServiceMapper</a>, schoolExternalToolRepo: <a href="../injectables/SchoolExternalToolRepo.html" target="_self">SchoolExternalToolRepo</a>, courseExternalToolRepo: <a href="../injectables/CourseExternalToolRepo.html" target="_self">CourseExternalToolRepo</a>, encryptionService: <a href="../interfaces/IEncryptionService.html" target="_self">IEncryptionService</a>, logger: <a href="../injectables/Logger.html" target="_self">Logger</a>, externalToolVersionService: <a href="../injectables/ExternalToolVersionService.html" target="_self">ExternalToolVersionService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">apps/server/src/modules/tool/service/external-tool.service.ts:24</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>externalToolRepo</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ExternalToolRepo.html" target="_self" >ExternalToolRepo</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>oauthProviderService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../classes/OauthProviderService.html" target="_self" >OauthProviderService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>mapper</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ExternalToolServiceMapper.html" target="_self" >ExternalToolServiceMapper</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>schoolExternalToolRepo</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SchoolExternalToolRepo.html" target="_self" >SchoolExternalToolRepo</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>courseExternalToolRepo</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CourseExternalToolRepo.html" target="_self" >CourseExternalToolRepo</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>encryptionService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../interfaces/IEncryptionService.html" target="_self" >IEncryptionService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>logger</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/Logger.html" target="_self" >Logger</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>externalToolVersionService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ExternalToolVersionService.html" target="_self" >ExternalToolVersionService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addExternalOauth2DataToConfig"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>addExternalOauth2DataToConfig</b></span>
+                        <a href="#addExternalOauth2DataToConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>addExternalOauth2DataToConfig(config: <a href="../classes/Oauth2ToolConfigDO.html" target="_self">Oauth2ToolConfigDO</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="169"
+                            class="link-to-prism">apps/server/src/modules/tool/service/external-tool.service.ts:169</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>config</td>
+                                    <td>
+                                                <code><a href="../classes/Oauth2ToolConfigDO.html" target="_self" >Oauth2ToolConfigDO</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createExternalTool"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>createExternalTool</b></span>
+                        <a href="#createExternalTool"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createExternalTool(externalToolDO: <a href="../classes/ExternalToolDO.html" target="_self">ExternalToolDO</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="36"
+                            class="link-to-prism">apps/server/src/modules/tool/service/external-tool.service.ts:36</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>externalToolDO</td>
+                                    <td>
+                                                <code><a href="../classes/ExternalToolDO.html" target="_self" >ExternalToolDO</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/ExternalToolDO.html" target="_self" >Promise&lt;ExternalToolDO&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteExternalTool"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>deleteExternalTool</b></span>
+                        <a href="#deleteExternalTool"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteExternalTool(toolId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="111"
+                            class="link-to-prism">apps/server/src/modules/tool/service/external-tool.service.ts:111</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>toolId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findExternalToolById"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>findExternalToolById</b></span>
+                        <a href="#findExternalToolById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findExternalToolById(id: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="86"
+                            class="link-to-prism">apps/server/src/modules/tool/service/external-tool.service.ts:86</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/ExternalToolDO.html" target="_self" >Promise&lt;ExternalToolDO&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findExternalToolByName"></a>
+                    <span class="name">
+                        <span ><b>findExternalToolByName</b></span>
+                        <a href="#findExternalToolByName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>findExternalToolByName(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="101"
+                            class="link-to-prism">apps/server/src/modules/tool/service/external-tool.service.ts:101</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>name</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/ExternalToolDO.html" target="_self" >Promise&lt;ExternalToolDO | null&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findExternalToolByOAuth2ConfigClientId"></a>
+                    <span class="name">
+                        <span ><b>findExternalToolByOAuth2ConfigClientId</b></span>
+                        <a href="#findExternalToolByOAuth2ConfigClientId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>findExternalToolByOAuth2ConfigClientId(clientId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="106"
+                            class="link-to-prism">apps/server/src/modules/tool/service/external-tool.service.ts:106</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>clientId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/ExternalToolDO.html" target="_self" >Promise&lt;ExternalToolDO | null&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findExternalTools"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>findExternalTools</b></span>
+                        <a href="#findExternalTools"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findExternalTools(query: <a href="../classes/ExternalToolDO.html" target="_self">Partial&lt;ExternalToolDO&gt;</a>, options?: <a href="../classes/ExternalToolDO.html" target="_self">IFindOptions&lt;ExternalToolDO&gt;</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="59"
+                            class="link-to-prism">apps/server/src/modules/tool/service/external-tool.service.ts:59</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>query</td>
+                                    <td>
+                                                <code><a href="../classes/ExternalToolDO.html" target="_self" >Partial&lt;ExternalToolDO&gt;</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>options</td>
+                                    <td>
+                                                <code><a href="../classes/ExternalToolDO.html" target="_self" >IFindOptions&lt;ExternalToolDO&gt;</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../entitys/ExternalTool.html" target="_self" >Promise&lt;Page&lt;ExternalToolDO&gt;&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getExternalToolForScope"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>getExternalToolForScope</b></span>
+                        <a href="#getExternalToolForScope"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getExternalToolForScope(externalToolId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, scope: <a href="../undefineds/CustomParameter.html" target="_self">CustomParameterScope</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="134"
+                            class="link-to-prism">apps/server/src/modules/tool/service/external-tool.service.ts:134</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>externalToolId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>scope</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#CustomParameter" target="_self" >CustomParameterScope</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/ExternalToolDO.html" target="_self" >Promise&lt;ExternalToolDO&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isLti11Config"></a>
+                    <span class="name">
+                        <span ><b>isLti11Config</b></span>
+                        <a href="#isLti11Config"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isLti11Config(config: <a href="../classes/ExternalToolConfigDO.html" target="_self">ExternalToolConfigDO</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="126"
+                            class="link-to-prism">apps/server/src/modules/tool/service/external-tool.service.ts:126</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>config</td>
+                                    <td>
+                                                <code><a href="../classes/ExternalToolConfigDO.html" target="_self" >ExternalToolConfigDO</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Lti11ToolConfigDO.html" target="_self" >Lti11ToolConfigDO</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isOauth2Config"></a>
+                    <span class="name">
+                        <span ><b>isOauth2Config</b></span>
+                        <a href="#isOauth2Config"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isOauth2Config(config: <a href="../classes/ExternalToolConfigDO.html" target="_self">ExternalToolConfigDO</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="130"
+                            class="link-to-prism">apps/server/src/modules/tool/service/external-tool.service.ts:130</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>config</td>
+                                    <td>
+                                                <code><a href="../classes/ExternalToolConfigDO.html" target="_self" >ExternalToolConfigDO</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Oauth2ToolConfigDO.html" target="_self" >Oauth2ToolConfigDO</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateExternalTool"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>updateExternalTool</b></span>
+                        <a href="#updateExternalTool"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateExternalTool(toUpdate: <a href="../classes/ExternalToolDO.html" target="_self">ExternalToolDO</a>, loadedTool: <a href="../classes/ExternalToolDO.html" target="_self">ExternalToolDO</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="52"
+                            class="link-to-prism">apps/server/src/modules/tool/service/external-tool.service.ts:52</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>toUpdate</td>
+                                    <td>
+                                                <code><a href="../classes/ExternalToolDO.html" target="_self" >ExternalToolDO</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>loadedTool</td>
+                                    <td>
+                                                <code><a href="../classes/ExternalToolDO.html" target="_self" >ExternalToolDO</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/ExternalToolDO.html" target="_self" >Promise&lt;ExternalToolDO&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateOauth2ToolConfig"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>updateOauth2ToolConfig</b></span>
+                        <a href="#updateOauth2ToolConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateOauth2ToolConfig(toUpdate: <a href="../classes/ExternalToolDO.html" target="_self">ExternalToolDO</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="144"
+                            class="link-to-prism">apps/server/src/modules/tool/service/external-tool.service.ts:144</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>toUpdate</td>
+                                    <td>
+                                                <code><a href="../classes/ExternalToolDO.html" target="_self" >ExternalToolDO</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateOauthClientOrThrow"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>updateOauthClientOrThrow</b></span>
+                        <a href="#updateOauthClientOrThrow"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateOauthClientOrThrow(loadedOauthClient: <a href="../interfaces/ProviderOauthClient.html" target="_self">ProviderOauthClient</a>, toUpdateOauthClient: <a href="../interfaces/ProviderOauthClient.html" target="_self">ProviderOauthClient</a>, toUpdate: <a href="../classes/ExternalToolDO.html" target="_self">ExternalToolDO</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="157"
+                            class="link-to-prism">apps/server/src/modules/tool/service/external-tool.service.ts:157</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>loadedOauthClient</td>
+                                    <td>
+                                                <code><a href="../interfaces/ProviderOauthClient.html" target="_self" >ProviderOauthClient</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>toUpdateOauthClient</td>
+                                    <td>
+                                                <code><a href="../interfaces/ProviderOauthClient.html" target="_self" >ProviderOauthClient</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>toUpdate</td>
+                                    <td>
+                                                <code><a href="../classes/ExternalToolDO.html" target="_self" >ExternalToolDO</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Inject, Injectable, UnprocessableEntityException } from &#x27;@nestjs/common&#x27;;
+import {
+	CustomParameterDO,
+	ExternalToolConfigDO,
+	ExternalToolDO,
+	Lti11ToolConfigDO,
+	Oauth2ToolConfigDO,
+} from &#x27;@shared/domain/domainobject/external-tool&#x27;;
+import { ExternalToolRepo } from &#x27;@shared/repo/externaltool/external-tool.repo&#x27;;
+import { CustomParameterScope, EntityId, IFindOptions } from &#x27;@shared/domain&#x27;;
+import { CourseExternalToolRepo } from &#x27;@shared/repo/courseexternaltool/course-external-tool.repo&#x27;;
+import { SchoolExternalToolDO } from &#x27;@shared/domain/domainobject/external-tool/school-external-tool.do&#x27;;
+import { Page } from &#x27;@shared/domain/domainobject/page&#x27;;
+import { ProviderOauthClient } from &#x27;@shared/infra/oauth-provider/dto&#x27;;
+import { DefaultEncryptionService, IEncryptionService } from &#x27;@shared/infra/encryption&#x27;;
+import { OauthProviderService } from &#x27;@shared/infra/oauth-provider&#x27;;
+import { Logger } from &#x27;@src/core/logger&#x27;;
+import { SchoolExternalToolRepo } from &#x27;@shared/repo/schoolexternaltool/school-external-tool.repo&#x27;;
+import { TokenEndpointAuthMethod, ToolConfigType } from &#x27;../interface&#x27;;
+import { ExternalToolServiceMapper } from &#x27;./mapper&#x27;;
+import { ExternalToolVersionService } from &#x27;./external-tool-version.service&#x27;;
+
+@Injectable()
+export class ExternalToolService {
+	constructor(
+		private readonly externalToolRepo: ExternalToolRepo,
+		private readonly oauthProviderService: OauthProviderService,
+		private readonly mapper: ExternalToolServiceMapper,
+		private readonly schoolExternalToolRepo: SchoolExternalToolRepo,
+		private readonly courseExternalToolRepo: CourseExternalToolRepo,
+		@Inject(DefaultEncryptionService) private readonly encryptionService: IEncryptionService,
+		private readonly logger: Logger,
+		private readonly externalToolVersionService: ExternalToolVersionService
+	) {}
+
+	async createExternalTool(externalToolDO: ExternalToolDO): Promise&lt;ExternalToolDO&gt; {
+		if (this.isLti11Config(externalToolDO.config)) {
+			externalToolDO.config.secret &#x3D; this.encryptionService.encrypt(externalToolDO.config.secret);
+		} else if (this.isOauth2Config(externalToolDO.config)) {
+			const oauthClient: ProviderOauthClient &#x3D; this.mapper.mapDoToProviderOauthClient(
+				externalToolDO.name,
+				externalToolDO.config
+			);
+
+			await this.oauthProviderService.createOAuth2Client(oauthClient);
+		}
+
+		const created: ExternalToolDO &#x3D; await this.externalToolRepo.save(externalToolDO);
+		return created;
+	}
+
+	async updateExternalTool(toUpdate: ExternalToolDO, loadedTool: ExternalToolDO): Promise&lt;ExternalToolDO&gt; {
+		await this.updateOauth2ToolConfig(toUpdate);
+		this.externalToolVersionService.increaseVersionOfNewToolIfNecessary(loadedTool, toUpdate);
+		const externalTool: ExternalToolDO &#x3D; await this.externalToolRepo.save(toUpdate);
+		return externalTool;
+	}
+
+	async findExternalTools(
+		query: Partial&lt;ExternalToolDO&gt;,
+		options?: IFindOptions&lt;ExternalToolDO&gt;
+	): Promise&lt;Page&lt;ExternalToolDO&gt;&gt; {
+		const tools: Page&lt;ExternalToolDO&gt; &#x3D; await this.externalToolRepo.find(query, options);
+
+		const resolvedTools: (ExternalToolDO | undefined)[] &#x3D; await Promise.all(
+			tools.data.map(async (tool: ExternalToolDO): Promise&lt;ExternalToolDO | undefined&gt; &#x3D;&gt; {
+				if (this.isOauth2Config(tool.config)) {
+					try {
+						await this.addExternalOauth2DataToConfig(tool.config);
+					} catch (e) {
+						this.logger.debug(
+							&#x60;Could not resolve oauth2Config of tool with clientId ${tool.config.clientId}. It will be filtered out.&#x60;
+						);
+						return undefined;
+					}
+				}
+				return tool;
+			})
+		);
+
+		tools.data &#x3D; resolvedTools.filter((tool) &#x3D;&gt; tool !&#x3D;&#x3D; undefined) as ExternalToolDO[];
+
+		return tools;
+	}
+
+	async findExternalToolById(id: EntityId): Promise&lt;ExternalToolDO&gt; {
+		const tool: ExternalToolDO &#x3D; await this.externalToolRepo.findById(id);
+		if (this.isOauth2Config(tool.config)) {
+			try {
+				await this.addExternalOauth2DataToConfig(tool.config);
+			} catch (e) {
+				this.logger.debug(
+					&#x60;Could not resolve oauth2Config of tool with clientId ${tool.config.clientId}. It will be filtered out.&#x60;
+				);
+				throw new UnprocessableEntityException(&#x60;Could not resolve oauth2Config of tool ${tool.name}.&#x60;);
+			}
+		}
+		return tool;
+	}
+
+	findExternalToolByName(name: string): Promise&lt;ExternalToolDO | null&gt; {
+		const externalTool: Promise&lt;ExternalToolDO | null&gt; &#x3D; this.externalToolRepo.findByName(name);
+		return externalTool;
+	}
+
+	findExternalToolByOAuth2ConfigClientId(clientId: string): Promise&lt;ExternalToolDO | null&gt; {
+		const externalTool: Promise&lt;ExternalToolDO | null&gt; &#x3D; this.externalToolRepo.findByOAuth2ConfigClientId(clientId);
+		return externalTool;
+	}
+
+	async deleteExternalTool(toolId: EntityId): Promise&lt;void&gt; {
+		const schoolExternalTools: SchoolExternalToolDO[] &#x3D; await this.schoolExternalToolRepo.findByExternalToolId(toolId);
+		const schoolExternalToolIds: string[] &#x3D; schoolExternalTools.map(
+			(schoolExternalTool: SchoolExternalToolDO): string &#x3D;&gt;
+				// We can be sure that the repo returns the id
+				schoolExternalTool.id as string
+		);
+
+		await Promise.all([
+			this.courseExternalToolRepo.deleteBySchoolExternalToolIds(schoolExternalToolIds),
+			this.schoolExternalToolRepo.deleteByExternalToolId(toolId),
+			this.externalToolRepo.deleteById(toolId),
+		]);
+	}
+
+	isLti11Config(config: ExternalToolConfigDO): config is Lti11ToolConfigDO {
+		return ToolConfigType.LTI11 &#x3D;&#x3D;&#x3D; config.type;
+	}
+
+	isOauth2Config(config: ExternalToolConfigDO): config is Oauth2ToolConfigDO {
+		return ToolConfigType.OAUTH2 &#x3D;&#x3D;&#x3D; config.type;
+	}
+
+	async getExternalToolForScope(externalToolId: EntityId, scope: CustomParameterScope): Promise&lt;ExternalToolDO&gt; {
+		const externalTool: ExternalToolDO &#x3D; await this.externalToolRepo.findById(externalToolId);
+		if (externalTool.parameters) {
+			externalTool.parameters &#x3D; externalTool.parameters.filter(
+				(parameter: CustomParameterDO) &#x3D;&gt; parameter.scope &#x3D;&#x3D;&#x3D; scope
+			);
+		}
+		return externalTool;
+	}
+
+	private async updateOauth2ToolConfig(toUpdate: ExternalToolDO) {
+		if (this.isOauth2Config(toUpdate.config)) {
+			const toUpdateOauthClient: ProviderOauthClient &#x3D; this.mapper.mapDoToProviderOauthClient(
+				toUpdate.name,
+				toUpdate.config
+			);
+			const loadedOauthClient: ProviderOauthClient &#x3D; await this.oauthProviderService.getOAuth2Client(
+				toUpdate.config.clientId
+			);
+			await this.updateOauthClientOrThrow(loadedOauthClient, toUpdateOauthClient, toUpdate);
+		}
+	}
+
+	private async updateOauthClientOrThrow(
+		loadedOauthClient: ProviderOauthClient,
+		toUpdateOauthClient: ProviderOauthClient,
+		toUpdate: ExternalToolDO
+	) {
+		if (loadedOauthClient &amp;&amp; loadedOauthClient.client_id) {
+			await this.oauthProviderService.updateOAuth2Client(loadedOauthClient.client_id, toUpdateOauthClient);
+		} else {
+			throw new UnprocessableEntityException(&#x60;The oAuthConfigs clientId of tool ${toUpdate.name}&quot; does not exist&#x60;);
+		}
+	}
+
+	private async addExternalOauth2DataToConfig(config: Oauth2ToolConfigDO) {
+		const oauthClient: ProviderOauthClient &#x3D; await this.oauthProviderService.getOAuth2Client(config.clientId);
+
+		config.scope &#x3D; oauthClient.scope;
+		config.tokenEndpointAuthMethod &#x3D; oauthClient.token_endpoint_auth_method as TokenEndpointAuthMethod;
+		config.redirectUris &#x3D; oauthClient.redirect_uris;
+		config.frontchannelLogoutUri &#x3D; oauthClient.frontchannel_logout_uri;
+	}
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'ExternalToolService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

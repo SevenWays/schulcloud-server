@@ -118,6 +118,10 @@
                                     <span class="modifier">Async</span>
                                 <a href="#getPermittedLessons" >getPermittedLessons</a>
                             </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#revertPublished" >revertPublished</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -136,7 +140,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(taskRepo: <a href="../injectables/TaskRepo.html" target="_self">TaskRepo</a>, authorizationService: <a href="../injectables/AuthorizationService.html" target="_self">AuthorizationService</a>, courseRepo: <a href="../injectables/CourseRepo.html" target="_self">CourseRepo</a>, lessonRepo: <a href="../injectables/LessonRepo.html" target="_self">LessonRepo</a>, filesStorageClientAdapterService: <a href="../injectables/FilesStorageClientAdapterService.html" target="_self">FilesStorageClientAdapterService</a>)</code>
+<code>constructor(taskRepo: <a href="../injectables/TaskRepo.html" target="_self">TaskRepo</a>, authorizationService: <a href="../injectables/AuthorizationService.html" target="_self">AuthorizationService</a>, courseRepo: <a href="../injectables/CourseRepo.html" target="_self">CourseRepo</a>, lessonRepo: <a href="../injectables/LessonRepo.html" target="_self">LessonRepo</a>, taskService: <a href="../injectables/TaskService.html" target="_self">TaskService</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -207,10 +211,10 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>filesStorageClientAdapterService</td>
+                                                        <td>taskService</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/FilesStorageClientAdapterService.html" target="_self" >FilesStorageClientAdapterService</a></code>
+                                                                        <code><a href="../injectables/TaskService.html" target="_self" >TaskService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -254,8 +258,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="90"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:90</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="87"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:87</a></div>
                 </td>
             </tr>
 
@@ -342,15 +346,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>delete(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, taskId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, jwt: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>delete(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, taskId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="214"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:214</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="227"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:227</a></div>
                 </td>
             </tr>
 
@@ -394,25 +398,13 @@
 
 
                                 </tr>
-                                <tr>
-                                    <td>jwt</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
                             </tbody>
                         </table>
                     </div>
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>unknown</code>
+                        <b>Returns : </b>    <code>Promise&lt;boolean&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -444,8 +436,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="73"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:73</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="71"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:71</a></div>
                 </td>
             </tr>
 
@@ -611,8 +603,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="115"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:115</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="128"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:128</a></div>
                 </td>
             </tr>
 
@@ -695,8 +687,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="144"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:144</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="157"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:157</a></div>
                 </td>
             </tr>
 
@@ -778,8 +770,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="207"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:207</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="220"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:220</a></div>
                 </td>
             </tr>
 
@@ -818,8 +810,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="174"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:174</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="187"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:187</a></div>
                 </td>
             </tr>
 
@@ -902,8 +894,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="186"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:186</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="199"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:199</a></div>
                 </td>
             </tr>
 
@@ -963,6 +955,89 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="revertPublished"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>revertPublished</b></span>
+                        <a href="#revertPublished"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>revertPublished(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, taskId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="112"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:112</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>taskId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../entitys/Task.html" target="_self" >Promise&lt;TaskWithStatusVo&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
 
     </div>
@@ -986,7 +1061,7 @@ import {
 } from &#x27;@shared/domain&#x27;;
 import { CourseRepo, LessonRepo, TaskRepo } from &#x27;@shared/repo&#x27;;
 import { AuthorizationService } from &#x27;@src/modules/authorization&#x27;;
-import { FileParamBuilder, FilesStorageClientAdapterService } from &#x27;@src/modules/files-storage-client&#x27;;
+import { TaskService } from &#x27;../service&#x27;;
 
 @Injectable()
 export class TaskUC {
@@ -995,11 +1070,10 @@ export class TaskUC {
 		private readonly authorizationService: AuthorizationService,
 		private readonly courseRepo: CourseRepo,
 		private readonly lessonRepo: LessonRepo,
-		private readonly filesStorageClientAdapterService: FilesStorageClientAdapterService
+		private readonly taskService: TaskService
 	) {}
 
 	async findAllFinished(userId: EntityId, pagination?: IPagination): Promise&lt;Counted&lt;TaskWithStatusVo[]&gt;&gt; {
-		// load the user including all roles
 		const user &#x3D; await this.authorizationService.getUserWithPermissions(userId);
 
 		this.authorizationService.checkOneOfPermissions(user, [
@@ -1031,7 +1105,6 @@ export class TaskUC {
 			if (this.authorizationService.hasPermission(user, task, PermissionContextBuilder.write([]))) {
 				status &#x3D; task.createTeacherStatusForUser(user);
 			} else {
-				// TaskParentPermission.read check is not needed on this place
 				status &#x3D; task.createStudentStatusForUser(user);
 			}
 
@@ -1044,7 +1117,6 @@ export class TaskUC {
 	async findAll(userId: EntityId, pagination: IPagination): Promise&lt;Counted&lt;TaskWithStatusVo[]&gt;&gt; {
 		let response: Counted&lt;TaskWithStatusVo[]&gt;;
 
-		// load the user including all roles
 		const user &#x3D; await this.authorizationService.getUserWithPermissions(userId);
 
 		if (this.authorizationService.hasAllPermissions(user, [Permission.TASK_DASHBOARD_VIEW_V3])) {
@@ -1059,10 +1131,8 @@ export class TaskUC {
 	}
 
 	async changeFinishedForUser(userId: EntityId, taskId: EntityId, isFinished: boolean): Promise&lt;TaskWithStatusVo&gt; {
-		const [user, task] &#x3D; await Promise.all([
-			this.authorizationService.getUserWithPermissions(userId),
-			this.taskRepo.findById(taskId),
-		]);
+		const user &#x3D; await this.authorizationService.getUserWithPermissions(userId);
+		const task &#x3D; await this.taskRepo.findById(taskId);
 
 		this.authorizationService.checkPermission(user, task, PermissionContextBuilder.read([]));
 
@@ -1073,10 +1143,28 @@ export class TaskUC {
 		}
 		await this.taskRepo.save(task);
 
+		// TODO fix student case - why have student as fallback?
+		//  should be based on permission too and use this.createStatus() instead
 		// add status
 		const status &#x3D; this.authorizationService.hasOneOfPermissions(user, [Permission.TASK_DASHBOARD_TEACHER_VIEW_V3])
 			? task.createTeacherStatusForUser(user)
 			: task.createStudentStatusForUser(user);
+
+		const result &#x3D; new TaskWithStatusVo(task, status);
+
+		return result;
+	}
+
+	async revertPublished(userId: EntityId, taskId: EntityId): Promise&lt;TaskWithStatusVo&gt; {
+		const user &#x3D; await this.authorizationService.getUserWithPermissions(userId);
+		const task &#x3D; await this.taskRepo.findById(taskId);
+
+		this.authorizationService.checkPermission(user, task, PermissionContextBuilder.write([]));
+
+		task.unpublish();
+		await this.taskRepo.save(task);
+
+		const status &#x3D; task.createTeacherStatusForUser(user);
 
 		const result &#x3D; new TaskWithStatusVo(task, status);
 
@@ -1146,7 +1234,7 @@ export class TaskUC {
 		let permittedCourses: Course[] &#x3D; [];
 
 		if (neededPermission &#x3D;&#x3D;&#x3D; Actions.write) {
-			[permittedCourses] &#x3D; await this.courseRepo.findAllForTeacher(user.id);
+			[permittedCourses] &#x3D; await this.courseRepo.findAllForTeacherOrSubstituteTeacher(user.id);
 		} else if (neededPermission &#x3D;&#x3D;&#x3D; Actions.read) {
 			[permittedCourses] &#x3D; await this.courseRepo.findAllByUserId(user.id);
 		}
@@ -1182,18 +1270,14 @@ export class TaskUC {
 		return oneWeekAgo;
 	}
 
-	async delete(userId: EntityId, taskId: EntityId, jwt: string) {
-		const [user, task] &#x3D; await Promise.all([
-			this.authorizationService.getUserWithPermissions(userId),
-			this.taskRepo.findById(taskId),
-		]);
+	async delete(userId: EntityId, taskId: EntityId): Promise&lt;boolean&gt; {
+		const user &#x3D; await this.authorizationService.getUserWithPermissions(userId);
+		const task &#x3D; await this.taskRepo.findById(taskId);
 
 		this.authorizationService.checkPermission(user, task, PermissionContextBuilder.write([]));
 
-		const params &#x3D; FileParamBuilder.build(jwt, task.school.id, task);
-		await this.filesStorageClientAdapterService.deleteFilesOfParent(params);
+		await this.taskService.delete(task);
 
-		await this.taskRepo.delete(task);
 		return true;
 	}
 }

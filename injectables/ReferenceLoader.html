@@ -95,6 +95,10 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
+                                <a href="#getUserWithPermissions" >getUserWithPermissions</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#loadEntity" >loadEntity</a>
                             </li>
                             <li>
@@ -119,12 +123,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(userRepo: <a href="../injectables/UserRepo.html" target="_self">UserRepo</a>, courseRepo: <a href="../injectables/CourseRepo.html" target="_self">CourseRepo</a>, courseGroupRepo: <a href="../injectables/CourseGroupRepo.html" target="_self">CourseGroupRepo</a>, taskRepo: <a href="../injectables/TaskRepo.html" target="_self">TaskRepo</a>, schoolRepo: <a href="../injectables/SchoolRepo.html" target="_self">SchoolRepo</a>, lessonRepo: <a href="../injectables/LessonRepo.html" target="_self">LessonRepo</a>, teamsRepo: <a href="../injectables/TeamsRepo.html" target="_self">TeamsRepo</a>)</code>
+<code>constructor(userRepo: <a href="../injectables/UserRepo.html" target="_self">UserRepo</a>, courseRepo: <a href="../injectables/CourseRepo.html" target="_self">CourseRepo</a>, courseGroupRepo: <a href="../injectables/CourseGroupRepo.html" target="_self">CourseGroupRepo</a>, taskRepo: <a href="../injectables/TaskRepo.html" target="_self">TaskRepo</a>, schoolRepo: <a href="../injectables/SchoolRepo.html" target="_self">SchoolRepo</a>, lessonRepo: <a href="../injectables/LessonRepo.html" target="_self">LessonRepo</a>, teamsRepo: <a href="../injectables/TeamsRepo.html" target="_self">TeamsRepo</a>, submissionRepo: <a href="../injectables/SubmissionRepo.html" target="_self">SubmissionRepo</a>, schoolExternalToolRepo: <a href="../injectables/SchoolExternalToolRepo.html" target="_self">SchoolExternalToolRepo</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/server/src/modules/authorization/reference.loader.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">apps/server/src/modules/authorization/reference.loader.ts:34</a></div>
                             </td>
                         </tr>
 
@@ -225,6 +229,30 @@
                                                     </td>
                                                     
                                                 </tr>
+                                                <tr>
+                                                        <td>submissionRepo</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SubmissionRepo.html" target="_self" >SubmissionRepo</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>schoolExternalToolRepo</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SchoolExternalToolRepo.html" target="_self" >SchoolExternalToolRepo</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
                                         </tbody>
                                     </table>
                             </div>
@@ -239,6 +267,77 @@
     <h3 id="methods">
         Methods
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUserWithPermissions"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>getUserWithPermissions</b></span>
+                        <a href="#getUserWithPermissions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getUserWithPermissions(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="79"
+                            class="link-to-prism">apps/server/src/modules/authorization/reference.loader.ts:79</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/User.html" target="_self" >Promise&lt;User&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -261,8 +360,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="44"
-                            class="link-to-prism">apps/server/src/modules/authorization/reference.loader.ts:44</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="66"
+                            class="link-to-prism">apps/server/src/modules/authorization/reference.loader.ts:66</a></div>
                 </td>
             </tr>
 
@@ -312,7 +411,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#ReferenceEntityType" target="_self" >Promise&lt;ReferenceEntityType&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#AllowedEntity" target="_self" >Promise&lt;AllowedEntity&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -344,8 +443,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="36"
-                            class="link-to-prism">apps/server/src/modules/authorization/reference.loader.ts:36</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">apps/server/src/modules/authorization/reference.loader.ts:58</a></div>
                 </td>
             </tr>
 
@@ -424,7 +523,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/server/src/modules/authorization/reference.loader.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">apps/server/src/modules/authorization/reference.loader.ts:34</a></div>
                         </td>
                     </tr>
 
@@ -438,12 +537,30 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, NotImplementedException } from &#x27;@nestjs/common&#x27;;
-import { Course, CourseGroup, EntityId, Lesson, School, Task, Team, User } from &#x27;@shared/domain&#x27;;
-import { CourseGroupRepo, CourseRepo, LessonRepo, SchoolRepo, TaskRepo, TeamsRepo, UserRepo } from &#x27;@shared/repo&#x27;;
-import { AllowedAuthorizationEntityType } from &#x27;./interfaces&#x27;;
+import { EntityId, User } from &#x27;@shared/domain&#x27;;
+import {
+	CourseGroupRepo,
+	CourseRepo,
+	LessonRepo,
+	SchoolRepo,
+	SubmissionRepo,
+	TaskRepo,
+	TeamsRepo,
+	UserRepo,
+	SchoolExternalToolRepo,
+} from &#x27;@shared/repo&#x27;;
+import { AllowedAuthorizationEntityType, AllowedEntity } from &#x27;./interfaces&#x27;;
 
-type RepoType &#x3D; TaskRepo | CourseRepo | UserRepo | SchoolRepo | LessonRepo | TeamsRepo | CourseGroupRepo;
-export type ReferenceEntityType &#x3D; Task | Course | User | School | Lesson | Team | CourseGroup;
+type RepoType &#x3D;
+	| TaskRepo
+	| CourseRepo
+	| UserRepo
+	| SchoolRepo
+	| LessonRepo
+	| TeamsRepo
+	| CourseGroupRepo
+	| SubmissionRepo
+	| SchoolExternalToolRepo;
 
 interface IRepoLoader {
 	repo: RepoType;
@@ -461,7 +578,9 @@ export class ReferenceLoader {
 		private readonly taskRepo: TaskRepo,
 		private readonly schoolRepo: SchoolRepo,
 		private readonly lessonRepo: LessonRepo,
-		private readonly teamsRepo: TeamsRepo
+		private readonly teamsRepo: TeamsRepo,
+		private readonly submissionRepo: SubmissionRepo,
+		private readonly schoolExternalToolRepo: SchoolExternalToolRepo
 	) {
 		this.repos.set(AllowedAuthorizationEntityType.Task, { repo: this.taskRepo });
 		this.repos.set(AllowedAuthorizationEntityType.Course, { repo: this.courseRepo });
@@ -470,20 +589,22 @@ export class ReferenceLoader {
 		this.repos.set(AllowedAuthorizationEntityType.School, { repo: this.schoolRepo });
 		this.repos.set(AllowedAuthorizationEntityType.Lesson, { repo: this.lessonRepo });
 		this.repos.set(AllowedAuthorizationEntityType.Team, { repo: this.teamsRepo, populate: true });
+		this.repos.set(AllowedAuthorizationEntityType.Submission, { repo: this.submissionRepo });
+		this.repos.set(AllowedAuthorizationEntityType.SchoolExternalTool, { repo: this.schoolExternalToolRepo });
 	}
 
 	private resolveRepo(type: AllowedAuthorizationEntityType): IRepoLoader {
-		const repo: IRepoLoader | undefined &#x3D; this.repos.get(type);
+		const repo &#x3D; this.repos.get(type);
 		if (repo) {
 			return repo;
 		}
 		throw new NotImplementedException(&#x27;REPO_NOT_IMPLEMENT&#x27;);
 	}
 
-	async loadEntity(entityName: AllowedAuthorizationEntityType, entityId: EntityId): Promise&lt;ReferenceEntityType&gt; {
+	async loadEntity(entityName: AllowedAuthorizationEntityType, entityId: EntityId): Promise&lt;AllowedEntity&gt; {
 		const repoLoader: IRepoLoader &#x3D; this.resolveRepo(entityName);
 
-		let entity: ReferenceEntityType;
+		let entity: AllowedEntity;
 		if (repoLoader.populate) {
 			entity &#x3D; await repoLoader.repo.findById(entityId, true);
 		} else {
@@ -491,6 +612,12 @@ export class ReferenceLoader {
 		}
 
 		return entity;
+	}
+
+	async getUserWithPermissions(userId: EntityId): Promise&lt;User&gt; {
+		const user &#x3D; await this.userRepo.findById(userId, true);
+
+		return user;
 	}
 }
 </code></pre>

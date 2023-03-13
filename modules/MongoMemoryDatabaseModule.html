@@ -94,8 +94,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="52"
-                            class="link-to-prism">apps/server/src/shared/infra/database/mongo-memory-database/mongo-memory-database.module.ts:52</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="31"
+                            class="link-to-prism">apps/server/src/shared/infra/database/mongo-memory-database/mongo-memory-database.module.ts:31</a></div>
                 </td>
             </tr>
 
@@ -165,8 +165,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="65"
-                            class="link-to-prism">apps/server/src/shared/infra/database/mongo-memory-database/mongo-memory-database.module.ts:65</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="42"
+                            class="link-to-prism">apps/server/src/shared/infra/database/mongo-memory-database/mongo-memory-database.module.ts:42</a></div>
                 </td>
             </tr>
 
@@ -190,25 +190,17 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { MikroORM } from &#x27;@mikro-orm/core&#x27;;
 import { MikroOrmModule, MikroOrmModuleAsyncOptions } from &#x27;@mikro-orm/nestjs&#x27;;
 import { DynamicModule, Inject, Module, OnModuleDestroy } from &#x27;@nestjs/common&#x27;;
-import { ModuleRef } from &#x27;@nestjs/core&#x27;;
 import { ALL_ENTITIES } from &#x27;@shared/domain&#x27;;
-import { MongoMemoryServer } from &#x27;mongodb-memory-server-global-4.2&#x27;;
+import _ from &#x27;lodash&#x27;;
 import { MongoDatabaseModuleOptions } from &#x27;./types&#x27;;
 
-const createMikroOrmModule &#x3D; async (options: MikroOrmModuleAsyncOptions): Promise&lt;DynamicModule&gt; &#x3D;&gt; {
+const dbName &#x3D; () &#x3D;&gt; _.times(20, () &#x3D;&gt; _.random(35).toString(36)).join(&#x27;&#x27;);
+
+const createMikroOrmModule &#x3D; (options: MikroOrmModuleAsyncOptions): DynamicModule &#x3D;&gt; {
 	const mikroOrmModule &#x3D; MikroOrmModule.forRootAsync({
-		providers: [
-			{
-				provide: MongoMemoryServer,
-				useFactory: async () &#x3D;&gt; {
-					const mongo &#x3D; await MongoMemoryServer.create();
-					return mongo;
-				},
-			},
-		],
-		useFactory: async (mongo: MongoMemoryServer) &#x3D;&gt; {
-			await mongo.ensureInstance();
-			const clientUrl &#x3D; mongo.getUri();
+		useFactory: () &#x3D;&gt; {
+			// eslint-disable-next-line @typescript-eslint/restrict-template-expressions, no-process-env
+			const clientUrl &#x3D; &#x60;${process.env.MONGO_TEST_URI}/${dbName()}&#x60;;
 			return {
 				allowGlobalContext: true, // can be overridden by options
 				...options,
@@ -216,27 +208,14 @@ const createMikroOrmModule &#x3D; async (options: MikroOrmModuleAsyncOptions): P
 				clientUrl,
 			};
 		},
-		inject: [MongoMemoryServer],
 	});
-
-	// TODO maybe we can find a better way to export the MongoMemoryServer provider
-	// currently we cannot specify the export otherwise because MikroOrmModuleSyncOptions doesn&#x27;t provide an export option
-	if (mikroOrmModule.imports &amp;&amp; mikroOrmModule.imports.length &gt; 0) {
-		const mikroOrmCoreModule &#x3D; (await mikroOrmModule.imports[0]) as DynamicModule;
-		mikroOrmCoreModule.exports ||&#x3D; [];
-		mikroOrmCoreModule.exports.push(MongoMemoryServer);
-	}
 
 	return mikroOrmModule;
 };
 
 @Module({})
 export class MongoMemoryDatabaseModule implements OnModuleDestroy {
-	constructor(
-		@Inject(MikroORM) private orm: MikroORM,
-		@Inject(MongoMemoryServer) private mongod: MongoMemoryServer,
-		private readonly moduleRef: ModuleRef
-	) {}
+	constructor(@Inject(MikroORM) private orm: MikroORM) {}
 
 	static forRoot(options?: MongoDatabaseModuleOptions): DynamicModule {
 		const defaultOptions &#x3D; {
@@ -249,11 +228,8 @@ export class MongoMemoryDatabaseModule implements OnModuleDestroy {
 		};
 	}
 
-	// close db connection and stop mongo server
-	// NOTE: we have to call close() on this module to make nest call this callback
 	async onModuleDestroy(): Promise&lt;void&gt; {
 		await this.orm.close();
-		await this.mongod.stop();
 	}
 }
 </code></pre>

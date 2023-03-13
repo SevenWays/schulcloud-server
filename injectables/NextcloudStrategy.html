@@ -94,6 +94,11 @@
                                 <a href="#deleteTeam" >deleteTeam</a>
                             </li>
                             <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#findNextcloudTool" >findNextcloudTool</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Protected</span>
                                     <span class="modifier">Static</span>
                                 <a href="#generateGroupFolderName" >generateGroupFolderName</a>
@@ -380,6 +385,46 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="findNextcloudTool"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>findNextcloudTool</b></span>
+                        <a href="#findNextcloudTool"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findNextcloudTool()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="151"
+                            class="link-to-prism">apps/server/src/shared/infra/collaborative-storage/strategy/nextcloud/nextcloud.strategy.ts:151</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/LtiToolDO.html" target="_self" >Promise&lt;LtiToolDO&gt;</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="generateGroupFolderName"></a>
                     <span class="name">
                         <span class="modifier">Protected</span>
@@ -399,8 +444,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="157"
-                            class="link-to-prism">apps/server/src/shared/infra/collaborative-storage/strategy/nextcloud/nextcloud.strategy.ts:157</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="169"
+                            class="link-to-prism">apps/server/src/shared/infra/collaborative-storage/strategy/nextcloud/nextcloud.strategy.ts:169</a></div>
                 </td>
             </tr>
 
@@ -494,8 +539,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="167"
-                            class="link-to-prism">apps/server/src/shared/infra/collaborative-storage/strategy/nextcloud/nextcloud.strategy.ts:167</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="179"
+                            class="link-to-prism">apps/server/src/shared/infra/collaborative-storage/strategy/nextcloud/nextcloud.strategy.ts:179</a></div>
                 </td>
             </tr>
 
@@ -802,10 +847,10 @@ pseudonym table and distinguish between added and deleted users.</p>
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, UnprocessableEntityException } from &#x27;@nestjs/common&#x27;;
 import { Logger } from &#x27;@src/core/logger&#x27;;
-import { PseudonymsRepo } from &#x27;@shared/repo/index&#x27;;
+import { PseudonymsRepo } from &#x27;@shared/repo/&#x27;;
 import { TeamDto, TeamUserDto } from &#x27;@src/modules/collaborative-storage/services/dto/team.dto&#x27;;
-import { PseudonymDO } from &#x27;@shared/domain/index&#x27;;
-import { LtiToolRepo } from &#x27;@shared/repo/ltitool/index&#x27;;
+import { PseudonymDO } from &#x27;@shared/domain/&#x27;;
+import { LtiToolRepo } from &#x27;@shared/repo/ltitool/&#x27;;
 import { LtiToolDO } from &#x27;@shared/domain/domainobject/ltitool.do&#x27;;
 import { ICollaborativeStorageStrategy } from &#x27;../base.interface.strategy&#x27;;
 import { TeamRolePermissionsDto } from &#x27;../../dto/team-role-permissions.dto&#x27;;
@@ -925,16 +970,17 @@ export class NextcloudStrategy implements ICollaborativeStorageStrategy {
 	 */
 	protected async updateTeamUsersInGroup(groupId: string, teamUsers: TeamUserDto[]): Promise&lt;void[][]&gt; {
 		const groupUserIds: string[] &#x3D; await this.client.getGroupUsers(groupId);
-		const nextcloudLtiTool: LtiToolDO &#x3D; await this.ltiToolRepo.findByName(this.client.oidcInternalName);
+		const nextcloudLtiTool: LtiToolDO &#x3D; await this.findNextcloudTool();
 
 		let convertedTeamUserIds: string[] &#x3D; await Promise.all&lt;Promise&lt;string&gt;[]&gt;(
-			teamUsers.map(async (teamUser: TeamUserDto): Promise&lt;string&gt; &#x3D;&gt; {
-				// The Oauth authentication generates a pseudonym which will be used from external systems as identifier
-				return this.pseudonymsRepo
-					.findByUserIdAndToolId(teamUser.userId, nextcloudLtiTool.id as string)
-					.then((pseudonymDO: PseudonymDO) &#x3D;&gt; this.client.getNameWithPrefix(pseudonymDO.pseudonym))
-					.catch(() &#x3D;&gt; &#x27;&#x27;);
-			})
+			teamUsers.map(
+				async (teamUser: TeamUserDto): Promise&lt;string&gt; &#x3D;&gt;
+					// The Oauth authentication generates a pseudonym which will be used from external systems as identifier
+					this.pseudonymsRepo
+						.findByUserIdAndToolId(teamUser.userId, nextcloudLtiTool.id as string)
+						.then((pseudonymDO: PseudonymDO) &#x3D;&gt; this.client.getNameWithPrefix(pseudonymDO.pseudonym))
+						.catch(() &#x3D;&gt; &#x27;&#x27;)
+			)
 		);
 		convertedTeamUserIds &#x3D; convertedTeamUserIds.filter(Boolean);
 
@@ -947,6 +993,17 @@ export class NextcloudStrategy implements ICollaborativeStorageStrategy {
 			Promise.all(removeUserIds.map((nextcloudUserId) &#x3D;&gt; this.client.removeUserFromGroup(nextcloudUserId, groupId))),
 			Promise.all(addUserIds.map((nextcloudUserId) &#x3D;&gt; this.client.addUserToGroup(nextcloudUserId, groupId))),
 		]);
+	}
+
+	private async findNextcloudTool(): Promise&lt;LtiToolDO&gt; {
+		const foundTools: LtiToolDO[] &#x3D; await this.ltiToolRepo.findByName(this.client.oidcInternalName);
+		if (foundTools.length &gt; 1) {
+			this.logger.warn(
+				&#x60;Please check the configured lti tools. There should one be one tool with the name ${this.client.oidcInternalName}. 
+				Otherwise teams can not be created or updated on demand.&#x60;
+			);
+		}
+		return foundTools[0];
 	}
 
 	/**

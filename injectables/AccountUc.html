@@ -79,6 +79,10 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#checkBrutForce" class="deprecated-name">checkBrutForce</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Async</span>
                                 <a href="#checkPassword" >checkPassword</a>
@@ -159,12 +163,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(accountService: <a href="../injectables/AccountService.html" target="_self">AccountService</a>, userRepo: <a href="../injectables/UserRepo.html" target="_self">UserRepo</a>, permissionService: <a href="../injectables/PermissionService.html" target="_self">PermissionService</a>, accountValidationService: <a href="../injectables/AccountValidationService.html" target="_self">AccountValidationService</a>)</code>
+<code>constructor(accountService: <a href="../injectables/AccountService.html" target="_self">AccountService</a>, userRepo: <a href="../injectables/UserRepo.html" target="_self">UserRepo</a>, permissionService: <a href="../injectables/PermissionService.html" target="_self">PermissionService</a>, accountValidationService: <a href="../injectables/AccountValidationService.html" target="_self">AccountValidationService</a>, configService: <a href="../interfaces/IAccountConfig.html" target="_self">ConfigService&lt;IAccountConfig | &gt;</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:44</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:37</a></div>
                             </td>
                         </tr>
 
@@ -229,6 +233,18 @@
                                                     </td>
                                                     
                                                 </tr>
+                                                <tr>
+                                                        <td>configService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../interfaces/IAccountConfig.html" target="_self" >ConfigService&lt;IAccountConfig | &gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
                                         </tbody>
                                     </table>
                             </div>
@@ -243,6 +259,94 @@
     <h3 id="methods">
         Methods
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="checkBrutForce"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span class="deprecated-name"><b>checkBrutForce</b></span>
+                        <a href="#checkBrutForce"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4 deprecated">
+                    [object Object],[object Object]
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>checkBrutForce(username: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, systemId: <a href="../undefineds/EntityId.html" target="_self">EntityId | ObjectId</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="312"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:312</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>username</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>systemId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId | ObjectId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -266,8 +370,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="457"
-                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:457</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="442"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:442</a></div>
                 </td>
             </tr>
 
@@ -350,8 +454,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="341"
-                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:341</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="328"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:328</a></div>
                 </td>
             </tr>
 
@@ -445,8 +549,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="215"
-                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:215</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="179"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:179</a></div>
                 </td>
             </tr>
 
@@ -539,8 +643,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="444"
-                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:444</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="429"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:429</a></div>
                 </td>
             </tr>
 
@@ -610,8 +714,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="100"
-                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:100</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="94"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:94</a></div>
                 </td>
             </tr>
 
@@ -704,8 +808,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="366"
-                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:366</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="351"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:351</a></div>
                 </td>
             </tr>
 
@@ -799,8 +903,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="358"
-                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:358</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="343"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:343</a></div>
                 </td>
             </tr>
 
@@ -870,8 +974,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="347"
-                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:347</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="334"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:334</a></div>
                 </td>
             </tr>
 
@@ -954,8 +1058,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="353"
-                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:353</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="338"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:338</a></div>
                 </td>
             </tr>
 
@@ -1025,8 +1129,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="296"
-                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:296</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="263"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:263</a></div>
                 </td>
             </tr>
 
@@ -1136,8 +1240,8 @@ Callable when the current user&#39;s password was force set or this is the first
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="108"
-                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:108</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="102"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:102</a></div>
                 </td>
             </tr>
 
@@ -1207,8 +1311,8 @@ Callable when the current user&#39;s password was force set or this is the first
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="432"
-                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:432</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="417"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:417</a></div>
                 </td>
             </tr>
 
@@ -1302,8 +1406,8 @@ Callable when the current user&#39;s password was force set or this is the first
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="60"
-                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:60</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="54"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:54</a></div>
                 </td>
             </tr>
 
@@ -1396,8 +1500,8 @@ Callable when the current user&#39;s password was force set or this is the first
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="151"
-                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:151</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="115"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:115</a></div>
                 </td>
             </tr>
 
@@ -1506,8 +1610,8 @@ Callable when the current user&#39;s password was force set or this is the first
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="230"
-                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:230</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="194"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:194</a></div>
                 </td>
             </tr>
 
@@ -1585,29 +1689,23 @@ Callable when the current user&#39;s password was force set or this is the first
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { isEmail, validateOrReject } from &#x27;class-validator&#x27;;
+import { ConfigService } from &#x27;@nestjs/config&#x27;;
 import {
 	AuthorizationError,
 	EntityNotFoundError,
 	ForbiddenOperationError,
 	ValidationError,
 } from &#x27;@shared/common/error&#x27;;
-import bcrypt from &#x27;bcryptjs&#x27;;
-import {
-	Account,
-	EntityId,
-	ICurrentUser,
-	Permission,
-	PermissionService,
-	Role,
-	RoleName,
-	School,
-	User,
-} from &#x27;@shared/domain&#x27;;
+import { Account, EntityId, Permission, PermissionService, Role, RoleName, School, User } from &#x27;@shared/domain&#x27;;
 import { UserRepo } from &#x27;@shared/repo&#x27;;
 import { AccountService } from &#x27;@src/modules/account/services/account.service&#x27;;
 import { AccountDto } from &#x27;@src/modules/account/services/dto/account.dto&#x27;;
-import { Configuration } from &#x27;@hpi-schul-cloud/commons/lib&#x27;;
+import bcrypt from &#x27;bcryptjs&#x27;;
+
+import { BruteForcePrevention } from &#x27;@src/imports-from-feathers&#x27;;
+import { ObjectId } from &#x27;bson&#x27;;
+import { ICurrentUser } from &#x27;@src/modules/authentication&#x27;;
+import { IAccountConfig } from &#x27;../account-config&#x27;;
 import {
 	AccountByIdBodyParams,
 	AccountByIdParams,
@@ -1618,21 +1716,21 @@ import {
 	PatchMyAccountParams,
 } from &#x27;../controller/dto&#x27;;
 import { AccountResponseMapper } from &#x27;../mapper&#x27;;
-import { AccountSaveDto } from &#x27;../services/dto&#x27;;
 import { AccountValidationService } from &#x27;../services/account.validation.service&#x27;;
+import { AccountSaveDto } from &#x27;../services/dto&#x27;;
 
 type UserPreferences &#x3D; {
 	// first login completed
 	firstLogin: boolean;
 };
-
 @Injectable()
 export class AccountUc {
 	constructor(
 		private readonly accountService: AccountService,
 		private readonly userRepo: UserRepo,
 		private readonly permissionService: PermissionService,
-		private readonly accountValidationService: AccountValidationService
+		private readonly accountValidationService: AccountValidationService,
+		private readonly configService: ConfigService&lt;IAccountConfig, true&gt;
 	) {}
 
 	/**
@@ -1692,37 +1790,7 @@ export class AccountUc {
 	}
 
 	async saveAccount(dto: AccountSaveDto): Promise&lt;void&gt; {
-		await validateOrReject(dto);
-		// sanatizeUsername ✔
-		if (!dto.systemId) {
-			dto.username &#x3D; dto.username.trim().toLowerCase();
-		}
-		if (!dto.systemId &amp;&amp; !dto.password) {
-			throw new ValidationError(&#x27;No password provided&#x27;);
-		}
-		// validateUserName ✔
-		// usernames must be an email address, if they are not from an external system
-		if (!dto.systemId &amp;&amp; !isEmail(dto.username)) {
-			throw new ValidationError(&#x27;Username is not an email&#x27;);
-		}
-		// checkExistence ✔
-		if (dto.userId &amp;&amp; (await this.accountService.findByUserId(dto.userId))) {
-			throw new ValidationError(&#x27;Account already exists&#x27;);
-		}
-		// validateCredentials hook will not be ported ✔
-		// trimPassword hook will be done by class-validator ✔
-		// local.hooks.hashPassword(&#x27;password&#x27;), will be done by account service ✔
-		// checkUnique ✔
-		if (!(await this.accountValidationService.isUniqueEmail(dto.username, dto.userId, dto.id, dto.systemId))) {
-			throw new ValidationError(&#x27;Username already exists&#x27;);
-		}
-		// removePassword hook is not implemented
-		// const noPasswordStrategies &#x3D; [&#x27;ldap&#x27;, &#x27;moodle&#x27;, &#x27;iserv&#x27;];
-		// if (dto.passwordStrategy &amp;&amp; noPasswordStrategies.includes(dto.passwordStrategy)) {
-		// 	dto.password &#x3D; undefined;
-		// }
-
-		await this.accountService.save(dto);
+		await this.accountService.saveWithValidation(dto);
 	}
 
 	/**
@@ -1830,7 +1898,10 @@ export class AccountUc {
 		if (params.passwordNew) {
 			account.password &#x3D; params.passwordNew;
 			updateAccount &#x3D; true;
+		} else {
+			account.password &#x3D; undefined;
 		}
+
 		if (params.email &amp;&amp; user.email !&#x3D;&#x3D; params.email) {
 			const newMail &#x3D; params.email.toLowerCase();
 			await this.checkUniqueEmail(account, user, newMail);
@@ -1924,6 +1995,26 @@ export class AccountUc {
 		}
 	}
 
+	/**
+	 *
+	 * @deprecated this is for legacy login strategies only. Login strategies in Nest.js should use {@link AuthenticationService}
+	 */
+	async checkBrutForce(username: string, systemId: EntityId | ObjectId): Promise&lt;void&gt; {
+		const account &#x3D; await this.accountService.findByUsernameAndSystemId(username, systemId);
+		//  missing Account is ignored as in legacy feathers Impl.
+		if (account) {
+			if (account.lasttriedFailedLogin) {
+				const timeDifference &#x3D; (new Date().getTime() - account.lasttriedFailedLogin.getTime()) / 1000;
+				if (timeDifference &lt; this.configService.get&lt;number&gt;(&#x27;LOGIN_BLOCK_TIME&#x27;)) {
+					throw new BruteForcePrevention(&#x27;Brute Force Prevention!&#x27;, {
+						timeToWait: this.configService.get&lt;number&gt;(&#x27;LOGIN_BLOCK_TIME&#x27;) - Math.ceil(timeDifference),
+					});
+				}
+			}
+			await this.accountService.updateLastTriedFailedLogin(account.id, new Date());
+		}
+	}
+
 	private async checkUniqueEmail(account: AccountDto, user: User, email: string): Promise&lt;void&gt; {
 		if (!(await this.accountValidationService.isUniqueEmail(email, user.id, account.id, account.systemId))) {
 			throw new ValidationError(&#x60;The email address is already in use!&#x60;);
@@ -1931,9 +2022,7 @@ export class AccountUc {
 	}
 
 	private hasRole(user: User, roleName: string) {
-		return user.roles.getItems().some((role) &#x3D;&gt; {
-			return role.name &#x3D;&#x3D;&#x3D; roleName;
-		});
+		return user.roles.getItems().some((role) &#x3D;&gt; role.name &#x3D;&#x3D;&#x3D; roleName);
 	}
 
 	private async isSuperhero(currentUser: ICurrentUser): Promise&lt;boolean&gt; {
@@ -1977,7 +2066,7 @@ export class AccountUc {
 					break;
 				case &#x27;DELETE&#x27;:
 					permissionsToCheck.push(&#x27;STUDENT_DELETE&#x27;);
-					break; 
+					break;
 				*/
 			}
 		}
@@ -1996,7 +2085,7 @@ export class AccountUc {
 					break;
 				case &#x27;DELETE&#x27;:
 					permissionsToCheck.push(&#x27;TEACHER_DELETE&#x27;);
-					break; 
+					break;
  				*/
 			}
 		}
@@ -2016,7 +2105,7 @@ export class AccountUc {
 	}
 
 	private schoolPermissionExists(roles: string[], school: School, permissions: string[]): boolean {
-		if (Configuration.get(&#x27;TEACHER_STUDENT_VISIBILITY__IS_CONFIGURABLE&#x27;)) {
+		if (this.configService.get&lt;boolean&gt;(&#x27;TEACHER_STUDENT_VISIBILITY__IS_CONFIGURABLE&#x27;)) {
 			if (
 				roles.find((role) &#x3D;&gt; role &#x3D;&#x3D;&#x3D; RoleName.TEACHER) &amp;&amp;
 				permissions.find((permission) &#x3D;&gt; permission &#x3D;&#x3D;&#x3D; Permission.STUDENT_LIST)

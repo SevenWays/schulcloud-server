@@ -58,7 +58,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/files-storage-client/uc/files-storage-client.service.ts</code>
+            <code>apps/server/src/modules/files-storage-client/service/files-storage-client.service.ts</code>
         </p>
 
 
@@ -79,27 +79,12 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Private</span>
-                                    <span class="modifier">Async</span>
-                                <a href="#copy" >copy</a>
-                            </li>
-                            <li>
                                     <span class="modifier">Async</span>
                                 <a href="#copyFilesOfParent" >copyFilesOfParent</a>
                             </li>
                             <li>
-                                    <span class="modifier">Private</span>
-                                    <span class="modifier">Async</span>
-                                <a href="#delete" >delete</a>
-                            </li>
-                            <li>
                                     <span class="modifier">Async</span>
                                 <a href="#deleteFilesOfParent" >deleteFilesOfParent</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                    <span class="modifier">Async</span>
-                                <a href="#list" >list</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
@@ -123,12 +108,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(logger: <a href="../injectables/Logger.html" target="_self">Logger</a>, fileStorageClient: <a href="../classes/FileApi.html" target="_self">FileApi</a>)</code>
+<code>constructor(logger: <a href="../injectables/Logger.html" target="_self">Logger</a>, fileStorageMQProducer: <a href="../injectables/FilesStorageProducer.html" target="_self">FilesStorageProducer</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">apps/server/src/modules/files-storage-client/uc/files-storage-client.service.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">apps/server/src/modules/files-storage-client/service/files-storage-client.service.ts:10</a></div>
                             </td>
                         </tr>
 
@@ -158,10 +143,10 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>fileStorageClient</td>
+                                                        <td>fileStorageMQProducer</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../classes/FileApi.html" target="_self" >FileApi</a></code>
+                                                                        <code><a href="../injectables/FilesStorageProducer.html" target="_self" >FilesStorageProducer</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -187,102 +172,6 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="copy"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span class="modifier">Async</span>
-                        <span ><b>copy</b></span>
-                        <a href="#copy"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>copy(param: <a href="../interfaces/FileRequestInfo.html" target="_self">FileRequestInfo</a>, target: <a href="../interfaces/FileRequestInfo.html" target="_self">FileRequestInfo</a>, options: <a href="../classes/File.html" target="_self">AxiosRequestConfig&lt;FileRequestOptions&gt;</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="40"
-                            class="link-to-prism">apps/server/src/modules/files-storage-client/uc/files-storage-client.service.ts:40</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>param</td>
-                                    <td>
-                                                <code><a href="../interfaces/FileRequestInfo.html" target="_self" >FileRequestInfo</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>target</td>
-                                    <td>
-                                                <code><a href="../interfaces/FileRequestInfo.html" target="_self" >FileRequestInfo</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>options</td>
-                                    <td>
-                                                <code><a href="../classes/File.html" target="_self" >AxiosRequestConfig&lt;FileRequestOptions&gt;</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/CopyFileListResponse.html" target="_self" >Promise&lt;AxiosResponse&lt;CopyFileListResponse&gt;&gt;</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
                     <a name="copyFilesOfParent"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -294,7 +183,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>copyFilesOfParent(param: <a href="../interfaces/FileRequestInfo.html" target="_self">FileRequestInfo</a>, target: <a href="../interfaces/FileRequestInfo.html" target="_self">FileRequestInfo</a>)</code>
+                    <code>copyFilesOfParent(param: <a href="../interfaces/ICopyFilesRequestInfo.html" target="_self">ICopyFilesRequestInfo</a>)</code>
                 </td>
             </tr>
 
@@ -302,7 +191,7 @@
             <tr>
                 <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">apps/server/src/modules/files-storage-client/uc/files-storage-client.service.ts:15</a></div>
+                            class="link-to-prism">apps/server/src/modules/files-storage-client/service/files-storage-client.service.ts:15</a></div>
                 </td>
             </tr>
 
@@ -325,19 +214,7 @@
                                 <tr>
                                     <td>param</td>
                                     <td>
-                                                <code><a href="../interfaces/FileRequestInfo.html" target="_self" >FileRequestInfo</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>target</td>
-                                    <td>
-                                                <code><a href="../interfaces/FileRequestInfo.html" target="_self" >FileRequestInfo</a></code>
+                                                <code><a href="../interfaces/ICopyFilesRequestInfo.html" target="_self" >ICopyFilesRequestInfo</a></code>
                                     </td>
 
                                     <td>
@@ -366,90 +243,6 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="delete"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span class="modifier">Async</span>
-                        <span ><b>delete</b></span>
-                        <a href="#delete"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>delete(param: <a href="../interfaces/FileRequestInfo.html" target="_self">FileRequestInfo</a>, options: <a href="../classes/File.html" target="_self">AxiosRequestConfig&lt;FileRequestOptions&gt;</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="88"
-                            class="link-to-prism">apps/server/src/modules/files-storage-client/uc/files-storage-client.service.ts:88</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>param</td>
-                                    <td>
-                                                <code><a href="../interfaces/FileRequestInfo.html" target="_self" >FileRequestInfo</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>options</td>
-                                    <td>
-                                                <code><a href="../classes/File.html" target="_self" >AxiosRequestConfig&lt;FileRequestOptions&gt;</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/FileRecordListResponse.html" target="_self" >Promise&lt;AxiosResponse&lt;FileRecordListResponse&gt;&gt;</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
                     <a name="deleteFilesOfParent"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -461,15 +254,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>deleteFilesOfParent(param: <a href="../interfaces/FileRequestInfo.html" target="_self">FileRequestInfo</a>)</code>
+                    <code>deleteFilesOfParent(param: <a href="../interfaces/IFileRequestInfo.html" target="_self">IFileRequestInfo</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="32"
-                            class="link-to-prism">apps/server/src/modules/files-storage-client/uc/files-storage-client.service.ts:32</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">apps/server/src/modules/files-storage-client/service/files-storage-client.service.ts:30</a></div>
                 </td>
             </tr>
 
@@ -492,7 +285,7 @@
                                 <tr>
                                     <td>param</td>
                                     <td>
-                                                <code><a href="../interfaces/FileRequestInfo.html" target="_self" >FileRequestInfo</a></code>
+                                                <code><a href="../interfaces/IFileRequestInfo.html" target="_self" >IFileRequestInfo</a></code>
                                     </td>
 
                                     <td>
@@ -521,90 +314,6 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="list"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span class="modifier">Async</span>
-                        <span ><b>list</b></span>
-                        <a href="#list"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>list(param: <a href="../interfaces/FileRequestInfo.html" target="_self">FileRequestInfo</a>, options: <a href="../classes/File.html" target="_self">AxiosRequestConfig&lt;FileRequestOptions&gt;</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="64"
-                            class="link-to-prism">apps/server/src/modules/files-storage-client/uc/files-storage-client.service.ts:64</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>param</td>
-                                    <td>
-                                                <code><a href="../interfaces/FileRequestInfo.html" target="_self" >FileRequestInfo</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>options</td>
-                                    <td>
-                                                <code><a href="../classes/File.html" target="_self" >AxiosRequestConfig&lt;FileRequestOptions&gt;</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/FileRecordListResponse.html" target="_self" >Promise&lt;AxiosResponse&lt;FileRecordListResponse&gt;&gt;</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
                     <a name="listFilesOfParent"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -616,15 +325,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>listFilesOfParent(param: <a href="../interfaces/FileRequestInfo.html" target="_self">FileRequestInfo</a>)</code>
+                    <code>listFilesOfParent(param: <a href="../interfaces/IFileRequestInfo.html" target="_self">IFileRequestInfo</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">apps/server/src/modules/files-storage-client/uc/files-storage-client.service.ts:24</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">apps/server/src/modules/files-storage-client/service/files-storage-client.service.ts:22</a></div>
                 </td>
             </tr>
 
@@ -647,7 +356,7 @@
                                 <tr>
                                     <td>param</td>
                                     <td>
-                                                <code><a href="../interfaces/FileRequestInfo.html" target="_self" >FileRequestInfo</a></code>
+                                                <code><a href="../interfaces/IFileRequestInfo.html" target="_self" >IFileRequestInfo</a></code>
                                     </td>
 
                                     <td>
@@ -678,111 +387,41 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Inject, Injectable } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { Logger } from &#x27;@src/core/logger&#x27;;
-import { AxiosRequestConfig, AxiosResponse } from &#x27;axios&#x27;;
 import { CopyFileDto, FileDto } from &#x27;../dto&#x27;;
-import { AxiosJWTOptionBuilder, FilesStorageClientMapper, ErrorMapper } from &#x27;../mapper&#x27;;
-import { CopyFileListResponse, FileApi, FileRecordListResponse } from &#x27;../filesStorageApi/v3&#x27;;
-import { FileRequestInfo, FileRequestOptions } from &#x27;../interfaces&#x27;;
+import { IFileRequestInfo } from &#x27;../interfaces&#x27;;
+import { ICopyFilesRequestInfo } from &#x27;../interfaces/copy-file-request-info&#x27;;
+import { FilesStorageClientMapper } from &#x27;../mapper&#x27;;
+import { FilesStorageProducer } from &#x27;./files-storage.producer&#x27;;
 
 @Injectable()
 export class FilesStorageClientAdapterService {
-	constructor(private logger: Logger, @Inject(&#x27;FileStorageClient&#x27;) private readonly fileStorageClient: FileApi) {
+	constructor(private logger: Logger, private readonly fileStorageMQProducer: FilesStorageProducer) {
 		this.logger.setContext(FilesStorageClientAdapterService.name);
 	}
 
-	async copyFilesOfParent(param: FileRequestInfo, target: FileRequestInfo): Promise&lt;CopyFileDto[]&gt; {
-		const options &#x3D; AxiosJWTOptionBuilder.build(param);
-		const response &#x3D; await this.copy(param, target, options);
-
-		const fileInfos &#x3D; FilesStorageClientMapper.mapAxiosToCopyFilesDto(response);
+	async copyFilesOfParent(param: ICopyFilesRequestInfo): Promise&lt;CopyFileDto[]&gt; {
+		const response &#x3D; await this.fileStorageMQProducer.copyFilesOfParent(param);
+		const fileInfos &#x3D; FilesStorageClientMapper.mapCopyFileListResponseToCopyFilesDto(response);
 
 		return fileInfos;
 	}
 
-	async listFilesOfParent(param: FileRequestInfo): Promise&lt;FileDto[]&gt; {
-		const options &#x3D; AxiosJWTOptionBuilder.build(param);
-		const response &#x3D; await this.list(param, options);
-		const fileInfos &#x3D; FilesStorageClientMapper.mapAxiosToFilesDto(response, param.schoolId);
+	async listFilesOfParent(param: IFileRequestInfo): Promise&lt;FileDto[]&gt; {
+		const response &#x3D; await this.fileStorageMQProducer.listFilesOfParent(param);
+
+		const fileInfos &#x3D; FilesStorageClientMapper.mapfileRecordListResponseToDomainFilesDto(response);
 
 		return fileInfos;
 	}
 
-	async deleteFilesOfParent(param: FileRequestInfo): Promise&lt;FileDto[]&gt; {
-		const options &#x3D; AxiosJWTOptionBuilder.build(param);
-		const response &#x3D; await this.delete(param, options);
-		const fileInfos &#x3D; FilesStorageClientMapper.mapAxiosToFilesDto(response, param.schoolId);
+	async deleteFilesOfParent(param: IFileRequestInfo): Promise&lt;FileDto[]&gt; {
+		const response &#x3D; await this.fileStorageMQProducer.deleteFilesOfParent(param);
+
+		const fileInfos &#x3D; FilesStorageClientMapper.mapfileRecordListResponseToDomainFilesDto(response);
 
 		return fileInfos;
-	}
-
-	private async copy(
-		param: FileRequestInfo,
-		target: FileRequestInfo,
-		options: AxiosRequestConfig&lt;FileRequestOptions&gt;
-	): Promise&lt;AxiosResponse&lt;CopyFileListResponse&gt;&gt; {
-		try {
-			const response &#x3D; await this.fileStorageClient.filesStorageControllerCopy(
-				param.schoolId,
-				param.parentId,
-				param.parentType,
-				{
-					target,
-				},
-				options
-			);
-
-			return response;
-		} catch (err) {
-			const domainError &#x3D; ErrorMapper.mapErrorToDomainError(err);
-
-			throw domainError;
-		}
-	}
-
-	private async list(
-		param: FileRequestInfo,
-		options: AxiosRequestConfig&lt;FileRequestOptions&gt;
-	): Promise&lt;AxiosResponse&lt;FileRecordListResponse&gt;&gt; {
-		try {
-			const skip &#x3D; undefined;
-			const limit &#x3D; undefined;
-			const response &#x3D; await this.fileStorageClient.filesStorageControllerList(
-				param.schoolId,
-				param.parentId,
-				param.parentType,
-				skip,
-				limit,
-				options
-			);
-
-			return response;
-		} catch (err) {
-			const domainError &#x3D; ErrorMapper.mapErrorToDomainError(err);
-
-			throw domainError;
-		}
-	}
-
-	private async delete(
-		param: FileRequestInfo,
-		options: AxiosRequestConfig&lt;FileRequestOptions&gt;
-	): Promise&lt;AxiosResponse&lt;FileRecordListResponse&gt;&gt; {
-		try {
-			const response &#x3D; await this.fileStorageClient.filesStorageControllerDelete(
-				param.schoolId,
-				param.parentId,
-				param.parentType,
-				options
-			);
-
-			return response;
-		} catch (err) {
-			const domainError &#x3D; ErrorMapper.mapErrorToDomainError(err);
-
-			throw domainError;
-		}
 	}
 }
 </code></pre>

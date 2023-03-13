@@ -85,6 +85,14 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Static</span>
+                                <a href="#mapTaskCreateToDomain" >mapTaskCreateToDomain</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#mapTaskUpdateToDomain" >mapTaskUpdateToDomain</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
                                 <a href="#mapToResponse" >mapToResponse</a>
                             </li>
                         </ul>
@@ -106,6 +114,148 @@
     <h3 id="methods">
         Methods
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mapTaskCreateToDomain"></a>
+                    <span class="name">
+                        <span class="modifier">Static</span>
+                        <span ><b>mapTaskCreateToDomain</b></span>
+                        <a href="#mapTaskCreateToDomain"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>mapTaskCreateToDomain(params: <a href="../classes/TaskCreateParams.html" target="_self">TaskCreateParams</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="57"
+                            class="link-to-prism">apps/server/src/modules/task/mapper/task.mapper.ts:57</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                                <code><a href="../classes/TaskCreateParams.html" target="_self" >TaskCreateParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/ITaskCreate.html" target="_self" >ITaskCreate</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mapTaskUpdateToDomain"></a>
+                    <span class="name">
+                        <span class="modifier">Static</span>
+                        <span ><b>mapTaskUpdateToDomain</b></span>
+                        <a href="#mapTaskUpdateToDomain"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>mapTaskUpdateToDomain(params: <a href="../classes/TaskUpdateParams.html" target="_self">TaskUpdateParams</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="42"
+                            class="link-to-prism">apps/server/src/modules/task/mapper/task.mapper.ts:42</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                                <code><a href="../classes/TaskUpdateParams.html" target="_self" >TaskUpdateParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/ITaskUpdate.html" target="_self" >ITaskUpdate</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -187,8 +337,8 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { TaskWithStatusVo } from &#x27;@shared/domain&#x27;;
-import { TaskResponse } from &#x27;../controller/dto&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { InputFormat, ITaskCreate, ITaskUpdate, RichText, TaskWithStatusVo } from &#x27;@shared/domain&#x27;;
+import { TaskCreateParams, TaskResponse, TaskUpdateParams } from &#x27;../controller/dto&#x27;;
 import { TaskStatusMapper } from &#x27;./task-status.mapper&#x27;;
 
 export class TaskMapper {
@@ -204,15 +354,57 @@ export class TaskMapper {
 			courseId: taskDesc.courseId,
 			createdAt: task.createdAt,
 			updatedAt: task.updatedAt,
+			lessonHidden: false,
 			status: statusDto,
 		});
-
+		if (task.description) {
+			dto.description &#x3D; new RichText({
+				content: task.description,
+				type: task.descriptionInputFormat || InputFormat.RICH_TEXT_CK4,
+			});
+		}
+		if (task.taskCard) {
+			dto.taskCardId &#x3D; task.taskCard;
+		}
 		dto.availableDate &#x3D; task.availableDate;
 		dto.duedate &#x3D; task.dueDate;
 
 		dto.displayColor &#x3D; taskDesc.color;
-		dto.description &#x3D; taskDesc.lessonName;
+		if (taskDesc.lessonName) {
+			dto.lessonName &#x3D; taskDesc.lessonName;
+		}
+		dto.lessonHidden &#x3D; taskDesc.lessonHidden;
 
+		return dto;
+	}
+
+	static mapTaskUpdateToDomain(params: TaskUpdateParams): ITaskUpdate {
+		const dto: ITaskUpdate &#x3D; {
+			name: params.name,
+			courseId: params.courseId,
+			lessonId: params.lessonId,
+			description: params.description,
+			availableDate: params.availableDate,
+			dueDate: params.dueDate,
+		};
+		if (params.description) {
+			dto.descriptionInputFormat &#x3D; InputFormat.RICH_TEXT_CK5;
+		}
+		return dto;
+	}
+
+	static mapTaskCreateToDomain(params: TaskCreateParams): ITaskCreate {
+		const dto: ITaskCreate &#x3D; {
+			name: params.name || &#x27;Draft&#x27;,
+			courseId: params.courseId,
+			lessonId: params.lessonId,
+			description: params.description,
+			availableDate: params.availableDate,
+			dueDate: params.dueDate,
+		};
+		if (params.description) {
+			dto.descriptionInputFormat &#x3D; InputFormat.RICH_TEXT_CK5;
+		}
 		return dto;
 	}
 }

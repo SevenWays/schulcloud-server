@@ -184,12 +184,30 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, NotImplementedException } from &#x27;@nestjs/common&#x27;;
-import { Course, CourseGroup, EntityId, Lesson, School, Task, Team, User } from &#x27;@shared/domain&#x27;;
-import { CourseGroupRepo, CourseRepo, LessonRepo, SchoolRepo, TaskRepo, TeamsRepo, UserRepo } from &#x27;@shared/repo&#x27;;
-import { AllowedAuthorizationEntityType } from &#x27;./interfaces&#x27;;
+import { EntityId, User } from &#x27;@shared/domain&#x27;;
+import {
+	CourseGroupRepo,
+	CourseRepo,
+	LessonRepo,
+	SchoolRepo,
+	SubmissionRepo,
+	TaskRepo,
+	TeamsRepo,
+	UserRepo,
+	SchoolExternalToolRepo,
+} from &#x27;@shared/repo&#x27;;
+import { AllowedAuthorizationEntityType, AllowedEntity } from &#x27;./interfaces&#x27;;
 
-type RepoType &#x3D; TaskRepo | CourseRepo | UserRepo | SchoolRepo | LessonRepo | TeamsRepo | CourseGroupRepo;
-export type ReferenceEntityType &#x3D; Task | Course | User | School | Lesson | Team | CourseGroup;
+type RepoType &#x3D;
+	| TaskRepo
+	| CourseRepo
+	| UserRepo
+	| SchoolRepo
+	| LessonRepo
+	| TeamsRepo
+	| CourseGroupRepo
+	| SubmissionRepo
+	| SchoolExternalToolRepo;
 
 interface IRepoLoader {
 	repo: RepoType;
@@ -207,7 +225,9 @@ export class ReferenceLoader {
 		private readonly taskRepo: TaskRepo,
 		private readonly schoolRepo: SchoolRepo,
 		private readonly lessonRepo: LessonRepo,
-		private readonly teamsRepo: TeamsRepo
+		private readonly teamsRepo: TeamsRepo,
+		private readonly submissionRepo: SubmissionRepo,
+		private readonly schoolExternalToolRepo: SchoolExternalToolRepo
 	) {
 		this.repos.set(AllowedAuthorizationEntityType.Task, { repo: this.taskRepo });
 		this.repos.set(AllowedAuthorizationEntityType.Course, { repo: this.courseRepo });
@@ -216,20 +236,22 @@ export class ReferenceLoader {
 		this.repos.set(AllowedAuthorizationEntityType.School, { repo: this.schoolRepo });
 		this.repos.set(AllowedAuthorizationEntityType.Lesson, { repo: this.lessonRepo });
 		this.repos.set(AllowedAuthorizationEntityType.Team, { repo: this.teamsRepo, populate: true });
+		this.repos.set(AllowedAuthorizationEntityType.Submission, { repo: this.submissionRepo });
+		this.repos.set(AllowedAuthorizationEntityType.SchoolExternalTool, { repo: this.schoolExternalToolRepo });
 	}
 
 	private resolveRepo(type: AllowedAuthorizationEntityType): IRepoLoader {
-		const repo: IRepoLoader | undefined &#x3D; this.repos.get(type);
+		const repo &#x3D; this.repos.get(type);
 		if (repo) {
 			return repo;
 		}
 		throw new NotImplementedException(&#x27;REPO_NOT_IMPLEMENT&#x27;);
 	}
 
-	async loadEntity(entityName: AllowedAuthorizationEntityType, entityId: EntityId): Promise&lt;ReferenceEntityType&gt; {
+	async loadEntity(entityName: AllowedAuthorizationEntityType, entityId: EntityId): Promise&lt;AllowedEntity&gt; {
 		const repoLoader: IRepoLoader &#x3D; this.resolveRepo(entityName);
 
-		let entity: ReferenceEntityType;
+		let entity: AllowedEntity;
 		if (repoLoader.populate) {
 			entity &#x3D; await repoLoader.repo.findById(entityId, true);
 		} else {
@@ -237,6 +259,12 @@ export class ReferenceLoader {
 		}
 
 		return entity;
+	}
+
+	async getUserWithPermissions(userId: EntityId): Promise&lt;User&gt; {
+		const user &#x3D; await this.userRepo.findById(userId, true);
+
+		return user;
 	}
 }
 </code></pre>

@@ -302,7 +302,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">apps/server/src/modules/user-import/controller/dto/user-match.response.ts:40</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">apps/server/src/modules/user-import/controller/dto/user-match.response.ts:41</a></div>
                         </td>
                     </tr>
 
@@ -331,13 +331,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty({description: &#x27;list of user roles from external system: student, teacher, admin&#x27;, enum: UserRole})<br />
+                            @ApiProperty({description: &#x27;list of user roles from external system: student, teacher, admin&#x27;, enum: UserRole, isArray: true})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">apps/server/src/modules/user-import/controller/dto/user-match.response.ts:34</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">apps/server/src/modules/user-import/controller/dto/user-match.response.ts:35</a></div>
                         </td>
                     </tr>
 
@@ -423,6 +423,7 @@ export class UserMatchResponse {
 	@ApiProperty({
 		description: &#x27;list of user roles from external system: student, teacher, admin&#x27;,
 		enum: UserRole,
+		isArray: true,
 	})
 	roleNames: UserRole[];
 

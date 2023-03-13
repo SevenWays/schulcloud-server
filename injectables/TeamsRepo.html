@@ -103,6 +103,10 @@
                                 <a href="#findById" >findById</a>
                             </li>
                             <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findByUserId" >findByUserId</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Async</span>
                                 <a href="#populateRoles" >populateRoles</a>
@@ -178,7 +182,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:13</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:14</a></code>
 </div>
                 </td>
             </tr>
@@ -248,6 +252,80 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="findByUserId"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>findByUserId</b></span>
+                        <a href="#findByUserId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findByUserId(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="35"
+                            class="link-to-prism">apps/server/src/shared/repo/teams/teams.repo.ts:35</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Finds teams which the user is a member.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../entitys/Team.html" target="_self" >Promise&lt;Team[]&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>Array of teams</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="populateRoles"></a>
                     <span class="name">
                         <span class="modifier">Private</span>
@@ -267,8 +345,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="28"
-                            class="link-to-prism">apps/server/src/shared/repo/teams/teams.repo.ts:28</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">apps/server/src/shared/repo/teams/teams.repo.ts:40</a></div>
                 </td>
             </tr>
 
@@ -342,7 +420,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:16</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:17</a></code>
 </div>
                 </td>
             </tr>
@@ -419,7 +497,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:24</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:25</a></code>
 </div>
                 </td>
             </tr>
@@ -496,7 +574,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:20</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:21</a></code>
 </div>
                 </td>
             </tr>
@@ -575,7 +653,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">apps/server/src/shared/repo/teams/teams.repo.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">apps/server/src/shared/repo/teams/teams.repo.ts:12</a></div>
                         </td>
                     </tr>
 
@@ -604,7 +682,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/shared/repo/teams/teams.repo.ts:7</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">apps/server/src/shared/repo/teams/teams.repo.ts:8</a></div>
                                 </td>
                             </tr>
 
@@ -617,6 +695,7 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { EntityId, Role, Team, TeamUser } from &#x27;@shared/domain&#x27;;
+import { ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
 import { BaseRepo } from &#x27;../base.repo&#x27;;
 
 @Injectable()
@@ -640,6 +719,17 @@ export class TeamsRepo extends BaseRepo&lt;Team&gt; {
 		}
 
 		return team;
+	}
+
+	/**
+	 * Finds teams which the user is a member.
+	 *
+	 * @param userId
+	 * @return Array of teams
+	 */
+	async findByUserId(userId: EntityId): Promise&lt;Team[]&gt; {
+		const teams: Team[] &#x3D; await this._em.find&lt;Team&gt;(Team, { userIds: { userId: new ObjectId(userId) } });
+		return teams;
 	}
 
 	private async populateRoles(roles: Role[]): Promise&lt;void[]&gt; {

@@ -85,7 +85,7 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Static</span>
-                                <a href="#mapFromProvisioningSchoolOutputDtoToSchoolDto" >mapFromProvisioningSchoolOutputDtoToSchoolDto</a>
+                                <a href="#mapDOToPublicResponse" >mapDOToPublicResponse</a>
                             </li>
                         </ul>
                     </td>
@@ -110,18 +110,18 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="mapFromProvisioningSchoolOutputDtoToSchoolDto"></a>
+                    <a name="mapDOToPublicResponse"></a>
                     <span class="name">
                         <span class="modifier">Static</span>
-                        <span ><b>mapFromProvisioningSchoolOutputDtoToSchoolDto</b></span>
-                        <a href="#mapFromProvisioningSchoolOutputDtoToSchoolDto"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>mapDOToPublicResponse</b></span>
+                        <a href="#mapDOToPublicResponse"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapFromProvisioningSchoolOutputDtoToSchoolDto(dto: <a href="../classes/ProvisioningSchoolOutputDto.html" target="_self">ProvisioningSchoolOutputDto</a>)</code>
+                    <code>mapDOToPublicResponse(schoolDO: <a href="../classes/SchoolDO.html" target="_self">SchoolDO</a>)</code>
                 </td>
             </tr>
 
@@ -150,9 +150,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>dto</td>
+                                    <td>schoolDO</td>
                                     <td>
-                                                <code><a href="../classes/ProvisioningSchoolOutputDto.html" target="_self" >ProvisioningSchoolOutputDto</a></code>
+                                                <code><a href="../classes/SchoolDO.html" target="_self" >SchoolDO</a></code>
                                     </td>
 
                                     <td>
@@ -167,7 +167,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/PublicSchoolResponse.html" target="_self" >PublicSchoolResponse</a></code>
 
                     </div>
                     <div class="io-description">
@@ -187,15 +187,18 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ProvisioningSchoolOutputDto } from &#x27;@src/modules/provisioning/dto/provisioning-school-output.dto&#x27;;
-import { SchoolDto } from &#x27;@src/modules/school/uc/dto/school.dto&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { SchoolDO } from &#x27;@shared/domain/domainobject/school.do&#x27;;
+import { PublicSchoolResponse } from &#x27;../controller/dto/public.school.response&#x27;;
 
 export class SchoolUcMapper {
-	static mapFromProvisioningSchoolOutputDtoToSchoolDto(dto: ProvisioningSchoolOutputDto) {
-		return new SchoolDto({
-			id: dto.id,
-			name: dto.name,
+	static mapDOToPublicResponse(schoolDO: SchoolDO): PublicSchoolResponse {
+		const response: PublicSchoolResponse &#x3D; new PublicSchoolResponse({
+			schoolName: schoolDO.name,
+			schoolNumber: schoolDO.officialSchoolNumber ?? &#x27;N/A&#x27;,
+			oauthMigrationPossible: !!schoolDO.oauthMigrationPossible,
+			oauthMigrationMandatory: !!schoolDO.oauthMigrationMandatory,
 		});
+		return response;
 	}
 }
 </code></pre>

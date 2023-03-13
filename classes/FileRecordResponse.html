@@ -507,7 +507,7 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty, ApiPropertyOptional } from &#x27;@nestjs/swagger&#x27;;
 import { DecodeHtmlEntities, PaginationResponse } from &#x27;@shared/controller&#x27;;
-import { FileRecord, FileRecordParentType, ScanStatus } from &#x27;@shared/domain/&#x27;; // we do not want entity on this place in future or?
+import { FileRecord, FileRecordParentType, ScanStatus } from &#x27;../../entity&#x27;;
 
 export class FileRecordResponse {
 	constructor(fileRecord: FileRecord) {
@@ -569,7 +569,7 @@ export class CopyFileResponse {
 	}
 
 	@ApiProperty()
-	id: string;
+	id?: string | undefined;
 
 	@ApiProperty()
 	sourceId: string;

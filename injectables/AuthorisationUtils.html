@@ -94,6 +94,13 @@
                                 <a href="#hasAllPermissions" >hasAllPermissions</a>
                             </li>
                             <li>
+                                <a href="#hasAllPermissionsByRole" >hasAllPermissionsByRole</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#hasEveryPermission" >hasEveryPermission</a>
+                            </li>
+                            <li>
                                 <a href="#hasOneOfPermissions" >hasOneOfPermissions</a>
                             </li>
                             <li>
@@ -106,7 +113,7 @@
                                 <a href="#resolvePermissions" >resolvePermissions</a>
                             </li>
                             <li>
-                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Private</span>
                                 <a href="#resolvePermissionsByRoles" >resolvePermissionsByRoles</a>
                             </li>
                         </ul>
@@ -147,8 +154,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="56"
-                            class="link-to-prism">apps/server/src/shared/domain/rules/authorisation.utils.ts:56</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="65"
+                            class="link-to-prism">apps/server/src/shared/domain/rules/authorisation.utils.ts:65</a></div>
                 </td>
             </tr>
 
@@ -228,8 +235,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="75"
-                            class="link-to-prism">apps/server/src/shared/domain/rules/authorisation.utils.ts:75</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="84"
+                            class="link-to-prism">apps/server/src/shared/domain/rules/authorisation.utils.ts:84</a></div>
                 </td>
             </tr>
 
@@ -309,8 +316,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="118"
-                            class="link-to-prism">apps/server/src/shared/domain/rules/authorisation.utils.ts:118</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="127"
+                            class="link-to-prism">apps/server/src/shared/domain/rules/authorisation.utils.ts:127</a></div>
                 </td>
             </tr>
 
@@ -390,8 +397,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="94"
-                            class="link-to-prism">apps/server/src/shared/domain/rules/authorisation.utils.ts:94</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="103"
+                            class="link-to-prism">apps/server/src/shared/domain/rules/authorisation.utils.ts:103</a></div>
                 </td>
             </tr>
 
@@ -491,7 +498,7 @@ const userRefProps = [&amp;#39;creator&amp;#39;]
                         </div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                     </div>
                     <div class="io-description">
@@ -586,6 +593,170 @@ const userRefProps = [&amp;#39;creator&amp;#39;]
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="hasAllPermissionsByRole"></a>
+                    <span class="name">
+                        <span ><b>hasAllPermissionsByRole</b></span>
+                        <a href="#hasAllPermissionsByRole"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>hasAllPermissionsByRole(role: <a href="../entitys/Role.html" target="_self">Role</a>, requiredPermissions: string[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="52"
+                            class="link-to-prism">apps/server/src/shared/domain/rules/authorisation.utils.ts:52</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>role</td>
+                                    <td>
+                                                <code><a href="../entitys/Role.html" target="_self" >Role</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>requiredPermissions</td>
+                                    <td>
+                                            <code>string[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="hasEveryPermission"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>hasEveryPermission</b></span>
+                        <a href="#hasEveryPermission"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>hasEveryPermission(requiredPermissions: string[], usersPermissions: string[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="57"
+                            class="link-to-prism">apps/server/src/shared/domain/rules/authorisation.utils.ts:57</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>requiredPermissions</td>
+                                    <td>
+                                            <code>string[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>usersPermissions</td>
+                                    <td>
+                                            <code>string[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="hasOneOfPermissions"></a>
                     <span class="name">
                         <span ><b>hasOneOfPermissions</b></span>
@@ -602,8 +773,8 @@ const userRefProps = [&amp;#39;creator&amp;#39;]
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="63"
-                            class="link-to-prism">apps/server/src/shared/domain/rules/authorisation.utils.ts:63</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="72"
+                            class="link-to-prism">apps/server/src/shared/domain/rules/authorisation.utils.ts:72</a></div>
                 </td>
             </tr>
 
@@ -683,8 +854,8 @@ const userRefProps = [&amp;#39;creator&amp;#39;]
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="129"
-                            class="link-to-prism">apps/server/src/shared/domain/rules/authorisation.utils.ts:129</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="138"
+                            class="link-to-prism">apps/server/src/shared/domain/rules/authorisation.utils.ts:138</a></div>
                 </td>
             </tr>
 
@@ -767,8 +938,8 @@ For each other operations please define, use the string based permissions inside
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="111"
-                            class="link-to-prism">apps/server/src/shared/domain/rules/authorisation.utils.ts:111</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="120"
+                            class="link-to-prism">apps/server/src/shared/domain/rules/authorisation.utils.ts:120</a></div>
                 </td>
             </tr>
 
@@ -907,7 +1078,7 @@ Please make sure you populate them before calling this method.</p>
                 <td class="col-md-4">
                     <a name="resolvePermissionsByRoles"></a>
                     <span class="name">
-                        <span class="modifier">Public</span>
+                        <span class="modifier">Private</span>
                         <span ><b>resolvePermissionsByRoles</b></span>
                         <a href="#resolvePermissionsByRoles"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -999,7 +1170,7 @@ export class AuthorisationUtils {
 		return rolesAndPermissions;
 	}
 
-	public resolvePermissionsByRoles(inputRoles: Role[]): string[] {
+	private resolvePermissionsByRoles(inputRoles: Role[]): string[] {
 		let permissions: string[] &#x3D; [];
 
 		for (let i &#x3D; 0; i &lt; inputRoles.length; i +&#x3D; 1) {
@@ -1026,6 +1197,15 @@ export class AuthorisationUtils {
 			return true;
 		}
 		const usersPermissions &#x3D; this.resolvePermissions(user);
+		return this.hasEveryPermission(requiredPermissions, usersPermissions);
+	}
+
+	hasAllPermissionsByRole(role: Role, requiredPermissions: string[]): boolean {
+		const usersPermissions &#x3D; this.resolvePermissionsByRoles([role]);
+		return this.hasEveryPermission(requiredPermissions, usersPermissions);
+	}
+
+	private hasEveryPermission(requiredPermissions: string[], usersPermissions: string[]) {
 		const hasPermissions &#x3D; requiredPermissions.every((p) &#x3D;&gt; usersPermissions.includes(p));
 		return hasPermissions;
 	}
@@ -1071,7 +1251,7 @@ export class AuthorisationUtils {
 	 * @param userRefProps Array of properties in the entity the user is associated with
 	 * @returns
 	 */
-	hasAccessToEntity&lt;T, K extends keyof T&gt;(user: User, entity: T, userRefProps: K[]) {
+	hasAccessToEntity&lt;T, K extends keyof T&gt;(user: User, entity: T, userRefProps: K[]): boolean {
 		const res &#x3D; userRefProps.some((prop) &#x3D;&gt; {
 			const reference &#x3D; entity[prop];
 			if (reference instanceof Collection) {
@@ -1110,9 +1290,7 @@ export class AuthorisationUtils {
 		if (!user.roles.isInitialized(true)) {
 			throw new Error(&#x27;Roles items are not loaded.&#x27;);
 		}
-		return user.roles.getItems().some((role) &#x3D;&gt; {
-			return role.name &#x3D;&#x3D;&#x3D; roleName;
-		});
+		return user.roles.getItems().some((role) &#x3D;&gt; role.name &#x3D;&#x3D;&#x3D; roleName);
 	}
 }
 </code></pre>

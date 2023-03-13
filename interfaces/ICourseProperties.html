@@ -92,6 +92,13 @@
                                 </li>
                                 <li>
                                             <span class="modifier">Optional</span>
+                                        <a href="#copyingSince" 
+>
+                                            copyingSince
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
                                         <a href="#description" 
 >
                                             description
@@ -179,6 +186,44 @@
                                     <tr>
                                         <td class="col-md-4">
                                             <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="copyingSince"></a>
+                                        <span class="name "><b>copyingSince</b>
+                                            <a href="#copyingSince">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>copyingSince:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
 
                                         </td>
                                     </tr>
@@ -501,10 +546,12 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Collection, Entity, Index, ManyToMany, ManyToOne, OneToMany, Property, Unique } from &#x27;@mikro-orm/core&#x27;;
 import { InternalServerErrorException } from &#x27;@nestjs/common/exceptions/internal-server-error.exception&#x27;;
 import { IEntityWithSchool, ILearnroom } from &#x27;@shared/domain/interface&#x27;;
-import { LearnroomMetadata, LearnroomTypes } from &#x27;../types&#x27;;
+import { EntityId, LearnroomMetadata, LearnroomTypes } from &#x27;../types&#x27;;
 import { BaseEntityWithTimestamps } from &#x27;./base.entity&#x27;;
 import { CourseGroup } from &#x27;./coursegroup.entity&#x27;;
+import type { ILessonParent } from &#x27;./lesson.entity&#x27;;
 import type { School } from &#x27;./school.entity&#x27;;
+import type { ITaskParent } from &#x27;./task.entity&#x27;;
 import type { User } from &#x27;./user.entity&#x27;;
 
 export interface ICourseProperties {
@@ -518,6 +565,7 @@ export interface ICourseProperties {
 	color?: string;
 	startDate?: Date;
 	untilDate?: Date;
+	copyingSince?: Date;
 }
 
 // that is really really shit default handling :D constructor, getter, js default, em default...what the hell
@@ -529,7 +577,10 @@ const DEFAULT &#x3D; {
 };
 
 @Entity({ tableName: &#x27;courses&#x27; })
-export class Course extends BaseEntityWithTimestamps implements ILearnroom, IEntityWithSchool {
+export class Course
+	extends BaseEntityWithTimestamps
+	implements ILearnroom, IEntityWithSchool, ITaskParent, ILessonParent
+{
 	@Property()
 	name: string &#x3D; DEFAULT.name;
 
@@ -567,6 +618,9 @@ export class Course extends BaseEntityWithTimestamps implements ILearnroom, IEnt
 	untilDate?: Date;
 
 	@Property({ nullable: true })
+	copyingSince?: Date;
+
+	@Property({ nullable: true })
 	@Unique({ options: { sparse: true } })
 	shareToken?: string;
 
@@ -581,9 +635,36 @@ export class Course extends BaseEntityWithTimestamps implements ILearnroom, IEnt
 		if (props.color) this.color &#x3D; props.color;
 		if (props.untilDate) this.untilDate &#x3D; props.untilDate;
 		if (props.startDate) this.startDate &#x3D; props.startDate;
+		if (props.copyingSince) this.copyingSince &#x3D; props.copyingSince;
 	}
 
-	private getShortTitle(): string {
+	public getStudentIds(): EntityId[] {
+		if (!this.students) {
+			throw new InternalServerErrorException(&#x27;Course.students is undefined. The course need to be populated.&#x27;);
+		}
+
+		const studentObjectIds &#x3D; this.students.getIdentifiers(&#x27;_id&#x27;);
+		const studentIds &#x3D; studentObjectIds.map((id): string &#x3D;&gt; id.toString());
+
+		return studentIds;
+	}
+
+	public isUserSubstitutionTeacher(user: User): boolean {
+		const isSubstitutionTeacher &#x3D; this.substitutionTeachers.contains(user);
+
+		return isSubstitutionTeacher;
+	}
+
+	public getCourseGroupItems(): CourseGroup[] {
+		if (!this.courseGroups.isInitialized(true)) {
+			throw new InternalServerErrorException(&#x27;Courses trying to access their course groups that are not loaded.&#x27;);
+		}
+		const courseGroups &#x3D; this.courseGroups.getItems();
+
+		return courseGroups;
+	}
+
+	getShortTitle(): string {
 		if (this.name.length &#x3D;&#x3D;&#x3D; 1) {
 			return this.name;
 		}
@@ -595,15 +676,7 @@ export class Course extends BaseEntityWithTimestamps implements ILearnroom, IEnt
 		return firstChar + secondChar;
 	}
 
-	getCourseGroupItems(): CourseGroup[] {
-		if (!this.courseGroups.isInitialized(true)) {
-			throw new InternalServerErrorException(&#x27;Courses trying to access their course groups that are not loaded.&#x27;);
-		}
-		const courseGroups &#x3D; this.courseGroups.getItems();
-		return courseGroups;
-	}
-
-	getMetadata(): LearnroomMetadata {
+	public getMetadata(): LearnroomMetadata {
 		return {
 			id: this.id,
 			type: LearnroomTypes.Course,
@@ -612,14 +685,11 @@ export class Course extends BaseEntityWithTimestamps implements ILearnroom, IEnt
 			displayColor: this.color,
 			untilDate: this.untilDate,
 			startDate: this.startDate,
+			copyingSince: this.copyingSince,
 		};
 	}
 
-	getNumberOfStudents(): number {
-		return this.students.length;
-	}
-
-	isFinished(): boolean {
+	public isFinished(): boolean {
 		if (!this.untilDate) {
 			return false;
 		}

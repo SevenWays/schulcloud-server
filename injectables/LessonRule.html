@@ -227,8 +227,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="78"
-                            class="link-to-prism">apps/server/src/shared/domain/rules/lesson.rule.ts:78</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="74"
+                            class="link-to-prism">apps/server/src/shared/domain/rules/lesson.rule.ts:74</a></div>
                 </td>
             </tr>
 
@@ -322,8 +322,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="72"
-                            class="link-to-prism">apps/server/src/shared/domain/rules/lesson.rule.ts:72</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="68"
+                            class="link-to-prism">apps/server/src/shared/domain/rules/lesson.rule.ts:68</a></div>
                 </td>
             </tr>
 
@@ -690,8 +690,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="52"
-                            class="link-to-prism">apps/server/src/shared/domain/rules/lesson.rule.ts:52</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="50"
+                            class="link-to-prism">apps/server/src/shared/domain/rules/lesson.rule.ts:50</a></div>
                 </td>
             </tr>
 
@@ -773,8 +773,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="60"
-                            class="link-to-prism">apps/server/src/shared/domain/rules/lesson.rule.ts:60</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="56"
+                            class="link-to-prism">apps/server/src/shared/domain/rules/lesson.rule.ts:56</a></div>
                 </td>
             </tr>
 
@@ -937,17 +937,13 @@ export class LessonRule extends BasePermission&lt;Lesson&gt; {
 			hasParentReadPermission &#x3D; this.parentPermission(user, entity, Actions.write);
 		}
 
-		const result &#x3D; hasParentReadPermission;
-
-		return result;
+		return hasParentReadPermission;
 	}
 
 	private lessonWritePermission(user: User, entity: Lesson): boolean {
 		const hasParentWritePermission &#x3D; this.parentPermission(user, entity, Actions.write);
 
-		const result &#x3D; hasParentWritePermission;
-
-		return result;
+		return hasParentWritePermission;
 	}
 
 	private parentPermission(user: User, entity: Lesson, action: Actions): boolean {

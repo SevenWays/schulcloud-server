@@ -140,13 +140,13 @@ A PartialType is a halper which allows to extend an existing class by making all
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @IsOptional()<br />@IsString()<br />@SanitizeHtml({keep: &#x27;richtext&#x27;})<br />@ApiPropertyOptional({description: &#x27;Content of the News entity&#x27;})<br />
+                            @IsOptional()<br />@IsString()<br />@SanitizeHtml(InputFormat.RICH_TEXT)<br />@ApiPropertyOptional({description: &#x27;Content of the News entity&#x27;})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">apps/server/src/modules/news/controller/dto/update-news.params.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">apps/server/src/modules/news/controller/dto/update-news.params.ts:25</a></div>
                         </td>
                     </tr>
 
@@ -181,7 +181,7 @@ A PartialType is a halper which allows to extend an existing class by making all
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">apps/server/src/modules/news/controller/dto/update-news.params.ts:31</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">apps/server/src/modules/news/controller/dto/update-news.params.ts:32</a></div>
                         </td>
                     </tr>
 
@@ -216,7 +216,7 @@ A PartialType is a halper which allows to extend an existing class by making all
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/server/src/modules/news/controller/dto/update-news.params.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">apps/server/src/modules/news/controller/dto/update-news.params.ts:17</a></div>
                         </td>
                     </tr>
 
@@ -238,6 +238,7 @@ A PartialType is a halper which allows to extend an existing class by making all
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiPropertyOptional } from &#x27;@nestjs/swagger&#x27;;
 import { SanitizeHtml } from &#x27;@shared/controller&#x27;;
 import { IsDate, IsOptional, IsString } from &#x27;class-validator&#x27;;
+import { InputFormat } from &#x27;@shared/domain&#x27;;
 
 /**
  * DTO for Updating a news document.
@@ -254,7 +255,7 @@ export class UpdateNewsParams {
 
 	@IsOptional()
 	@IsString()
-	@SanitizeHtml({ keep: &#x27;richtext&#x27; })
+	@SanitizeHtml(InputFormat.RICH_TEXT)
 	@ApiPropertyOptional({
 		description: &#x27;Content of the News entity&#x27;,
 	})

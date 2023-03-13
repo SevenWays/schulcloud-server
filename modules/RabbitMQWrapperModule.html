@@ -72,9 +72,10 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { RabbitMQModule } from &#x27;@golevelup/nestjs-rabbitmq&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AmqpConnectionManager, RabbitMQModule } from &#x27;@golevelup/nestjs-rabbitmq&#x27;;
 import { Configuration } from &#x27;@hpi-schul-cloud/commons&#x27;;
-import { Global, Module } from &#x27;@nestjs/common&#x27;;
+import { Global, Module, OnModuleDestroy } from &#x27;@nestjs/common&#x27;;
+import { FilesStorageExchange } from &#x27;./exchange&#x27;;
 
 /**
  * https://www.npmjs.com/package/@golevelup/nestjs-rabbitmq#usage
@@ -86,6 +87,8 @@ import { Global, Module } from &#x27;@nestjs/common&#x27;;
 
 const imports &#x3D; [
 	RabbitMQModule.forRoot(RabbitMQModule, {
+		// Please don&#x27;t change the global prefetch count, if you need constraint, change it at channel level
+		prefetchCount: 5,
 		exchanges: [
 			{
 				name: Configuration.get(&#x27;MAIL_SEND_EXCHANGE&#x27;) as string,
@@ -93,6 +96,10 @@ const imports &#x3D; [
 			},
 			{
 				name: Configuration.get(&#x27;ANTIVIRUS_EXCHANGE&#x27;) as string,
+				type: &#x27;direct&#x27;,
+			},
+			{
+				name: FilesStorageExchange,
 				type: &#x27;direct&#x27;,
 			},
 		],
@@ -111,7 +118,16 @@ export class RabbitMQWrapperModule {}
 	imports,
 	exports: [RabbitMQModule],
 })
-export class RabbitMQWrapperTestModule {}
+export class RabbitMQWrapperTestModule implements OnModuleDestroy {
+	constructor(private readonly amqpConnectionManager: AmqpConnectionManager) {}
+
+	// In tests we need to close connections when the module is destroyed.
+	async onModuleDestroy() {
+		await Promise.all(
+			this.amqpConnectionManager.getConnections().map((connection) &#x3D;&gt; connection.managedConnection.close())
+		);
+	}
+}
 </code></pre>
     </div>
 </div>

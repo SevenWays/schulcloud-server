@@ -98,15 +98,20 @@
                                 <a href="#findAllByUserId" >findAllByUserId</a>
                             </li>
                             <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findById" >findById</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#populateReferences" >populateReferences</a>
+                            </li>
+                            <li>
                                 <a href="#create" >create</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
                                 <a href="#delete" >delete</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#findById" >findById</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
@@ -167,8 +172,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">apps/server/src/shared/repo/submission/submission.repo.ts:27</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="35"
+                            class="link-to-prism">apps/server/src/shared/repo/submission/submission.repo.ts:35</a></div>
                 </td>
             </tr>
 
@@ -238,8 +243,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="14"
-                            class="link-to-prism">apps/server/src/shared/repo/submission/submission.repo.ts:14</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="21"
+                            class="link-to-prism">apps/server/src/shared/repo/submission/submission.repo.ts:21</a></div>
                 </td>
             </tr>
 
@@ -309,8 +314,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">apps/server/src/shared/repo/submission/submission.repo.ts:22</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">apps/server/src/shared/repo/submission/submission.repo.ts:30</a></div>
                 </td>
             </tr>
 
@@ -362,6 +367,155 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="findById"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>findById</b></span>
+                        <a href="#findById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findById(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../injectables/BaseRepo.html" target="_self" >BaseRepo</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:14</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Submission.html" target="_self" >Promise&lt;Submission&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="populateReferences"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>populateReferences</b></span>
+                        <a href="#populateReferences"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>populateReferences(submissions: <a href="../classes/Submission.html" target="_self">Submission[]</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="41"
+                            class="link-to-prism">apps/server/src/shared/repo/submission/submission.repo.ts:41</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>submissions</td>
+                                    <td>
+                                                <code><a href="../classes/Submission.html" target="_self" >Submission[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="create"></a>
                     <span class="name">
                         <span ><b>create</b></span>
@@ -384,7 +538,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:16</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:17</a></code>
 </div>
                 </td>
             </tr>
@@ -461,7 +615,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:24</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:25</a></code>
 </div>
                 </td>
             </tr>
@@ -514,83 +668,6 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="findById"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>findById</b></span>
-                        <a href="#findById"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findById(id: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../injectables/BaseRepo.html" target="_self" >BaseRepo</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:28</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>id</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;T&gt;</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
                     <a name="save"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -615,7 +692,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:20</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:21</a></code>
 </div>
                 </td>
             </tr>
@@ -710,10 +787,18 @@ export class SubmissionRepo extends BaseRepo&lt;Submission&gt; {
 		return Submission;
 	}
 
+	async findById(id: string): Promise&lt;Submission&gt; {
+		const submission &#x3D; await super.findById(id);
+		await this.populateReferences([submission]);
+
+		return submission;
+	}
+
 	async findAllByTaskIds(taskIds: EntityId[]): Promise&lt;Counted&lt;Submission[]&gt;&gt; {
 		const [submissions, count] &#x3D; await this._em.findAndCount(this.entityName, {
 			task: { $in: taskIds },
 		});
+		await this.populateReferences(submissions);
 
 		return [submissions, count];
 	}
@@ -727,6 +812,15 @@ export class SubmissionRepo extends BaseRepo&lt;Submission&gt; {
 		const courseGroupsOfUser &#x3D; await this._em.find(CourseGroup, { students: userId });
 		const query &#x3D; { $or: [{ student: userId }, { teamMembers: userId }, { courseGroup: { $in: courseGroupsOfUser } }] };
 		return query;
+	}
+
+	private async populateReferences(submissions: Submission[]): Promise&lt;void&gt; {
+		await this._em.populate(submissions, [
+			&#x27;courseGroup&#x27;,
+			&#x27;task.course&#x27;,
+			&#x27;task.lesson.course&#x27;,
+			&#x27;task.lesson.courseGroup.course&#x27;,
+		]);
 	}
 }
 </code></pre>

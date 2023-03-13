@@ -129,15 +129,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapFromEntitiesToDtos(enities: <a href="../entitys/System.html" target="_self">System[]</a>)</code>
+                    <code>mapFromEntitiesToDtos(entities: <a href="../entitys/System.html" target="_self">System[]</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="36"
-                            class="link-to-prism">apps/server/src/modules/system/mapper/system.mapper.ts:36</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="38"
+                            class="link-to-prism">apps/server/src/modules/system/mapper/system.mapper.ts:38</a></div>
                 </td>
             </tr>
 
@@ -158,7 +158,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>enities</td>
+                                    <td>entities</td>
                                     <td>
                                                 <code><a href="../entitys/System.html" target="_self" >System[]</a></code>
                                     </td>
@@ -278,8 +278,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="16"
-                            class="link-to-prism">apps/server/src/modules/system/mapper/system.mapper.ts:16</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="19"
+                            class="link-to-prism">apps/server/src/modules/system/mapper/system.mapper.ts:19</a></div>
                 </td>
             </tr>
 
@@ -338,27 +338,29 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { OauthConfig, System } from &#x27;@shared/domain&#x27;;
-import { SystemDto } from &#x27;@src/modules/system/service/dto/system.dto&#x27;;
 import { OauthConfigDto } from &#x27;@src/modules/system/service/dto/oauth-config.dto&#x27;;
+import { SystemDto } from &#x27;@src/modules/system/service/dto/system.dto&#x27;;
 
 export class SystemMapper {
 	static mapFromEntityToDto(entity: System): SystemDto {
 		return new SystemDto({
+			id: entity.id,
 			type: entity.type,
 			url: entity.url,
 			alias: entity.alias,
+			displayName: entity.displayName ?? entity.alias,
 			provisioningStrategy: entity.provisioningStrategy,
+			provisioningUrl: entity.provisioningUrl,
 			oauthConfig: SystemMapper.mapFromOauthConfigEntityToDto(entity.oauthConfig),
 		});
 	}
 
 	static mapFromOauthConfigEntityToDto(oauthConfig: OauthConfig | undefined): OauthConfigDto | undefined {
-		if (oauthConfig &#x3D;&#x3D; null) {
-			return undefined;
-		}
+		if (!oauthConfig) return undefined;
 		return new OauthConfigDto({
 			clientId: oauthConfig.clientId,
 			clientSecret: oauthConfig.clientSecret,
+			alias: oauthConfig.alias,
 			redirectUri: oauthConfig.redirectUri,
 			grantType: oauthConfig.grantType,
 			tokenEndpoint: oauthConfig.tokenEndpoint,
@@ -372,10 +374,8 @@ export class SystemMapper {
 		});
 	}
 
-	static mapFromEntitiesToDtos(enities: System[]): SystemDto[] {
-		return enities.map((entity) &#x3D;&gt; {
-			return this.mapFromEntityToDto(entity);
-		});
+	static mapFromEntitiesToDtos(entities: System[]): SystemDto[] {
+		return entities.map((entity) &#x3D;&gt; this.mapFromEntityToDto(entity));
 	}
 }
 </code></pre>

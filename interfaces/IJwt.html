@@ -154,15 +154,16 @@
                                         </a>
                                 </li>
                                 <li>
-                                        <a href="#sub" 
+                                            <span class="modifier">Optional</span>
+                                        <a href="#preferred_username" 
 >
-                                            sub
+                                            preferred_username
                                         </a>
                                 </li>
                                 <li>
-                                        <a href="#uuid" 
+                                        <a href="#sub" 
 >
-                                            uuid
+                                            sub
                                         </a>
                                 </li>
                             </ul>
@@ -548,9 +549,9 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="sub"></a>
-                                        <span class="name "><b>sub</b>
-                                            <a href="#sub">
+                                        <a name="preferred_username"></a>
+                                        <span class="name "><b>preferred_username</b>
+                                            <a href="#preferred_username">
                                                 <span class="icon ion-ios-link"></span>
                                             </a>
                                         </span>
@@ -558,7 +559,7 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>sub:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                        <code>preferred_username:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -571,6 +572,11 @@
                                         </td>
                                     </tr>
 
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
 
 
 
@@ -581,9 +587,9 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="uuid"></a>
-                                        <span class="name "><b>uuid</b>
-                                            <a href="#uuid">
+                                        <a name="sub"></a>
+                                        <span class="name "><b>sub</b>
+                                            <a href="#sub">
                                                 <span class="icon ion-ios-link"></span>
                                             </a>
                                         </span>
@@ -591,7 +597,7 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>uuid:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                        <code>sub:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -627,7 +633,7 @@
 	gender?: string;
 	birthdate?: string;
 	email?: string;
-	uuid: string;
+	preferred_username?: string;
 }
 </code></pre>
     </div>

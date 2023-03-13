@@ -160,9 +160,36 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Module } from &#x27;@nestjs/common&#x27;;
+import { ConfigService } from &#x27;@nestjs/config&#x27;;
+import { utilities, WinstonModule } from &#x27;nest-winston&#x27;;
+import winston from &#x27;winston&#x27;;
+import { ILoggerConfig } from &#x27;./interfaces&#x27;;
 import { Logger } from &#x27;./logger.service&#x27;;
 
 @Module({
+	imports: [
+		WinstonModule.forRootAsync({
+			useFactory: (configService: ConfigService&lt;ILoggerConfig, true&gt;) &#x3D;&gt; {
+				return {
+					levels: winston.config.syslog.levels,
+					level: configService.get&lt;string&gt;(&#x27;NEST_LOG_LEVEL&#x27;),
+					exitOnError: false,
+					transports: [
+						new winston.transports.Console({
+							handleExceptions: true,
+							handleRejections: true,
+							format: winston.format.combine(
+								winston.format.timestamp({ format: &#x27;YYYY-MM-DD HH:mm:ss.SSS&#x27; }),
+								winston.format.ms(),
+								utilities.format.nestLike()
+							),
+						}),
+					],
+				};
+			},
+			inject: [ConfigService],
+		}),
+	],
 	providers: [Logger],
 	exports: [Logger],
 })

@@ -123,9 +123,9 @@
                                 <a href="#get" >get</a>
                             </li>
                             <li>
-                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Public</span>
                                     <span class="modifier">Async</span>
-                                <a href="#remove" >remove</a>
+                                <a href="#moveToTrash" >moveToTrash</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
@@ -155,7 +155,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:19</a></div>
                             </td>
                         </tr>
 
@@ -244,8 +244,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="182"
-                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:182</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="187"
+                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:187</a></div>
                 </td>
             </tr>
 
@@ -328,8 +328,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="147"
-                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:147</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="148"
+                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:148</a></div>
                 </td>
             </tr>
 
@@ -393,15 +393,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>create(path: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, file: <a href="../interfaces/IFile.html" target="_self">IFile</a>)</code>
+                    <code>create(path: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, file: <a href="../classes/FileDto.html" target="_self">FileDto</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="72"
-                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:72</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="75"
+                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:75</a></div>
                 </td>
             </tr>
 
@@ -436,7 +436,7 @@
                                 <tr>
                                     <td>file</td>
                                     <td>
-                                                <code><a href="../interfaces/IFile.html" target="_self" >IFile</a></code>
+                                                <code><a href="../classes/FileDto.html" target="_self" >FileDto</a></code>
                                     </td>
 
                                     <td>
@@ -484,8 +484,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="29"
-                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:29</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:30</a></div>
                 </td>
             </tr>
 
@@ -524,152 +524,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="101"
-                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:101</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>paths</td>
-                                    <td>
-                                            <code>string[]</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;CopyObjectCommandOutput[]&gt;</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="get"></a>
-                    <span class="name">
-                        <span class="modifier">Public</span>
-                        <span class="modifier">Async</span>
-                        <span ><b>get</b></span>
-                        <a href="#get"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>get(path: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="43"
-                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:43</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>path</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/IGetFileResponse.html" target="_self" >Promise&lt;IGetFileResponse&gt;</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="remove"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span class="modifier">Async</span>
-                        <span ><b>remove</b></span>
-                        <a href="#remove"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>remove(paths: string[])</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="171"
-                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:171</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="172"
+                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:172</a></div>
                 </td>
             </tr>
 
@@ -721,6 +577,162 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="get"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>get</b></span>
+                        <a href="#get"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>get(path: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, bytesRange?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="44"
+                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:44</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>path</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>bytesRange</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/IGetFileResponse.html" target="_self" >Promise&lt;IGetFileResponse&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="moveToTrash"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>moveToTrash</b></span>
+                        <a href="#moveToTrash"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>moveToTrash(paths: string[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="104"
+                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:104</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>paths</td>
+                                    <td>
+                                            <code>string[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;CopyObjectCommandOutput[]&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="restore"></a>
                     <span class="name">
                         <span class="modifier">Public</span>
@@ -740,8 +752,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="126"
-                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:126</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="127"
+                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:127</a></div>
                 </td>
             </tr>
 
@@ -820,7 +832,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:19</a></div>
                         </td>
                     </tr>
 
@@ -846,7 +858,8 @@ import { Upload } from &#x27;@aws-sdk/lib-storage&#x27;;
 import { Inject, Injectable, InternalServerErrorException, NotFoundException } from &#x27;@nestjs/common&#x27;;
 import { Logger } from &#x27;@src/core/logger&#x27;;
 import { Readable } from &#x27;stream&#x27;;
-import { ICopyFiles, IFile, IGetFileResponse, IStorageClient, S3Config } from &#x27;../interface&#x27;;
+import { FileDto } from &#x27;../dto&#x27;;
+import { ICopyFiles, IGetFileResponse, IStorageClient, S3Config } from &#x27;../interface&#x27;;
 
 @Injectable()
 export class S3ClientAdapter implements IStorageClient {
@@ -875,13 +888,14 @@ export class S3ClientAdapter implements IStorageClient {
 		}
 	}
 
-	public async get(path: string): Promise&lt;IGetFileResponse&gt; {
+	public async get(path: string, bytesRange?: string): Promise&lt;IGetFileResponse&gt; {
 		try {
 			this.logger.log({ action: &#x27;get&#x27;, params: { path, bucket: this.config.bucket } });
 
 			const req &#x3D; new GetObjectCommand({
 				Bucket: this.config.bucket,
 				Key: path,
+				Range: bytesRange,
 			});
 
 			const data &#x3D; await this.client.send(req);
@@ -892,6 +906,7 @@ export class S3ClientAdapter implements IStorageClient {
 				data: stream,
 				contentType: data.ContentType,
 				contentLength: data.ContentLength,
+				contentRange: data.ContentRange,
 				etag: data.ETag,
 			};
 		} catch (err) {
@@ -904,23 +919,23 @@ export class S3ClientAdapter implements IStorageClient {
 		}
 	}
 
-	public async create(path: string, file: IFile): Promise&lt;ServiceOutputTypes&gt; {
+	public async create(path: string, file: FileDto): Promise&lt;ServiceOutputTypes&gt; {
 		try {
 			this.logger.log({ action: &#x27;create&#x27;, params: { path, bucket: this.config.bucket } });
 
 			const req &#x3D; {
-				Body: file.buffer,
+				Body: file.data,
 				Bucket: this.config.bucket,
 				Key: path,
 				ContentType: file.mimeType,
 			};
-			const res &#x3D; new Upload({
+			const upload &#x3D; new Upload({
 				client: this.client,
 				params: req,
 			});
 
-			const a &#x3D; await res.done();
-			return a;
+			const commandOutput &#x3D; await upload.done();
+			return commandOutput;
 		} catch (err) {
 			// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
 			if (err.Code &amp;&amp; err.Code &#x3D;&#x3D;&#x3D; &#x27;NoSuchBucket&#x27;) {
@@ -933,10 +948,8 @@ export class S3ClientAdapter implements IStorageClient {
 		}
 	}
 
-	public async delete(paths: string[]): Promise&lt;CopyObjectCommandOutput[]&gt; {
+	public async moveToTrash(paths: string[]): Promise&lt;CopyObjectCommandOutput[]&gt; {
 		try {
-			this.logger.log({ action: &#x27;delete&#x27;, params: { paths, bucket: this.config.bucket } });
-
 			const copyPaths &#x3D; paths.map((path) &#x3D;&gt; {
 				return { sourcePath: path, targetPath: &#x60;${this.deletedFolderName}/${path}&#x60; };
 			});
@@ -945,7 +958,7 @@ export class S3ClientAdapter implements IStorageClient {
 
 			// try catch with rollback is not needed,
 			// because the second copyRequest try override existing files in trash folder
-			await this.remove(paths);
+			await this.delete(paths);
 
 			return result;
 		} catch (err) {
@@ -971,7 +984,7 @@ export class S3ClientAdapter implements IStorageClient {
 			// try catch with rollback is not needed,
 			// because the second copyRequest try override existing files in trash folder
 			const deleteObjects &#x3D; copyPaths.map((p) &#x3D;&gt; p.sourcePath);
-			await this.remove(deleteObjects);
+			await this.delete(deleteObjects);
 
 			return result;
 		} catch (err) {
@@ -1003,8 +1016,12 @@ export class S3ClientAdapter implements IStorageClient {
 		}
 	}
 
-	private async remove(paths: string[]) {
-		const pathObjects &#x3D; paths.map((p) &#x3D;&gt; ({ Key: p }));
+	public async delete(paths: string[]) {
+		this.logger.log({ action: &#x27;delete&#x27;, params: { paths, bucket: this.config.bucket } });
+
+		const pathObjects &#x3D; paths.map((p) &#x3D;&gt; {
+			return { Key: p };
+		});
 		const req &#x3D; new DeleteObjectsCommand({
 			Bucket: this.config.bucket,
 			Delete: { Objects: pathObjects },

@@ -80,7 +80,6 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
-                                    <span class="modifier">Async</span>
                                 <a href="#send" >send</a>
                             </li>
                         </ul>
@@ -168,7 +167,6 @@
                     <a name="send"></a>
                     <span class="name">
                         <span class="modifier">Public</span>
-                        <span class="modifier">Async</span>
                         <span ><b>send</b></span>
                         <a href="#send"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -223,7 +221,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                     </div>
                     <div class="io-description">
@@ -239,8 +237,8 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, Inject } from &#x27;@nestjs/common&#x27;;
-import { AmqpConnection } from &#x27;@golevelup/nestjs-rabbitmq&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AmqpConnection } from &#x27;@golevelup/nestjs-rabbitmq&#x27;;
+import { Inject, Injectable } from &#x27;@nestjs/common&#x27;;
 
 import { Mail } from &#x27;./mail.interface&#x27;;
 
@@ -256,8 +254,8 @@ export class MailService {
 		@Inject(&#x27;MAIL_SERVICE_OPTIONS&#x27;) private readonly options: MailServiceOptions
 	) {}
 
-	public async send(data: Mail): Promise&lt;void&gt; {
-		await this.amqpConnection.publish(this.options.exchange, this.options.routingKey, data, { persistent: true });
+	public send(data: Mail): void {
+		this.amqpConnection.publish(this.options.exchange, this.options.routingKey, data, { persistent: true });
 	}
 }
 </code></pre>

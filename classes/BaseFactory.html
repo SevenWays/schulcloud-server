@@ -120,6 +120,9 @@
                                 <a href="#buildList" >buildList</a>
                             </li>
                             <li>
+                                <a href="#buildListWithId" >buildListWithId</a>
+                            </li>
+                            <li>
                                 <a href="#buildWithId" >buildWithId</a>
                             </li>
                             <li>
@@ -276,8 +279,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="87"
-                            class="link-to-prism">apps/server/src/shared/testing/factory/base.factory.ts:87</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="98"
+                            class="link-to-prism">apps/server/src/shared/testing/factory/base.factory.ts:98</a></div>
                 </td>
             </tr>
 
@@ -347,8 +350,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="99"
-                            class="link-to-prism">apps/server/src/shared/testing/factory/base.factory.ts:99</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="110"
+                            class="link-to-prism">apps/server/src/shared/testing/factory/base.factory.ts:110</a></div>
                 </td>
             </tr>
 
@@ -501,8 +504,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="73"
-                            class="link-to-prism">apps/server/src/shared/testing/factory/base.factory.ts:73</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="75"
+                            class="link-to-prism">apps/server/src/shared/testing/factory/base.factory.ts:75</a></div>
                 </td>
             </tr>
 
@@ -589,6 +592,107 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="buildListWithId"></a>
+                    <span class="name">
+                        <span ><b>buildListWithId</b></span>
+                        <a href="#buildListWithId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>buildListWithId(number: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, params?: DeepPartial<U>, options: <a href="../interfaces/Options.html" target="_self">BuildOptions&lt;U | I&gt;</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="84"
+                            class="link-to-prism">apps/server/src/shared/testing/factory/base.factory.ts:84</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Default value</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>number</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                            <code>DeepPartial&lt;U&gt;</code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+                                    <td>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>options</td>
+                                    <td>
+                                                <code><a href="../interfaces/Options.html" target="_self" >BuildOptions&lt;U | I&gt;</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                        <code>{}</code>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>T[]</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="buildWithId"></a>
                     <span class="name">
                         <span ><b>buildWithId</b></span>
@@ -598,7 +702,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>buildWithId(params?: DeepPartial<U>, id?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>buildWithId(params?: DeepPartial<U>, id?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, options: <a href="../interfaces/Options.html" target="_self">BuildOptions&lt;U | I&gt;</a>)</code>
                 </td>
             </tr>
 
@@ -625,6 +729,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Default value</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -638,6 +743,8 @@
                                         Yes
                                     </td>
 
+                                    <td>
+                                    </td>
 
                                 </tr>
                                 <tr>
@@ -650,6 +757,23 @@
                                         Yes
                                     </td>
 
+                                    <td>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>options</td>
+                                    <td>
+                                                <code><a href="../interfaces/Options.html" target="_self" >BuildOptions&lt;U | I&gt;</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                        <code>{}</code>
+                                    </td>
 
                                 </tr>
                             </tbody>
@@ -691,8 +815,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="137"
-                            class="link-to-prism">apps/server/src/shared/testing/factory/base.factory.ts:137</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="148"
+                            class="link-to-prism">apps/server/src/shared/testing/factory/base.factory.ts:148</a></div>
                 </td>
             </tr>
 
@@ -899,8 +1023,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="111"
-                            class="link-to-prism">apps/server/src/shared/testing/factory/base.factory.ts:111</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="122"
+                            class="link-to-prism">apps/server/src/shared/testing/factory/base.factory.ts:122</a></div>
                 </td>
             </tr>
 
@@ -963,8 +1087,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="133"
-                            class="link-to-prism">apps/server/src/shared/testing/factory/base.factory.ts:133</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="144"
+                            class="link-to-prism">apps/server/src/shared/testing/factory/base.factory.ts:144</a></div>
                 </td>
             </tr>
 
@@ -1004,8 +1128,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="149"
-                            class="link-to-prism">apps/server/src/shared/testing/factory/base.factory.ts:149</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="160"
+                            class="link-to-prism">apps/server/src/shared/testing/factory/base.factory.ts:160</a></div>
                 </td>
             </tr>
 
@@ -1049,8 +1173,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="123"
-                            class="link-to-prism">apps/server/src/shared/testing/factory/base.factory.ts:123</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="134"
+                            class="link-to-prism">apps/server/src/shared/testing/factory/base.factory.ts:134</a></div>
                 </td>
             </tr>
 
@@ -1169,11 +1293,13 @@ export class BaseFactory&lt;T, U, I &#x3D; any, C &#x3D; U&gt; {
 	 * @param id
 	 * @returns an entity
 	 */
-	buildWithId(params?: DeepPartial&lt;U&gt;, id?: string): T {
-		const entity &#x3D; this.build(params);
-		const entityWithId &#x3D; Object.assign(entity, { _id: new ObjectId(id) });
+	buildWithId(params?: DeepPartial&lt;U&gt;, id?: string, options: BuildOptions&lt;U, I&gt; &#x3D; {}): T {
+		const entity &#x3D; this.build(params, options);
+		const generatedId &#x3D; new ObjectId(id);
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+		const entityWithId &#x3D; Object.assign(entity as any, { _id: generatedId, id: generatedId.toHexString() });
 
-		return entityWithId;
+		return entityWithId as T;
 	}
 
 	/**
@@ -1186,6 +1312,15 @@ export class BaseFactory&lt;T, U, I &#x3D; any, C &#x3D; U&gt; {
 		const list: T[] &#x3D; [];
 		for (let i &#x3D; 0; i &lt; number; i +&#x3D; 1) {
 			list.push(this.build(params, options));
+		}
+
+		return list;
+	}
+
+	buildListWithId(number: number, params?: DeepPartial&lt;U&gt;, options: BuildOptions&lt;U, I&gt; &#x3D; {}): T[] {
+		const list: T[] &#x3D; [];
+		for (let i &#x3D; 0; i &lt; number; i +&#x3D; 1) {
+			list.push(this.buildWithId(params, undefined, options));
 		}
 
 		return list;
@@ -1248,7 +1383,7 @@ export class BaseFactory&lt;T, U, I &#x3D; any, C &#x3D; U&gt; {
 
 	protected clone&lt;F extends BaseFactory&lt;T, U, I, C&gt;&gt;(this: F, propsFactory: Factory&lt;U, I, C&gt;): F {
 		const copy &#x3D; new (this.constructor as {
-			new (EntityClass: { new (props: U): T }, propsFactory: Factory&lt;U, I, C&gt;): F;
+			new (EntityClass: { new (props: U): T }, propsOfFactory: Factory&lt;U, I, C&gt;): F;
 		})(this.EntityClass, propsFactory);
 
 		return copy;

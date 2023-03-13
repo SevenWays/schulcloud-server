@@ -178,12 +178,13 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import internal from &#x27;stream&#x27;;
-import type { IFile } from &#x27;./file&#x27;;
+import { FileDto } from &#x27;../dto&#x27;;
 
 export interface IGetFileResponse {
 	data: internal.Readable;
 	contentType: string | undefined;
 	contentLength: number | undefined;
+	contentRange: string | undefined;
 	etag: string | undefined;
 }
 
@@ -193,9 +194,11 @@ export interface ICopyFiles {
 }
 
 export interface IStorageClient {
-	create(path: string, file: IFile): unknown;
+	create(path: string, file: FileDto): unknown;
 
-	get(path: string): unknown;
+	get(path: string, bytesRange?: string): unknown;
+
+	moveToTrash(paths: string[]): unknown;
 
 	delete(paths: string[]): unknown;
 

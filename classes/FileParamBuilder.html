@@ -121,7 +121,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>build(jwt: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, schoolId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, parent: <a href="../classes/Task.html" target="_self">Task | Lesson</a>)</code>
+                    <code>build(schoolId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, parent: <a href="../classes/File.html" target="_self">EntitiesWithFiles</a>)</code>
                 </td>
             </tr>
 
@@ -150,18 +150,6 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>jwt</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
                                     <td>schoolId</td>
                                     <td>
                                                 <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
@@ -176,7 +164,7 @@
                                 <tr>
                                     <td>parent</td>
                                     <td>
-                                                <code><a href="../classes/Task.html" target="_self" >Task | Lesson</a></code>
+                                                <code><a href="../classes/File.html" target="_self" >EntitiesWithFiles</a></code>
                                     </td>
 
                                     <td>
@@ -191,7 +179,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/FileRequestInfo.html" target="_self" >FileRequestInfo</a></code>
+                        <b>Returns : </b>        <code><a href="../interfaces/IFileRequestInfo.html" target="_self" >IFileRequestInfo</a></code>
 
                     </div>
                     <div class="io-description">
@@ -211,15 +199,14 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityId, Lesson, Task } from &#x27;@shared/domain&#x27;;
-import { FileRequestInfo } from &#x27;../interfaces&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityId } from &#x27;@shared/domain&#x27;;
+import { EntitiesWithFiles, IFileRequestInfo } from &#x27;../interfaces&#x27;;
 import { FilesStorageClientMapper } from &#x27;./files-storage-client.mapper&#x27;;
 
 export class FileParamBuilder {
-	static build(jwt: string, schoolId: EntityId, parent: Task | Lesson): FileRequestInfo {
+	static build(schoolId: EntityId, parent: EntitiesWithFiles): IFileRequestInfo {
 		const parentType &#x3D; FilesStorageClientMapper.mapEntityToParentType(parent);
 		const fileRequestInfo &#x3D; {
-			jwt,
 			parentType,
 			schoolId,
 			parentId: parent.id,

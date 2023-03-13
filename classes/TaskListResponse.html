@@ -126,7 +126,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">apps/server/src/modules/task/controller/dto/task.response.ts:56</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">apps/server/src/modules/task/controller/dto/task.response.ts:70</a></div>
                             </td>
                         </tr>
 
@@ -239,7 +239,7 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/PaginationResponse.html#source" target="_self" >PaginationResponse:63</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/PaginationResponse.html#source" target="_self" >PaginationResponse:77</a></code>
 </div>
                         </td>
                     </tr>
@@ -389,6 +389,7 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty, ApiPropertyOptional } from &#x27;@nestjs/swagger&#x27;;
 import { DecodeHtmlEntities, PaginationResponse } from &#x27;@shared/controller&#x27;;
+import { RichText } from &#x27;@shared/domain&#x27;;
 import { TaskStatusResponse } from &#x27;./task-status.response&#x27;;
 
 /**
@@ -402,6 +403,7 @@ export class TaskResponse {
 		this.courseId &#x3D; courseId;
 		this.createdAt &#x3D; createdAt;
 		this.updatedAt &#x3D; updatedAt;
+		this.lessonHidden &#x3D; false;
 		this.status &#x3D; status;
 	}
 
@@ -422,12 +424,24 @@ export class TaskResponse {
 	@DecodeHtmlEntities()
 	courseName: string &#x3D; &#x27;&#x27; as string;
 
+	@ApiPropertyOptional()
+	lessonName?: string;
+
 	@ApiProperty()
 	courseId: string &#x3D; &#x27;&#x27; as string;
 
 	@ApiPropertyOptional()
+	taskCardId?: string;
+
+	@ApiPropertyOptional({
+		description: &#x27;Task description object, with props content: string and type: input format types&#x27;,
+		type: RichText,
+	})
 	@DecodeHtmlEntities()
-	description?: string; // TODO: change this, since this is NOT the tasks description, but the name of its lesson
+	description?: RichText;
+
+	@ApiProperty()
+	lessonHidden: boolean;
 
 	@ApiPropertyOptional()
 	displayColor?: string;

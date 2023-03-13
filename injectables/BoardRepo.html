@@ -540,7 +540,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:16</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:17</a></code>
 </div>
                 </td>
             </tr>
@@ -617,7 +617,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:24</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:25</a></code>
 </div>
                 </td>
             </tr>
@@ -694,7 +694,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:20</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:21</a></code>
 </div>
                 </td>
             </tr>
@@ -817,7 +817,7 @@ export class BoardRepo extends BaseRepo&lt;Board&gt; {
 		await board.references.init();
 		const elements &#x3D; board.references.getItems();
 		const taskElements &#x3D; elements.filter((el) &#x3D;&gt; el instanceof TaskBoardElement);
-		await this._em.populate(taskElements, [&#x27;target&#x27;, &#x27;target.files&#x27;]);
+		await this._em.populate(taskElements, [&#x27;target&#x27;]);
 		const lessonElements &#x3D; elements.filter((el) &#x3D;&gt; el instanceof LessonBoardElement);
 		await this._em.populate(lessonElements, [&#x27;target&#x27;]);
 		return board;

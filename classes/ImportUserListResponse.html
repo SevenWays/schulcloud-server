@@ -126,7 +126,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">apps/server/src/modules/user-import/controller/dto/import-user.response.ts:61</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">apps/server/src/modules/user-import/controller/dto/import-user.response.ts:64</a></div>
                             </td>
                         </tr>
 
@@ -239,7 +239,7 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/PaginationResponse.html#source" target="_self" >PaginationResponse:68</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/PaginationResponse.html#source" target="_self" >PaginationResponse:71</a></code>
 </div>
                         </td>
                     </tr>
@@ -390,7 +390,7 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty, ApiPropertyOptional } from &#x27;@nestjs/swagger&#x27;;
 import { PaginationResponse } from &#x27;@shared/controller&#x27;;
 import { IsMongoId, IsString } from &#x27;class-validator&#x27;;
-import type { UserMatchResponse } from &#x27;.&#x27;;
+import { UserMatchResponse } from &#x27;./user-match.response&#x27;;
 import { UserRole } from &#x27;./user-role&#x27;;
 
 export class ImportUserResponse {
@@ -434,17 +434,20 @@ export class ImportUserResponse {
 	@ApiProperty({
 		description: &#x27;list of user roles from external system: student, teacher, admin&#x27;,
 		enum: UserRole,
+		isArray: true,
 	})
 	roleNames: UserRole[];
 
 	@ApiProperty({ description: &#x27;names of classes the user attends from external system&#x27; })
 	classNames: string[];
 
-	@ApiPropertyOptional({ description: &#x27;assignemnt to a local user account&#x27; })
+	@ApiPropertyOptional({ description: &#x27;assignemnt to a local user account&#x27;, type: UserMatchResponse })
 	match?: UserMatchResponse;
 
+	// explicit type is needed for OpenAPI generator
+	// eslint-disable-next-line @typescript-eslint/no-inferrable-types
 	@ApiProperty({ description: &#x27;manual flag to apply it as filter&#x27; })
-	flagged &#x3D; false;
+	flagged: boolean &#x3D; false;
 }
 
 export class ImportUserListResponse extends PaginationResponse&lt;ImportUserResponse[]&gt; {

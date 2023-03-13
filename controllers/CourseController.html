@@ -85,6 +85,10 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
+                                <a href="#exportCourse" >exportCourse</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#findForUser" >findForUser</a>
                             </li>
                         </ul>
@@ -104,6 +108,108 @@
     <h3 id="methods">
         Methods
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="exportCourse"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>exportCourse</b></span>
+                        <a href="#exportCourse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>exportCourse(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, courseId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, response: Response)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;:courseId/export&#x27;)<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="37"
+                            class="link-to-prism">apps/server/src/modules/learnroom/controller/course.controller.ts:37</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>currentUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>courseId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>response</td>
+                                    <td>
+                                            <code>Response</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/File.html" target="_self" >Promise&lt;StreamableFile&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -133,8 +239,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="17"
-                            class="link-to-prism">apps/server/src/modules/learnroom/controller/course.controller.ts:17</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="24"
+                            class="link-to-prism">apps/server/src/modules/learnroom/controller/course.controller.ts:24</a></div>
                 </td>
             </tr>
 
@@ -198,12 +304,15 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Get, Query } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Get, NotFoundException, Param, Query, Res, StreamableFile } from &#x27;@nestjs/common&#x27;;
 import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
 import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
 import { PaginationParams } from &#x27;@shared/controller/&#x27;;
-import { ICurrentUser } from &#x27;@shared/domain&#x27;;
+import { ICurrentUser } from &#x27;@src/modules/authentication&#x27;;
+import { Response } from &#x27;express&#x27;;
+import { ConfigService } from &#x27;@nestjs/config&#x27;;
 import { CourseUc } from &#x27;../uc/course.uc&#x27;;
+import { CourseExportUc } from &#x27;../uc/course-export.uc&#x27;;
 import { CourseMetadataListResponse } from &#x27;./dto&#x27;;
 import { CourseMapper } from &#x27;../mapper/course.mapper&#x27;;
 
@@ -211,7 +320,11 @@ import { CourseMapper } from &#x27;../mapper/course.mapper&#x27;;
 @Authenticate(&#x27;jwt&#x27;)
 @Controller(&#x27;courses&#x27;)
 export class CourseController {
-	constructor(private readonly courseUc: CourseUc) {}
+	constructor(
+		private readonly courseUc: CourseUc,
+		private readonly courseExportUc: CourseExportUc,
+		private readonly configService: ConfigService
+	) {}
 
 	@Get()
 	async findForUser(
@@ -224,6 +337,21 @@ export class CourseController {
 
 		const result &#x3D; new CourseMetadataListResponse(courseResponses, total, skip, limit);
 		return result;
+	}
+
+	@Get(&#x27;:courseId/export&#x27;)
+	async exportCourse(
+		@CurrentUser() currentUser: ICurrentUser,
+		@Param(&#x27;courseId&#x27;) courseId: string,
+		@Res({ passthrough: true }) response: Response
+	): Promise&lt;StreamableFile&gt; {
+		if (!this.configService.get&lt;boolean&gt;(&#x27;FEATURE_IMSCC_COURSE_EXPORT_ENABLED&#x27;)) throw new NotFoundException();
+		const result &#x3D; await this.courseExportUc.exportCourse(courseId, currentUser.userId);
+		response.set({
+			&#x27;Content-Type&#x27;: &#x27;application/zip&#x27;,
+			&#x27;Content-Disposition&#x27;: &#x27;attachment;&#x27;,
+		});
+		return new StreamableFile(result);
 	}
 }
 </code></pre>

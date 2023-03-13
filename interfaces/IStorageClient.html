@@ -102,6 +102,12 @@
                                     </a>
                                 </li>
                                 <li>
+                                    <a href="#moveToTrash" 
+>
+                                        moveToTrash
+                                    </a>
+                                </li>
+                                <li>
                                     <a href="#restore" 
 >
                                         restore
@@ -132,15 +138,15 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>create(path: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, file: <a href="../interfaces/IFile.html" target="_self">IFile</a>)</code>
+<code>create(path: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, file: <a href="../classes/FileDto.html" target="_self">FileDto</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="17"
-                            class="link-to-prism">apps/server/src/modules/files-storage/interface/storage-client.ts:17</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="18"
+                            class="link-to-prism">apps/server/src/modules/files-storage/interface/storage-client.ts:18</a></div>
                 </td>
             </tr>
 
@@ -175,7 +181,7 @@
                                 <tr>
                                     <td>file</td>
                                     <td>
-                                                <code><a href="../interfaces/IFile.html" target="_self" >IFile</a></code>
+                                                <code><a href="../classes/FileDto.html" target="_self" >FileDto</a></code>
                                     </td>
 
                                     <td>
@@ -213,8 +219,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="21"
-                            class="link-to-prism">apps/server/src/modules/files-storage/interface/storage-client.ts:21</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="24"
+                            class="link-to-prism">apps/server/src/modules/files-storage/interface/storage-client.ts:24</a></div>
                 </td>
             </tr>
 
@@ -268,15 +274,15 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>get(path: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>get(path: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, bytesRange?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="19"
-                            class="link-to-prism">apps/server/src/modules/files-storage/interface/storage-client.ts:19</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="20"
+                            class="link-to-prism">apps/server/src/modules/files-storage/interface/storage-client.ts:20</a></div>
                 </td>
             </tr>
 
@@ -300,6 +306,80 @@
                                     <td>path</td>
                                     <td>
                                                 <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>bytesRange</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="moveToTrash"></a>
+                    <span class="name">
+                        <span ><b>moveToTrash</b></span>
+                        <a href="#moveToTrash"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>moveToTrash(paths: string[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">apps/server/src/modules/files-storage/interface/storage-client.ts:22</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>paths</td>
+                                    <td>
+                                            <code>string[]</code>
                                     </td>
 
                                     <td>
@@ -337,8 +417,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="23"
-                            class="link-to-prism">apps/server/src/modules/files-storage/interface/storage-client.ts:23</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">apps/server/src/modules/files-storage/interface/storage-client.ts:26</a></div>
                 </td>
             </tr>
 
@@ -386,12 +466,13 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import internal from &#x27;stream&#x27;;
-import type { IFile } from &#x27;./file&#x27;;
+import { FileDto } from &#x27;../dto&#x27;;
 
 export interface IGetFileResponse {
 	data: internal.Readable;
 	contentType: string | undefined;
 	contentLength: number | undefined;
+	contentRange: string | undefined;
 	etag: string | undefined;
 }
 
@@ -401,9 +482,11 @@ export interface ICopyFiles {
 }
 
 export interface IStorageClient {
-	create(path: string, file: IFile): unknown;
+	create(path: string, file: FileDto): unknown;
 
-	get(path: string): unknown;
+	get(path: string, bytesRange?: string): unknown;
+
+	moveToTrash(paths: string[]): unknown;
 
 	delete(paths: string[]): unknown;
 

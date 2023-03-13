@@ -258,13 +258,14 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Collection, Entity, Index, ManyToMany, ManyToOne, OneToMany, Property } from &#x27;@mikro-orm/core&#x27;;
 import { InternalServerErrorException } from &#x27;@nestjs/common&#x27;;
 import { ILearnroomElement } from &#x27;@shared/domain/interface&#x27;;
-import _ from &#x27;lodash&#x27;;
 import { EntityId } from &#x27;../types&#x27;;
 import { BaseEntityWithTimestamps } from &#x27;./base.entity&#x27;;
 import type { Course } from &#x27;./course.entity&#x27;;
 import { CourseGroup } from &#x27;./coursegroup.entity&#x27;;
 import { Material } from &#x27;./materials.entity&#x27;;
 import { Task } from &#x27;./task.entity&#x27;;
+import type { ITaskParent } from &#x27;./task.entity&#x27;;
+import { User } from &#x27;./user.entity&#x27;;
 
 export interface ILessonProperties {
 	name: string;
@@ -294,15 +295,13 @@ export interface IComponentGeogebraProperties {
 }
 
 export interface IComponentLernstoreProperties {
-	resources: [
-		{
-			client: string;
-			description: string;
-			merlinReference?: string;
-			title: string;
-			url: string;
-		}
-	];
+	resources: {
+		client: string;
+		description: string;
+		merlinReference?: string;
+		title: string;
+		url: string;
+	}[];
 }
 
 export interface IComponentEtherpadProperties {
@@ -323,10 +322,12 @@ export interface IComponentInternalProperties {
 }
 
 export interface IComponentProperties {
-	title: string;
+	_id?: string;
+	title?: string;
 	hidden: boolean;
 	component: ComponentType;
-	content:
+	user?: User;
+	content?:
 		| IComponentTextProperties
 		| IComponentGeogebraProperties
 		| IComponentLernstoreProperties
@@ -335,8 +336,12 @@ export interface IComponentProperties {
 		| IComponentNexboardProperties;
 }
 
+export interface ILessonParent {
+	getStudentIds(): EntityId[];
+}
+
 @Entity({ tableName: &#x27;lessons&#x27; })
-export class Lesson extends BaseEntityWithTimestamps implements ILearnroomElement {
+export class Lesson extends BaseEntityWithTimestamps implements ILearnroomElement, ITaskParent {
 	@Property()
 	name: string;
 
@@ -374,6 +379,12 @@ export class Lesson extends BaseEntityWithTimestamps implements ILearnroomElemen
 		if (props.materials) this.materials.set(props.materials);
 	}
 
+	private getParent(): ILessonParent {
+		const parent &#x3D; this.courseGroup || this.course;
+
+		return parent;
+	}
+
 	private getTasksItems(): Task[] {
 		if (!this.tasks.isInitialized(true)) {
 			throw new InternalServerErrorException(&#x27;Lessons trying to access their tasks that are not loaded.&#x27;);
@@ -384,25 +395,19 @@ export class Lesson extends BaseEntityWithTimestamps implements ILearnroomElemen
 
 	getNumberOfPublishedTasks(): number {
 		const tasks &#x3D; this.getTasksItems();
-		const filtered &#x3D; tasks.filter((task) &#x3D;&gt; {
-			return task.isPublished();
-		});
+		const filtered &#x3D; tasks.filter((task) &#x3D;&gt; task.isPublished());
 		return filtered.length;
 	}
 
 	getNumberOfDraftTasks(): number {
 		const tasks &#x3D; this.getTasksItems();
-		const filtered &#x3D; tasks.filter((task) &#x3D;&gt; {
-			return task.isDraft();
-		});
+		const filtered &#x3D; tasks.filter((task) &#x3D;&gt; task.isDraft());
 		return filtered.length;
 	}
 
 	getNumberOfPlannedTasks(): number {
 		const tasks &#x3D; this.getTasksItems();
-		const filtered &#x3D; tasks.filter((task) &#x3D;&gt; {
-			return task.isPlanned();
-		});
+		const filtered &#x3D; tasks.filter((task) &#x3D;&gt; task.isPlanned());
 		return filtered.length;
 	}
 
@@ -438,6 +443,17 @@ export class Lesson extends BaseEntityWithTimestamps implements ILearnroomElemen
 	unpublish() {
 		this.hidden &#x3D; true;
 	}
+
+	public getStudentIds(): EntityId[] {
+		const parent &#x3D; this.getParent();
+		const studentIds &#x3D; parent.getStudentIds();
+
+		return studentIds;
+	}
+}
+
+export function isLesson(reference: unknown): reference is Lesson {
+	return reference instanceof Lesson;
 }
 </code></pre>
     </div>

@@ -90,11 +90,11 @@
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#findById" >findById</a>
+                                <a href="#findByExternalIdOrFail" >findByExternalIdOrFail</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#findByLdapIdOrFail" >findByLdapIdOrFail</a>
+                                <a href="#findById" >findById</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
@@ -177,8 +177,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="146"
-                            class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:146</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="148"
+                            class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:148</a></div>
                 </td>
             </tr>
 
@@ -217,6 +217,89 @@
                     </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="../interfaces/User.html" target="_self" >Promise&lt;User[]&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findByExternalIdOrFail"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>findByExternalIdOrFail</b></span>
+                        <a href="#findByExternalIdOrFail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findByExternalIdOrFail(externalId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, systemId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:26</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>externalId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>systemId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/User.html" target="_self" >Promise&lt;User&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -302,89 +385,6 @@
                                     <td>
                                         <code>false</code>
                                     </td>
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/User.html" target="_self" >Promise&lt;User&gt;</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="findByLdapIdOrFail"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>findByLdapIdOrFail</b></span>
-                        <a href="#findByLdapIdOrFail"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findByLdapIdOrFail(ldapId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, systemId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:26</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>ldapId</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>systemId</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
 
                                 </tr>
                             </tbody>
@@ -522,8 +522,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="170"
-                            class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:170</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="172"
+                            class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:172</a></div>
                 </td>
             </tr>
 
@@ -562,8 +562,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="154"
-                            class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:154</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="156"
+                            class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:156</a></div>
                 </td>
             </tr>
 
@@ -631,8 +631,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="166"
-                            class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:166</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="168"
+                            class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:168</a></div>
                 </td>
             </tr>
 
@@ -706,7 +706,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:16</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:17</a></code>
 </div>
                 </td>
             </tr>
@@ -783,7 +783,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:24</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:25</a></code>
 </div>
                 </td>
             </tr>
@@ -860,7 +860,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:20</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:21</a></code>
 </div>
                 </td>
             </tr>
@@ -967,8 +967,8 @@ export class UserRepo extends BaseRepo&lt;User&gt; {
 		return user;
 	}
 
-	async findByLdapIdOrFail(ldapId: string, systemId: string): Promise&lt;User&gt; {
-		const [users] &#x3D; await this._em.findAndCount(User, { ldapId }, { populate: [&#x27;school.systems&#x27;] });
+	async findByExternalIdOrFail(externalId: string, systemId: string): Promise&lt;User&gt; {
+		const [users] &#x3D; await this._em.findAndCount(User, { externalId }, { populate: [&#x27;school.systems&#x27;] });
 		const resultUser &#x3D; users.find((user) &#x3D;&gt; {
 			const { systems } &#x3D; user.school;
 			return systems &amp;&amp; systems.getItems().find((system) &#x3D;&gt; system.id &#x3D;&#x3D;&#x3D; systemId);
@@ -987,6 +987,7 @@ export class UserRepo extends BaseRepo&lt;User&gt; {
 		const { _id: schoolId } &#x3D; school;
 		if (!ObjectId.isValid(schoolId)) throw new Error(&#x27;invalid school id&#x27;);
 
+		const existingMatch &#x3D; { deletedAt: null };
 		const permittedMatch &#x3D; { schoolId };
 
 		const queryFilterMatch: { $or?: unknown[] } &#x3D; {};
@@ -1016,6 +1017,7 @@ export class UserRepo extends BaseRepo&lt;User&gt; {
 		}
 
 		const pipeline: unknown[] &#x3D; [
+			{ $match: existingMatch },
 			{ $match: permittedMatch },
 			{
 				$lookup: {
